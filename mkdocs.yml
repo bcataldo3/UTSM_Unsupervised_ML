@@ -82,6 +82,7 @@ plugins:
 # TOC
 nav:
     - Home: index.md
+    - ejemplo.ipynb
     - Conceptos Básicos:
         - intro.ipynb
         - basic.ipynb

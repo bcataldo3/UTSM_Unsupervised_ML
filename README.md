@@ -1,7 +1,7 @@
 # Curso de Python (Template)
 
-![example workflow](https://github.com/fralfaro/DS-Python-Course/actions/workflows/documentation.yml/badge.svg)
-<a href="https://fralfaro.github.io/DS-Python-Course/"><img alt="Link a la Documentación" src="https://img.shields.io/badge/docs-link-brightgreen"></a>
+![example workflow](https://github.com/bcataldo3/plantilla_curso_python/actions/workflows/documentation.yml/badge.svg)
+<a href="https://bcataldo3.github.io/plantilla_curso_python/"><img alt="Link a la Documentación" src="https://img.shields.io/badge/docs-link-brightgreen"></a>
 
 
 ## Descripción del Repositorio

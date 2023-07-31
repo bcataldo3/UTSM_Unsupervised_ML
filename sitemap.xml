@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://github.com/bcataldo3/plantilla_curso_python/ejemplo/</loc>
+         <lastmod>2023-07-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/intro/</loc>
          <lastmod>2023-07-31</lastmod>
          <changefreq>daily</changefreq>

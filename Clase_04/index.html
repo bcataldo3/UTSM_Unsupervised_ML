@@ -10,7 +10,7 @@
         <meta name="author" content="Benjamin Cataldo">
       
       
-        <link rel="canonical" href="https://github.com/bcataldo3/plantilla_curso_python/Clase_03/">
+        <link rel="canonical" href="https://github.com/bcataldo3/plantilla_curso_python/Clase_04/">
       
       <link rel="icon" href="../images/logo_python.svg">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
@@ -405,44 +405,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#modelos-de-conglomerados-k-medias" class="md-nav__link">
-    Modelos de Conglomerados: K - Medias
+  <a href="#modelos-de-conglomerados-conglomerados-jerarquicos" class="md-nav__link">
+    Modelos de Conglomerados: Conglomerados Jerárquicos
   </a>
   
-    <nav class="md-nav" aria-label="Modelos de Conglomerados: K - Medias">
+    <nav class="md-nav" aria-label="Modelos de Conglomerados: Conglomerados Jerárquicos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#definicion" class="md-nav__link">
     Definición
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#problema-de-minimizacion" class="md-nav__link">
-    Problema de Minimización
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#algoritmo" class="md-nav__link">
-    Algoritmo
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#observaciones" class="md-nav__link">
-    Observaciones
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#resumen" class="md-nav__link">
-    Resumen
   </a>
   
 </li>
@@ -1502,7 +1474,7 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="modelos-de-conglomerados-k-medias">Modelos de Conglomerados: K - Medias<a class="anchor-link" href="#modelos-de-conglomerados-k-medias">&#182;</a></h2>
+<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="modelos-de-conglomerados-conglomerados-jerarquicos">Modelos de Conglomerados: Conglomerados Jer&#225;rquicos<a class="anchor-link" href="#modelos-de-conglomerados-conglomerados-jerarquicos">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1513,15 +1485,11 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="definicion">Definici&#243;n<a class="anchor-link" href="#definicion">&#182;</a></h3><p>La agrupación K-means es un enfoque simple y elegante para dividir un conjunto de datos en K grupos distintos y no superpuestos. Para llevar a cabo la agrupación K-means, primero debemos especificar el número deseado de grupos K; luego, el algoritmo K-means asignará cada observación exactamente a uno de los K grupos.</p>
-<p>El procedimiento de agrupación K-means resulta de un problema matemático simple e intuitivo. Comenzamos definiendo algunas notaciones. Sea C1, ..., CK conjuntos que contienen los índices de las observaciones en cada cluster. Estos conjuntos satisfacen dos propiedades:</p>
-<ul>
-<li><p>C1 ∪ C2 ∪ ... ∪ CK = {1, ..., n}. En otras palabras, cada observación pertenece al menos a uno de los K clusters.</p>
-</li>
-<li><p>Ck ∩ Ck′ = ∅ para todo k ≠ k′. En otras palabras, los clusters no se superponen: ninguna observación pertenece a más de un cluster.</p>
-</li>
-</ul>
-<p>Por ejemplo, si la observación i-ésima está en el k-ésimo cluster, entonces i ∈ Ck. La idea detrás de la agrupación K-means es que una buena agrupación es aquella en la que la variación dentro del cluster es lo más pequeña posible.</p>
+<h3 id="definicion">Definici&#243;n<a class="anchor-link" href="#definicion">&#182;</a></h3><p>Una desventaja potencial de la agrupación K-means es que requiere que preespecifiquemos el número de clusters K. La agrupación jerárquica es un enfoque alternativo que no requiere que nos comprometamos con una elección particular de K. La agrupación jerárquica tiene una ventaja adicional sobre la agrupación K-means en que resulta en una atractiva representación basada en árboles de las observaciones, llamada dendrograma.</p>
+<p>En esta sección, describiremos la agrupación jerárquica de abajo hacia arriba, también conocida como aglomerativa. Este enfoque aglomerativo es el tipo más común de agrupación jerárquica y se refiere al hecho de que se construye un dendrograma (generalmente representado como un árbol boca abajo; ver Figura 10.9) comenzando desde las hojas y combinando clusters hasta el tronco. Comenzaremos con una discusión sobre cómo interpretar un dendrograma y luego discutiremos cómo se realiza realmente la agrupación jerárquica, es decir, cómo se construye el dendrograma.</p>
+<p><strong><em>Interpretando un Dendograma</em></strong></p>
+<p>Comenzamos con el conjunto de datos simulado que se muestra en la Figura 10.8, que consta de 45 observaciones en un espacio bidimensional. Los datos se generaron a partir de un modelo de tres clases; las etiquetas de clase reales para cada observación se muestran en colores distintos. Sin embargo, supongamos que los datos se observaron sin las etiquetas de clase y que queremos realizar una agrupación jerárquica de los datos. La agrupación jerárquica (con enlace completo, que se discutirá más adelante) produce el resultado que se muestra en el panel izquierdo de la Figura 10.9. ¿Cómo podemos interpretar este dendrograma?</p>
+<p>En el panel izquierdo de la Figura 10.9, cada hoja del dendrograma representa una de las 45 observaciones en la Figura 10.8. Sin embargo, a medida que subimos por el árbol, algunas hojas comienzan a fusionarse en ramas. Estas corresponden a observaciones que son similares entre sí. A medida que subimos más alto en el árbol, las ramas mismas se fusionan, ya sea con hojas u otras ramas. Las fusiones anteriores (más abajo en el árbol) indican que los grupos de observaciones son más similares entre sí. Por otro lado, las observaciones que se fusionan más tarde (cerca de la parte superior del árbol) pueden ser bastante diferentes. De hecho, esta afirmación se puede hacer precisa: para cualquier par de observaciones, podemos buscar el punto en el árbol donde las ramas que contienen esas dos observaciones se fusionan por primera vez. La altura de esta fusión, medida en el eje vertical, indica qué tan diferentes son las dos observaciones. Por lo tanto, las observaciones que se fusionan en la parte inferior del árbol son bastante similares entre sí, mientras que las observaciones que se fusionan cerca de la parte superior del árbol tienden a ser bastante diferentes.</p>
 
 </div>
 </div>
@@ -1533,15 +1501,7 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="problema-de-minimizacion">Problema de Minimizaci&#243;n<a class="anchor-link" href="#problema-de-minimizacion">&#182;</a></h3><p>La variación dentro del cluster para el cluster Ck es una medida W(Ck) de la cantidad por la cual las observaciones dentro de un cluster difieren entre sí. Por lo tanto, queremos resolver el problema:</p>
-<p>FORMULA DE MINIMIZACION</p>
-<p>En palabras, esta fórmula indica que deseamos dividir las observaciones en K clusters de manera que la variación total dentro de los clusters, sumada sobre todos los K clusters, sea lo más pequeña posible.</p>
-<p>Resolver la ecuación (10.9) parece ser una idea razonable, pero para llevarlo a cabo necesitamos definir la variación dentro del cluster.</p>
-<p>Existen muchas formas posibles de definir este concepto, pero la elección más común, de lejos, involucra la distancia euclidiana al cuadrado. Es decir, definimos</p>
-<p>FORMULA DE MINIMIZACION CON DISTANCIA EUCLIDIANA</p>
-<p>donde |Ck| denota el número de observaciones en el k-ésimo cluster. En otras palabras, la variación dentro del cluster para el k-ésimo cluster es la suma de todas las distancias euclidianas al cuadrado entre las observaciones en el k-ésimo cluster, dividida por el número total de observaciones en el k-ésimo cluster.</p>
-<p>Al combinar las ecuaciones (10.9) y (10.10), obtenemos el problema de optimización que define la agrupación K-means.</p>
-<p>FORMULA GLOBAL DE MINIMIZACION</p>
+<p>asac</p>
 
 </div>
 </div>
@@ -1564,15 +1524,6 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="algoritmo">Algoritmo<a class="anchor-link" href="#algoritmo">&#182;</a></h3><p>Ahora, nos gustaría encontrar un algoritmo para resolver (10.11), es decir, un método para dividir las observaciones en K clusters de manera que se minimice el objetivo de (10.11). De hecho, este es un problema muy difícil de resolver de manera precisa, ya que hay casi Kn formas de dividir n observaciones en K clusters. Este número es enorme a menos que K y n sean muy pequeños. Afortunadamente, se puede demostrar que un algoritmo muy simple proporciona un óptimo local, es decir, una solución bastante buena, al problema de optimización de K-means (10.11). Este enfoque se detalla en el Algoritmo 10.1.</p>
-<p>El algoritmo de K-Medias consiste en seguir los siguientes pasos:</p>
-<p>1- Asignar aleatoriamente un número, del 1 al K, a cada una de las observaciones. Estos servirán como asignaciones iniciales de clusters para las observaciones.
-2- Iterar hasta que las asignaciones de clusters dejen de cambiar:</p>
-<ul>
-<li>(a) Para cada uno de los K clusters, calcular el centroide del cluster. El centroide del k-ésimo cluster es el vector de las medias de las p características para las observaciones en el k-ésimo cluster.</li>
-<li>(b) Asignar cada observación al cluster cuyo centroide esté más cerca (donde "más cerca" se define utilizando la distancia euclidiana).</li>
-</ul>
-<p>El Algoritmo 10.1 garantiza que disminuirá el valor del objetivo (10.11) en cada paso. En el Paso 2(a), las medias de los clusters para cada característica son las constantes que minimizan la suma de las desviaciones al cuadrado, y en el Paso 2(b), reasignar las observaciones solo puede mejorar (10.12). Esto significa que a medida que se ejecuta el algoritmo, la agrupación obtenida continuará mejorando hasta que el resultado ya no cambie; el objetivo de (10.11) nunca aumentará. Cuando el resultado ya no cambie, se habrá alcanzado un óptimo local. La agrupación K-means recibe su nombre debido a que en el Paso 2(a), los centroides de los clusters se calculan como la media de las observaciones asignadas a cada cluster.</p>
 
 </div>
 </div>
@@ -1584,8 +1535,6 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="observaciones">Observaciones<a class="anchor-link" href="#observaciones">&#182;</a></h3><p>Debido a que el algoritmo K-means encuentra un óptimo local en lugar de uno global, los resultados obtenidos dependerán de la asignación de clusters iniciales (aleatoria) de cada observación en el Paso 1 del Algoritmo 10.1. Por esta razón, es importante ejecutar el algoritmo varias veces desde diferentes configuraciones iniciales aleatorias. Luego, se selecciona la mejor solución, es decir, aquella para la cual el objetivo (10.11) es el más pequeño. La Figura 10.7 muestra los óptimos locales obtenidos al ejecutar la agrupación K-means seis veces utilizando seis asignaciones iniciales de clusters diferentes, utilizando los datos de ejemplo de la Figura 10.5. En este caso, la mejor agrupación es la que tiene un valor objetivo de 235.8.</p>
-<p>Como hemos visto, para realizar la agrupación K-means, debemos decidir cuántos clusters esperamos en los datos. El problema de seleccionar K está lejos de ser simple. Este problema, junto con otras consideraciones prácticas que surgen al realizar la agrupación K-means, se aborda en la Sección 10.3.3.</p>
 
 </div>
 </div>
@@ -1597,7 +1546,29 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="resumen">Resumen<a class="anchor-link" href="#resumen">&#182;</a></h3>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
 </div>
 </div>
 </div>

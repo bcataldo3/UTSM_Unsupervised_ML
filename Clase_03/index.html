@@ -434,6 +434,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#caso-de-estudio" class="md-nav__link">
+    Caso de Estudio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#observaciones" class="md-nav__link">
     Observaciones
   </a>
@@ -1517,7 +1524,7 @@ Licensed under the Apache License, Version 2.0.
 <h3 id="definicion">Definici&#243;n<a class="anchor-link" href="#definicion">&#182;</a></h3><p>La agrupación K-means es un enfoque simple y elegante para dividir un conjunto de datos en K grupos distintos y no superpuestos. Para llevar a cabo la agrupación K-means, primero debemos especificar el número deseado de grupos K; luego, el algoritmo K-means asignará cada observación exactamente a uno de los K grupos.</p>
 <p>El procedimiento de agrupación K-means resulta de un problema matemático simple e intuitivo. Comenzamos definiendo algunas notaciones. Sea C1, ..., CK conjuntos que contienen los índices de las observaciones en cada cluster. Estos conjuntos satisfacen dos propiedades:</p>
 <ul>
-<li><p>C1 ∪ C2 ∪ ... ∪ CK = {1, ..., n}. En otras palabras, cada observación pertenece al menos a uno de los K clusters.</p>
+<li><p>$C_1 \cup C_2 \cup ... \cup C_k = \{1, ..., n\}$. En otras palabras, cada observación pertenece al menos a uno de los $K$ clusters.</p>
 </li>
 <li><p>Ck ∩ Ck′ = ∅ para todo k ≠ k′. En otras palabras, los clusters no se superponen: ninguna observación pertenece a más de un cluster.</p>
 </li>
@@ -1557,7 +1564,7 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="problema-de-minimizacion">Problema de Minimizaci&#243;n<a class="anchor-link" href="#problema-de-minimizacion">&#182;</a></h3><p>La variación dentro del cluster para el cluster Ck es una medida W(Ck) de la cantidad por la cual las observaciones dentro de un cluster difieren entre sí. Por lo tanto, queremos resolver el problema:</p>
+<h3 id="problema-de-minimizacion">Problema de Minimizaci&#243;n<a class="anchor-link" href="#problema-de-minimizacion">&#182;</a></h3><p>La variación dentro del cluster para el cluster $C_k$ es una medida $W(C_k)$ de la cantidad por la cual las observaciones dentro de un cluster difieren entre sí. Por lo tanto, queremos resolver el problema:</p>
 <p>FORMULA DE MINIMIZACION</p>
 <p>En palabras, esta fórmula indica que deseamos dividir las observaciones en K clusters de manera que la variación total dentro de los clusters, sumada sobre todos los K clusters, sea lo más pequeña posible.</p>
 <p>Resolver la ecuación (10.9) parece ser una idea razonable, pero para llevarlo a cabo necesitamos definir la variación dentro del cluster.</p>
@@ -1600,6 +1607,59 @@ Licensed under the Apache License, Version 2.0.
 
 </div>
 </div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="caso-de-estudio">Caso de Estudio<a class="anchor-link" href="#caso-de-estudio">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-1">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://drive.google.com/file/d/1LG6hb0duLtnSiFhT9JWFNuo8qDxHV08W/view?usp=drive_link&#39;</span>
+<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://drive.google.com/uc?id=&#39;</span> <span class="o">+</span> <span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span> <span class="p">)</span>
+</pre></div>
+<div id="cell-1" class="clipboard-copy-txt">import pandas as pd
+
+url='https://drive.google.com/file/d/1LG6hb0duLtnSiFhT9JWFNuo8qDxHV08W/view?usp=drive_link'
+url='https://drive.google.com/uc?id=' + url.split('/')[-2]
+
+df = pd.read_csv(url, sep="," )</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
 </div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">

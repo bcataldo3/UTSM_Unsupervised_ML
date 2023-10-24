@@ -409,6 +409,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#t-distributed-stochastic-neighbor-embedding-t-sne" class="md-nav__link">
+    t-Distributed Stochastic Neighbor Embedding (t-SNE)
+  </a>
+  
+    <nav class="md-nav" aria-label="t-Distributed Stochastic Neighbor Embedding (t-SNE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualizacion-de-data-con-t-sne" class="md-nav__link">
+    Visualizacion de Data con t-SNE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1552,19 +1572,128 @@ print(df.describe())</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Show the pair-plot</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Show the pair-plot</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">plotting_context</span><span class="p">(</span><span class="s2">&quot;notebook&quot;</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;perimeter_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;area_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;smoothness_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;concavity_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;symmetry_mean&#39;</span><span class="p">],</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;diagnosis&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-2" class="clipboard-copy-txt"># Show the pair-plot
+<div id="cell-2" class="clipboard-copy-txt">import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import seaborn as sns
+
+# Show the pair-plot
 sns.set()
 
 sns.plotting_context("notebook", font_scale=1.2)
 sns.pairplot(df,vars=['perimeter_mean', 'area_mean', 'smoothness_mean', 'concavity_mean', 'symmetry_mean'],hue="diagnosis")
 plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Como sabemos, estos graficos nos muestran como se distribuye el atributo de diagnostico (benigno o maligno) entre cada par de variables seleccionadas. En la diagonal nos muestra la distribucion que tienen ambos valores de la variable diagnostico para una variable en particular. Algunas conclusiones de nuestro análisis preliminar podrían ser:</p>
+<ul>
+<li><p>"area_mean" y "perimeter_mean" tienen una clara correlación y determinan una separación abrupta. Cuando "area_mean" es mayor que aproximadamente 1,000, claramente el "perimeter" también aumenta, y el diagnóstico cambia de benigno a maligno de manera brusca. Por lo tanto, estos dos atributos son determinantes para el resultado final y es probable que uno de ellos sea redundante.</p>
+</li>
+<li><p>Otras gráficas (por ejemplo, "perimeter_mean/area_mean" frente a "smoothness_mean", "area_mean" frente a "symmetry_mean", "concavity_mean" frente a "smoothness_mean" y "concavity_mean" frente a "symmetry_mean") muestran una separación horizontal (que se convierte en vertical al invertir el eje). Esto significa que, para casi todos los valores asumidos por la variable independiente (eje x), hay un umbral que separa los valores de la otra variable en dos conjuntos (benigno y maligno).</p>
+</li>
+<li><p>Algunas gráficas (por ejemplo, "perimeter_mean/area_mean" frente a "concavity_mean" y "concavity_mean" frente a "symmetry_mean") muestran una ligera separación diagonal con pendiente negativa. Esto significa que cuando la variable independiente es pequeña, el diagnóstico permanece constante para casi todos los valores de la variable dependiente, mientras que, por otro lado, cuando la variable independiente se vuelve más grande, el diagnóstico cambia proporcionalmente al valor opuesto. Por ejemplo, para valores pequeños de "perimeter_mean", "concavity_mean" puede alcanzar su máximo sin afectar el diagnóstico (que es benigno), mientras que un "perimeter_mean" &gt; 150 siempre resulta en un diagnóstico maligno independientemente de "concavity_mean".</p>
+</li>
+</ul>
+<p>Por supuesto, no podemos sacar fácilmente nuestras conclusiones de un análisis dividido (porque debemos considerar todas las interacciones), pero esta actividad será útil para proporcionar a cada grupo un etiquetado semántico</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="t-distributed-stochastic-neighbor-embedding-t-sne">t-Distributed Stochastic Neighbor Embedding (t-SNE)<a class="anchor-link" href="#t-distributed-stochastic-neighbor-embedding-t-sne">&#182;</a></h3><p>t-SNE (t-distributed Stochastic Neighbor Embedding) es una técnica de reducción de dimensionalidad no lineal no supervisada utilizada para explorar datos y visualizar datos de alta dimensionalidad. La reducción de dimensionalidad no lineal significa que el algoritmo nos permite separar datos que no pueden ser separados por una línea recta.</p>
+<p>t-distributed stochastic neighbor embedding (t-SNE) es un método estadístico para visualizar datos de alta dimensionalidad al asignar a cada punto de datos una ubicación en un mapa de dos o tres dimensiones. Es una técnica de reducción de dimensionalidad no lineal para representar datos de alta dimensionalidad en un espacio de baja dimensionalidad de dos o tres dimensiones. Específicamente, modela cada objeto de alta dimensionalidad mediante un punto de dos o tres dimensiones de tal manera que objetos similares se modelan mediante puntos cercanos y objetos disimilares se modelan mediante puntos distantes con alta probabilidad.</p>
+<p>El algoritmo t-SNE consta de dos etapas principales. Primero, t-SNE construye una distribución de probabilidad sobre pares de objetos de alta dimensionalidad de tal manera que objetos similares tienen asignada una probabilidad más alta, mientras que los puntos disímiles tienen asignada una probabilidad más baja. Segundo, t-SNE define una distribución de probabilidad similar sobre los puntos en el mapa de baja dimensionalidad y minimiza la divergencia Kullback-Leibler (divergencia KL) entre las dos distribuciones con respecto a las ubicaciones de los puntos en el mapa. Si bien el algoritmo original utiliza la distancia euclidiana entre objetos como base de su métrica de similitud, esto se puede cambiar según sea necesario. Una variante riemanniana es UMAP.</p>
+<p>t-SNE se ha utilizado para la visualización en una amplia gama de aplicaciones, incluyendo genómica, investigación en seguridad informática, procesamiento de lenguaje natural, análisis de música, investigación sobre el cáncer, bioinformática, interpretación de dominio geológico y procesamiento de señales biomédicas. Si bien las representaciones de t-SNE a menudo parecen mostrar grupos, los grupos visuales pueden estar fuertemente influenciados por la elección de la parametrización y, por lo tanto, es necesario comprender bien los parámetros de t-SNE. Estos "grupos" pueden incluso aparecer en datos no agrupados y, por lo tanto, pueden ser hallazgos falsos. La exploración interactiva puede ser necesaria para elegir parámetros y validar resultados. Se ha demostrado que t-SNE a menudo es capaz de recuperar grupos bien diferenciados y, con elecciones de parámetros especiales, se aproxima a una forma simple de agrupación espectral."</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="visualizacion-de-data-con-t-sne">Visualizacion de Data con t-SNE<a class="anchor-link" href="#visualizacion-de-data-con-t-sne">&#182;</a></h4><p>En este punto, es útil visualizar el conjunto de datos (sin los atributos no estructurales) en un plano bidimensional a través de una transformación de t-Distributed Stochastic Neighbor Embedding (t-SNE) (para más detalles, consulte "Visualizing Data using t-SNE", van der Maaten L., Hinton G., Journal of Machine Learning Research 9, 2008).</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-3">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
+<span class="n">cdf</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;diagnosis&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">perplexity</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">data_tsne</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">cdf</span><span class="p">)</span>
+<span class="n">df_tsne</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_tsne</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">cdf</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">dff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df_tsne</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+<div id="cell-3" class="clipboard-copy-txt">from sklearn.manifold import TSNE
+cdf = df.drop(['diagnosis'], axis=1)
+tsne = TSNE(n_components=2, perplexity=10, random_state=1000)
+data_tsne = tsne.fit_transform(cdf)
+df_tsne = pd.DataFrame(data_tsne, columns=['x', 'y'], index=cdf.index)
+dff = pd.concat([df, df_tsne], axis=1)</div>
     
         </div>
     </div>

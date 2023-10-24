@@ -1526,9 +1526,52 @@ print(df.describe())</div>
 <li>Por otro lado, normalizar el valor con una escala de varianza dará a todos los atributos la misma responsabilidad (por ejemplo, area_mean está limitada entre 143.5 y 2501, mientras que smoothness_mean está limitada entre 0.05 y 0.16. Forzarlos a tener la misma varianza puede influir en el impacto biológico de los factores y, como no tenemos ninguna indicación específica, no estamos autorizados a tomar esa decisión). </li>
 <li>Claramente, algunos atributos tendrán un mayor peso en el proceso de agrupación y aceptamos su influencia principal como una condición relacionada con el contexto</li>
 </ul>
+<p>Revisaremos la diferencia en distribución de algunos de los atributos de la data (perimeter_mean, area_mean, smoothness_mean, concavity_mean, y symmetry_mean)</p>
 
 </div>
 </div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-2">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Show the pair-plot</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">plotting_context</span><span class="p">(</span><span class="s2">&quot;notebook&quot;</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;perimeter_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;area_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;smoothness_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;concavity_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;symmetry_mean&#39;</span><span class="p">],</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;diagnosis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-2" class="clipboard-copy-txt"># Show the pair-plot
+sns.set()
+
+sns.plotting_context("notebook", font_scale=1.2)
+sns.pairplot(df,vars=['perimeter_mean', 'area_mean', 'smoothness_mean', 'concavity_mean', 'symmetry_mean'],hue="diagnosis")
+plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
 </div>
 </div>
 </div>

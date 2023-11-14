@@ -409,6 +409,19 @@
     Minimizar la Inercia
   </a>
   
+    <nav class="md-nav" aria-label="Minimizar la Inercia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caso-de-estudio-minimizando-la-inercia" class="md-nav__link">
+    Caso de Estudio: Minimizando la Inercia
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1554,6 +1567,35 @@ plt.show()</div>
 </div>
 
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Algunos comentarios del proceso:</p>
+<ul>
+<li>El gráfico anterior muestra un comportamiento común. Cuando el número de clústeres es muy pequeño, la densidad es proporcionalmente baja, por lo tanto, la cohesión es baja y, como resultado, la inercia es alta. Aumentar el número de clústeres obliga al modelo a crear grupos más cohesionados y la inercia comienza a disminuir abruptamente. </li>
+<li>La regla heurística genérica (cuando no hay restricciones externas) es elegir el número de clústeres correspondiente al punto que separa la región de alta variación de la casi plana. De esta manera, nos aseguramos de que todos los clústeres hayan alcanzado su máxima cohesión sin fragmentación interna. </li>
+<li>Por supuesto, en este caso, si hubiéramos seleccionado K=15, nueve conjuntos habrían sido asignados a diferentes clústeres, mientras que los otros tres se habrían dividido en dos partes. Obviamente, al dividir una región de alta densidad, la inercia sigue siendo baja, pero el principio de separación máxima ya no se sigue.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="caso-de-estudio-minimizando-la-inercia">Caso de Estudio: Minimizando la Inercia<a class="anchor-link" href="#caso-de-estudio-minimizando-la-inercia">&#182;</a></h3><p>Ahora revisaremos la inercia de nuestro caso de estudio para diferentes niveles de conglomerados (de 2 a 50)</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -1575,9 +1617,43 @@ plt.show()</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Compute the inertia</span>
+<span class="n">inertias</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">51</span><span class="p">):</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cdf</span><span class="p">)</span>
+    <span class="n">inertias</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">km</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+
+<span class="c1"># Show the plot inertia vs. no. clusters</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">inertias</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of clusters&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Inertia&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-2" class="clipboard-copy-txt"></div>
+<div id="cell-2" class="clipboard-copy-txt"># Compute the inertia
+inertias = []
+
+for i in range(2, 51):
+    km = KMeans(n_clusters=i, max_iter=1000, random_state=1000)
+    km.fit(cdf)
+    inertias.append(km.inertia_)
+
+# Show the plot inertia vs. no. clusters
+fig, ax = plt.subplots(figsize=(18, 8))
+
+ax.plot(np.arange(2, 51, 1), inertias)
+ax.set_xlabel('Number of clusters', fontsize=14)
+ax.set_ylabel('Inertia', fontsize=14)
+ax.set_xticks(np.arange(2, 51, 2))
+
+plt.show()
+
+</div>
     
         </div>
     </div>
@@ -1585,6 +1661,19 @@ plt.show()</div>
 </div>
 </div>
 
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>En este caso, la verdad fundamental sugiere que deberíamos agrupar en dos grupos correspondientes a los diagnósticos. Sin embargo, el gráfico muestra un descenso drástico que termina en K=8 y continúa con una pendiente más baja hasta aproximadamente K=40. Durante el análisis preliminar, hemos observado que la proyección bidimensional está compuesta por muchos conjuntos aislados que comparten el mismo diagnóstico. Por lo tanto, podríamos decidir emplear, por ejemplo, K=8 y analizar las características correspondientes a cada clúster. Dado que esto no es una tarea de clasificación, la verdad fundamental puede usarse como la principal referencia, pero un análisis exploratorio correcto puede intentar comprender la composición de las subestructuras para proporcionar detalles adicionales a los técnicos (por ejemplo, médicos).
+Ahora realizaremos un agrupamiento K-means con ocho clústeres en el conjunto de datos de Breast Cancer Wisconsin para describir la estructura de dos grupos de muestra, de la siguiente manera:</p>
+
+</div>
+</div>
 </div>
 </div>
 </div>

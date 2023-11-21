@@ -424,6 +424,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#coeficiente-de-silhouette" class="md-nav__link">
+    Coeficiente de Silhouette
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1882,6 +1889,102 @@ print(sdff[['perimeter_mean', 'area_mean', 'smoothness_mean','concavity_mean', '
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Es importante recalcar que esto es más un ejercicio que un análisis real y, en tales situaciones, la tarea principal del científico de datos es recopilar piezas de información contextual que puedan respaldar las conclusiones. Incluso en presencia de la verdad fundamental, este proceso de validación es siempre obligatorio porque la complejidad de las causas subyacentes puede llevar a afirmaciones y reglas completamente erróneas</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="coeficiente-de-silhouette">Coeficiente de Silhouette<a class="anchor-link" href="#coeficiente-de-silhouette">&#182;</a></h2><p>El método más común para evaluar el rendimiento de un algoritmo de agrupamiento sin conocimiento de la verdad fundamental es el puntaje de silueta. Proporciona tanto un índice por muestra como una representación gráfica global que muestra el nivel de coherencia interna y separación de los grupos. Para calcular el puntaje, necesitamos introducir dos medidas auxiliares. La primera es la distancia intra-cluster promedio de una muestra $x_i ∈ K_j$ asumiendo la cardinalidad de $|K_j|=n(j)$:</p>
+<p>$sfjkask$</p>
+<p>Para K-means, se asume que la distancia es euclidiana, pero no hay limitaciones específicas. Por supuesto, d(•) debe ser la misma función de distancia empleada en el procedimiento de agrupamiento. Dada una muestra xi ∈ Kj, vamos a denotar el clúster más cercano como Kc. De esta manera, también podemos definir la distancia más pequeña al clúster más cercano (como la distancia promedio al clúster más cercano)</p>
+<p>$scsakfmascfas$</p>
+<p>Con estas dos medidas, podemos definir el coeficiente de Silhouette para cada $x_i \in X$</p>
+<p>$dvsdv dslv msdlds$</p>
+<p>El puntaje s(•) ∈ (-1, 1). Cuando s(•) → -1, significa que b(•) &lt;&lt; a(•), por lo tanto, la muestra xi ∈ Kj está más cerca del clúster más cercano Kc que de las otras muestras asignadas a Kj. Esta condición indica una asignación incorrecta. Por otro lado, cuando s(•) → 1, b(•) &gt;&gt; a(•), por lo que la muestra xi está mucho más cerca de sus vecinos (pertenecientes al mismo clúster) que de cualquier otro punto asignado al clúster más cercano. Claramente, esta es una condición óptima y la referencia a emplear al ajustar un algoritmo. Sin embargo, como este índice no es global, es útil introducir gráficos de silueta, que muestran los puntajes obtenidos por cada muestra, agrupados por clúster y ordenados de manera descendente.</p>
+<p>Consideremos gráficos de Silhouette para el conjunto de datos de cancer de pecho para $K={2, 4, 6, 8}$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 
 </div>
 </div>

@@ -419,6 +419,61 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#metricas-de-distancia" class="md-nav__link">
+    Metricas de Distancia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funciones-de-enlace" class="md-nav__link">
+    Funciones de Enlace
+  </a>
+  
+    <nav class="md-nav" aria-label="Funciones de Enlace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enlace-simple" class="md-nav__link">
+    Enlace Simple
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enlace-completo" class="md-nav__link">
+    Enlace Completo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enlace-primedio" class="md-nav__link">
+    Enlace Primedio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enlace-de-ward" class="md-nav__link">
+    Enlace de Ward
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analisis-de-un-dendograma" class="md-nav__link">
+    Analisis de un Dendograma
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1493,14 +1548,45 @@ Licensed under the Apache License, Version 2.0.
 <p>Con ambos paradigmas, hay N - 1 niveles en la jerarquía, donde N es el número total de observaciones.</p>
 <p>Cada nivel de la jerarquía representa una agrupación particular de los datos en clusters disjuntos de observaciones. Toda la jerarquía representa una secuencia ordenada de tales agrupaciones. Depende del usuario decidir qué nivel (si alguno) representa en realidad una agrupación "natural" en el sentido de que las observaciones dentro de cada uno de sus grupos son lo suficientemente similares entre sí como para que difieran significativamente de las observaciones asignadas a diferentes grupos en ese nivel. El estadístico Gap mencionado anteriormente se puede utilizar para este propósito.</p>
 <p>La división/aglomeración binaria recursiva se puede representar mediante un árbol binario con raíz. Los nodos del árbol representan grupos. El nodo raíz representa el conjunto de datos completo. Los N nodos terminales representan cada uno de las observaciones individuales (clusters singleton). Cada nodo no terminal ("padre") tiene dos nodos hijas. Para la agrupación divisiva, las dos hijas representan los dos grupos resultantes de la división del padre; para la agrupación aglomerativa, las hijas representan los dos grupos que se fusionaron para formar el padre.</p>
-<p><strong><em>Interpretando un Dendograma</em></strong></p>
-<p>Todos los métodos aglomerativos y algunos métodos divisivos (cuando se ven de abajo hacia arriba) poseen una propiedad de monotonía. Es decir, la disimilitud entre los clusters fusionados aumenta monótonamente con el nivel de la fusión. Por lo tanto, el árbol binario se puede representar de manera que la altura de cada nodo sea proporcional al valor de la disimilitud intergrupal entre sus dos hijas. Los nodos terminales que representan observaciones individuales se representan todos a una altura de cero. Este tipo de representación gráfica se llama dendrograma.</p>
+<h3 id="metricas-de-distancia">Metricas de Distancia<a class="anchor-link" href="#metricas-de-distancia">&#182;</a></h3><p>Como se ha mencionado, se requiere de una métrica de distancia que define la disimilitud entre cada par de muestras. Ya hemos analizado muchos de ellos pero, en este
+En contexto, es útil comenzar a considerar la distancia genérica de Minkowski (parametrizada con $p$):</p>
+<p>$sdvsdvsd$</p>
+<p>Mencionamos dos casos particulares muy utilizados. Para $p=2$ tenemos la llamada distancia euclideana.</p>
+<p>$dsvsvsdvsd$</p>
+<p>Para $p=1$ se obtiene la distancia de Manhatan o distancia del taxista.</p>
+<p>$dsv vddssdds$</p>
+<p>Luego de elegir una distancia, pasamos a la creacion a la matriz de distancias $P$</p>
+<p>El siguiente paso es definir una estrategia de fusión, la cual, en este caso, se llama enlace. El objetivo de un método de enlace es encontrar los grupos que deben fusionarse en uno solo en cada nivel de la jerarquía. Por lo tanto, debe trabajar con conjuntos de muestras genéricas que representen los grupos. En este caso, supongamos que estamos analizando un par de grupos (Ca, Cb) y necesitamos encontrar qué índice, a o b, corresponde a la pareja que será fusionada.</p>
+<h3 id="funciones-de-enlace">Funciones de Enlace<a class="anchor-link" href="#funciones-de-enlace">&#182;</a></h3><h4 id="enlace-simple">Enlace Simple<a class="anchor-link" href="#enlace-simple">&#182;</a></h4><p>El método de enlace simple selecciona la pareja que contiene el par más cercano de muestras (cada una de ellas perteneciente a un clúster diferente). Este proceso se muestra en el siguiente diagrama, donde se seleccionan C1 y C2 para fusionarse</p>
+<p>$skADLDLañ$</p>
+<p>(insertar figura)</p>
+<p>La principal desventaja de este método es la posibilidad de tener pequeños clústeres junto con otros muy grandes. Como veremos en la siguiente sección, el enlace único puede mantener aislados a los valores atípicos hasta que existan niveles de disimilitud muy altos. Para evitar o mitigar este problema, se pueden utilizar los métodos de promedio y Ward</p>
+<h4 id="enlace-completo">Enlace Completo<a class="anchor-link" href="#enlace-completo">&#182;</a></h4><p>El objetivo de este método de enlace es minimizar la distancia entre las muestras más alejadas que pertenecen a los clústeres fusionados. En el siguiente diagrama, se muestra un ejemplo de enlace completo, donde se han seleccionado C1 y C3. Su formula matemática es:</p>
+<p>$dvñsldvfsd$</p>
+<p>(insertar imagen)</p>
+<p>El algoritmo selecciona C1 y C3 para aumentar la cohesión interna. De hecho, es fácil entender que el enlace completo resulta en la maximización de la densidad del clúster, considerando todas las combinaciones posibles. En el ejemplo mostrado en el diagrama anterior, si el número deseado de clústeres es dos, fusionar C1 y C2 o C2 y C3 daría como resultado una configuración final con menos cohesión, lo cual suele ser un resultado no deseado</p>
+<h4 id="enlace-primedio">Enlace Primedio<a class="anchor-link" href="#enlace-primedio">&#182;</a></h4><p>$asvfvsdsdds$</p>
+<p>La idea es bastante similar al enlace completo, pero en este caso se tiene en cuenta el promedio de cada clúster y el objetivo es minimizar la distancia promedio entre clústeres, considerando todos los pares posibles (Ca, Cb). El siguiente diagrama muestra un ejemplo de enlace promedio</p>
+<p>(insertar imagen)</p>
+<p>El enlace promedio es particularmente útil en aplicaciones de bioinformática (que es el contexto principal en el que se ha definido el agrupamiento jerárquico). La explicación matemática de sus propiedades es compleja y te animo a consultar el artículo original ("A Statistical Method for Evaluating Systematic Relationships", Sokal R., Michener C., University of Kansas Science Bulletin, 38, 1958) para obtener más detalles.</p>
+<h4 id="enlace-de-ward">Enlace de Ward<a class="anchor-link" href="#enlace-de-ward">&#182;</a></h4><p>El último método que vamos a discutir se llama enlace de Ward (llamado así por su autor y originalmente propuesto en "Hierarchical Grouping to Optimize an Objective Function", Ward Jr J. H., Journal of the American Statistical Association. 58(301), 1963). Está basado en la distancia euclidiana y la definición formal es la siguiente:</p>
+<p>$fasflkasdmas$</p>
+<p>En cada nivel, se consideran todos los clústeres y se seleccionan dos de ellos con el objetivo de minimizar la suma de las distancias al cuadrado. El proceso en sí no difiere mucho del enlace promedio y es posible demostrar que el proceso de fusión conduce a una reducción en la varianza de los clústeres (es decir, aumenta su cohesión interna). Además, el enlace de Ward tiende a producir clústeres que contienen aproximadamente el mismo número de muestras (es decir, en comparación con el enlace único, el método de Ward evita la presencia de clústeres pequeños junto con otros muy grandes, como se discute en la siguiente sección). El enlace de Ward es una elección predeterminada popular, pero para tomar la decisión correcta en cada contexto específico, es necesario introducir el concepto de dendrograma.</p>
+<h3 id="analisis-de-un-dendograma">Analisis de un Dendograma<a class="anchor-link" href="#analisis-de-un-dendograma">&#182;</a></h3><p>Todos los métodos aglomerativos y algunos métodos divisivos (cuando se ven de abajo hacia arriba) poseen una propiedad de monotonía. Es decir, la disimilitud entre los clusters fusionados aumenta monótonamente con el nivel de la fusión. Por lo tanto, el árbol binario se puede representar de manera que la altura de cada nodo sea proporcional al valor de la disimilitud intergrupal entre sus dos hijas. Los nodos terminales que representan observaciones individuales se representan todos a una altura de cero. Este tipo de representación gráfica se llama dendrograma.</p>
 <p>Un dendrograma proporciona una descripción completa y altamente interpretable de la agrupación jerárquica en un formato gráfico. Esta es una de las principales razones de la popularidad de los métodos de agrupación jerárquica.</p>
-<p>Para los datos de microarrays, la Figura 14.12 muestra el dendrograma resultante de la agrupación aglomerativa con enlace promedio; la agrupación aglomerativa y este ejemplo se discuten con más detalle más adelante en este capítulo. Cortar el dendrograma horizontalmente en una altura particular divide los datos en clusters disjuntos representados por las líneas verticales que lo intersectan. Estos son los clusters que se producirían al finalizar el procedimiento cuando la disimilitud intergrupal óptima supere ese valor de corte umbral.</p>
-<p>Los grupos que se fusionan a altos valores, en comparación con los valores de fusión de los subgrupos contenidos dentro de ellos en niveles inferiores del árbol, son candidatos para agrupaciones naturales. Ten en cuenta que esto puede ocurrir en varios niveles diferentes, lo que indica una jerarquía de agrupaciones: es decir, clusters anidados dentro de clusters.</p>
-<p>Un dendrograma de este tipo a menudo se ve como un resumen gráfico de los propios datos, en lugar de una descripción de los resultados del algoritmo. Sin embargo, estas interpretaciones deben tratarse con precaución. En primer lugar, diferentes métodos jerárquicos (ver más abajo), así como pequeños cambios en los datos, pueden llevar a dendrogramas bastante diferentes. Además, dicho resumen será válido solo en la medida en que las disimilitudes entre observaciones parejas posean la estructura jerárquica producida por el algoritmo. Los métodos jerárquicos imponen una estructura jerárquica, ya sea que dicha estructura realmente exista o no en los datos.</p>
-<p>Comenzamos con el conjunto de datos simulado que se muestra en la Figura 10.8, que consta de 45 observaciones en un espacio bidimensional. Los datos se generaron a partir de un modelo de tres clases; las etiquetas de clase reales para cada observación se muestran en colores distintos. Sin embargo, supongamos que los datos se observaron sin las etiquetas de clase y que queremos realizar una agrupación jerárquica de los datos. La agrupación jerárquica (con enlace completo, que se discutirá más adelante) produce el resultado que se muestra en el panel izquierdo de la Figura 10.9. ¿Cómo podemos interpretar este dendrograma?</p>
-<p>En el panel izquierdo de la Figura 10.9, cada hoja del dendrograma representa una de las 45 observaciones en la Figura 10.8. Sin embargo, a medida que subimos por el árbol, algunas hojas comienzan a fusionarse en ramas. Estas corresponden a observaciones que son similares entre sí. A medida que subimos más alto en el árbol, las ramas mismas se fusionan, ya sea con hojas u otras ramas. Las fusiones anteriores (más abajo en el árbol) indican que los grupos de observaciones son más similares entre sí. Por otro lado, las observaciones que se fusionan más tarde (cerca de la parte superior del árbol) pueden ser bastante diferentes. De hecho, esta afirmación se puede hacer precisa: para cualquier par de observaciones, podemos buscar el punto en el árbol donde las ramas que contienen esas dos observaciones se fusionan por primera vez. La altura de esta fusión, medida en el eje vertical, indica qué tan diferentes son las dos observaciones. Por lo tanto, las observaciones que se fusionan en la parte inferior del árbol son bastante similares entre sí, mientras que las observaciones que se fusionan cerca de la parte superior del árbol tienden a ser bastante diferentes.</p>
+<p>La idea es bastante sencilla: colocar las muestras en el eje x y el nivel de disimilitud en el eje y. Cada vez que dos clústeres se fusionan, el dendrograma muestra una conexión correspondiente al nivel de disimilitud en el que ocurrió la fusión. Por lo tanto, en un escenario aglomerativo, un dendrograma siempre comienza con todas las muestras consideradas como clústeres y se mueve hacia arriba (la dirección es puramente convencional) hasta que se define un solo clúster.</p>
+<p>Con fines didácticos, es preferible mostrar el dendrograma correspondiente a un conjunto de datos muy pequeño, X, pero todos los conceptos que vamos a discutir pueden aplicarse a cualquier situación. Sin embargo, con conjuntos de datos más grandes, a menudo será necesario aplicar algunas truncaciones para visualizar toda la estructura de una forma más compacta. Consideremos un conjunto de datos pequeño, X, compuesto por 12 muestras bidimensionales generadas por 4 distribuciones gaussianas con vectores medios en el rango (-1, 1) × (-1, 1):</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 
 </div>
 </div>

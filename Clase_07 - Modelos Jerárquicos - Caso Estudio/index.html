@@ -419,6 +419,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#restricciones-de-conectividad" class="md-nav__link">
+    Restricciones de Conectividad
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1474,8 +1481,9 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="conglomerados-jerarquicos-caso-de-estudio">Conglomerados Jer&#225;rquicos - Caso de Estudio<a class="anchor-link" href="#conglomerados-jerarquicos-caso-de-estudio">&#182;</a></h2><h3 id="descripcion-del-caso">Descripci&#243;n del Caso<a class="anchor-link" href="#descripcion-del-caso">&#182;</a></h3><p>Ahora consideremos un problema más detallado en un conjunto de datos más grande que contiene 527 muestras con 38 variables químicas y físicas que describen el estado de las plantas de tratamiento de agua. Como los mismos autores (Bejar, Cortes y Poch) mencionaron, el dominio está poco estructurado y se necesita un análisis cuidadoso. Al mismo tiempo, nuestro objetivo es encontrar el agrupamiento óptimo con un enfoque agnóstico; es decir, no consideraremos el proceso de etiquetado semántico (que requiere un experto en el dominio), sino únicamente la estructura geométrica del conjunto de datos y las relaciones descubiertas por el algoritmo aglomerativo.</p>
-<p>La primera columna es un índice relacionado con la planta específica, mientras que todos los demás valores son numéricos y pueden convertirse a float64. Los valores faltantes están indicados con el carácter '?', y como no tenemos otra información, se establecen con la media de cada atributo. Además, dado que las variables individuales tienen magnitudes muy diferentes (invito al lector a verificar esta afirmación utilizando la función describe en el DataFrame), es preferible normalizarlas en el rango (-1, 1), preservando la varianza origina. En este punto, como es habitual, podemos emplear el algoritmo t-SNE para proyectar el conjunto de datos en un espacio bidimensional:</p>
+<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="conglomerados-jerarquicos-caso-de-estudio">Conglomerados Jer&#225;rquicos - Caso de Estudio<a class="anchor-link" href="#conglomerados-jerarquicos-caso-de-estudio">&#182;</a></h2><h3 id="descripcion-del-caso">Descripci&#243;n del Caso<a class="anchor-link" href="#descripcion-del-caso">&#182;</a></h3><p>Ahora consideremos un problema más detallado en un conjunto de datos más grande que contiene 527 muestras con 38 variables químicas y físicas que describen el estado de las plantas de tratamiento de agua. El dominio está poco estructurado y se necesita un análisis cuidadoso. Al mismo tiempo, nuestro objetivo es encontrar el agrupamiento óptimo con un enfoque agnóstico; es decir, no consideraremos el proceso de etiquetado semántico (que requiere un experto en el dominio), sino únicamente la estructura geométrica del conjunto de datos y las relaciones descubiertas por el algoritmo aglomerativo.</p>
+<p>La primera columna es un índice relacionado con la planta específica, mientras que todos los demás valores son numéricos y pueden convertirse a float64. Los valores faltantes están indicados con el carácter '?', y como no tenemos otra información, se establecen con la media de cada atributo. Además, dado que las variables individuales tienen magnitudes muy diferentes (invito al lector a verificar esta afirmación utilizando la función describe en el DataFrame), es preferible normalizarlas en el rango (-1, 1), preservando la varianza origina. En este punto, como es habitual, podemos emplear el algoritmo t-SNE para proyectar el conjunto de datos en un espacio bidimensional. Los resultados y el código vienen a continuación.</p>
+<p>(insertar imagen de t-SNE)</p>
 
 </div>
 </div>
@@ -1517,8 +1525,11 @@ Licensed under the Apache License, Version 2.0.
 
 <span class="c1"># Show the dataset</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">),</span><span class="n">data</span><span class="o">=</span><span class="n">dff</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 <div id="cell-1" class="clipboard-copy-txt">
 
@@ -1538,8 +1549,11 @@ dff = pd.concat([df, df_tsne], axis=1)
 
 # Show the dataset
 sns.set()
-
-fig, ax = plt.subplots(figsize=(18, 11))</div>
+fig, ax = plt.subplots(figsize=(18, 11))
+sns.scatterplot(x='x',y='y',size=0,sizes=(120, 120),data=dff,legend=False,ax=ax)
+ax.set_xlabel(r'$x$')
+ax.set_ylabel(r'$y$')
+plt.show()</div>
     
         </div>
     </div>
@@ -1547,6 +1561,19 @@ fig, ax = plt.subplots(figsize=(18, 11))</div>
 </div>
 </div>
 
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>El gráfico muestra una potencial geometría no convexa con muchas pequeñas islas (regiones densas) separadas por espacios vacíos. Sin embargo, sin información de dominio, no es fácil decidir qué conjuntos pueden considerarse partes del mismo grupo. La única pseudo-restricción que podemos decidir imponer (considerando que todas las plantas operan de manera similar) es tener un número moderado o pequeño de grupos finales. Por lo tanto, asumiendo la distancia euclidiana y utilizando la clase AgglomerativeClustering de scikit-learn, podemos calcular tanto la correlación cofenética como la puntuación de silueta para todos los enlaces y para 4, 6, 8 y 10 número de grupos:</p>
+<p>(insertar imagen)</p>
+
+</div>
+</div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -1569,9 +1596,73 @@ fig, ax = plt.subplots(figsize=(18, 11))</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_score</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">pdist</span>
+<span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">linkage</span><span class="p">,</span> <span class="n">cophenet</span>
+<span class="n">nb_clusters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">linkages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="s1">&#39;complete&#39;</span><span class="p">,</span> <span class="s1">&#39;ward&#39;</span><span class="p">,</span> <span class="s1">&#39;average&#39;</span><span class="p">]</span>
+<span class="n">cpcs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">linkages</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nb_clusters</span><span class="p">)))</span>
+<span class="n">silhouette_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">linkages</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nb_clusters</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">linkages</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">nbc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nb_clusters</span><span class="p">):</span>
+        <span class="n">dm</span> <span class="o">=</span> <span class="n">pdist</span><span class="p">(</span><span class="n">sdf</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;minkowski&#39;</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">linkage</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">l</span><span class="p">)</span>
+        <span class="n">cpc</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cophenet</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">dm</span><span class="p">)</span>
+        <span class="n">cpcs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpc</span>
+        <span class="n">ag</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">nbc</span><span class="p">,</span> <span class="n">affinity</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">linkage</span><span class="o">=</span><span class="n">l</span><span class="p">)</span>
+        <span class="n">Y_pred</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">sdf</span><span class="p">)</span>
+        <span class="n">sls</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">sdf</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="n">silhouette_scores</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">sls</span>
+        
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nb_clusters</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nb_clusters</span><span class="p">)):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cpcs</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cophenetic correlation&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Number of clusters: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nb_clusters</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">silhouette_scores</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Silhouette score&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Number of clusters: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nb_clusters</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">linkages</span><span class="p">)),</span> <span class="n">linkages</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-2" class="clipboard-copy-txt"></div>
+<div id="cell-2" class="clipboard-copy-txt">from sklearn.cluster import AgglomerativeClustering
+from sklearn.metrics import silhouette_score
+from scipy.spatial.distance import pdist
+from scipy.cluster.hierarchy import linkage, cophenet
+nb_clusters = [4, 6, 8, 10]
+linkages = ['single', 'complete', 'ward', 'average']
+cpcs = np.zeros(shape=(len(linkages), len(nb_clusters)))
+silhouette_scores = np.zeros(shape=(len(linkages), len(nb_clusters)))
+for i, l in enumerate(linkages):
+    for j, nbc in enumerate(nb_clusters):
+        dm = pdist(sdf, metric='minkowski', p=2)
+        Z = linkage(dm, method=l)
+        cpc, _ = cophenet(Z, dm)
+        cpcs[i, j] = cpc
+        ag = AgglomerativeClustering(n_clusters=nbc, affinity='euclidean', linkage=l)
+        Y_pred = ag.fit_predict(sdf)
+        sls = silhouette_score(sdf, Y_pred, random_state=1000)
+        silhouette_scores[i, j] = sls
+        
+fig, ax = plt.subplots(len(nb_clusters), 2, figsize=(20, 20), sharex=True)
+
+for i in range(len(nb_clusters)):
+    ax[i, 0].plot(cpcs[:, i])
+    ax[i, 0].set_ylabel('Cophenetic correlation', fontsize=14)
+    ax[i, 0].set_title('Number of clusters: {}'.format(nb_clusters[i]), fontsize=14)
+
+    ax[i, 1].plot(silhouette_scores[:, i])
+    ax[i, 1].set_ylabel('Silhouette score', fontsize=14)
+    ax[i, 1].set_title('Number of clusters: {}'.format(nb_clusters[i]), fontsize=14)
+
+plt.xticks(np.arange(len(linkages)), linkages)
+
+plt.show()</div>
     
         </div>
     </div>
@@ -1579,6 +1670,526 @@ fig, ax = plt.subplots(figsize=(18, 11))</div>
 </div>
 </div>
 
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>El primer elemento a considerar es que la correlación cofenética es razonablemente aceptable para el enlace completo (complete linkage) y el enlace promedio (average linkage), mientras que es demasiado baja para el enlace simple (single linkage). Considerando las puntuaciones de silueta, el valor máximo (alrededor de 0.6) se logra con el enlace simple y cuatro grupos. Este resultado indica que se pueden separar cuatro regiones con un nivel medio o alto de cohesión interna, incluso si el algoritmo jerárquico produce una configuración subóptima.</p>
+<p>Como se explicó en la sección anterior, la correlación cofenética a veces puede ser engañosa y, en este caso, podemos concluir que, si el número teórico de grupos potenciales es cuatro, usar el enlace simple es la mejor opción. Sin embargo, todos los demás diagramas muestran un máximo correspondiente al enlace completo (y un mínimo para el enlace simple). Por lo tanto, la primera pregunta a responder es: ¿necesitamos incluso grupos? En este ejemplo, asumamos que muchas plantas operan de manera muy estándar (con diferencias compartidas por muchas muestras), pero también puede haber algunos casos particulares (valores atípicos impropios) que pueden exhibir un comportamiento muy diferente.</p>
+<p>Dicha hipótesis es realista en muchos contextos y puede ser debido a procesos innovadores o experimentales, falta de recursos, problemas internos durante las mediciones, etc. Un experto en el dominio puede confirmar o rechazar nuestra suposición, pero, como este es un ejemplo genérico, podemos decidir conservar ocho grupos con enlace completo (con una puntuación de silueta de alrededor de 0.5). Este valor indica la presencia de solapamientos, pero, considerando la dimensionalidad del conjunto de datos y la no convexidad, puede ser aceptable en muchos casos de la vida real.</p>
+<p>En este punto, también podemos analizar el dendrograma truncado a 80 hojas (esto es posible configurando el parámetro  <code>truncate_mode='lastp'</code> y <code>p=80</code>), para evitar intervalos demasiado pequeños y difíciles de distinguir (sin embargo, puedes eliminar esta restricción y aumentar la resolución):</p>
+<p>(insertar imagen)</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-3">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">dendrogram</span>
+<span class="c1"># Show the truncated dendrogram for a complete linkage</span>
+<span class="n">dm</span> <span class="o">=</span> <span class="n">pdist</span><span class="p">(</span><span class="n">sdf</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">linkage</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;complete&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">dendrogram</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">truncate_mode</span><span class="o">=</span><span class="s1">&#39;lastp&#39;</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">no_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Dissimilarity&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Samples (80 leaves)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-3" class="clipboard-copy-txt">from scipy.cluster.hierarchy import dendrogram
+# Show the truncated dendrogram for a complete linkage
+dm = pdist(sdf, metric='euclidean')
+Z = linkage(dm, method='complete')
+
+fig, ax = plt.subplots(figsize=(25, 20))
+
+d = dendrogram(Z, orientation='right', truncate_mode='lastp', p=80, no_labels=True, ax=ax)
+
+ax.set_xlabel('Dissimilarity', fontsize=18)
+ax.set_ylabel('Samples (80 leaves)', fontsize=18)
+
+plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Como se puede observar, el proceso de aglomeración no es homogéneo. Al principio del proceso, la disimilitud aumenta bastante lentamente, pero después de un valor aproximado de 10,000, los saltos se vuelven más grandes. Observando el gráfico t-SNE, es posible entender que el efecto de las no-convexidades tiene un impacto más fuerte en grupos muy grandes debido a que la densidad disminuye e implícitamente la disimilitud crece. Es evidente que un número muy pequeño de grupos (por ejemplo, 1, 2 o 3) se caracteriza por disimilitudes internas muy altas y una cohesión bastante baja.</p>
+<p>Además, el dendrograma muestra que hay dos principales agregaciones desiguales en un nivel de aproximadamente 17,000, por lo que podemos deducir que el análisis de gran tamaño destaca la presencia de un comportamiento dominante (observando el gráfico desde arriba) y uno secundario, utilizado por un número menor de plantas. En particular, el grupo más pequeño es muy estable, ya que se fusionará en un único grupo final a un nivel de disimilitud de aproximadamente 50,000. Por lo tanto, deberíamos esperar la presencia de pseudo-valores atípicos agrupados en regiones más aisladas (esto también es confirmado por el gráfico t-SNE).</p>
+<p>Al cortar a un nivel en el rango de 4,000 a 6,000 (correspondiente a aproximadamente ocho grupos), el bloque más grande es más denso que los más pequeños. En otras palabras, los grupos atípicos contendrán muchas menos muestras que los otros grupos. Esto no es sorprendente porque, como se discutió en la sección "Análisis de un dendrograma" dedicada a los dendrogramas, los grupos más distantes normalmente se fusionan bastante tarde en el enlace completo.</p>
+<p>En este punto, finalmente podemos realizar el agrupamiento y verificar el resultado. La implementación de Scikit-learn no calcula todo el dendrograma, sino que detiene el proceso cuando se ha alcanzado el número deseado de grupos (a menos que el parámetro <code>compute_full_tree</code> no sea True):</p>
+<p>(insertar imagen)</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-4">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">ag</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">affinity</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">linkage</span><span class="o">=</span><span class="s1">&#39;complete&#39;</span><span class="p">)</span>
+    <span class="n">Y_pred</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">sdf</span><span class="p">)</span>
+
+    <span class="n">df_pred</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">Y_pred</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Cluster&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">pdff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dff</span><span class="p">,</span> <span class="n">df_pred</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Show the results of the clustering</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+
+    <span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">plotting_context</span><span class="p">(</span><span class="s2">&quot;notebook&quot;</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">):</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+                        <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
+                        <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Cluster&#39;</span><span class="p">,</span>
+                        <span class="n">size</span><span class="o">=</span><span class="s1">&#39;Cluster&#39;</span><span class="p">,</span>
+                        <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">),</span>
+                        <span class="n">palette</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;husl&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+                        <span class="n">data</span><span class="o">=</span><span class="n">pdff</span><span class="p">,</span>
+                        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-4" class="clipboard-copy-txt">for n in (8, 2):
+    ag = AgglomerativeClustering(n_clusters=n, affinity='euclidean', linkage='complete')
+    Y_pred = ag.fit_predict(sdf)
+
+    df_pred = pd.Series(Y_pred, name='Cluster', index=df.index)
+    pdff = pd.concat([dff, df_pred], axis=1)
+
+    # Show the results of the clustering
+    fig, ax = plt.subplots(figsize=(18, 11))
+
+    with sns.plotting_context("notebook", font_scale=1.5):
+        sns.scatterplot(x='x',
+                        y='y',
+                        hue='Cluster',
+                        size='Cluster',
+                        sizes=(120, 120),
+                        palette=sns.color_palette("husl", n),
+                        data=pdff,
+                        ax=ax)
+
+    ax.set_xlabel(r'$x$')
+    ax.set_ylabel(r'$y$')
+
+    plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Como se esperaba, los grupos son desiguales, pero son bastante coherentes con la geometría. Además, los grupos aislados (por ejemplo, en la región x ∈ (-40, -20) y y &gt; 60) son muy pequeños y es muy probable que contengan valores atípicos reales, cuyo comportamiento es muy diferente a la mayoría de las otras muestras. No vamos a analizar la semántica, porque el problema es muy específico. Sin embargo, es razonable pensar que el grupo grande en la región x ∈ (-40, 40) y y ∈ (-40, -10), aunque no sea convexo, representa una línea base adecuada. Por otro lado, los otros bloques grandes (en los extremos de este grupo) corresponden a plantas con propiedades o comportamientos específicos, los cuales están suficientemente difundidos como para considerarse prácticas alternativas estándar. Por supuesto, como se mencionó al principio, este es un análisis agnóstico, que debería ser útil para comprender cómo trabajar con el agrupamiento jerárquico.</p>
+<p>Como paso final, queremos cortar el dendrograma a un nivel de disimilitud de aproximadamente 35,000 (correspondiente a dos grupos). El resultado se muestra en la siguiente captura de pantalla.</p>
+<p>(insertar imagen)</p>
+<p>A este nivel, el dendrograma muestra un gran porcentaje de muestras pertenecientes a un grupo y un bloque más pequeño restante. Ahora sabemos que esa región secundaria corresponde a x ∈ (-40, 10) y y &gt; 20. Nuevamente, el resultado no es sorprendente, porque el gráfico t-SNE muestra que estas muestras son las únicas con y &gt; 20 ÷ 25 (mientras que el grupo más grande, incluso con una vasta región vacía, cubre casi todo el rango).</p>
+<p>Por lo tanto, podríamos afirmar que tales muestras representan plantas muy diferentes con comportamientos extremos y, si una nueva muestra se asigna a ese grupo, probablemente sea una planta no estándar (asumiendo que una planta estándar tiene un comportamiento similar a la mayoría de sus pares). Como ejercicio, te animo a probar otras cantidades de grupos y diferentes enlaces (en particular, el enlace simple, que es muy peculiar), y tratar de validar o rechazar algunas muestras, hipótesis previas (no es necesario que sean aceptables físicamente).</p>
+<h3 id="restricciones-de-conectividad">Restricciones de Conectividad<a class="anchor-link" href="#restricciones-de-conectividad">&#182;</a></h3><p>Una característica importante de la agrupación jerárquica aglomerativa es la posibilidad de incluir restricciones de conectividad para forzar la fusión de muestras específicas. Este tipo de conocimiento previo es muy común en contextos donde existen relaciones fuertes entre vecinos o cuando sabemos que algunas muestras deben pertenecer al mismo grupo debido a sus propiedades intrínsecas. Para lograr este objetivo, es necesario utilizar una matriz de conectividad, A ∈ {0, 1}n × n:</p>
+<p>$dsfsdjfgsdkljgfsdklj$</p>
+<p>En general, A es la matriz de adyacencia inducida por un grafo del conjunto de datos; sin embargo, el único requisito importante es la ausencia de muestras aisladas (sin conexiones), ya que no se pueden fusionar de ninguna manera. La matriz de conectividad se aplica durante las etapas iniciales de fusión y obliga al algoritmo a agregar las muestras especificadas. Dado que las fusiones siguientes no afectan la conectividad (dos muestras o grupos fusionados permanecerán fusionados hasta el final del proceso), las restricciones siempre se aplican.</p>
+<p>Para comprender este proceso, consideremos un conjunto de datos de muestra que contiene 50 puntos bidimensionales extraídos de 8 distribuciones gaussianas bivariadas:</p>
+<p>(insertar imagen)</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-5">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="n">nb_samples</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">nb_centers</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="n">nb_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">center_box</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">centers</span><span class="o">=</span><span class="n">nb_centers</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_0$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-5" class="clipboard-copy-txt">from sklearn.datasets import make_blobs
+nb_samples = 50
+nb_centers = 8
+X, Y = make_blobs(n_samples=nb_samples, n_features=2, center_box=[-1, 1], centers=nb_centers, random_state=1000)
+sns.set()
+fig, ax = plt.subplots(figsize=(12, 8))
+
+for i, x in enumerate(X):
+    ax.scatter(x[0], x[1], s=120)
+    ax.annotate('%d' % i, xy=(x[0] + 0.05, x[1] + 0.05), fontsize=12)
+
+ax.set_xlabel(r'$x_0$', fontsize=14)
+ax.set_ylabel(r'$x_1$', fontsize=14)
+
+plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Al observar el gráfico, notamos que las muestras 18 y 31 (x0 ∈ (-2, -1) y x1 ∈ (1, 2)) están bastante cerca; sin embargo, no queremos que se fusionen porque la muestra 18 tiene muchos más vecinos en el gran grupo central, mientras que el punto 31 está parcialmente aislado y debería considerarse un clúster autónomo. También queremos que la muestra 33 forme un único clúster. Estos requisitos obligarán al algoritmo a fusionar clústeres sin respetar más la geometría subyacente (en términos de distribuciones gaussianas), sino más bien el conocimiento previo.
+Para verificar cómo funciona el agrupamiento, calculemos ahora el dendrograma (truncado a 20 hojas) utilizando la distancia euclidiana y enlace promedio:</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-6">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Show the dendrogram with average linkage</span>
+<span class="n">dm</span> <span class="o">=</span> <span class="n">pdist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">linkage</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;average&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">dendrogram</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">truncate_mode</span><span class="o">=</span><span class="s1">&#39;lastp&#39;</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Dissimilarity&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Samples&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-6" class="clipboard-copy-txt"># Show the dendrogram with average linkage
+dm = pdist(X, metric='euclidean')
+Z = linkage(dm, method='average')
+
+fig, ax = plt.subplots(figsize=(20, 10))
+
+d = dendrogram(Z, orientation='right', truncate_mode='lastp', p=20, ax=ax)
+
+ax.set_xlabel('Dissimilarity', fontsize=18)
+ax.set_ylabel('Samples', fontsize=18)
+
+plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Como se esperaba, las muestras 18 y 31 se fusionan inmediatamente y luego se agregan a otro clúster que contiene 2 muestras (cuando el número está entre paréntesis, significa que es un bloque compuesto que contiene más muestras), que probablemente sean 44 y 13. La muestra 33 también se fusiona, por lo que no permanecerá en un clúster aislado. Como confirmación, realicemos el agrupamiento con n_clusters=8:</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-7">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="n">ag</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">affinity</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">linkage</span><span class="o">=</span><span class="s1">&#39;average&#39;</span><span class="p">)</span>
+<span class="n">Y_pred</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Show the results</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">clusters</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">Y_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">:</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">clusters</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">Set1</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">label</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_0$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-7" class="clipboard-copy-txt">import matplotlib.cm as cm
+ag = AgglomerativeClustering(n_clusters=8, affinity='euclidean', linkage='average')
+Y_pred = ag.fit_predict(X)
+
+# Show the results
+fig, ax = plt.subplots(figsize=(12, 8))
+
+clusters = set()
+
+for i, x in enumerate(X):
+    y = Y_pred[i]
+    if y in clusters:
+        label = False
+    else:
+        clusters.add(y)
+        label = True
+
+    ax.scatter(x[0], x[1], s=120, c=cm.Set1(y), label='Cluster {}'.format(y + 1) if label else None)
+    ax.annotate('%d' % i, xy=(x[0] + 0.05, x[1] + 0.05), fontsize=12)
+
+ax.set_xlabel(r'$x_0$', fontsize=14)
+ax.set_ylabel(r'$x_1$', fontsize=14)
+ax.legend()
+plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>El resultado confirma el análisis previo. Sin restricciones, el enlace promedio produce una partición razonable que es compatible con la verdad fundamental (ocho distribuciones gaussianas). Para dividir el gran grupo central y mantener el número requerido de clústeres, el algoritmo está obligado a fusionar también las muestras aisladas, incluso si el dendrograma confirma que se fusionan al final, en los niveles más altos de disimilitud.</p>
+<p>Para imponer nuestras restricciones, podemos observar que una matriz de conectividad basada en los dos primeros vecinos más cercanos es muy probable que fuerce la agregación de todas las muestras pertenecientes a las regiones más densas (considerando que los vecinos están más cerca) y termine manteniendo los puntos aislados en clústeres autónomos. El motivo de este comportamiento hipotético se basa en el objetivo del enlace promedio (minimizar la distancia promedio entre clústeres). Por lo tanto, después de imponer las restricciones, el algoritmo tiende más a agregar clústeres cercanos con otros vecinos (recuerda que A tiene valores nulos, pero en las posiciones correspondientes a los dos vecinos más cercanos) y a dejar sin fusionar los puntos más alejados hasta que el nivel de disimilitud sea lo suficientemente grande (produciendo clústeres muy desiguales).</p>
+<p>Para comprobar si nuestra suposición es cierta, generemos una matriz de conectividad utilizando la función kneighbors_graph() de scikit-learn, con n_neighbors=2, y volvamos a agrupar el conjunto de datos, estableciendo la restricción de conectividad:</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-8">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">kneighbors_graph</span>
+<span class="c1"># Build the connectivity matrix</span>
+<span class="n">cma</span> <span class="o">=</span> <span class="n">kneighbors_graph</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Perform the clustering with connectivity constraints</span>
+<span class="n">ag</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">affinity</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">linkage</span><span class="o">=</span><span class="s1">&#39;average&#39;</span><span class="p">,</span> <span class="n">connectivity</span><span class="o">=</span><span class="n">cma</span><span class="p">)</span>
+<span class="n">Y_pred</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Show the new results</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">clusters</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">Y_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">:</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">clusters</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">Set1</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">label</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_0$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-8" class="clipboard-copy-txt">from sklearn.neighbors import kneighbors_graph
+# Build the connectivity matrix
+cma = kneighbors_graph(X, n_neighbors=2)
+
+# Perform the clustering with connectivity constraints
+ag = AgglomerativeClustering(n_clusters=8, affinity='euclidean', linkage='average', connectivity=cma)
+Y_pred = ag.fit_predict(X)
+
+# Show the new results
+fig, ax = plt.subplots(figsize=(12, 8))
+
+clusters = set()
+
+for i, x in enumerate(X):
+    y = Y_pred[i]
+    if y in clusters:
+        label = False
+    else:
+        clusters.add(y)
+        label = True
+
+    ax.scatter(x[0], x[1], s=120, c=cm.Set1(y), label='Cluster {}'.format(y + 1) if label else None)
+    ax.annotate('%d' % i, xy=(x[0] + 0.05, x[1] + 0.05), fontsize=12)
+
+ax.set_xlabel(r'$x_0$', fontsize=14)
+ax.set_ylabel(r'$x_1$', fontsize=14)
+ax.legend()
+
+plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Como se esperaba, la muestra 18 ha sido asignada al gran clúster central, mientras que los puntos 31 y 33 están ahora aislados. Por supuesto, dado que el proceso es jerárquico, es más fácil imponer las restricciones de conectividad que las de separación. De hecho, si bien las muestras individuales pueden fusionarse fácilmente durante las etapas iniciales, su exclusión antes de la fusión final no puede garantizarse fácilmente utilizando todos los enlaces.</p>
+<p>Cuando se requieren restricciones complejas (dada una distancia y un enlace), a menudo es necesario ajustar tanto la matriz de conectividad como el número deseado de clústeres. Por supuesto, si el resultado deseado se logra con un número específico de clústeres, también se logrará con valores más grandes hasta un límite inferior de disimilitud (es decir, el proceso de fusión reduce el número de clústeres; por lo tanto, si la disimilitud es lo suficientemente grande, todas las restricciones existentes permanecerán válidas). Por ejemplo, si se restringe que tres muestras pertenezcan al mismo clúster, generalmente no podemos esperar este resultado después de las etapas iniciales de fusión.</p>
+<p>Sin embargo, si la fusión de las tres muestras ocurre a cierto nivel de disimilitud (por ejemplo, 2.0 correspondiente a 30 clústeres), también será válido para n &lt; 30 clústeres y para todas las configuraciones con DL &gt; 2.0. Por lo tanto, si comenzamos con 5 clústeres, podemos aumentar fácilmente este número asegurándonos de tener un nivel de disimilitud que sea mayor que el correspondiente a la última fusión impuesta por las restricciones. Te animo a probar este método con otros conjuntos de datos e intentar definir restricciones previas que puedan verificarse fácilmente después del proceso de agrupamiento.</p>
+
+</div>
+</div>
 </div>
 </div>
 </div>

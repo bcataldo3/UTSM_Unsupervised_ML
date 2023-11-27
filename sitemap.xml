@@ -2,67 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/Clase_01%20-%20Intro%20Modelos%20No%20Supervisados/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/Clase_02%20-%20Intro%20Modelos%20Conglomerados/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/Clase_03%20-%20Modelo%20K-Medias/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/Clase_04%20-%20Modelo%20K-Medias%20Caso%20Estudio/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/Clase_05%20-%20Modelo%20K-Medias%20Metricas%20Evaluacion/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/Clase_06%20-%20Modelos%20Jerarquicos/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/bcataldo3/plantilla_curso_python/Clase_07%20-%20Modelos%20Jer%C3%A1rquicos%20-%20Caso%20Estudio/</loc>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/__init__/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/basic/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/ejemplo/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/intro/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/pandas/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/bcataldo3/plantilla_curso_python/seaborn/</loc>
-         <lastmod>2023-11-23</lastmod>
+         <lastmod>2023-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

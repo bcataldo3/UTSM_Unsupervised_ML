@@ -10,7 +10,7 @@
         <meta name="author" content="Benjamin Cataldo">
       
       
-        <link rel="canonical" href="https://github.com/bcataldo3/plantilla_curso_python/Clase_06%20-%20Modelos%20Jerarquicos/">
+        <link rel="canonical" href="https://github.com/bcataldo3/plantilla_curso_python/Clase_07%20-%20Modelos%20Jer%C3%A1rquicos%20-%20Caso%20Estudio/">
       
       <link rel="icon" href="../images/logo_python.svg">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
@@ -405,78 +405,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#modelos-de-conglomerados-conglomerados-jerarquicos" class="md-nav__link">
-    Modelos de Conglomerados: Conglomerados Jerárquicos
+  <a href="#conglomerados-jerarquicos-caso-de-estudio" class="md-nav__link">
+    Conglomerados Jerárquicos - Caso de Estudio
   </a>
   
-    <nav class="md-nav" aria-label="Modelos de Conglomerados: Conglomerados Jerárquicos">
+    <nav class="md-nav" aria-label="Conglomerados Jerárquicos - Caso de Estudio">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#definicion" class="md-nav__link">
-    Definición
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metricas-de-distancia" class="md-nav__link">
-    Metricas de Distancia
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#funciones-de-enlace" class="md-nav__link">
-    Funciones de Enlace
-  </a>
-  
-    <nav class="md-nav" aria-label="Funciones de Enlace">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#enlace-simple" class="md-nav__link">
-    Enlace Simple
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enlace-completo" class="md-nav__link">
-    Enlace Completo
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enlace-primedio" class="md-nav__link">
-    Enlace Primedio
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enlace-de-ward" class="md-nav__link">
-    Enlace de Ward
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analisis-de-un-dendograma" class="md-nav__link">
-    Analisis de un Dendograma
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#coficiente-de-correlacion-cofenetica" class="md-nav__link">
-    Coficiente de Correlacion Cofenética
+  <a href="#descripcion-del-caso" class="md-nav__link">
+    Descripción del Caso
   </a>
   
 </li>
@@ -1536,53 +1474,8 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="modelos-de-conglomerados-conglomerados-jerarquicos">Modelos de Conglomerados: Conglomerados Jer&#225;rquicos<a class="anchor-link" href="#modelos-de-conglomerados-conglomerados-jerarquicos">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="definicion">Definici&#243;n<a class="anchor-link" href="#definicion">&#182;</a></h3><p>Los resultados de aplicar algoritmos de agrupación K-means o K-medoids dependen de la elección del número de clusters a buscar y de una asignación de configuración inicial. En contraste, los métodos de agrupación jerárquica no requieren tales especificaciones. En cambio, requieren que el usuario especifique una medida de disimilitud entre grupos (disjuntos) de observaciones, basada en las disimilitudes pareja a pareja entre las observaciones en los dos grupos.</p>
-<p>Como su nombre sugiere, estos métodos producen representaciones jerárquicas en las que los clusters en cada nivel de la jerarquía se crean fusionando clusters en el nivel inferior siguiente. En el nivel más bajo, cada cluster contiene una sola observación. En el nivel más alto, hay solo un cluster que contiene todos los datos.</p>
-<p>Las estrategias para la agrupación jerárquica se dividen en dos paradigmas básicos: aglomerativo (de abajo hacia arriba) y divisivo (de arriba hacia abajo).</p>
-<p>Las estrategias aglomerativas comienzan desde abajo y en cada nivel fusionan de manera recursiva un par seleccionado de clusters en un solo cluster. Esto produce una agrupación en el nivel superior con un cluster menos. El par elegido para la fusión consta de los dos grupos con la menor disimilitud intergrupal.</p>
-<p>Los métodos divisivos comienzan desde arriba y en cada nivel dividen de manera recursiva uno de los clusters existentes en ese nivel en dos nuevos clusters. La división se elige para producir dos nuevos grupos con la mayor disimilitud entre grupos.</p>
-<p>Con ambos paradigmas, hay N - 1 niveles en la jerarquía, donde N es el número total de observaciones.</p>
-<p>Cada nivel de la jerarquía representa una agrupación particular de los datos en clusters disjuntos de observaciones. Toda la jerarquía representa una secuencia ordenada de tales agrupaciones. Depende del usuario decidir qué nivel (si alguno) representa en realidad una agrupación "natural" en el sentido de que las observaciones dentro de cada uno de sus grupos son lo suficientemente similares entre sí como para que difieran significativamente de las observaciones asignadas a diferentes grupos en ese nivel. El estadístico Gap mencionado anteriormente se puede utilizar para este propósito.</p>
-<p>La división/aglomeración binaria recursiva se puede representar mediante un árbol binario con raíz. Los nodos del árbol representan grupos. El nodo raíz representa el conjunto de datos completo. Los N nodos terminales representan cada uno de las observaciones individuales (clusters singleton). Cada nodo no terminal ("padre") tiene dos nodos hijas. Para la agrupación divisiva, las dos hijas representan los dos grupos resultantes de la división del padre; para la agrupación aglomerativa, las hijas representan los dos grupos que se fusionaron para formar el padre.</p>
-<h3 id="metricas-de-distancia">Metricas de Distancia<a class="anchor-link" href="#metricas-de-distancia">&#182;</a></h3><p>Como se ha mencionado, se requiere de una métrica de distancia que define la disimilitud entre cada par de muestras. Ya hemos analizado muchos de ellos pero, en este
-En contexto, es útil comenzar a considerar la distancia genérica de Minkowski (parametrizada con $p$):</p>
-<p>$sdvsdvsd$</p>
-<p>Mencionamos dos casos particulares muy utilizados. Para $p=2$ tenemos la llamada distancia euclideana.</p>
-<p>$dsvsvsdvsd$</p>
-<p>Para $p=1$ se obtiene la distancia de Manhatan o distancia del taxista.</p>
-<p>$dsv vddssdds$</p>
-<p>Luego de elegir una distancia, pasamos a la creacion a la matriz de distancias $P$</p>
-<p>El siguiente paso es definir una estrategia de fusión, la cual, en este caso, se llama enlace. El objetivo de un método de enlace es encontrar los grupos que deben fusionarse en uno solo en cada nivel de la jerarquía. Por lo tanto, debe trabajar con conjuntos de muestras genéricas que representen los grupos. En este caso, supongamos que estamos analizando un par de grupos (Ca, Cb) y necesitamos encontrar qué índice, a o b, corresponde a la pareja que será fusionada.</p>
-<h3 id="funciones-de-enlace">Funciones de Enlace<a class="anchor-link" href="#funciones-de-enlace">&#182;</a></h3><h4 id="enlace-simple">Enlace Simple<a class="anchor-link" href="#enlace-simple">&#182;</a></h4><p>El método de enlace simple selecciona la pareja que contiene el par más cercano de muestras (cada una de ellas perteneciente a un clúster diferente). Este proceso se muestra en el siguiente diagrama, donde se seleccionan C1 y C2 para fusionarse</p>
-<p>$skADLDLañ$</p>
-<p>(insertar figura)</p>
-<p>La principal desventaja de este método es la posibilidad de tener pequeños clústeres junto con otros muy grandes. Como veremos en la siguiente sección, el enlace único puede mantener aislados a los valores atípicos hasta que existan niveles de disimilitud muy altos. Para evitar o mitigar este problema, se pueden utilizar los métodos de promedio y Ward</p>
-<h4 id="enlace-completo">Enlace Completo<a class="anchor-link" href="#enlace-completo">&#182;</a></h4><p>El objetivo de este método de enlace es minimizar la distancia entre las muestras más alejadas que pertenecen a los clústeres fusionados. En el siguiente diagrama, se muestra un ejemplo de enlace completo, donde se han seleccionado C1 y C3. Su formula matemática es:</p>
-<p>$dvñsldvfsd$</p>
-<p>(insertar imagen)</p>
-<p>El algoritmo selecciona C1 y C3 para aumentar la cohesión interna. De hecho, es fácil entender que el enlace completo resulta en la maximización de la densidad del clúster, considerando todas las combinaciones posibles. En el ejemplo mostrado en el diagrama anterior, si el número deseado de clústeres es dos, fusionar C1 y C2 o C2 y C3 daría como resultado una configuración final con menos cohesión, lo cual suele ser un resultado no deseado</p>
-<h4 id="enlace-primedio">Enlace Primedio<a class="anchor-link" href="#enlace-primedio">&#182;</a></h4><p>$asvfvsdsdds$</p>
-<p>La idea es bastante similar al enlace completo, pero en este caso se tiene en cuenta el promedio de cada clúster y el objetivo es minimizar la distancia promedio entre clústeres, considerando todos los pares posibles (Ca, Cb). El siguiente diagrama muestra un ejemplo de enlace promedio</p>
-<p>(insertar imagen)</p>
-<p>El enlace promedio es particularmente útil en aplicaciones de bioinformática (que es el contexto principal en el que se ha definido el agrupamiento jerárquico). La explicación matemática de sus propiedades es compleja y te animo a consultar el artículo original ("A Statistical Method for Evaluating Systematic Relationships", Sokal R., Michener C., University of Kansas Science Bulletin, 38, 1958) para obtener más detalles.</p>
-<h4 id="enlace-de-ward">Enlace de Ward<a class="anchor-link" href="#enlace-de-ward">&#182;</a></h4><p>El último método que vamos a discutir se llama enlace de Ward (llamado así por su autor y originalmente propuesto en "Hierarchical Grouping to Optimize an Objective Function", Ward Jr J. H., Journal of the American Statistical Association. 58(301), 1963). Está basado en la distancia euclidiana y la definición formal es la siguiente:</p>
-<p>$fasflkasdmas$</p>
-<p>En cada nivel, se consideran todos los clústeres y se seleccionan dos de ellos con el objetivo de minimizar la suma de las distancias al cuadrado. El proceso en sí no difiere mucho del enlace promedio y es posible demostrar que el proceso de fusión conduce a una reducción en la varianza de los clústeres (es decir, aumenta su cohesión interna). Además, el enlace de Ward tiende a producir clústeres que contienen aproximadamente el mismo número de muestras (es decir, en comparación con el enlace único, el método de Ward evita la presencia de clústeres pequeños junto con otros muy grandes, como se discute en la siguiente sección). El enlace de Ward es una elección predeterminada popular, pero para tomar la decisión correcta en cada contexto específico, es necesario introducir el concepto de dendrograma.</p>
-<h3 id="analisis-de-un-dendograma">Analisis de un Dendograma<a class="anchor-link" href="#analisis-de-un-dendograma">&#182;</a></h3><p>Todos los métodos aglomerativos y algunos métodos divisivos (cuando se ven de abajo hacia arriba) poseen una propiedad de monotonía. Es decir, la disimilitud entre los clusters fusionados aumenta monótonamente con el nivel de la fusión. Por lo tanto, el árbol binario se puede representar de manera que la altura de cada nodo sea proporcional al valor de la disimilitud intergrupal entre sus dos hijas. Los nodos terminales que representan observaciones individuales se representan todos a una altura de cero. Este tipo de representación gráfica se llama dendrograma.</p>
-<p>Un dendrograma proporciona una descripción completa y altamente interpretable de la agrupación jerárquica en un formato gráfico. Esta es una de las principales razones de la popularidad de los métodos de agrupación jerárquica.</p>
-<p>La idea es bastante sencilla: colocar las muestras en el eje x y el nivel de disimilitud en el eje y. Cada vez que dos clústeres se fusionan, el dendrograma muestra una conexión correspondiente al nivel de disimilitud en el que ocurrió la fusión. Por lo tanto, en un escenario aglomerativo, un dendrograma siempre comienza con todas las muestras consideradas como clústeres y se mueve hacia arriba (la dirección es puramente convencional) hasta que se define un solo clúster.</p>
-<p>Con fines didácticos, es preferible mostrar el dendrograma correspondiente a un conjunto de datos muy pequeño, X, pero todos los conceptos que vamos a discutir pueden aplicarse a cualquier situación. Sin embargo, con conjuntos de datos más grandes, a menudo será necesario aplicar algunas truncaciones para visualizar toda la estructura de una forma más compacta. Consideremos un conjunto de datos pequeño, X, compuesto por 12 muestras bidimensionales generadas por 4 distribuciones gaussianas con vectores medios en el rango (-1, 1) × (-1, 1):</p>
+<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="conglomerados-jerarquicos-caso-de-estudio">Conglomerados Jer&#225;rquicos - Caso de Estudio<a class="anchor-link" href="#conglomerados-jerarquicos-caso-de-estudio">&#182;</a></h2><h3 id="descripcion-del-caso">Descripci&#243;n del Caso<a class="anchor-link" href="#descripcion-del-caso">&#182;</a></h3><p>Ahora consideremos un problema más detallado en un conjunto de datos más grande que contiene 527 muestras con 38 variables químicas y físicas que describen el estado de las plantas de tratamiento de agua. Como los mismos autores (Bejar, Cortes y Poch) mencionaron, el dominio está poco estructurado y se necesita un análisis cuidadoso. Al mismo tiempo, nuestro objetivo es encontrar el agrupamiento óptimo con un enfoque agnóstico; es decir, no consideraremos el proceso de etiquetado semántico (que requiere un experto en el dominio), sino únicamente la estructura geométrica del conjunto de datos y las relaciones descubiertas por el algoritmo aglomerativo.</p>
+<p>La primera columna es un índice relacionado con la planta específica, mientras que todos los demás valores son numéricos y pueden convertirse a float64. Los valores faltantes están indicados con el carácter '?', y como no tenemos otra información, se establecen con la media de cada atributo. Además, dado que las variables individuales tienen magnitudes muy diferentes (invito al lector a verificar esta afirmación utilizando la función describe en el DataFrame), es preferible normalizarlas en el rango (-1, 1), preservando la varianza origina. En este punto, como es habitual, podemos emplear el algoritmo t-SNE para proyectar el conjunto de datos en un espacio bidimensional:</p>
 
 </div>
 </div>
@@ -1608,51 +1501,45 @@ En contexto, es útil comenzar a considerar la distancia genérica de Minkowski 
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">nb_samples</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">nb_centers</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="n">nb_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">center_box</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">centers</span><span class="o">=</span><span class="n">nb_centers</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Standardize the dataset</span>
+<span class="n">ss</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">(</span><span class="n">with_std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sdf</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Perform the TSNE non-linear dimensionality reduction</span>
+<span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">perplexity</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">data_tsne</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sdf</span><span class="p">)</span>
+
+<span class="n">df_tsne</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_tsne</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">dff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df_tsne</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Show the dataset</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_0$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
 </pre></div>
-<div id="cell-1" class="clipboard-copy-txt">import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.datasets import make_blobs
-np.random.seed(1000)
-nb_samples = 12
-nb_centers = 4
-X, Y = make_blobs(n_samples=nb_samples, n_features=2, center_box=[-1, 1], centers=nb_centers, random_state=1000)
+<div id="cell-1" class="clipboard-copy-txt">
+
+df = pd.read_csv(data_path, header=None, index_col=0, na_values='?').astype(np.float64)
+df.fillna(df.mean(), inplace=True)
+
+# Standardize the dataset
+ss = StandardScaler(with_std=False)
+sdf = ss.fit_transform(df)
+
+# Perform the TSNE non-linear dimensionality reduction
+tsne = TSNE(n_components=2, perplexity=10, random_state=1000)
+data_tsne = tsne.fit_transform(sdf)
+
+df_tsne = pd.DataFrame(data_tsne, columns=['x', 'y'], index=df.index)
+dff = pd.concat([df, df_tsne], axis=1)
 
 # Show the dataset
 sns.set()
 
-fig, ax = plt.subplots(figsize=(12, 8))
-
-for i, x in enumerate(X):
-    ax.scatter(x[0], x[1], s=120)
-    ax.annotate('%d' % i, xy=(x[0] + 0.05, x[1] + 0.05), fontsize=12)
-
-ax.set_xlabel(r'$x_0$', fontsize=14)
-ax.set_ylabel(r'$x_1$', fontsize=14)
-
-plt.show()</div>
+fig, ax = plt.subplots(figsize=(18, 11))</div>
     
         </div>
     </div>
@@ -1660,19 +1547,6 @@ plt.show()</div>
 </div>
 </div>
 
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>(insertamos imagen)</p>
-<p>Para generar un dendrograma (usando SciPy), primero necesitamos crear una matriz de enlace. En este caso, hemos elegido una métrica euclidiana con el enlace de Ward (pero, como es habitual, te animo a realizar el análisis con diferentes configuraciones).</p>
-
-</div>
-</div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -1695,15 +1569,9 @@ plt.show()</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">pdist</span>
-<span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">linkage</span>
-<span class="n">dm</span> <span class="o">=</span> <span class="n">pdist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">linkage</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ward&#39;</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span>
 </pre></div>
-<div id="cell-2" class="clipboard-copy-txt">from scipy.spatial.distance import pdist
-from scipy.cluster.hierarchy import linkage
-dm = pdist(X, metric='euclidean')
-Z = linkage(dm, method='ward')</div>
+<div id="cell-2" class="clipboard-copy-txt"></div>
     
         </div>
     </div>
@@ -1711,126 +1579,6 @@ Z = linkage(dm, method='ward')</div>
 </div>
 </div>
 
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>El array dm es una matriz condensada de distancias por pares, mientras que Z es la matriz de enlace producida por el método de Ward (la función linkage() requiere el parámetro method, que acepta, entre otros, los valores single, complete, average y ward). En este punto, podemos generar y trazar el dendrograma (la función dendrogram() puede trazar automáticamente el diagrama utilizando un objeto de ejes predeterminado o suministrado por Matplotlib):</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="CodeMirror cm-s-jupyter">
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-3">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
-                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">dendrogram</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">dendrogram</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">show_leaf_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">leaf_font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Samples&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-<div id="cell-3" class="clipboard-copy-txt">import matplotlib.pyplot as plt
-from scipy.cluster.hierarchy import dendrogram
-fig, ax = plt.subplots(figsize=(12, 8))
-d = dendrogram(Z, show_leaf_counts=True, leaf_font_size=14, ax=ax)
-ax.set_xlabel('Samples', fontsize=14)
-ax.set_yticks(np.arange(0, 6, 0.25))
-plt.show()</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>(insertar imagen)</p>
-<p>Como se explicó en la captura de pantalla anterior, el eje x representa las muestras con la intención de minimizar el riesgo de conexiones cruzadas, mientras que el eje y muestra el nivel de disimilitud. Ahora analicemos el diagrama desde la parte inferior. El estado inicial corresponde a todas las muestras consideradas como clústeres independientes (por lo que la disimilitud es nula). Al avanzar hacia arriba, comenzamos a observar las primeras fusiones. En particular, cuando la disimilitud es aproximadamente 0.35, las muestras 1 y 3 se fusionan.</p>
-<p>(continuar explicando las agrupaciones jerarquicas)</p>
-<h3 id="coficiente-de-correlacion-cofenetica">Coficiente de Correlacion Cofen&#233;tica<a class="anchor-link" href="#coficiente-de-correlacion-cofenetica">&#182;</a></h3><p>El rendimiento del agrupamiento jerárquico puede ser evaluado utilizando cualquiera de los métodos presentados en los capítulos anteriores. Sin embargo, en este caso particular, se puede emplear una medida específica (que no requiere la verdad absoluta). Dada una matriz de proximidad, P, y un enlace, L, un par de muestras, xi y xj ∈ X, siempre son asignadas al mismo grupo en un cierto nivel jerárquico. Por supuesto, es importante recordar que en el escenario aglomerativo, comenzamos con n grupos diferentes y terminamos con un único grupo equivalente a X. Además, a medida que dos grupos fusionados se convierten en uno solo, dos muestras pertenecientes a un grupo siempre seguirán perteneciendo al mismo grupo ampliado hasta el final del proceso.</p>
-<p>En este punto, podemos definir DLij como el nivel de disimilitud en el que xi y xj pertenecen al mismo grupo por primera vez, y la matriz cofenética denotada como CP en la siguiente matriz (n × n):</p>
-<p>(formula latex)</p>
-<p>En otras palabras, el elemento CPij es la disimilitud más pequeña necesaria para observar a xi y xj en el mismo grupo. Es posible demostrar que CPij es una métrica de distancia entre xi y xj; por lo tanto, CP es análogo a P y tiene las mismas propiedades de la matriz de proximidad (por ejemplo, todos los elementos diagonales son nulos). En particular, nos interesa su correlación (normalizada en el rango de -1 a 1). Dicho valor (coeficiente de correlación cofenética (CPC)) indica el nivel de concordancia entre P y CP y puede calcularse fácilmente, como se muestra en la siguiente ecuación.</p>
-<p>Dado que tanto P como CP son matrices simétricas de tamaño (n × n) con elementos diagonales nulos, es posible considerar solo la parte triangular inferior (excluyendo la diagonal y señalada como Tril(•)), que contiene n(n-1)/2 valores. Por lo tanto, los valores promedio son los siguientes:</p>
-<p>La ecuación anterior se basa en la suposición de que si tres muestras, xi, xj y xp, tienen distancias tales como d(xi, xj) &lt; d(xi, xp), es razonable esperar que xi y xj se fusionen en el mismo grupo antes que xi y xp (es decir, el nivel de disimilitud correspondiente a la fusión de xi y xj es menor que el correspondiente a la fusión de xi y xp). Por lo tanto, CPC → 1 indica que la vinculación genera una jerarquía óptima, que refleja la geometría subyacente. Por otro lado, CPC → -1 indica un desacuerdo completo y un resultado de agrupamiento potencial que no es coherente con la geometría. Cabe mencionar que, dado un problema, nuestro objetivo es encontrar una métrica y una vinculación que maximicen el CPC.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
 </div>
 </div>
 </div>

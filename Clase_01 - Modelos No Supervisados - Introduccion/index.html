@@ -405,24 +405,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduccion-a-los-modelos-no-supervisados" class="md-nav__link">
-    Introducción a los Modelos No Supervisados
+  <a href="#modelos-no-supervisados-introduccion" class="md-nav__link">
+    Modelos No Supervisados - Introducción
   </a>
   
-    <nav class="md-nav" aria-label="Introducción a los Modelos No Supervisados">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#definiciones" class="md-nav__link">
-    Definiciones
-  </a>
-  
-    <nav class="md-nav" aria-label="Definiciones">
+    <nav class="md-nav" aria-label="Modelos No Supervisados - Introducción">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#conceptos-preliminares-del-capitulo" class="md-nav__link">
     Conceptos Preliminares del Capítulo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-es-un-modelo-no-supervisado" class="md-nav__link">
+    ¿Qué es un Modelo No Supervisado?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelos-no-supervisados-hoy-en-dia" class="md-nav__link">
+    Modelos No Supervisados Hoy en Día
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelos No Supervisados Hoy en Día">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#desarrollo-reciente" class="md-nav__link">
+    Desarrollo Reciente
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicaciones-al-mundo-real" class="md-nav__link">
+    Aplicaciones al Mundo Real
   </a>
   
 </li>
@@ -433,16 +454,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#modelos-no-supervisados-hoy-en-dia" class="md-nav__link">
-    Modelos No Supervisados Hoy en Día
+  <a href="#modelos-supervisados-vs-no-supervisados" class="md-nav__link">
+    Modelos Supervisados vs No Supervisados
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelos Supervisados vs No Supervisados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datos-no-etiquetados" class="md-nav__link">
+    Datos no etiquetados
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#modelos-supervisados-vs-no-supervisados" class="md-nav__link">
-    Modelos Supervisados vs No Supervisados
+  <a href="#aprendizaje-no-orientado" class="md-nav__link">
+    Aprendizaje no orientado
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluacion-mas-subjetiva" class="md-nav__link">
+    Evaluación más subjetiva
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1515,18 +1556,7 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="introduccion-a-los-modelos-no-supervisados">Introducci&#243;n a los Modelos No Supervisados<a class="anchor-link" href="#introduccion-a-los-modelos-no-supervisados">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="definiciones">Definiciones<a class="anchor-link" href="#definiciones">&#182;</a></h3><h4 id="conceptos-preliminares-del-capitulo">Conceptos Preliminares del Cap&#237;tulo<a class="anchor-link" href="#conceptos-preliminares-del-capitulo">&#182;</a></h4><p>Aca debemos generar una lista de definiciones de conceptos técnicos y no técnicos que utilizaremos con frecuencia dentro del capitulo, con el objetivo de que el alumno no esté perdido.</p>
+<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="modelos-no-supervisados-introduccion">Modelos No Supervisados - Introducci&#243;n<a class="anchor-link" href="#modelos-no-supervisados-introduccion">&#182;</a></h2><h3 id="conceptos-preliminares-del-capitulo">Conceptos Preliminares del Cap&#237;tulo<a class="anchor-link" href="#conceptos-preliminares-del-capitulo">&#182;</a></h3><p>Aca debemos generar una lista de definiciones de conceptos técnicos y no técnicos que utilizaremos con frecuencia dentro del capitulo, con el objetivo de que el alumno no esté perdido.</p>
 <ul>
 <li><em>Aprendizaje Automático</em>: También conocido como "<em>machine learning</em>" en inglés, es un subcampo de la inteligencia artificial que se enfoca en el desarrollo de algoritmos y modelos computacionales que permiten a las máquinas aprender y mejorar su rendimiento en tareas específicas a partir de datos, sin la necesidad de una programación explícita. En otras palabras, el aprendizaje automático se basa en la idea de que las computadoras pueden aprender de la experiencia y ajustar automáticamente su comportamiento en función de esa experiencia.</li>
 <li><em>Datos de entrada</em>: Los algoritmos de aprendizaje automático utilizan datos como entrada en lugar de reglas de programación explícitas. Estos datos pueden ser de diferentes tipos, como texto, imágenes, sonido o datos numéricos.</li>
@@ -1539,21 +1569,8 @@ Licensed under the Apache License, Version 2.0.
 <li><em>Función de Costo</em>: También llamada función de pérdida o función objetivo, es una medida que se utiliza en el aprendizaje automático para evaluar qué tan bien un modelo de machine learning está realizando sus predicciones en comparación con los valores reales de los datos de entrenamiento.</li>
 <li><em>Reproductibilidad</em>: En término generales es la capacidad de repetir un experimento, estudio o análisis utilizando los mismos datos, herramientas, métodos y procesos que se utilizaron originalmente, y obtener resultados consistentes. Dentro del capítulo veremos algunos ejemplos en donde generaremos cierta data aleatoriamente, o algún método de machine learning requiere de algunos valores aleatorios. Para obtener la reproductibilidad en estos casos se suele ajustar una <em>semilla</em> a un valor determinado, lo que permite que, al generar estos valores aleatorios, estos sean los mismos que la vez anterior.</li>
 </ul>
-<p><strong><em>Definición</em></strong></p>
-<p>Un modelo no supervisado es un enfoque del aprendizaje automático que se utiliza para <strong>descubrir patrones, estructuras y relaciones ocultas en conjuntos de datos no etiquetados</strong>. A diferencia de los modelos supervisados que requieren etiquetas para entrenar y predecir, los modelos no supervisados se basan únicamente en las características intrínsecas de los datos para realizar tareas como el agrupamiento, la reducción de dimensionalidad y la detección de anomalías.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="modelos-no-supervisados-hoy-en-dia">Modelos No Supervisados Hoy en D&#237;a<a class="anchor-link" href="#modelos-no-supervisados-hoy-en-dia">&#182;</a></h3><p><strong><em>Desarrollo Reciente</em></strong></p>
-<p>En las últimas décadas, ha habido un desarrollo significativo en el campo de los modelos no supervisados. Esto se ha impulsado principalmente por el aumento de la disponibilidad de grandes volúmenes de datos no etiquetados y los avances en técnicas de aprendizaje automático. Algunos de los desarrollos más destacados incluyen:</p>
+<h3 id="que-es-un-modelo-no-supervisado">&#191;Qu&#233; es un Modelo No Supervisado?<a class="anchor-link" href="#que-es-un-modelo-no-supervisado">&#182;</a></h3><p>Un modelo no supervisado es un enfoque del aprendizaje automático que se utiliza para <strong>descubrir patrones, estructuras y relaciones ocultas en conjuntos de datos no etiquetados</strong>. A diferencia de los modelos supervisados que requieren etiquetas para entrenar y predecir, los modelos no supervisados se basan únicamente en las características intrínsecas de los datos para realizar tareas como el agrupamiento, la reducción de dimensionalidad y la detección de anomalías.</p>
+<h3 id="modelos-no-supervisados-hoy-en-dia">Modelos No Supervisados Hoy en D&#237;a<a class="anchor-link" href="#modelos-no-supervisados-hoy-en-dia">&#182;</a></h3><h4 id="desarrollo-reciente">Desarrollo Reciente<a class="anchor-link" href="#desarrollo-reciente">&#182;</a></h4><p>En las últimas décadas, ha habido un desarrollo significativo en el campo de los modelos no supervisados. Esto se ha impulsado principalmente por el aumento de la disponibilidad de grandes volúmenes de datos no etiquetados y los avances en técnicas de aprendizaje automático. Algunos de los desarrollos más destacados incluyen:</p>
 <ul>
 <li><p>Algoritmos de agrupamiento mejorados: Se han desarrollado algoritmos más sofisticados y eficientes para el agrupamiento de datos. Ejemplos incluyen el algoritmo de k-medias mejorado con inicializaciones inteligentes y métodos de agrupamiento jerárquico.</p>
 </li>
@@ -1564,8 +1581,7 @@ Licensed under the Apache License, Version 2.0.
 <li><p>Avances en la detección de anomalías: Se han desarrollado técnicas más efectivas para la detección de anomalías en conjuntos de datos. Estas técnicas utilizan métodos como el análisis de valores atípicos, modelos generativos y técnicas de aprendizaje semi-supervisado para identificar patrones inusuales o comportamientos anómalos.</p>
 </li>
 </ul>
-<p><strong><em>Aplicaciones al Mundo Real</em></strong></p>
-<p>Los modelos no supervisados han experimentado un desarrollo significativo en las últimas décadas gracias al aumento de datos no etiquetados y los avances en técnicas de aprendizaje automático. Han encontrado aplicaciones amplias en diversas áreas de las ciencias y el mundo empresarial, desempeñando un papel crucial en la extracción de conocimientos y la toma de decisiones informadas a partir de datos no etiquetados. Algunas de las áreas donde los modelos no supervisados se utilizan ampliamente incluyen:</p>
+<h4 id="aplicaciones-al-mundo-real">Aplicaciones al Mundo Real<a class="anchor-link" href="#aplicaciones-al-mundo-real">&#182;</a></h4><p>Los modelos no supervisados han experimentado un desarrollo significativo en las últimas décadas gracias al aumento de datos no etiquetados y los avances en técnicas de aprendizaje automático. Han encontrado aplicaciones amplias en diversas áreas de las ciencias y el mundo empresarial, desempeñando un papel crucial en la extracción de conocimientos y la toma de decisiones informadas a partir de datos no etiquetados. Algunas de las áreas donde los modelos no supervisados se utilizan ampliamente incluyen:</p>
 <ul>
 <li><p>Ciencias de datos: Los modelos no supervisados desempeñan un papel crucial en la exploración y el análisis de grandes conjuntos de datos no etiquetados. Ayudan a identificar relaciones y patrones ocultos que pueden ser utilizados para obtener conocimientos y tomar decisiones informadas.</p>
 </li>
@@ -1576,32 +1592,16 @@ Licensed under the Apache License, Version 2.0.
 <li><p>Marketing y recomendaciones: Los modelos no supervisados se utilizan para el análisis de datos de clientes, la segmentación de mercado, la personalización de la experiencia del usuario y la generación de recomendaciones basadas en el comportamiento del usuario.</p>
 </li>
 </ul>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="modelos-supervisados-vs-no-supervisados">Modelos Supervisados vs No Supervisados<a class="anchor-link" href="#modelos-supervisados-vs-no-supervisados">&#182;</a></h3><p>Los modelos no supervisados difieren de los modelos supervisados en varios aspectos que repasaremos en detalle.</p>
-<p><strong><em>Datos no etiquetados</em></strong></p>
-<p>Los modelos no supervisados trabajan con datos no etiquetados, lo que significa que no se les proporciona información explícita sobre las salidas o categorías esperadas.
-Dado un conjunto de datos de entrenamiento X y sus respectivas etiquetas Y, un modelo supervisado busca aprender una función f(X) = Y que mapee las características de entrada X a las etiquetas conocidas Y. En términos de fórmulas, se puede expresar como:
-Y = f(X)</p>
-<p>Dado un conjunto de datos de entrenamiento X, un modelo no supervisado busca aprender una representación latente Z de los datos o encontrar agrupamientos o relaciones entre las muestras en X. En términos de fórmulas, se puede expresar como:
-Z = g(X) o Z = h(X)</p>
-<p>Donde Z es la representación latente o los agrupamientos descubiertos, y g(X) o h(X) son funciones que realizan la transformación de los datos X.</p>
-<p><strong><em>Aprendizaje no orientado</em></strong></p>
-<p>El aprendizaje no orientado es una característica fundamental de los modelos no supervisados. A diferencia de los modelos supervisados, que tienen una orientación específica hacia la predicción de etiquetas o categorías conocidas, los modelos no supervisados no reciben ninguna guía o información explícita sobre las salidas esperadas.</p>
+<h4 id="datos-no-etiquetados">Datos no etiquetados<a class="anchor-link" href="#datos-no-etiquetados">&#182;</a></h4><p>Los modelos no supervisados trabajan con datos no etiquetados, lo que significa que no se les proporciona información explícita sobre las salidas o categorías esperadas.
+Dado un conjunto de datos de entrenamiento $X$ y sus respectivas etiquetas Y, un modelo supervisado busca aprender una función $f(X) = Y$ que mapee las características de entrada $X$ a las etiquetas conocidas Y. En términos de fórmulas, se puede expresar como $Y = f(X)$</p>
+<p>Dado un conjunto de datos de entrenamiento $X$, un modelo no supervisado busca aprender una representación latente $Z$ de los datos o encontrar agrupamientos o relaciones entre las muestras en $X$. En términos de fórmulas, se puede expresar como $Z = g(X)$ o $Z = h(X)$</p>
+<p>Donde $Z$ es la representación latente o los agrupamientos descubiertos, y $g(X)$ o $h(X)$ son funciones que realizan la transformación de los datos $X$.</p>
+<h4 id="aprendizaje-no-orientado">Aprendizaje no orientado<a class="anchor-link" href="#aprendizaje-no-orientado">&#182;</a></h4><p>El aprendizaje no orientado es una característica fundamental de los modelos no supervisados. A diferencia de los modelos supervisados, que tienen una orientación específica hacia la predicción de etiquetas o categorías conocidas, los modelos no supervisados no reciben ninguna guía o información explícita sobre las salidas esperadas.</p>
 <p>En lugar de buscar una relación entre las características de entrada y las etiquetas conocidas, los modelos no supervisados se centran en descubrir patrones subyacentes, estructuras o características latentes en los datos no etiquetados. Estos patrones pueden manifestarse en forma de agrupamientos, similitudes, anomalías o representaciones más compactas de los datos.</p>
 <p>La tarea principal de un modelo no supervisado es aprender una representación interna del conjunto de datos que capture las relaciones relevantes entre las variables o muestras. Esto se logra a través de algoritmos y técnicas diseñados para buscar regularidades, redundancias o características comunes en los datos sin necesidad de una guía externa.</p>
 <p>Al no tener una orientación específica, los modelos no supervisados son más flexibles y pueden descubrir información inesperada o desconocida en los datos. Esto los hace especialmente útiles en situaciones donde las etiquetas pueden ser costosas o difíciles de obtener, o cuando se desconoce la estructura subyacente del conjunto de datos.</p>
-<p><strong><em>Evaluación más subjetiva</em></strong></p>
-<p>La evaluación de los modelos no supervisados a menudo implica un componente subjetivo debido a la falta de etiquetas o respuestas previas para comparar con los resultados obtenidos. A diferencia de los modelos supervisados, donde la precisión y el error se pueden medir objetivamente en función de las etiquetas conocidas, la evaluación de los modelos no supervisados es más subjetiva y puede depender de la interpretación del usuario.</p>
+<h4 id="evaluacion-mas-subjetiva">Evaluaci&#243;n m&#225;s subjetiva<a class="anchor-link" href="#evaluacion-mas-subjetiva">&#182;</a></h4><p>La evaluación de los modelos no supervisados a menudo implica un componente subjetivo debido a la falta de etiquetas o respuestas previas para comparar con los resultados obtenidos. A diferencia de los modelos supervisados, donde la precisión y el error se pueden medir objetivamente en función de las etiquetas conocidas, la evaluación de los modelos no supervisados es más subjetiva y puede depender de la interpretación del usuario.</p>
 <p>Aquí hay algunas razones por las que la evaluación de los modelos no supervisados puede tener un componente subjetivo:</p>
 <ul>
 <li><p>Falta de respuestas previas: En los modelos no supervisados, no se proporcionan etiquetas o respuestas conocidas durante el entrenamiento. Esto dificulta la evaluación objetiva de la precisión o el rendimiento del modelo en términos de predicciones específicas.</p>
@@ -1617,29 +1617,7 @@ Z = g(X) o Z = h(X)</p>
 </ul>
 <p>Dado que la evaluación en los modelos no supervisados puede ser subjetiva, es importante involucrar a expertos en el dominio y realizar una validación exhaustiva en el contexto específico de la aplicación. Además, la comparación con métodos alternativos o la realización de pruebas de sensibilidad puede ayudar a obtener una evaluación más completa y robusta.
 En resumen, la evaluación de los modelos no supervisados a menudo implica un componente subjetivo debido a la falta de etiquetas o respuestas previas. La interpretación de los resultados, las métricas de evaluación y la definición de objetivos pueden variar según el contexto y los requisitos específicos de la aplicación, lo que requiere la participación de expertos en el dominio y una validación cuidadosa.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="resumen">Resumen<a class="anchor-link" href="#resumen">&#182;</a></h3><p>Acá debemos resumir las principales ideas del capitulo. Todos los capítulos deben tenerlo</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="literatura">Literatura<a class="anchor-link" href="#literatura">&#182;</a></h3><p>Detalle de los libros que se utilizaron (con capítulo incluido)</p>
 
 </div>

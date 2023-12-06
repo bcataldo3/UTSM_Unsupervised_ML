@@ -10,7 +10,7 @@
         <meta name="author" content="Benjamin Cataldo">
       
       
-        <link rel="canonical" href="https://github.com/bcataldo3/plantilla_curso_python/Clase_01%20-%20Intro%20Modelos%20No%20Supervisados/">
+        <link rel="canonical" href="https://github.com/bcataldo3/plantilla_curso_python/Clase_02%20-%20Modelos%20Conglomerados%20-%20Introduccion/">
       
       <link rel="icon" href="../images/logo_python.svg">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
@@ -405,57 +405,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduccion-a-los-modelos-no-supervisados" class="md-nav__link">
-    Introducción a los Modelos No Supervisados
+  <a href="#modelos-de-conglomerados-introduccion" class="md-nav__link">
+    Modelos de Conglomerados: Introducción
   </a>
   
-    <nav class="md-nav" aria-label="Introducción a los Modelos No Supervisados">
+    <nav class="md-nav" aria-label="Modelos de Conglomerados: Introducción">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#definiciones" class="md-nav__link">
-    Definiciones
-  </a>
-  
-    <nav class="md-nav" aria-label="Definiciones">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#conceptos-preliminares-del-capitulo" class="md-nav__link">
-    Conceptos Preliminares del Capítulo
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modelos-no-supervisados-hoy-en-dia" class="md-nav__link">
-    Modelos No Supervisados Hoy en Día
+  <a href="#donde-se-utilizan-los-modelos-de-clasificacion" class="md-nav__link">
+    ¿Donde Se utilizan los Modelos de Clasificación?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#modelos-supervisados-vs-no-supervisados" class="md-nav__link">
-    Modelos Supervisados vs No Supervisados
+  <a href="#multidimensionalidad-de-los-modelos-de-clasificacion" class="md-nav__link">
+    Multidimensionalidad de los Modelos de Clasificación
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#resumen" class="md-nav__link">
-    Resumen
+  <a href="#requisitos-del-modelo-de-conglomerados" class="md-nav__link">
+    Requisitos del Modelo de Conglomerados
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#literatura" class="md-nav__link">
-    Literatura
+  <a href="#tipos-de-modelos" class="md-nav__link">
+    Tipos de Modelos
   </a>
   
 </li>
@@ -1515,7 +1495,7 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="introduccion-a-los-modelos-no-supervisados">Introducci&#243;n a los Modelos No Supervisados<a class="anchor-link" href="#introduccion-a-los-modelos-no-supervisados">&#182;</a></h2>
+<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="modelos-de-conglomerados-introduccion">Modelos de Conglomerados: Introducci&#243;n<a class="anchor-link" href="#modelos-de-conglomerados-introduccion">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1526,48 +1506,19 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="definiciones">Definiciones<a class="anchor-link" href="#definiciones">&#182;</a></h3><h4 id="conceptos-preliminares-del-capitulo">Conceptos Preliminares del Cap&#237;tulo<a class="anchor-link" href="#conceptos-preliminares-del-capitulo">&#182;</a></h4><p>Aca debemos generar una lista de definiciones de conceptos técnicos y no técnicos que utilizaremos con frecuencia dentro del capitulo, con el objetivo de que el alumno no esté perdido.</p>
+<h3 id="donde-se-utilizan-los-modelos-de-clasificacion">&#191;Donde Se utilizan los Modelos de Clasificaci&#243;n?<a class="anchor-link" href="#donde-se-utilizan-los-modelos-de-clasificacion">&#182;</a></h3><p>La clasificación es una de las operaciones más básicas en la investigación científica. Es particularmente importante en las ciencias sociales, donde a menudo se carece de una teoría integral y el primer paso en la investigación suele ser detectar algún tipo de patrón en los datos. Los métodos de clasificación se han utilizado durante mucho tiempo en biología, donde la agrupación de individuos según especie y género ha sido la base de muchos trabajos posteriores. La siguiente lista altamente selectiva ilustra por qué podríamos estar interesados en encontrar grupos y qué propósitos prácticos podrían servir.</p>
 <ul>
-<li><em>Aprendizaje Automático</em>: También conocido como "<em>machine learning</em>" en inglés, es un subcampo de la inteligencia artificial que se enfoca en el desarrollo de algoritmos y modelos computacionales que permiten a las máquinas aprender y mejorar su rendimiento en tareas específicas a partir de datos, sin la necesidad de una programación explícita. En otras palabras, el aprendizaje automático se basa en la idea de que las computadoras pueden aprender de la experiencia y ajustar automáticamente su comportamiento en función de esa experiencia.</li>
-<li>Datos de entrada: Los algoritmos de aprendizaje automático utilizan datos como entrada en lugar de reglas de programación explícitas. Estos datos pueden ser de diferentes tipos, como texto, imágenes, sonido o datos numéricos.</li>
-<li><strong>Datos no etiquetados</strong>: Se refieren a conjuntos de datos en los cuales las observaciones o ejemplos no han sido previamente clasificados, categorizados o etiquetados de ninguna manera. En otras palabras, los datos no etiquetados consisten en información cruda o sin procesar que no contiene información explícita sobre las clases, categorías o etiquetas a las que pertenecen los elementos individuales.</li>
-<li>Verdad Empírica: Tambien conocida como "verdad fundamental". Esta expresión hace referencia a la información o datos reales y verdaderos sobre un fenómeno o situación en particular, que sirven como referencia o punto de comparación para evaluar la precisión, validez o rendimiento de un modelo, algoritmo o análisis realizado.</li>
-</ul>
-<p><strong><em>Definición</em></strong></p>
-<p>Un modelo no supervisado es un enfoque del aprendizaje automático que se utiliza para <strong>descubrir patrones, estructuras y relaciones ocultas en conjuntos de datos no etiquetados</strong>. A diferencia de los modelos supervisados que requieren etiquetas para entrenar y predecir, los modelos no supervisados se basan únicamente en las características intrínsecas de los datos para realizar tareas como el agrupamiento, la reducción de dimensionalidad y la detección de anomalías.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="modelos-no-supervisados-hoy-en-dia">Modelos No Supervisados Hoy en D&#237;a<a class="anchor-link" href="#modelos-no-supervisados-hoy-en-dia">&#182;</a></h3><p><strong><em>Desarrollo Reciente</em></strong></p>
-<p>En las últimas décadas, ha habido un desarrollo significativo en el campo de los modelos no supervisados. Esto se ha impulsado principalmente por el aumento de la disponibilidad de grandes volúmenes de datos no etiquetados y los avances en técnicas de aprendizaje automático. Algunos de los desarrollos más destacados incluyen:</p>
-<ul>
-<li><p>Algoritmos de agrupamiento mejorados: Se han desarrollado algoritmos más sofisticados y eficientes para el agrupamiento de datos. Ejemplos incluyen el algoritmo de k-medias mejorado con inicializaciones inteligentes y métodos de agrupamiento jerárquico.</p>
+<li><p>Marketing. Es probable que el correo directo sea más efectivo si se dirige a personas con características similares que probablemente respondan de la misma manera. La segmentación del mercado, como se le llama, tiene como objetivo dividir la población objetivo en grupos (segmentos) para que cada uno pueda ser objetivo de la manera más probable de lograr una respuesta positiva.</p>
 </li>
-<li><p>Técnicas de reducción de dimensionalidad: La reducción de dimensionalidad se ha vuelto cada vez más importante con el crecimiento de los conjuntos de datos de alta dimensión. Técnicas como el análisis de componentes principales (PCA) y el t-SNE (t-distributed stochastic neighbor embedding) han mejorado en términos de eficiencia y capacidad para preservar la estructura de los datos.</p>
+<li><p>Arqueología. Es probable que los artefactos hechos aproximadamente al mismo tiempo o por el mismo grupo de personas sean más similares que los que se originaron en diferentes épocas o pueblos. Formando grupos de objetos similares, puede ser posible reconstruir algo de la historia de una región.</p>
 </li>
-<li><p>Aprendizaje profundo no supervisado: El desarrollo de modelos de aprendizaje profundo no supervisado, como las redes neuronales autoencoder y las redes generativas adversarias (GAN), ha permitido aprender representaciones más complejas y capturar características latentes en los datos.</p>
+<li><p>Educación. Las escuelas varían en su desempeño, y al buscar las razones de esa variación, puede ser útil agrupar las escuelas para que uno pueda preguntarse qué tienen en común aquellas que parecen ser similares en términos generales.</p>
 </li>
-<li><p>Avances en la detección de anomalías: Se han desarrollado técnicas más efectivas para la detección de anomalías en conjuntos de datos. Estas técnicas utilizan métodos como el análisis de valores atípicos, modelos generativos y técnicas de aprendizaje semi-supervisado para identificar patrones inusuales o comportamientos anómalos.</p>
+<li><p>Finanzas y economía: En finanzas se usan los modelos no supervisados de clasificación para el agrupamiento de activos financieros para identificar patrones de comportamiento y riesgos compartidos. También se pueden utilizar para la clasificación de perfiles de inversores en función de su tolerancia al riesgo y objetivos financieros.</p>
 </li>
-</ul>
-<p><strong><em>Aplicaciones al Mundo Real</em></strong></p>
-<p>Los modelos no supervisados han experimentado un desarrollo significativo en las últimas décadas gracias al aumento de datos no etiquetados y los avances en técnicas de aprendizaje automático. Han encontrado aplicaciones amplias en diversas áreas de las ciencias y el mundo empresarial, desempeñando un papel crucial en la extracción de conocimientos y la toma de decisiones informadas a partir de datos no etiquetados. Algunas de las áreas donde los modelos no supervisados se utilizan ampliamente incluyen:</p>
-<ul>
-<li><p>Ciencias de datos: Los modelos no supervisados desempeñan un papel crucial en la exploración y el análisis de grandes conjuntos de datos no etiquetados. Ayudan a identificar relaciones y patrones ocultos que pueden ser utilizados para obtener conocimientos y tomar decisiones informadas.</p>
+<li><p>Ciencias sociales: Una utilidad bien común es el análisis de sentimientos y clasificación de opiniones en redes sociales para comprender la opinión pública y las tendencias. También se usan para el agrupamiento de datos demográficos para identificar segmentos de población con características similares y en el ámbito más académico para la clasificación de textos en estudios de ciencias sociales para analizar discursos y temáticas emergentes.</p>
 </li>
-<li><p>Medicina: En el campo de la medicina, los modelos no supervisados se utilizan para el análisis de imágenes médicas, la detección de enfermedades y la identificación de patrones en grandes bases de datos de pacientes.</p>
-</li>
-<li><p>Finanzas: Los modelos no supervisados son utilizados para el análisis de datos financieros, la detección de fraudes, la identificación de patrones en los mercados y la gestión de riesgos.</p>
-</li>
-<li><p>Marketing y recomendaciones: Los modelos no supervisados se utilizan para el análisis de datos de clientes, la segmentación de mercado, la personalización de la experiencia del usuario y la generación de recomendaciones basadas en el comportamiento del usuario.</p>
+<li><p>Recursos humanos: Acá tenemos modelos para el agrupamiento de perfiles de empleados basados en habilidades y competencias para identificar grupos de talento y necesidades de desarrollo, la clasificación de currículums vitae para identificar candidatos adecuados para puestos de trabajo específicos, y la detección de patrones de rotación y retención de empleados basados en datos históricos.</p>
 </li>
 </ul>
 
@@ -1581,36 +1532,55 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="modelos-supervisados-vs-no-supervisados">Modelos Supervisados vs No Supervisados<a class="anchor-link" href="#modelos-supervisados-vs-no-supervisados">&#182;</a></h3><p>Los modelos no supervisados difieren de los modelos supervisados en varios aspectos que repasaremos en detalle.</p>
-<p><strong><em>Datos no etiquetados</em></strong></p>
-<p>Los modelos no supervisados trabajan con datos no etiquetados, lo que significa que no se les proporciona información explícita sobre las salidas o categorías esperadas.
-Dado un conjunto de datos de entrenamiento X y sus respectivas etiquetas Y, un modelo supervisado busca aprender una función f(X) = Y que mapee las características de entrada X a las etiquetas conocidas Y. En términos de fórmulas, se puede expresar como:
-Y = f(X)</p>
-<p>Dado un conjunto de datos de entrenamiento X, un modelo no supervisado busca aprender una representación latente Z de los datos o encontrar agrupamientos o relaciones entre las muestras en X. En términos de fórmulas, se puede expresar como:
-Z = g(X) o Z = h(X)</p>
-<p>Donde Z es la representación latente o los agrupamientos descubiertos, y g(X) o h(X) son funciones que realizan la transformación de los datos X.</p>
-<p><strong><em>Aprendizaje no orientado</em></strong></p>
-<p>El aprendizaje no orientado es una característica fundamental de los modelos no supervisados. A diferencia de los modelos supervisados, que tienen una orientación específica hacia la predicción de etiquetas o categorías conocidas, los modelos no supervisados no reciben ninguna guía o información explícita sobre las salidas esperadas.</p>
-<p>En lugar de buscar una relación entre las características de entrada y las etiquetas conocidas, los modelos no supervisados se centran en descubrir patrones subyacentes, estructuras o características latentes en los datos no etiquetados. Estos patrones pueden manifestarse en forma de agrupamientos, similitudes, anomalías o representaciones más compactas de los datos.</p>
-<p>La tarea principal de un modelo no supervisado es aprender una representación interna del conjunto de datos que capture las relaciones relevantes entre las variables o muestras. Esto se logra a través de algoritmos y técnicas diseñados para buscar regularidades, redundancias o características comunes en los datos sin necesidad de una guía externa.</p>
-<p>Al no tener una orientación específica, los modelos no supervisados son más flexibles y pueden descubrir información inesperada o desconocida en los datos. Esto los hace especialmente útiles en situaciones donde las etiquetas pueden ser costosas o difíciles de obtener, o cuando se desconoce la estructura subyacente del conjunto de datos.</p>
-<p><strong><em>Evaluación más subjetiva</em></strong></p>
-<p>La evaluación de los modelos no supervisados a menudo implica un componente subjetivo debido a la falta de etiquetas o respuestas previas para comparar con los resultados obtenidos. A diferencia de los modelos supervisados, donde la precisión y el error se pueden medir objetivamente en función de las etiquetas conocidas, la evaluación de los modelos no supervisados es más subjetiva y puede depender de la interpretación del usuario.</p>
-<p>Aquí hay algunas razones por las que la evaluación de los modelos no supervisados puede tener un componente subjetivo:</p>
-<ul>
-<li><p>Falta de respuestas previas: En los modelos no supervisados, no se proporcionan etiquetas o respuestas conocidas durante el entrenamiento. Esto dificulta la evaluación objetiva de la precisión o el rendimiento del modelo en términos de predicciones específicas.</p>
-</li>
-<li><p>Métricas de evaluación subjetivas: En ausencia de respuestas conocidas, los usuarios a menudo deben recurrir a métricas subjetivas o heurísticas para evaluar la calidad de los resultados. Estas métricas pueden variar según el contexto y los requisitos específicos de la aplicación.</p>
-</li>
-<li><p>Interpretación y conocimiento del dominio: La evaluación de los modelos no supervisados a menudo requiere una comprensión profunda del dominio y la interpretación de los resultados. Los usuarios deben interpretar los patrones o agrupamientos descubiertos y determinar si tienen sentido y son útiles en el contexto específico.</p>
-</li>
-<li><p>Validación cruzada limitada: La validación cruzada, una técnica común para evaluar modelos supervisados, puede ser más limitada en los modelos no supervisados. Esto se debe a la falta de etiquetas para comparar y la dificultad para establecer conjuntos de entrenamiento y prueba significativos.</p>
-</li>
-<li><p>Subjetividad en la definición de objetivos: En los modelos no supervisados, la definición de objetivos y el éxito del modelo pueden variar según los intereses y las necesidades del usuario. Esto puede llevar a diferentes interpretaciones y evaluaciones subjetivas de los resultados.</p>
-</li>
-</ul>
-<p>Dado que la evaluación en los modelos no supervisados puede ser subjetiva, es importante involucrar a expertos en el dominio y realizar una validación exhaustiva en el contexto específico de la aplicación. Además, la comparación con métodos alternativos o la realización de pruebas de sensibilidad puede ayudar a obtener una evaluación más completa y robusta.
-En resumen, la evaluación de los modelos no supervisados a menudo implica un componente subjetivo debido a la falta de etiquetas o respuestas previas. La interpretación de los resultados, las métricas de evaluación y la definición de objetivos pueden variar según el contexto y los requisitos específicos de la aplicación, lo que requiere la participación de expertos en el dominio y una validación cuidadosa.</p>
+<h3 id="multidimensionalidad-de-los-modelos-de-clasificacion">Multidimensionalidad de los Modelos de Clasificaci&#243;n<a class="anchor-link" href="#multidimensionalidad-de-los-modelos-de-clasificacion">&#182;</a></h3><p>El problema al que apunta el análisis de conglomerados es agrupar a individuos de tal manera que aquellos asignados a un grupo en particular estén, de alguna manera, cercanos entre sí. Es sencillo hacer esto si los objetos se caracterizan por una única cantidad mensurable, como el ingreso. Todo lo que tenemos que hacer es agrupar a aquellos individuos que tengan ingresos similares. Es cierto que tendremos que decidir qué significa "similar", pero eso estará determinado por el uso que pretendamos darle a la clasificación.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-1">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># CARGAMOS LA DATA</span>
+
+<span class="c1"># HACEMOS EL GRAFICO</span>
+</pre></div>
+<div id="cell-1" class="clipboard-copy-txt"># CARGAMOS LA DATA
+
+# HACEMOS EL GRAFICO
+</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 
 </div>
 </div>
@@ -1622,7 +1592,57 @@ En resumen, la evaluación de los modelos no supervisados a menudo implica un co
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="resumen">Resumen<a class="anchor-link" href="#resumen">&#182;</a></h3><p>Acá debemos resumir las principales ideas del capitulo. Todos los capítulos deben tenerlo</p>
+<p>El problema se vuelve más difícil si los juicios de similitud son subjetivos o se basan en un gran número de características de los objetos. Por ejemplo, al juzgar la similitud de dos escuelas, típicamente habrá todo un conjunto de características posiblemente relevantes, como el tamaño, la ubicación, la mezcla étnica, y así sucesivamente. La pregunta entonces es cómo resumimos estos diversos fragmentos de información para poder hacer juicios de similitud defendibles. Es esta característica la que hace del análisis de conglomerados una técnica multivariada.</p>
+<p>Para comprender qué implica basar juicios de distancia en más de una variable, consideremos el caso en el que tenemos dos variables medidas en una escala continua. Si los "objetos" fueran personas, podríamos imaginar que tenemos registros que proporcionan sus edades e ingresos, y que queremos agruparlos en función de esas dos variables. Supongamos que representamos a los individuos como puntos en el plano. Entonces, su posición podría aparecer como el siguiente ejemplo.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-2">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># CARGAMOS LA DATA</span>
+
+<span class="c1"># HACEMOS EL GRAFICO</span>
+</pre></div>
+<div id="cell-2" class="clipboard-copy-txt"># CARGAMOS LA DATA
+
+# HACEMOS EL GRAFICO
+</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Si hubiera algún agrupamiento presente, lo reconoceríamos de inmediato en la figura. En este caso, hay tres de esos agrupamientos que identificamos utilizando la capacidad del ojo para detectar patrones de agrupamiento. Con tres variables, podríamos imaginar puntos representados en tres dimensiones, pero más allá de eso nuestra capacidad de visualización falla y necesitamos alguna otra forma de reconocer los agrupamientos. Observa, incidentalmente, que si tuviéramos información solo sobre una de estas variables, por ejemplo, el ingreso, solo veríamos dos agrupamientos, ya que sería difícil separar los dos grupos de edad con bajos ingresos. Esto ilustra cómo el análisis de datos multivariados puede revelar más que el análisis de cada variable por separado.</p>
 
 </div>
 </div>
@@ -1634,7 +1654,30 @@ En resumen, la evaluación de los modelos no supervisados a menudo implica un co
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="literatura">Literatura<a class="anchor-link" href="#literatura">&#182;</a></h3><p>Detalle de los libros que se utilizaron (con capítulo incluido)</p>
+<h3 id="requisitos-del-modelo-de-conglomerados">Requisitos del Modelo de Conglomerados<a class="anchor-link" href="#requisitos-del-modelo-de-conglomerados">&#182;</a></h3><p>En este ejemplo, la distancia entre un par de individuos se define simplemente como su distancia en la figura. Sin embargo, la información que tenemos puede no estar en forma de mediciones en una escala continua. Puede, por ejemplo, indicar simplemente si los individuos poseen o no un atributo particular. En tales casos, la representación geométrica no está disponible y se debe realizar un trabajo preliminar para decidir cómo medir su distancia.
+Aunque este ejemplo es rudimentario, sirve para identificar los dos pasos básicos en cualquier análisis de conglomerados:</p>
+<ol>
+<li>La medición de la distancia entre todos los pares de objetos.</li>
+<li>El desarrollo de una rutina o algoritmo para formar agrupamientos en base a esas distancias. </li>
+</ol>
+<p>Las distancias en el punto (1) pueden determinarse de manera subjetiva o mediante la creación de una medida de distancia basada en la observación de una colección de variables. En el primer caso, es el cerebro humano el que procesa la información multivariada disponible en cada objeto; en el segundo caso, la distancia se construye de acuerdo con algún principio racional.</p>
+<p>Antes de continuar, necesitamos aclarar el significado del término "distancia" que hemos utilizado para describir qué tan separados están los objetos. A veces es más natural pensar en términos de cercanía o proximidad. Alternativamente, se utilizan los términos similitud y disimilitud. Estos últimos tienen la ventaja de sugerir una evaluación de distancia más flexible y subjetiva que es más apropiada para algunas de las aplicaciones que encontraremos. La proximidad y la similitud están inversamente relacionadas con la distancia y la disimilitud, por lo que las medidas de una se pueden convertir fácilmente en medidas de la otra. Utilizaremos los diversos términos indistintamente, pero consideraremos "distancia" como el término principal porque también es fundamental para el escalado multidimensional que veremos posteriormente.</p>
+<p><strong><em>Matriz de Distancias</em></strong></p>
+<p>La primera etapa del análisis de conglomerados es la construcción de distancias entre pares de objetos. Pospondremos la discusión sobre cómo se hace esto hasta la Sección 2.4, momento en el que tendremos una idea más clara de cómo se van a utilizar. Por ahora, observamos que el proceso de agrupamiento en sí comienza con una matriz de distancias, que es una matriz en la que la distancia entre el objeto i y el objeto j aparece en la fila i y la columna j. Por ejemplo, si tenemos cuatro objetos, tenemos una matriz de distancias de 4 × 4.</p>
+<p>donde δij es la distancia entre el objeto i y el objeto j. Por lo general, la matriz de distancias será simétrica, es decir, δ21 = δ12, δ31 = δ13, y así sucesivamente. Esto se debe a que las evaluaciones de distancia generalmente no dependen del orden en que tomamos los dos objetos. Por esta razón, solo es necesario escribir la mitad de los δ, ya sea los que están en el triángulo superior o los que están en el triángulo inferior de la matriz. La diagonal puede dejarse en blanco porque estos elementos no desempeñan ningún papel en el proceso de agrupamiento. A veces, los δij se denominan distancias observadas o simplemente observaciones.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="tipos-de-modelos">Tipos de Modelos<a class="anchor-link" href="#tipos-de-modelos">&#182;</a></h3><p>En cuanto a los algoritmos para formar agrupamientos, los métodos de análisis de conglomerados se pueden clasificar ampliamente como jerárquicos o no jerárquicos. En un método jerárquico, el proceso de agrupamiento produce una jerarquía en la que los subconjuntos de agrupamientos en un nivel se agregan para formar los agrupamientos en el siguiente nivel superior. Los métodos jerárquicos a su vez se pueden dividir en métodos aglomerativos y métodos divisivos. En un método aglomerativo, comenzamos tratando cada objeto como un agrupamiento de un solo miembro, y luego procedemos en una serie de pasos para fusionar agrupamientos. En este método, una vez que un par de individuos se ha unido en un agrupamiento, nunca se pueden separar posteriormente. Esto se debe a que cualquier nuevo agrupamiento se forma a partir de agrupamientos ya creados en etapas anteriores del proceso. En un método divisivo, comenzamos por el otro extremo, tratando al conjunto completo de individuos como un solo agrupamiento y luego procedemos dividiendo los agrupamientos existentes. Una vez que un par de individuos se ha separado en tal proceso, nunca pueden volver a unirse. Esto hace posible, como veremos a continuación, representar las etapas del proceso mediante un diagrama de árbol en el que los puntos de ramificación indican dónde se unen o se separan los agrupamientos.</p>
+<p>En los métodos no jerárquicos, los agrupamientos se forman ajustando la membresía de los agrupamientos existentes en cualquier etapa del proceso mediante el movimiento de individuos hacia dentro o hacia fuera. Típicamente, estos métodos son más difíciles de llevar a cabo y se utilizan con menos frecuencia.</p>
 
 </div>
 </div>

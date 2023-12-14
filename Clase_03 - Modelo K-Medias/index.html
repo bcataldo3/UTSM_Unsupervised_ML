@@ -440,20 +440,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#resumen" class="md-nav__link">
-    Resumen
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#caso-de-estudio" class="md-nav__link">
-    Caso de Estudio
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1620,73 +1606,6 @@ Licensed under the Apache License, Version 2.0.
 
 </div>
 </div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="resumen">Resumen<a class="anchor-link" href="#resumen">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="caso-de-estudio">Caso de Estudio<a class="anchor-link" href="#caso-de-estudio">&#182;</a></h3><p>En este capítulo, estamos utilizando el conocido conjunto de datos Breast Cancer Wisconsin para realizar un análisis de clústeres. Originalmente, el conjunto de datos se propuso con el fin de entrenar clasificadores; sin embargo, también puede ser muy útil para un análisis de clúster no trivial. Contiene 569 registros compuestos por 32 atributos (incluyendo el diagnóstico y un número de identificación). Todos los atributos están estrictamente relacionados con propiedades biológicas y morfológicas de los tumores, pero nuestro objetivo es validar hipótesis genéricas considerando la verdad fundamental (benigna o maligna) y las propiedades estadísticas del conjunto de datos. Antes de continuar, es importante aclarar algunos puntos. El conjunto de datos es de alta dimensionalidad y los clústeres son no convexos (por lo que no podemos esperar una segmentación perfecta). Además, nuestro objetivo no es utilizar un algoritmo de agrupamiento para obtener los resultados de un clasificador; por lo tanto, la verdad fundamental debe tenerse en cuenta solo como una indicación genérica de un posible agrupamiento. El objetivo de este ejemplo es mostrar cómo realizar un breve análisis preliminar, seleccionar el número óptimo de clústeres y validar los resultados finales</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="CodeMirror cm-s-jupyter">
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-1">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
-                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://drive.google.com/file/d/1LG6hb0duLtnSiFhT9JWFNuo8qDxHV08W/view?usp=drive_link&#39;</span>
-<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://drive.google.com/uc?id=&#39;</span> <span class="o">+</span> <span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="n">dataset_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;diagnosis&#39;</span><span class="p">,</span> <span class="s1">&#39;radius_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;texture_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;perimeter_mean&#39;</span><span class="p">,</span><span class="s1">&#39;area_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;smoothness_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;compactness_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;concavity_mean&#39;</span><span class="p">,</span><span class="s1">&#39;concave points_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;symmetry_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;fractal_dimension_mean&#39;</span><span class="p">,</span><span class="s1">&#39;radius_se&#39;</span><span class="p">,</span><span class="s1">&#39;texture_se&#39;</span><span class="p">,</span> <span class="s1">&#39;perimeter_se&#39;</span><span class="p">,</span> <span class="s1">&#39;area_se&#39;</span><span class="p">,</span> <span class="s1">&#39;smoothness_se&#39;</span><span class="p">,</span><span class="s1">&#39;compactness_se&#39;</span><span class="p">,</span> <span class="s1">&#39;concavity_se&#39;</span><span class="p">,</span> <span class="s1">&#39;concave points_se&#39;</span><span class="p">,</span> <span class="s1">&#39;symmetry_se&#39;</span><span class="p">,</span><span class="s1">&#39;fractal_dimension_se&#39;</span><span class="p">,</span> <span class="s1">&#39;radius_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;texture_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;perimeter_worst&#39;</span><span class="p">,</span><span class="s1">&#39;area_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;smoothness_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;compactness_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;concavity_worst&#39;</span><span class="p">,</span><span class="s1">&#39;concave points_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;symmetry_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;fractal_dimension_worst&#39;</span><span class="p">]</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span> <span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">bc_dataset_columns</span><span class="p">)</span>
-</pre></div>
-<div id="cell-1" class="clipboard-copy-txt">import pandas as pd
-
-url='https://drive.google.com/file/d/1LG6hb0duLtnSiFhT9JWFNuo8qDxHV08W/view?usp=drive_link'
-url='https://drive.google.com/uc?id=' + url.split('/')[-2]
-
-dataset_columns = ['id','diagnosis', 'radius_mean', 'texture_mean', 'perimeter_mean','area_mean', 'smoothness_mean', 'compactness_mean', 'concavity_mean','concave points_mean', 'symmetry_mean', 'fractal_dimension_mean','radius_se','texture_se', 'perimeter_se', 'area_se', 'smoothness_se','compactness_se', 'concavity_se', 'concave points_se', 'symmetry_se','fractal_dimension_se', 'radius_worst', 'texture_worst', 'perimeter_worst','area_worst', 'smoothness_worst', 'compactness_worst', 'concavity_worst','concave points_worst', 'symmetry_worst', 'fractal_dimension_worst']
-df = pd.read_csv(url, sep="," ,index_col=0, names=bc_dataset_columns)</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
 </div>
 </div>
 </div>

@@ -427,6 +427,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#formas-de-clasificar" class="md-nav__link">
+    Formas de Clasificar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#requisitos-del-modelo-de-conglomerados" class="md-nav__link">
     Requisitos del Modelo de Conglomerados
   </a>
@@ -1693,6 +1700,14 @@ plt.show()</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="formas-de-clasificar">Formas de Clasificar<a class="anchor-link" href="#formas-de-clasificar">&#182;</a></h3><p>Entendemos ahora que estos agrupamientos o conglomerados se forman con base en la similitud de características o atributos de los datos. Dos enfoques comunes son el agrupamiento rígido (hard clustering) y el agrupamiento suave (soft clustering), los cuales difieren principalmente en la forma en que asignan puntos de datos a los conglomerados.</p>
+<ul>
+<li><p>Hard Clustering: En el hard clustering, también conocido como clustering rígido o partición rígida, cada punto de datos pertenece estrictamente a un solo grupo. En otras palabras, se asigna cada punto de datos a un grupo específico de manera exclusiva. El algoritmo de hard clustering busca dividir el conjunto de datos en un número predeterminado de clusters, donde cada punto de datos es miembro de exactamente un grupo. El ejemplo más común de hard clustering es el algoritmo K-Medias, que veremos más adelante.</p>
+</li>
+<li><p>Soft Clustering: En contraste, el soft clustering, también conocido como fuzzy clustering o agrupamiento difuso, permite que un punto de datos pertenezca parcialmente a múltiples clusters simultáneamente. Cada punto de datos se asigna a diferentes clusters con diferentes grados de pertenencia, representados por valores de membresía que indican la probabilidad o grado de pertenencia de ese punto a cada grupo. Un ejemplo común de soft clustering es el algoritmo Fuzzy C-Means, que asigna grados de pertenencia a cada punto de datos en lugar de asignarlos estrictamente a un solo grupo.</p>
+</li>
+</ul>
+<p>En resumen, la principal diferencia radica en la forma en que se asignan los puntos de datos a los grupos. Mientras que el hard clustering asigna cada punto a un cluster exclusivo, el soft clustering permite grados de pertenencia, lo que significa que un punto puede tener cierta pertenencia a múltiples clusters simultáneamente en diferentes grados. La elección entre estos métodos depende de la naturaleza de los datos y del contexto específico de aplicación.</p>
 <h3 id="requisitos-del-modelo-de-conglomerados">Requisitos del Modelo de Conglomerados<a class="anchor-link" href="#requisitos-del-modelo-de-conglomerados">&#182;</a></h3><p>En este ejemplo, la distancia entre un par de individuos se define simplemente como su distancia en la figura. Sin embargo, la información que tenemos puede no estar en forma de mediciones en una escala continua. Puede, por ejemplo, indicar simplemente si los individuos poseen o no un atributo particular. En tales casos, la representación geométrica no está disponible y se debe realizar un trabajo preliminar para decidir cómo medir su distancia.
 Aunque este ejemplo es rudimentario, sirve para identificar los dos pasos básicos en cualquier análisis de conglomerados:</p>
 <ol>

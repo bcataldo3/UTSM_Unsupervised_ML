@@ -1507,58 +1507,35 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="definicion">Definici&#243;n<a class="anchor-link" href="#definicion">&#182;</a></h3><p>La agrupación K-means es un enfoque simple y elegante para dividir un conjunto de datos en K grupos distintos y no superpuestos. Para llevar a cabo la agrupación K-means, primero debemos especificar el número deseado de grupos K; luego, el algoritmo K-means asignará cada observación exactamente a uno de los K grupos.</p>
-<p>El procedimiento de agrupación K-means resulta de un problema matemático simple e intuitivo. Comenzamos definiendo algunas notaciones. Sea C1, ..., CK conjuntos que contienen los índices de las observaciones en cada cluster. Estos conjuntos satisfacen dos propiedades:</p>
+<h3 id="definicion">Definici&#243;n<a class="anchor-link" href="#definicion">&#182;</a></h3><p>La agrupación K-medias es un enfoque simple y elegante para dividir un conjunto de datos en K grupos distintos y no superpuestos. Para llevar a cabo la agrupación K-medias, primero debemos especificar el número deseado de grupos $K$; luego, el algoritmo K-medias asignará cada observación exactamente a uno de los $K$ grupos.</p>
+<p>El procedimiento de agrupación K-medias resulta de un problema matemático simple e intuitivo. Comenzamos definiendo algunas notaciones. Sea C1, ..., CK conjuntos que contienen los índices de las observaciones en cada cluster. Estos conjuntos satisfacen dos propiedades:</p>
 <ul>
 <li><p>$C_1 \cup C_2 \cup ... \cup C_k = \{1, ..., n\}$. En otras palabras, cada observación pertenece al menos a uno de los $K$ clusters.</p>
 </li>
-<li><p>Ck ∩ Ck′ = ∅ para todo k ≠ k′. En otras palabras, los clusters no se superponen: ninguna observación pertenece a más de un cluster.</p>
+<li><p>$C_k ∩ C_p = \emptyset$ para todo $k \neq p$. En otras palabras, los clusters no se superponen: ninguna observación pertenece a más de un cluster.</p>
 </li>
 </ul>
-<p>Por ejemplo, si la observación i-ésima está en el k-ésimo cluster, entonces i ∈ Ck. La idea detrás de la agrupación K-means es que una buena agrupación es aquella en la que la variación dentro del cluster es lo más pequeña posible.</p>
-<p>$\sum_{n=1}^{N}n^{-s}$</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="problema-de-minimizacion">Problema de Minimizaci&#243;n<a class="anchor-link" href="#problema-de-minimizacion">&#182;</a></h3><p>La variación dentro del cluster para el cluster $C_k$ es una medida $W(C_k)$ de la cantidad por la cual las observaciones dentro de un cluster difieren entre sí. Por lo tanto, queremos resolver el problema:</p>
-<p>FORMULA DE MINIMIZACION</p>
-<p>En palabras, esta fórmula indica que deseamos dividir las observaciones en K clusters de manera que la variación total dentro de los clusters, sumada sobre todos los K clusters, sea lo más pequeña posible.</p>
-<p>Resolver la ecuación (10.9) parece ser una idea razonable, pero para llevarlo a cabo necesitamos definir la variación dentro del cluster.</p>
+<p>Por ejemplo, si la observación i-ésima está en el $k$-ésimo grupo, entonces $i ∈ C_k$. La idea detrás de la agrupación K-medias es que una buena agrupación es aquella en la que la variación dentro del grupo es lo más pequeña posible.</p>
+<h3 id="problema-de-minimizacion">Problema de Minimizaci&#243;n<a class="anchor-link" href="#problema-de-minimizacion">&#182;</a></h3><p>La variación dentro del grupo para el grupo $C_k$ es una medida $W(C_k)$ de la cantidad por la cual las observaciones dentro de un grupo difieren entre sí. Por lo tanto, queremos resolver el problema:</p>
+<p>$$</p>
+<p>En palabras, esta fórmula indica que deseamos dividir las observaciones en K grupos de manera que la variación total dentro de los grupos, sumada sobre todos los K grupos, sea lo más pequeña posible.</p>
+<p>Resolver la ecuación (10.9) parece ser una idea razonable, pero para llevarlo a cabo necesitamos definir la variación dentro del grupo.</p>
 <p>Existen muchas formas posibles de definir este concepto, pero la elección más común, de lejos, involucra la distancia euclidiana al cuadrado. Es decir, definimos</p>
 <p>FORMULA DE MINIMIZACION CON DISTANCIA EUCLIDIANA</p>
-<p>donde |Ck| denota el número de observaciones en el k-ésimo cluster. En otras palabras, la variación dentro del cluster para el k-ésimo cluster es la suma de todas las distancias euclidianas al cuadrado entre las observaciones en el k-ésimo cluster, dividida por el número total de observaciones en el k-ésimo cluster.</p>
-<p>Al combinar las ecuaciones (10.9) y (10.10), obtenemos el problema de optimización que define la agrupación K-means.</p>
+<p>donde |Ck| denota el número de observaciones en el k-ésimo grupo. En otras palabras, la variación dentro del grupo para el k-ésimo grupo es la suma de todas las distancias euclidianas al cuadrado entre las observaciones en el k-ésimo grupo, dividida por el número total de observaciones en el k-ésimo grupo.</p>
+<p>Al combinar las ecuaciones (10.9) y (10.10), obtenemos el problema de optimización que define la agrupación K-medias.</p>
 <p>FORMULA GLOBAL DE MINIMIZACION</p>
+<!-- $\sum_{n=1}^{N}n^{-s}$ -->
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 
 </div>
 </div>

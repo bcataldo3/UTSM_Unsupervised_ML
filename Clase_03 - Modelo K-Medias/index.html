@@ -441,6 +441,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#observaciones" class="md-nav__link">
+    Observaciones
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -454,7 +461,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#observaciones" class="md-nav__link">
+  <a href="#observaciones_1" class="md-nav__link">
     Observaciones
   </a>
   
@@ -1539,7 +1546,13 @@ Licensed under the Apache License, Version 2.0.
 <h3 id="problema-de-minimizacion">Problema de Minimizaci&#243;n<a class="anchor-link" href="#problema-de-minimizacion">&#182;</a></h3><h4 id="inercia-y-centroides">Inercia y Centroides<a class="anchor-link" href="#inercia-y-centroides">&#182;</a></h4><p>La idea principal del algoritmo de K-medias es minimizar la variación interna, que se conoce como inercia. Supongamos que en un estado inicial tenemos todos nuestros puntos asignados a alguno de los $K$ grupos. Definimos los centroides $M^{(t)} = {\mu_{1}^{(0)},\mu_{2}^{(0)},...,\mu_{K}^{(0)}}$ de cada grupo como el valor medio de estos. Se puede observar que pusimos un índice con el valor $0$ arriba de los centroides. Esto es porque el algoritmo que asigna grupos en K-medias es un algoritmo iterativo, y en cada iteración se asignan nuevos centroides debido a una re-asignación de los datos a los distintos $K$ grupos. Por otro lado, la función de inercia se define como:</p>
 $$S(t)=\sum_{k=1}^{K}\sum_{x_i \in K_j}D(x_i,\mu_k^{(t)})$$<p>En donde $D()$ es la distancia entre dos elementos, mientras que $\mu_k^{(t)}$ es el centroide de la $t-$ésima iteración.</p>
 <h4 id="iteracion-del-algoritmo">Iteraci&#243;n del Algoritmo<a class="anchor-link" href="#iteracion-del-algoritmo">&#182;</a></h4><p>La pregunta que viene ahora sería: ¿Cómo reasignamos los centroides? La respuesta es el procedimiento iterativo (también conocido como algoritmo de Lloyd) comienza inicializando los centroides con valores aleatorios. El siguiente paso es la asignación de cada muestra $x_i ∈ X$ al grupo cuyo centroide tiene la distancia más pequeña de $x_i$:</p>
-$$ c(x_i;M^{(t)})=\arg \min_{j}^{(t)} D(x_i,\mu_j^{(t)}) $$<p>Es fácil entender que S(t) no puede considerarse como una medida absoluta porque su valor está altamente influenciado por la varianza de las muestras. Sin embargo, S(t+1) &lt; S(t) implica que los centroides se están moviendo hacia una posición óptima donde los puntos asignados a un clúster tienen la distancia más pequeña posible al centroide correspondiente. Por lo tanto,</p>
+$$ c(x_i;M^{(t)})=\arg \min_{j}^{(t)} D(x_i,\mu_j^{(t)}) $$<p>Posterior a la reasignación de centroides, se procede a recalcular los centroides como la media aritmética de los datos pertenecientes al grupo.</p>
+<p>Si vamos observando que $S(t+1) &lt; S(t)$ implica que los centroides se están moviendo hacia una posición óptima donde los puntos asignados a un grupo tienen la distancia más pequeña posible al centroide correspondiente (es decir, se está minimizando la inercia).</p>
+<h4 id="observaciones">Observaciones<a class="anchor-link" href="#observaciones">&#182;</a></h4><ul>
+<li>S(t) no puede considerarse como una medida absoluta porque su valor está altamente influenciado por la varianza de las muestras. </li>
+<li></li>
+</ul>
+<p>Sin embargo,  implica que los centroides se están moviendo hacia una posición óptima donde los puntos asignados a un clúster tienen la distancia más pequeña posible al centroide correspondiente. Por lo tanto,</p>
 <p>La variación dentro del grupo para el grupo $C_k$ es una medida $W(C_k)$ de la cantidad por la cual las observaciones dentro de un grupo difieren entre sí. Por lo tanto, queremos resolver el problema:</p>
 <p>$ dascascas$</p>
 <p>En palabras, esta fórmula indica que deseamos dividir las observaciones en K grupos de manera que la variación total dentro de los grupos, sumada sobre todos los K grupos, sea lo más pequeña posible.</p>

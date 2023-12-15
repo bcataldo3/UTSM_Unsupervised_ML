@@ -434,6 +434,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#iteracion-del-algoritmo" class="md-nav__link">
+    Iteración del Algoritmo
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1529,8 +1536,11 @@ Licensed under the Apache License, Version 2.0.
 </li>
 </ul>
 <p>Por ejemplo, si la observación $i$-ésima está en el $k$-ésimo grupo, entonces $i ∈ C_k$. La idea detrás de la agrupación K-medias es que una buena agrupación es aquella en la que la variación dentro del grupo es lo más pequeña posible.</p>
-<h3 id="problema-de-minimizacion">Problema de Minimizaci&#243;n<a class="anchor-link" href="#problema-de-minimizacion">&#182;</a></h3><h4 id="inercia-y-centroides">Inercia y Centroides<a class="anchor-link" href="#inercia-y-centroides">&#182;</a></h4><p>La idea principal del algoritmo de K-medias es minimizar la variación interna, que se conoce como inercia. Supongamos que en un estado inicial tenemos todos nuestros puntos asignados a alguno de los $K$ grupos. Definimos los centroides $\mu_{k}^{(0)}$ de cada grupo como el valor medio de estos. Se puede observar que pusimos un índice con el valor $0$ arriba de los centroides. Esto es porque el algoritmo que asigna grupos en K-medias es un algoritmo iterativo, y en cada iteración se asignan nuevos centroides debido a una re-asignación de los datos a los distintos $K$ grupos.
-La variación dentro del grupo para el grupo $C_k$ es una medida $W(C_k)$ de la cantidad por la cual las observaciones dentro de un grupo difieren entre sí. Por lo tanto, queremos resolver el problema:</p>
+<h3 id="problema-de-minimizacion">Problema de Minimizaci&#243;n<a class="anchor-link" href="#problema-de-minimizacion">&#182;</a></h3><h4 id="inercia-y-centroides">Inercia y Centroides<a class="anchor-link" href="#inercia-y-centroides">&#182;</a></h4><p>La idea principal del algoritmo de K-medias es minimizar la variación interna, que se conoce como inercia. Supongamos que en un estado inicial tenemos todos nuestros puntos asignados a alguno de los $K$ grupos. Definimos los centroides $M^{(t)} = {\mu_{1}^{(0)},\mu_{2}^{(0)},...,\mu_{K}^{(0)}}$ de cada grupo como el valor medio de estos. Se puede observar que pusimos un índice con el valor $0$ arriba de los centroides. Esto es porque el algoritmo que asigna grupos en K-medias es un algoritmo iterativo, y en cada iteración se asignan nuevos centroides debido a una re-asignación de los datos a los distintos $K$ grupos. Por otro lado, la función de inercia se define como:</p>
+$$S(t)=\sum_{k=1}^{K}\sum_{x_i \in K_j}D(x_i,\mu_k^{(t)})$$<p>En donde $D()$ es la distancia entre dos elementos, mientras que $\mu_k^{(t)}$ es el centroide de la $t-$ésima iteración.</p>
+<h4 id="iteracion-del-algoritmo">Iteraci&#243;n del Algoritmo<a class="anchor-link" href="#iteracion-del-algoritmo">&#182;</a></h4><p>La pregunta que viene ahora sería: ¿Cómo reasignamos los centroides? La respuesta es el procedimiento iterativo (también conocido como algoritmo de Lloyd) comienza inicializando los centroides con valores aleatorios. El siguiente paso es la asignación de cada muestra $x_i ∈ X$ al grupo cuyo centroide tiene la distancia más pequeña de $x_i$:</p>
+$$ c(x_i;M^{(t)})=\arg \min_{j}^{(t)} D(x_i,\mu_j^{(t)}) $$<p>Es fácil entender que S(t) no puede considerarse como una medida absoluta porque su valor está altamente influenciado por la varianza de las muestras. Sin embargo, S(t+1) &lt; S(t) implica que los centroides se están moviendo hacia una posición óptima donde los puntos asignados a un clúster tienen la distancia más pequeña posible al centroide correspondiente. Por lo tanto,</p>
+<p>La variación dentro del grupo para el grupo $C_k$ es una medida $W(C_k)$ de la cantidad por la cual las observaciones dentro de un grupo difieren entre sí. Por lo tanto, queremos resolver el problema:</p>
 <p>$ dascascas$</p>
 <p>En palabras, esta fórmula indica que deseamos dividir las observaciones en K grupos de manera que la variación total dentro de los grupos, sumada sobre todos los K grupos, sea lo más pequeña posible.</p>
 <p>Resolver la ecuación (10.9) parece ser una idea razonable, pero para llevarlo a cabo necesitamos definir la variación dentro del grupo.</p>

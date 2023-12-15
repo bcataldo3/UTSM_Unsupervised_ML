@@ -453,20 +453,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#algoritmo" class="md-nav__link">
-    Algoritmo
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#observaciones_1" class="md-nav__link">
-    Observaciones
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1543,80 +1529,22 @@ Licensed under the Apache License, Version 2.0.
 </li>
 </ul>
 <p>Por ejemplo, si la observación $i$-ésima está en el $k$-ésimo grupo, entonces $i ∈ C_k$. La idea detrás de la agrupación K-medias es que una buena agrupación es aquella en la que la variación dentro del grupo es lo más pequeña posible.</p>
-<h3 id="problema-de-minimizacion">Problema de Minimizaci&#243;n<a class="anchor-link" href="#problema-de-minimizacion">&#182;</a></h3><h4 id="inercia-y-centroides">Inercia y Centroides<a class="anchor-link" href="#inercia-y-centroides">&#182;</a></h4><p>La idea principal del algoritmo de K-medias es minimizar la variación interna, que se conoce como inercia. Supongamos que en un estado inicial tenemos todos nuestros puntos asignados a alguno de los $K$ grupos. Definimos los centroides $M^{(t)} = {\mu_{1}^{(0)},\mu_{2}^{(0)},...,\mu_{K}^{(0)}}$ de cada grupo como el valor medio de estos. Se puede observar que pusimos un índice con el valor $0$ arriba de los centroides. Esto es porque el algoritmo que asigna grupos en K-medias es un algoritmo iterativo, y en cada iteración se asignan nuevos centroides debido a una re-asignación de los datos a los distintos $K$ grupos. Por otro lado, la función de inercia se define como:</p>
+<h3 id="problema-de-minimizacion">Problema de Minimizaci&#243;n<a class="anchor-link" href="#problema-de-minimizacion">&#182;</a></h3><h4 id="inercia-y-centroides">Inercia y Centroides<a class="anchor-link" href="#inercia-y-centroides">&#182;</a></h4><p>La idea principal del algoritmo de K-medias es minimizar la variación interna, que se conoce como inercia. Supongamos que en un estado inicial tenemos todos nuestros puntos asignados a alguno de los $K$ grupos. Definimos los centroides $M^{(0)} = {\mu_{1}^{(0)},\mu_{2}^{(0)},...,\mu_{K}^{(0)}}$ de cada grupo como el valor medio de estos. Se puede observar que pusimos un índice con el valor $0$ arriba de los centroides. Esto es porque el algoritmo que asigna grupos en K-medias es un algoritmo iterativo, y en cada iteración se asignan nuevos centroides debido a una re-asignación de los datos a los distintos $K$ grupos. Por otro lado, la función de inercia se define como:</p>
 $$S(t)=\sum_{k=1}^{K}\sum_{x_i \in K_j}D(x_i,\mu_k^{(t)})$$<p>En donde $D()$ es la distancia entre dos elementos, mientras que $\mu_k^{(t)}$ es el centroide de la $t-$ésima iteración.</p>
 <h4 id="iteracion-del-algoritmo">Iteraci&#243;n del Algoritmo<a class="anchor-link" href="#iteracion-del-algoritmo">&#182;</a></h4><p>La pregunta que viene ahora sería: ¿Cómo reasignamos los centroides? La respuesta es el procedimiento iterativo (también conocido como algoritmo de Lloyd) comienza inicializando los centroides con valores aleatorios. El siguiente paso es la asignación de cada muestra $x_i ∈ X$ al grupo cuyo centroide tiene la distancia más pequeña de $x_i$:</p>
 $$ c(x_i;M^{(t)})=\arg \min_{j}^{(t)} D(x_i,\mu_j^{(t)}) $$<p>Posterior a la reasignación de centroides, se procede a recalcular los centroides como la media aritmética de los datos pertenecientes al grupo.</p>
-<p>Si vamos observando que $S(t+1) &lt; S(t)$ implica que los centroides se están moviendo hacia una posición óptima donde los puntos asignados a un grupo tienen la distancia más pequeña posible al centroide correspondiente (es decir, se está minimizando la inercia).</p>
+<p>Si vamos observando que $S(t+1) &lt; S(t)$ implica que los centroides se están moviendo hacia una posición óptima donde los puntos asignados a un grupo tienen la distancia más pequeña posible al centroide correspondiente (es decir, se está minimizando la inercia). El procedimiento se repite hasta que los centroides dejan de cambiar (esto implica también una secuencia $S(0) &gt; S(1) &gt; ... &gt; S(t_final)$), o también hasta cumplir ciertos criterios de mejora de la inercia.</p>
 <h4 id="observaciones">Observaciones<a class="anchor-link" href="#observaciones">&#182;</a></h4><ul>
-<li>S(t) no puede considerarse como una medida absoluta porque su valor está altamente influenciado por la varianza de las muestras. </li>
-<li></li>
+<li>S(t) no puede considerarse como una medida absoluta porque su valor está altamente influenciado por la varianza de las muestras. Es decir, si para dos muestras distintas la inercia final de una es mucho menor que la otra, esto no significa que el algoritmo de K-medias realizó una mejor asignación de grupos.</li>
+<li><p>El tiempo computacional de este algoritmo está altamente influenciado por la primera asignación $M^{(0)}$.  Si $M^{(0)}$ está muy cerca de $M^{(t_final)}$, unas pocas iteraciones pueden encontrar la configuración óptima. Por el contrario, cuando $M^{(0)}$ es completamente aleatorio, la probabilidad de una elección inicial ineficiente es cercana a 1.</p>
+</li>
+<li><p>Encontrar la configuración inicial óptima es equivalente a minimizar la inercia; sin embargo, Arthur y Vassilvitskii (en K-means++: The Advantages of Careful Seeding, Arthur D., Vassilvitskii S., Proceedings of the Eighteenth Annual ACM-SIAM Symposium on Discrete Algorithms, 2007) han propuesto un método de inicialización alternativo (llamado K-means++), que puede mejorar drásticamente la velocidad de convergencia al elegir centroides iniciales con una mayor probabilidad de estar cerca de los finales.</p>
+</li>
+<li><p>Debido a que el algoritmo K-means encuentra un óptimo local en lugar de uno global, los resultados obtenidos dependerán de la asignación de grupos iniciales (aleatoria) de cada observación. Por esta razón, es importante ejecutar el algoritmo varias veces desde diferentes configuraciones iniciales aleatorias. Luego, se selecciona la mejor solución, es decir, aquella para la cual la inercia es la más pequeña.</p>
+</li>
+<li><p>Como hemos visto, para realizar la agrupación K-medias, debemos decidir cuántos clusters esperamos en los datos. El problema de seleccionar K está lejos de ser simple. Este problema, junto con otras consideraciones prácticas que surgen al realizar la agrupación K-means, se abordan dentro del caso de estudio.</p>
+</li>
 </ul>
-<p>Sin embargo,  implica que los centroides se están moviendo hacia una posición óptima donde los puntos asignados a un clúster tienen la distancia más pequeña posible al centroide correspondiente. Por lo tanto,</p>
-<p>La variación dentro del grupo para el grupo $C_k$ es una medida $W(C_k)$ de la cantidad por la cual las observaciones dentro de un grupo difieren entre sí. Por lo tanto, queremos resolver el problema:</p>
-<p>$ dascascas$</p>
-<p>En palabras, esta fórmula indica que deseamos dividir las observaciones en K grupos de manera que la variación total dentro de los grupos, sumada sobre todos los K grupos, sea lo más pequeña posible.</p>
-<p>Resolver la ecuación (10.9) parece ser una idea razonable, pero para llevarlo a cabo necesitamos definir la variación dentro del grupo.</p>
-<p>Existen muchas formas posibles de definir este concepto, pero la elección más común, de lejos, involucra la distancia euclidiana al cuadrado. Es decir, definimos</p>
-<p>FORMULA DE MINIMIZACION CON DISTANCIA EUCLIDIANA</p>
-<p>donde |Ck| denota el número de observaciones en el k-ésimo grupo. En otras palabras, la variación dentro del grupo para el k-ésimo grupo es la suma de todas las distancias euclidianas al cuadrado entre las observaciones en el k-ésimo grupo, dividida por el número total de observaciones en el k-ésimo grupo.</p>
-<p>Al combinar las ecuaciones (10.9) y (10.10), obtenemos el problema de optimización que define la agrupación K-medias.</p>
-<p>FORMULA GLOBAL DE MINIMIZACION</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="algoritmo">Algoritmo<a class="anchor-link" href="#algoritmo">&#182;</a></h3><p>Ahora, nos gustaría encontrar un algoritmo para resolver (10.11), es decir, un método para dividir las observaciones en K clusters de manera que se minimice el objetivo de (10.11). De hecho, este es un problema muy difícil de resolver de manera precisa, ya que hay casi Kn formas de dividir n observaciones en K clusters. Este número es enorme a menos que K y n sean muy pequeños. Afortunadamente, se puede demostrar que un algoritmo muy simple proporciona un óptimo local, es decir, una solución bastante buena, al problema de optimización de K-means (10.11). Este enfoque se detalla en el Algoritmo 10.1.</p>
-<p>El algoritmo de K-Medias consiste en seguir los siguientes pasos:</p>
-<p>1- Asignar aleatoriamente un número, del 1 al K, a cada una de las observaciones. Estos servirán como asignaciones iniciales de clusters para las observaciones.
-2- Iterar hasta que las asignaciones de clusters dejen de cambiar:</p>
-<ul>
-<li>(a) Para cada uno de los K clusters, calcular el centroide del cluster. El centroide del k-ésimo cluster es el vector de las medias de las p características para las observaciones en el k-ésimo cluster.</li>
-<li>(b) Asignar cada observación al cluster cuyo centroide esté más cerca (donde "más cerca" se define utilizando la distancia euclidiana).</li>
-</ul>
-<p>El Algoritmo 10.1 garantiza que disminuirá el valor del objetivo (10.11) en cada paso. En el Paso 2(a), las medias de los clusters para cada característica son las constantes que minimizan la suma de las desviaciones al cuadrado, y en el Paso 2(b), reasignar las observaciones solo puede mejorar (10.12). Esto significa que a medida que se ejecuta el algoritmo, la agrupación obtenida continuará mejorando hasta que el resultado ya no cambie; el objetivo de (10.11) nunca aumentará. Cuando el resultado ya no cambie, se habrá alcanzado un óptimo local. La agrupación K-means recibe su nombre debido a que en el Paso 2(a), los centroides de los clusters se calculan como la media de las observaciones asignadas a cada cluster.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="observaciones">Observaciones<a class="anchor-link" href="#observaciones">&#182;</a></h3><p>Debido a que el algoritmo K-means encuentra un óptimo local en lugar de uno global, los resultados obtenidos dependerán de la asignación de clusters iniciales (aleatoria) de cada observación en el Paso 1 del Algoritmo 10.1. Por esta razón, es importante ejecutar el algoritmo varias veces desde diferentes configuraciones iniciales aleatorias. Luego, se selecciona la mejor solución, es decir, aquella para la cual el objetivo (10.11) es el más pequeño. La Figura 10.7 muestra los óptimos locales obtenidos al ejecutar la agrupación K-means seis veces utilizando seis asignaciones iniciales de clusters diferentes, utilizando los datos de ejemplo de la Figura 10.5. En este caso, la mejor agrupación es la que tiene un valor objetivo de 235.8.</p>
-<p>Como hemos visto, para realizar la agrupación K-means, debemos decidir cuántos clusters esperamos en los datos. El problema de seleccionar K está lejos de ser simple. Este problema, junto con otras consideraciones prácticas que surgen al realizar la agrupación K-means, se aborda en la Sección 10.3.3.</p>
 
 </div>
 </div>

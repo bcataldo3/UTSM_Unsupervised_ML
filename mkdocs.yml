@@ -82,11 +82,9 @@ plugins:
 # TOC
 nav:
     - Home: index.md
-    - ejemplo.ipynb
-    - Conceptos Básicos:
-        - intro.ipynb
-        - basic.ipynb
-    - Manipulación Datos:
-        - pandas.ipynb
-        - seaborn.ipynb
+    - Clase_01 - Modelos No Supervisados - Introduccion.ipynb
+    - Clase_02 - Modelos Conglomerados - Introduccion.ipynb
+    - Clase_03 - Modelo K-Medias.ipynb
+    - Clase_04 - Modelo K-Medias Caso Estudio.ipynb
+    - Clase_05 - Modelo K-Medias Metricas Evaluacion.ipynb
 

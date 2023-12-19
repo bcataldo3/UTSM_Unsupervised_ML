@@ -17,7 +17,7 @@
     
     
       
-        <title>Métricas de Evaluación - Home</title>
+        <title>MACHINE LEARNING NO SUPERVISADO - Home</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#metricas-de-evaluacion" class="md-skip">
+        <a href="#machine-learning-no-supervisado" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Métricas de Evaluación
+              MACHINE LEARNING NO SUPERVISADO
             
           </span>
         </div>
@@ -317,12 +317,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Métricas de Evaluación
+          MACHINE LEARNING NO SUPERVISADO
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Métricas de Evaluación
+        MACHINE LEARNING NO SUPERVISADO
       </a>
       
         
@@ -341,12 +341,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#modelo-k-medias-metricas-de-evaluacion" class="md-nav__link">
+    Modelo K-medias - Métricas de Evaluación
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelo K-medias - Métricas de Evaluación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#minimizar-la-inercia" class="md-nav__link">
     Minimizar la Inercia
   </a>
   
-    <nav class="md-nav" aria-label="Minimizar la Inercia">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#caso-de-estudio-minimizando-la-inercia" class="md-nav__link">
@@ -415,12 +422,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#modelo-k-medias-metricas-de-evaluacion" class="md-nav__link">
+    Modelo K-medias - Métricas de Evaluación
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelo K-medias - Métricas de Evaluación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#minimizar-la-inercia" class="md-nav__link">
     Minimizar la Inercia
   </a>
   
-    <nav class="md-nav" aria-label="Minimizar la Inercia">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#caso-de-estudio-minimizando-la-inercia" class="md-nav__link">
@@ -1505,8 +1519,7 @@ Licensed under the Apache License, Version 2.0.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a href="https://colab.research.google.com/github/bcataldo3/plantilla_curso_python/blob/main/docs/Clase_05 - Modelo K-Medias Metricas Evaluacion.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<h1 id="metricas-de-evaluacion">M&#233;tricas de Evaluaci&#243;n<a class="anchor-link" href="#metricas-de-evaluacion">&#182;</a></h1><p>Intro a la clase</p>
-<h2 id="minimizar-la-inercia">Minimizar la Inercia<a class="anchor-link" href="#minimizar-la-inercia">&#182;</a></h2><p>Uno de los mayores inconvenientes de K-medias y algoritmos similares es la solicitud explícita del número de agrupaciones. A veces, esta información está impuesta por restricciones externas (por ejemplo, en el caso de estudio, solo hay dos posibles diagnósticos), pero en muchos casos (cuando se necesita un análisis exploratorio), el científico de datos debe verificar diferentes configuraciones y evaluarlas. La forma más sencilla de evaluar el rendimiento de K-medias y elegir un número apropiado de clústeres se basa en la comparación de diferentes inercias finales. Para explicar esto mediremos las inercias de un ejemplo generado a partir de 12 globos Gausianos muy compactos generados con la funcion de <code>scikit-learn make_blobs()</code></p>
+<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="modelo-k-medias-metricas-de-evaluacion">Modelo K-medias - M&#233;tricas de Evaluaci&#243;n<a class="anchor-link" href="#modelo-k-medias-metricas-de-evaluacion">&#182;</a></h2><h3 id="minimizar-la-inercia">Minimizar la Inercia<a class="anchor-link" href="#minimizar-la-inercia">&#182;</a></h3><p>Uno de los mayores inconvenientes de K-medias y algoritmos similares es la solicitud explícita del número de agrupaciones. A veces, esta información está impuesta por restricciones externas (por ejemplo, en el caso de estudio, solo hay dos posibles diagnósticos), pero en muchos casos (cuando se necesita un análisis exploratorio), el científico de datos debe verificar diferentes configuraciones y evaluarlas. La forma más sencilla de evaluar el rendimiento de K-medias y elegir un número apropiado de clústeres se basa en la comparación de diferentes inercias finales. Para explicar esto mediremos las inercias de un ejemplo generado a partir de 12 globos Gausianos muy compactos generados con la funcion de <code>scikit-learn make_blobs()</code></p>
 <p>Comenzamos creando la data y mostrando resultados</p>
 <p><img src="https://drive.google.com/uc?export=view&id=1vuLtM8DQhLmKcN6C3-j9DknugLiwDwqt" width = "800" align="center"/></p>
 
@@ -2032,35 +2045,10 @@ max         74.650000  404.900000  ...        0.228000       0.274300</div>
 <h4 id="conclusiones-del-ejercicio">Conclusiones del Ejercicio<a class="anchor-link" href="#conclusiones-del-ejercicio">&#182;</a></h4><p>En este caso, la relación entre el área media y el perímetro medio es aproximadamente de 4.89, pero el área media tiene una desviación estándar más grande (de hecho, su valor máximo es de alrededor de 410). La concavidad media es extremadamente pequeña en comparación con la anterior (incluso con aproximadamente la misma desviación estándar), mientras que la simetría media es casi equivalente. A partir de este breve análisis, podemos deducir que la simetría media no es una característica discriminante, mientras que una relación entre el área media y el perímetro medio menor que 5.42 (considerando los valores máximos) con una concavidad media menor o igual a 0.04 debería garantizar un resultado benigno. Dado que la concavidad media puede alcanzar un valor máximo muy grande (mayor que el asociado con muestras malignas), es necesario considerar también las otras características para decidir si su valor debe ser considerado como una alarma. Sin embargo, podemos concluir diciendo que todas las muestras pertenecientes a estos grupos son benignas con una probabilidad de error insignificante</p>
 <p>Es importante recalcar que esto es más un ejercicio que un análisis real y, en tales situaciones, la tarea principal del científico de datos es recopilar piezas de información contextual que puedan respaldar las conclusiones. Incluso en presencia de la verdad fundamental, este proceso de validación es siempre obligatorio porque la complejidad de las causas subyacentes puede llevar a afirmaciones y reglas completamente erróneas</p>
 <h3 id="coeficiente-de-silhouette">Coeficiente de Silhouette<a class="anchor-link" href="#coeficiente-de-silhouette">&#182;</a></h3><p>El método más común para evaluar el rendimiento de un algoritmo de agrupamiento sin conocimiento de la verdad fundamental es el puntaje de silueta. Proporciona tanto un índice por muestra como una representación gráfica global que muestra el nivel de coherencia interna y separación de los grupos. Para calcular el puntaje, necesitamos introducir dos medidas auxiliares. La primera es la distancia intra-cluster promedio de una muestra $x_i ∈ K_j$ asumiendo la cardinalidad de $|K_j|=n(j)$:</p>
-<p>$sfjkask$</p>
-<p>Para K-means, se asume que la distancia es euclidiana, pero no hay limitaciones específicas. Por supuesto, d(•) debe ser la misma función de distancia empleada en el procedimiento de agrupamiento. Dada una muestra xi ∈ Kj, vamos a denotar el clúster más cercano como Kc. De esta manera, también podemos definir la distancia más pequeña al clúster más cercano (como la distancia promedio al clúster más cercano)</p>
-<p>$scsakfmascfas$</p>
-<p>Con estas dos medidas, podemos definir el coeficiente de Silhouette para cada $x_i \in X$</p>
-<p>$dvsdv dslv msdlds$</p>
-<p>El puntaje s(•) ∈ (-1, 1). Cuando s(•) → -1, significa que b(•) &lt;&lt; a(•), por lo tanto, la muestra xi ∈ Kj está más cerca del clúster más cercano Kc que de las otras muestras asignadas a Kj. Esta condición indica una asignación incorrecta. Por otro lado, cuando s(•) → 1, b(•) &gt;&gt; a(•), por lo que la muestra xi está mucho más cerca de sus vecinos (pertenecientes al mismo clúster) que de cualquier otro punto asignado al clúster más cercano. Claramente, esta es una condición óptima y la referencia a emplear al ajustar un algoritmo. Sin embargo, como este índice no es global, es útil introducir gráficos de silueta, que muestran los puntajes obtenidos por cada muestra, agrupados por clúster y ordenados de manera descendente.</p>
-<p>Consideremos gráficos de Silhouette para el conjunto de datos de cancer de pecho para $K={2, 4, 6, 8}$</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+$$ a(x_i)=\frac{1}{n(j)}\sum_{x_t \in K_j} d(x_i,x_t) $$<p>Por supuesto, $d(•)$ debe ser la misma función de distancia empleada en el procedimiento de agrupamiento. Dada una muestra $x_i ∈ K_j$, vamos a denotar el grupo más cercano como $K_c$. De esta manera, también podemos definir la distancia más pequeña al clúster más cercano (como la distancia promedio al grupo más cercano)</p>
+$$ b(x_i)=\frac{1}{n(c)}\sum_{x_t \in K_c} d(x_i,x_t) $$<p>Con estas dos medidas, podemos definir el coeficiente de Silhouette para cada $x_i \in X$</p>
+$$ s(x_i)=\frac{b(x_i)-a(x_i)}{\max\{a(x_i),b(x_i)\}}$$<p>El puntaje $s(•) ∈ (-1, 1)$. Cuando $s(•) → -1$, significa que $b(•) &lt;&lt; a(•)$, por lo tanto, la muestra $x_i ∈ K_j$ está más cerca del clúster más cercano $K_c$ que de las otras muestras asignadas a $K_j$. Esta condición indica una asignación incorrecta. Por otro lado, cuando $s(•) → 1$, $b(•) &gt;&gt; a(•)$, por lo que la muestra $x_i$ está mucho más cerca de sus vecinos (pertenecientes al mismo grupo) que de cualquier otro punto asignado al grupo más cercano. Claramente, esta es una condición óptima y la referencia a emplear al ajustar un algoritmo. Sin embargo, como este índice no es global, es útil introducir gráficos de silueta, que muestran los puntajes obtenidos por cada muestra, agrupados por grupo y ordenados de manera descendente. Consideremos gráficos de Silhouette para el conjunto de datos de cancer de pecho para $K={2, 4, 6, 8}$</p>
+<p><img src="https://drive.google.com/uc?export=view&id=1wbGpgstZnxNs6k9_HI9UPjqNm0NBdrDN" width = "800" align="center"/></p>
 
 </div>
 </div>
@@ -2086,71 +2074,65 @@ max         74.650000  404.900000  ...        0.228000       0.274300</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">nb_clusters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_samples</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="n">nb_clusters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">mapping</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+
+<span class="n">nb_clusters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 <span class="n">mapping</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
 
 <span class="c1"># Show the silhouette plots</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nb_clusters</span><span class="p">):</span>
     <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
     <span class="n">Y</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">cdf</span><span class="p">)</span>
     <span class="n">df_km</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Y_pred</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">cdf</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
     <span class="n">kmdff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dff</span><span class="p">,</span> <span class="n">df_km</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
     <span class="n">silhouette_values</span> <span class="o">=</span> <span class="n">silhouette_samples</span><span class="p">(</span><span class="n">cdf</span><span class="p">,</span> <span class="n">kmdff</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">])</span>
-
     <span class="n">ax</span><span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> clusters&#39;</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
     <span class="n">y_lower</span> <span class="o">=</span> <span class="mi">20</span>
-
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">ct_values</span> <span class="o">=</span> <span class="n">silhouette_values</span><span class="p">[</span><span class="n">Y</span> <span class="o">==</span> <span class="n">t</span><span class="p">]</span>
         <span class="n">ct_values</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-
         <span class="n">y_upper</span> <span class="o">=</span> <span class="n">y_lower</span> <span class="o">+</span> <span class="n">ct_values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
         <span class="n">color</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Accent</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_lower</span><span class="p">,</span> <span class="n">y_upper</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ct_values</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
-
         <span class="n">y_lower</span> <span class="o">=</span> <span class="n">y_upper</span> <span class="o">+</span> <span class="mi">20</span>
-
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-9" class="clipboard-copy-txt">nb_clusters = [2, 4, 6, 8]
+<div id="cell-9" class="clipboard-copy-txt">from sklearn.metrics import silhouette_samples
+import matplotlib.cm as cm
+nb_clusters = [2, 4, 6, 8]
+mapping = [(0, 0), (0, 1), (1, 0), (1, 1)]
+
+nb_clusters = [2, 4, 6, 8]
 mapping = [(0, 0), (0, 1), (1, 0), (1, 1)]
 
 # Show the silhouette plots
 fig, ax = plt.subplots(2, 2, figsize=(15, 10))
-
 for i, n in enumerate(nb_clusters):
     km = KMeans(n_clusters=n, random_state=1000)
     Y = km.fit_predict(cdf)
     df_km = pd.DataFrame(Y_pred, columns=['prediction'], index=cdf.index)
     kmdff = pd.concat([dff, df_km], axis=1)
-
     silhouette_values = silhouette_samples(cdf, kmdff['prediction'])
-
     ax[mapping[i]].set_xticks([-0.15, 0.0, 0.25, 0.5, 0.75, 1.0])
     ax[mapping[i]].set_yticks([])
     ax[mapping[i]].set_title('%d clusters' % n)
     ax[mapping[i]].set_xlim([-0.15, 1])
     y_lower = 20
-
     for t in range(n):
         ct_values = silhouette_values[Y == t]
         ct_values.sort()
-
         y_upper = y_lower + ct_values.shape[0]
-
         color = cm.Accent(float(t) / n)
         ax[mapping[i]].fill_betweenx(np.arange(y_lower, y_upper), 0, ct_values, facecolor=color, edgecolor=color)
-
         y_lower = y_upper + 20
-
-    plt.show()</div>
+plt.show()</div>
     
         </div>
     </div>
@@ -2166,7 +2148,7 @@ for i, n in enumerate(nb_clusters):
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>El primer diagrama muestra el agrupamiento natural con K=2. La primera silueta es muy marcada, lo que indica que la distancia inter-cluster promedio tiene una gran variación. Además, un clúster tiene muchas más asignaciones que el otro (aunque es menos marcado). A partir de la descripción del conjunto de datos, sabemos que las dos clases están desequilibradas (357 benignas frente a 212 malignas), por lo tanto, la asimetría está parcialmente justificada. Sin embargo, en general, cuando los conjuntos de datos están equilibrados, un buen gráfico de silueta se caracteriza por tener clústeres homogéneos con una silueta redondeada que debería estar cerca de 1.0. De hecho, cuando la forma es similar a un cigarro largo, significa que las distancias intra-cluster están muy cerca de su promedio (alta cohesión) y hay una clara separación entre los clústeres adyacentes. Para K=2, tenemos puntajes razonables, ya que el primer clúster alcanza 0.6, mientras que el segundo tiene un pico correspondiente a alrededor de 0.8. Sin embargo, aunque en este último la mayoría de las muestras se caracterizan por tener s(•) &gt; 0.75, en el primero, aproximadamente la mitad de las muestras están por debajo de 0.5. Este análisis muestra que el clúster más grande es más homogéneo y es más fácil para K-means asignar las muestras (es decir, en términos de medidas, la varianza de xi ∈ K2 es menor y, en el espacio de alta dimensión, la esfera que representa a K2 es más uniforme que la que representa a K1)</p>
+<p>El primer diagrama muestra el agrupamiento natural con K=2. La primera silueta es muy marcada, lo que indica que la distancia inter-grupo promedio tiene una gran variación. Además, un clúster tiene muchas más asignaciones que el otro (aunque es menos marcado). A partir de la descripción del conjunto de datos, sabemos que las dos clases están desequilibradas (357 benignas frente a 212 malignas), por lo tanto, la asimetría está parcialmente justificada. Sin embargo, en general, cuando los conjuntos de datos están equilibrados, un buen gráfico de silueta se caracteriza por tener clústeres homogéneos con una silueta redondeada que debería estar cerca de 1.0. De hecho, cuando la forma es similar a un cigarro largo, significa que las distancias intra-cluster están muy cerca de su promedio (alta cohesión) y hay una clara separación entre los clústeres adyacentes. Para K=2, tenemos puntajes razonables, ya que el primer clúster alcanza 0.6, mientras que el segundo tiene un pico correspondiente a alrededor de 0.8. Sin embargo, aunque en este último la mayoría de las muestras se caracterizan por tener s(•) &gt; 0.75, en el primero, aproximadamente la mitad de las muestras están por debajo de 0.5. Este análisis muestra que el clúster más grande es más homogéneo y es más fácil para K-means asignar las muestras (es decir, en términos de medidas, la varianza de xi ∈ K2 es menor y, en el espacio de alta dimensión, la esfera que representa a K2 es más uniforme que la que representa a K1)</p>
 <p>Los demás gráficos muestran escenarios similares porque se ha detectado un clúster muy cohesivo junto con algunos clústeres agudos. Esto significa que hay una discrepancia de anchura muy consistente. Sin embargo, al aumentar K, obtenemos clústeres ligeramente más homogéneos porque tiende a ser similar el número de muestras asignadas. La presencia de un clúster muy redondeado (casi rectangular) con s(•) &gt; 0.75 confirma que el conjunto de datos contiene al menos un grupo de muestras muy cohesivas, cuyas distancias con respecto a cualquier otro punto asignado a otros clústeres son bastante cercanas. Sabemos que la clase maligna (aunque su cardinalidad sea mayor) es más compacta, mientras que la benigna se extiende sobre un subespacio mucho más amplio; por lo tanto, podemos asumir que para todos los K, el clúster más redondeado está compuesto por muestras malignas y todos los demás se pueden distinguir según su nitidez. Por ejemplo, para K=8, es muy probable que el tercer clúster corresponda a la parte central del segundo clúster en el primer gráfico, mientras que los más pequeños contienen muestras que pertenecen a regiones aisladas del subconjunto benigno.</p>
 <p>Si no conocemos la verdad fundamental, deberíamos considerar tanto K=2 como K=8 (o incluso un número mayor). De hecho, en el primer caso, probablemente estemos perdiendo muchos detalles finos de información, pero estamos determinando una subdivisión sólida (asumiendo que un clúster no es extremadamente cohesivo debido a la naturaleza del problema). Por otro lado, con K&gt;8, los clústeres son obviamente más pequeños, con una cohesión moderadamente mayor, y representan subgrupos que comparten algunas características comunes. Como discutimos en la sección anterior, la elección final depende de muchos factores y estas herramientas solo pueden proporcionar una indicación general. Además, cuando los clústeres no son convexos o su varianza no está distribuida uniformemente entre todas las características, K-means siempre dará rendimientos subóptimos porque los clústeres resultantes incorporarán un espacio grande vacío. Sin direcciones específicas, el número óptimo de clústeres está asociado con un gráfico que contiene gráficos redondeados homogéneos (con aproximadamente el mismo ancho). Si la forma permanece afilada para cualquier valor de K, significa que la geometría no es completamente compatible con medidas simétricas (por ejemplo, los clústeres están muy estirados) y se deben considerar otros métodos.</p>
 

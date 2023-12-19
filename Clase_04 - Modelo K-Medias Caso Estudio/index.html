@@ -1519,7 +1519,8 @@ Licensed under the Apache License, Version 2.0.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a href="https://colab.research.google.com/github/bcataldo3/plantilla_curso_python/blob/main/docs/Clase_04 - Modelo K-Medias Caso Estudio.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="modelo-k-medias-caso-estudio">Modelo K-Medias - Caso Estudio<a class="anchor-link" href="#modelo-k-medias-caso-estudio">&#182;</a></h2><h3 id="caso-de-estudio">Caso de Estudio<a class="anchor-link" href="#caso-de-estudio">&#182;</a></h3><p>En este capítulo, estamos utilizando el conocido conjunto de datos Breast Cancer Wisconsin para realizar un análisis de clústeres. Originalmente, el conjunto de datos se propuso con el fin de entrenar clasificadores; sin embargo, también puede ser muy útil para un análisis de clúster no trivial. Contiene 569 registros compuestos por 32 atributos (incluyendo el diagnóstico y un número de identificación). Todos los atributos están estrictamente relacionados con propiedades biológicas y morfológicas de los tumores, pero nuestro objetivo es validar hipótesis genéricas considerando la verdad fundamental (benigna o maligna) y las propiedades estadísticas del conjunto de datos. Antes de continuar, es importante aclarar algunos puntos. El conjunto de datos es de alta dimensionalidad y los clústeres son no convexos (por lo que no podemos esperar una segmentación perfecta). Además, nuestro objetivo no es utilizar un algoritmo de agrupamiento para obtener los resultados de un clasificador; por lo tanto, la verdad fundamental debe tenerse en cuenta solo como una indicación genérica de un posible agrupamiento. El objetivo de este ejemplo es mostrar cómo realizar un breve análisis preliminar, seleccionar el número óptimo de clústeres y validar los resultados finales</p>
+<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="modelo-k-medias-caso-estudio">Modelo K-Medias - Caso Estudio<a class="anchor-link" href="#modelo-k-medias-caso-estudio">&#182;</a></h2><h3 id="caso-de-estudio">Caso de Estudio<a class="anchor-link" href="#caso-de-estudio">&#182;</a></h3><p>En este capítulo, vamos a utilizar el conocido conjunto de datos Breast Cancer Wisconsin (cencer de mamas Wisconsin) para realizar un análisis de conglomerados. Originalmente, el conjunto de datos se propuso con el fin de entrenar clasificadores; sin embargo, también puede ser muy útil para un análisis de conglomerados sin tener en cuenta sus etiquetas (si es un tumor benigno o maligno). Contiene 569 registros compuestos por 32 atributos (incluyendo el diagnóstico y un número de identificación). Todos los atributos están estrictamente relacionados con propiedades biológicas y morfológicas de los tumores.</p>
+<p>Nuestro objetivo será validar hipótesis genéricas considerando la verdad fundamental (tumor benigno o maligno) y las propiedades estadísticas del conjunto de datos. Antes de continuar, es importante aclarar algunos puntos. El conjunto de datos es de alta dimensionalidad y los grupos son no convexos (por lo que no podemos esperar una segmentación perfecta). Además, nuestro objetivo no es utilizar un algoritmo de agrupamiento para obtener los resultados de un clasificador. La verdad fundamental debe tenerse en cuenta solo como una indicación genérica de un posible agrupamiento. El objetivo de este ejemplo es mostrar cómo realizar un breve análisis preliminar, seleccionar el número óptimo de grupos y validar los resultados finales. Se pasa a cargar la data y revisar algunas variables.</p>
 
 </div>
 </div>
@@ -1570,6 +1571,54 @@ print(df.describe())</div>
 </div>
 
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-2">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">radius_mean</span>  <span class="n">texture_mean</span>  <span class="o">...</span>  <span class="n">symmetry_worst</span>  <span class="n">fractal_dimension_worst</span>
+<span class="n">count</span>   <span class="mf">569.000000</span>    <span class="mf">569.000000</span>  <span class="o">...</span>      <span class="mf">569.000000</span>               <span class="mf">569.000000</span>
+<span class="n">mean</span>     <span class="mf">14.127292</span>     <span class="mf">19.289649</span>  <span class="o">...</span>        <span class="mf">0.290076</span>                 <span class="mf">0.083946</span>
+<span class="n">std</span>       <span class="mf">3.524049</span>      <span class="mf">4.301036</span>  <span class="o">...</span>        <span class="mf">0.061867</span>                 <span class="mf">0.018061</span>
+<span class="nb">min</span>       <span class="mf">6.981000</span>      <span class="mf">9.710000</span>  <span class="o">...</span>        <span class="mf">0.156500</span>                 <span class="mf">0.055040</span>
+<span class="mi">25</span><span class="o">%</span>      <span class="mf">11.700000</span>     <span class="mf">16.170000</span>  <span class="o">...</span>        <span class="mf">0.250400</span>                 <span class="mf">0.071460</span>
+<span class="mi">50</span><span class="o">%</span>      <span class="mf">13.370000</span>     <span class="mf">18.840000</span>  <span class="o">...</span>        <span class="mf">0.282200</span>                 <span class="mf">0.080040</span>
+<span class="mi">75</span><span class="o">%</span>      <span class="mf">15.780000</span>     <span class="mf">21.800000</span>  <span class="o">...</span>        <span class="mf">0.317900</span>                 <span class="mf">0.092080</span>
+<span class="nb">max</span>      <span class="mf">28.110000</span>     <span class="mf">39.280000</span>  <span class="o">...</span>        <span class="mf">0.663800</span>                 <span class="mf">0.207500</span>
+</pre></div>
+<div id="cell-2" class="clipboard-copy-txt">       radius_mean  texture_mean  ...  symmetry_worst  fractal_dimension_worst
+count   569.000000    569.000000  ...      569.000000               569.000000
+mean     14.127292     19.289649  ...        0.290076                 0.083946
+std       3.524049      4.301036  ...        0.061867                 0.018061
+min       6.981000      9.710000  ...        0.156500                 0.055040
+25%      11.700000     16.170000  ...        0.250400                 0.071460
+50%      13.370000     18.840000  ...        0.282200                 0.080040
+75%      15.780000     21.800000  ...        0.317900                 0.092080
+max      28.110000     39.280000  ...        0.663800                 0.207500</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -1599,7 +1648,7 @@ print(df.describe())</div>
         
         <div class="CodeMirror cm-s-jupyter">
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-2">
+            <clipboard-copy for="cell-3">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -1620,7 +1669,7 @@ print(df.describe())</div>
 <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;perimeter_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;area_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;smoothness_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;concavity_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;symmetry_mean&#39;</span><span class="p">],</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;diagnosis&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-2" class="clipboard-copy-txt">import matplotlib.pyplot as plt
+<div id="cell-3" class="clipboard-copy-txt">import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import seaborn as sns
 
@@ -1708,7 +1757,7 @@ plt.show()</div>
         
         <div class="CodeMirror cm-s-jupyter">
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-3">
+            <clipboard-copy for="cell-4">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -1733,7 +1782,7 @@ plt.show()</div>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-3" class="clipboard-copy-txt">from sklearn.manifold import TSNE
+<div id="cell-4" class="clipboard-copy-txt">from sklearn.manifold import TSNE
 cdf = df.drop(['diagnosis'], axis=1)
 tsne = TSNE(n_components=2, perplexity=10, random_state=1000)
 data_tsne = tsne.fit_transform(cdf)
@@ -1778,7 +1827,7 @@ plt.show()</div>
         
         <div class="CodeMirror cm-s-jupyter">
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-4">
+            <clipboard-copy for="cell-5">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -1808,7 +1857,7 @@ plt.show()</div>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-4" class="clipboard-copy-txt">import numpy as np
+<div id="cell-5" class="clipboard-copy-txt">import numpy as np
 from sklearn.cluster import KMeans 
 # For reproducibility
 np.random.seed(1000)

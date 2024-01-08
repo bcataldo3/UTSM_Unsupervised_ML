@@ -404,6 +404,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#indice-de-informacion-mutua-ajustada" class="md-nav__link">
+    Índice de Información Mutua Ajustada
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -508,6 +515,13 @@
           <li class="md-nav__item">
   <a href="#un-equilibrio-entre-homogeneidad-y-completitud-utilizando-la-medida-v" class="md-nav__link">
     Un Equilibrio entre Homogeneidad y Completitud utilizando la Medida V
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indice-de-informacion-mutua-ajustada" class="md-nav__link">
+    Índice de Información Mutua Ajustada
   </a>
   
 </li>
@@ -2223,7 +2237,7 @@ $$c=1-\frac{H(Y_{true}|Y_{pred})}{H(Y_{true})}$$<p>Similarmente al indice de com
 <p>Es evidente que, con conocimiento de la verdad fundamental, no podemos aceptar fácilmente los resultados de K-medias y deberíamos buscar otro algoritmo que pueda proporcionar tanto $h$ como $c → 1$, es decir, que logre una alta homogeneidad y completitud en la asignación de las muestras a los grupos.</p>
 <h4 id="un-equilibrio-entre-homogeneidad-y-completitud-utilizando-la-medida-v">Un Equilibrio entre Homogeneidad y Completitud utilizando la Medida V<a class="anchor-link" href="#un-equilibrio-entre-homogeneidad-y-completitud-utilizando-la-medida-v">&#182;</a></h4><p>El lector familiarizado con el aprendizaje supervisado debería conocer el concepto de puntuación F (o medida F), que es la media armónica de precisión y recall. El mismo tipo de compensación puede ser empleado también al evaluar resultados de agrupamiento dados la verdad fundamental. De hecho, en muchos casos, es útil tener una única medida que tenga en cuenta tanto la homogeneidad como la completitud. Tal resultado se puede lograr fácilmente utilizando la medida V (o puntuación V), que se define como.</p>
 $$V = \frac{2}{\frac{1}{Homogeneidad}+\frac{1}{Completitud}} = \frac{2\cdot Homogeneidad \cdot Completitud}{Homogeneidad+Completitud}$$<p>Para nuestro caso, el valor del índice es de 0.465. Como se esperaba, la puntuación V es una medida promedio que, en este caso, se ve negativamente influenciada por una homogeneidad más baja. Por supuesto, este índice no proporciona ninguna información diferente, por lo tanto, solo es útil para sintetizar la completitud y la homogeneidad en un único valor. Sin embargo, con algunas manipulaciones matemáticas simples pero tediosas, es posible demostrar que la medida V también es simétrica (es decir, V(Ypred|Ytrue) = V(Ytrue|Ypred)); por lo tanto, dadas dos asignaciones independientes Y1 e Y2, V(Y1|Y2) es una medida de acuerdo entre ellas. Tal escenario no es extremadamente común, porque otras medidas pueden lograr un mejor resultado. Sin embargo, este puntaje podría ser utilizado, por ejemplo, para verificar si dos algoritmos (posiblemente basados en estrategias diferentes) tienden a producir las mismas asignaciones o si son discordantes. En este último caso, incluso si la verdad fundamental es desconocida, el científico de datos puede comprender que una estrategia seguramente no es tan efectiva como la otra y comenzar un proceso de exploración para encontrar el algoritmo de agrupamiento óptimo.</p>
-
+<h4 id="indice-de-informacion-mutua-ajustada">&#205;ndice de Informaci&#243;n Mutua Ajustada<a class="anchor-link" href="#indice-de-informacion-mutua-ajustada">&#182;</a></h4>
 </div>
 </div>
 </div>

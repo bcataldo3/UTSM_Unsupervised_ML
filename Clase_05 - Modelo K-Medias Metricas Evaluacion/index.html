@@ -1632,9 +1632,9 @@ Licensed under the Apache License, Version 2.0.
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.grupo</span> <span class="kn">import</span> <span class="n">KMeans</span>
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">cluster_std</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">center_box</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">grupo_std</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">center_box</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="c1"># Show the blobs</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
@@ -1648,9 +1648,9 @@ Licensed under the Apache License, Version 2.0.
 <div id="cell-1" class="clipboard-copy-txt">import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.cluster import KMeans
+from sklearn.grupo import KMeans
 from sklearn.datasets import make_blobs
-X, Y = make_blobs(n_samples=2000, n_features=2, centers=12,cluster_std=0.05, center_box=[-5, 5], random_state=100)
+X, Y = make_blobs(n_samples=2000, n_features=2, centers=12,grupo_std=0.05, center_box=[-5, 5], random_state=100)
 # Show the blobs
 sns.set()
 fig, ax = plt.subplots(figsize=(12, 8))
@@ -1705,13 +1705,13 @@ plt.show()</div>
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Compute the inertia</span>
 <span class="n">inertias</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">):</span>
-    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_grupos</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
     <span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
     <span class="n">inertias</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">km</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
-<span class="c1"># Show the plot inertia vs. no. clusters</span>
+<span class="c1"># Show the plot inertia vs. no. grupos</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">inertias</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of clusters&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of grupos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Inertia&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1719,13 +1719,13 @@ plt.show()</div>
 <div id="cell-2" class="clipboard-copy-txt"># Compute the inertia
 inertias = []
 for i in range(2, 21):
-    km = KMeans(n_clusters=i, max_iter=1000, random_state=1000)
+    km = KMeans(n_grupos=i, max_iter=1000, random_state=1000)
     km.fit(X)
     inertias.append(km.inertia_)
-# Show the plot inertia vs. no. clusters
+# Show the plot inertia vs. no. grupos
 fig, ax = plt.subplots(figsize=(18, 8))
 ax.plot(np.arange(2, 21, 1), inertias)
-ax.set_xlabel('Number of clusters', fontsize=14)
+ax.set_xlabel('Number of grupos', fontsize=14)
 ax.set_ylabel('Inertia', fontsize=14)
 ax.set_xticks(np.arange(2, 21, 1))
 plt.show()</div>
@@ -1800,15 +1800,15 @@ plt.show()</div>
 <span class="n">inertias</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">51</span><span class="p">):</span>
-    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_grupos</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
     <span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cdf</span><span class="p">)</span>
     <span class="n">inertias</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">km</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
 
-<span class="c1"># Show the plot inertia vs. no. clusters</span>
+<span class="c1"># Show the plot inertia vs. no. grupos</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">inertias</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of clusters&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of grupos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Inertia&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 
@@ -1826,15 +1826,15 @@ cdf = df.drop(['diagnosis'], axis=1)
 inertias = []
 
 for i in range(2, 51):
-    km = KMeans(n_clusters=i, max_iter=1000, random_state=1000)
+    km = KMeans(n_grupos=i, max_iter=1000, random_state=1000)
     km.fit(cdf)
     inertias.append(km.inertia_)
 
-# Show the plot inertia vs. no. clusters
+# Show the plot inertia vs. no. grupos
 fig, ax = plt.subplots(figsize=(18, 8))
 
 ax.plot(np.arange(2, 51, 1), inertias)
-ax.set_xlabel('Number of clusters', fontsize=14)
+ax.set_xlabel('Number of grupos', fontsize=14)
 ax.set_ylabel('Inertia', fontsize=14)
 ax.set_xticks(np.arange(2, 51, 2))
 
@@ -1887,7 +1887,7 @@ plt.show()</div>
 <span class="n">df_tsne</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_tsne</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">cdf</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="n">dff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df_tsne</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_grupos</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">Y_pred</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">cdf</span><span class="p">)</span>
 <span class="n">df_km</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Y_pred</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">cdf</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="n">kmdff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dff</span><span class="p">,</span> <span class="n">df_km</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1907,7 +1907,7 @@ data_tsne = tsne.fit_transform(cdf)
 df_tsne = pd.DataFrame(data_tsne, columns=['x', 'y'], index=cdf.index)
 dff = pd.concat([df, df_tsne], axis=1)
 
-km = KMeans(n_clusters=8, max_iter=1000, random_state=1000)
+km = KMeans(n_grupos=8, max_iter=1000, random_state=1000)
 Y_pred = km.fit_predict(cdf)
 df_km = pd.DataFrame(Y_pred, columns=['prediction'], index=cdf.index)
 kmdff = pd.concat([dff, df_km], axis=1)
@@ -2126,7 +2126,7 @@ max         74.650000  404.900000  ...        0.228000       0.274300</div>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h4 id="conclusiones-del-ejercicio">Conclusiones del Ejercicio<a class="anchor-link" href="#conclusiones-del-ejercicio">&#182;</a></h4><p>En este caso, la relación entre el área media y el perímetro medio es aproximadamente de 4.89, pero el área media tiene una desviación estándar más grande (de hecho, su valor máximo es de alrededor de 410). La concavidad media es extremadamente pequeña en comparación con la anterior (incluso con aproximadamente la misma desviación estándar), mientras que la simetría media es casi equivalente. A partir de este breve análisis, podemos deducir que la simetría media no es una característica discriminante, mientras que una relación entre el área media y el perímetro medio menor que 5.42 (considerando los valores máximos) con una concavidad media menor o igual a 0.04 debería garantizar un resultado benigno. Dado que la concavidad media puede alcanzar un valor máximo muy grande (mayor que el asociado con muestras malignas), es necesario considerar también las otras características para decidir si su valor debe ser considerado como una alarma. Sin embargo, podemos concluir diciendo que todas las muestras pertenecientes a estos grupos son benignas con una probabilidad de error insignificante</p>
 <p>Es importante recalcar que esto es más un ejercicio que un análisis real y, en tales situaciones, la tarea principal del científico de datos es recopilar piezas de información contextual que puedan respaldar las conclusiones. Incluso en presencia de la verdad fundamental, este proceso de validación es siempre obligatorio porque la complejidad de las causas subyacentes puede llevar a afirmaciones y reglas completamente erróneas</p>
-<h3 id="coeficiente-de-silhouette">Coeficiente de Silhouette<a class="anchor-link" href="#coeficiente-de-silhouette">&#182;</a></h3><p>El método más común para evaluar el rendimiento de un algoritmo de agrupamiento sin conocimiento de la verdad fundamental es el puntaje de silueta. Proporciona tanto un índice por muestra como una representación gráfica global que muestra el nivel de coherencia interna y separación de los grupos. Para calcular el puntaje, necesitamos introducir dos medidas auxiliares. La primera es la distancia intra-cluster promedio de una muestra $x_i ∈ K_j$ asumiendo la cardinalidad de $|K_j|=n(j)$:</p>
+<h3 id="coeficiente-de-silhouette">Coeficiente de Silhouette<a class="anchor-link" href="#coeficiente-de-silhouette">&#182;</a></h3><p>El método más común para evaluar el rendimiento de un algoritmo de agrupamiento sin conocimiento de la verdad fundamental es el puntaje de silueta. Proporciona tanto un índice por muestra como una representación gráfica global que muestra el nivel de coherencia interna y separación de los grupos. Para calcular el puntaje, necesitamos introducir dos medidas auxiliares. La primera es la distancia intra-grupo promedio de una muestra $x_i ∈ K_j$ asumiendo la cardinalidad de $|K_j|=n(j)$:</p>
 $$ a(x_i)=\frac{1}{n(j)}\sum_{x_t \in K_j} d(x_i,x_t) $$<p>Por supuesto, $d(•)$ debe ser la misma función de distancia empleada en el procedimiento de agrupamiento. Dada una muestra $x_i ∈ K_j$, vamos a denotar el grupo más cercano como $K_c$. De esta manera, también podemos definir la distancia más pequeña al grupo más cercano (como la distancia promedio al grupo más cercano)</p>
 $$ b(x_i)=\frac{1}{n(c)}\sum_{x_t \in K_c} d(x_i,x_t) $$<p>Con estas dos medidas, podemos definir el coeficiente de Silhouette para cada $x_i \in X$</p>
 $$ s(x_i)=\frac{b(x_i)-a(x_i)}{\max\{a(x_i),b(x_i)\}}$$<p>El puntaje $s(•) ∈ (-1, 1)$. Cuando $s(•) → -1$, significa que $b(•) &lt;&lt; a(•)$, por lo tanto, la muestra $x_i ∈ K_j$ está más cerca del grupo más cercano $K_c$ que de las otras muestras asignadas a $K_j$. Esta condición indica una asignación incorrecta. Por otro lado, cuando $s(•) → 1$, $b(•) &gt;&gt; a(•)$, por lo que la muestra $x_i$ está mucho más cerca de sus vecinos (pertenecientes al mismo grupo) que de cualquier otro punto asignado al grupo más cercano. Claramente, esta es una condición óptima y la referencia a emplear al ajustar un algoritmo. Sin embargo, como este índice no es global, es útil introducir gráficos de silueta, que muestran los puntajes obtenidos por cada muestra, agrupados por grupo y ordenados de manera descendente. Consideremos gráficos de Silhouette para el conjunto de datos de cancer de pecho para $K={2, 4, 6, 8}$</p>
@@ -2158,23 +2158,23 @@ $$ s(x_i)=\frac{b(x_i)-a(x_i)}{\max\{a(x_i),b(x_i)\}}$$<p>El puntaje $s(•) ∈
         </div>
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_samples</span>
 <span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
-<span class="n">nb_clusters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">nb_grupos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 <span class="n">mapping</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
 
-<span class="n">nb_clusters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">nb_grupos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 <span class="n">mapping</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
 
 <span class="c1"># Show the silhouette plots</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nb_clusters</span><span class="p">):</span>
-    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nb_grupos</span><span class="p">):</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_grupos</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
     <span class="n">Y</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">cdf</span><span class="p">)</span>
     <span class="n">df_km</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Y_pred</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">cdf</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
     <span class="n">kmdff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dff</span><span class="p">,</span> <span class="n">df_km</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">silhouette_values</span> <span class="o">=</span> <span class="n">silhouette_samples</span><span class="p">(</span><span class="n">cdf</span><span class="p">,</span> <span class="n">kmdff</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">])</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> clusters&#39;</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> grupos&#39;</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
     <span class="n">y_lower</span> <span class="o">=</span> <span class="mi">20</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -2188,23 +2188,23 @@ $$ s(x_i)=\frac{b(x_i)-a(x_i)}{\max\{a(x_i),b(x_i)\}}$$<p>El puntaje $s(•) ∈
 </pre></div>
 <div id="cell-9" class="clipboard-copy-txt">from sklearn.metrics import silhouette_samples
 import matplotlib.cm as cm
-nb_clusters = [2, 4, 6, 8]
+nb_grupos = [2, 4, 6, 8]
 mapping = [(0, 0), (0, 1), (1, 0), (1, 1)]
 
-nb_clusters = [2, 4, 6, 8]
+nb_grupos = [2, 4, 6, 8]
 mapping = [(0, 0), (0, 1), (1, 0), (1, 1)]
 
 # Show the silhouette plots
 fig, ax = plt.subplots(2, 2, figsize=(15, 10))
-for i, n in enumerate(nb_clusters):
-    km = KMeans(n_clusters=n, random_state=1000)
+for i, n in enumerate(nb_grupos):
+    km = KMeans(n_grupos=n, random_state=1000)
     Y = km.fit_predict(cdf)
     df_km = pd.DataFrame(Y_pred, columns=['prediction'], index=cdf.index)
     kmdff = pd.concat([dff, df_km], axis=1)
     silhouette_values = silhouette_samples(cdf, kmdff['prediction'])
     ax[mapping[i]].set_xticks([-0.15, 0.0, 0.25, 0.5, 0.75, 1.0])
     ax[mapping[i]].set_yticks([])
-    ax[mapping[i]].set_title('%d clusters' % n)
+    ax[mapping[i]].set_title('%d grupos' % n)
     ax[mapping[i]].set_xlim([-0.15, 1])
     y_lower = 20
     for t in range(n):
@@ -2251,23 +2251,20 @@ $$c=1-\frac{H(Y_{true}|Y_{pred})}{H(Y_{true})}$$<p>Similarmente al indice de com
 <p>Es evidente que, con conocimiento de la verdad fundamental, no podemos aceptar fácilmente los resultados de K-medias y deberíamos buscar otro algoritmo que pueda proporcionar tanto $h$ como $c → 1$, es decir, que logre una alta homogeneidad y completitud en la asignación de las muestras a los grupos.</p>
 <h4 id="un-equilibrio-entre-homogeneidad-y-completitud-utilizando-la-medida-v">Un Equilibrio entre Homogeneidad y Completitud utilizando la Medida V<a class="anchor-link" href="#un-equilibrio-entre-homogeneidad-y-completitud-utilizando-la-medida-v">&#182;</a></h4><p>El lector familiarizado con el aprendizaje supervisado debería conocer el concepto de puntuación F (o medida F), que es la media armónica de precisión y recall. El mismo tipo de compensación puede ser empleado también al evaluar resultados de agrupamiento dados la verdad fundamental. De hecho, en muchos casos, es útil tener una única medida que tenga en cuenta tanto la homogeneidad como la completitud. Tal resultado se puede lograr fácilmente utilizando la medida V (o puntuación V), que se define como.</p>
 $$V = \frac{2}{\frac{1}{Homogeneidad}+\frac{1}{Completitud}} = \frac{2\cdot Homogeneidad \cdot Completitud}{Homogeneidad+Completitud}$$<p>Para nuestro caso, el valor del índice es de 0.465. Como se esperaba, la puntuación V es una medida promedio que, en este caso, se ve negativamente influenciada por una homogeneidad más baja. Por supuesto, este índice no proporciona ninguna información diferente, por lo tanto, solo es útil para sintetizar la completitud y la homogeneidad en un único valor. Sin embargo, con algunas manipulaciones matemáticas simples pero tediosas, es posible demostrar que la medida V también es simétrica (es decir, V(Ypred|Ytrue) = V(Ytrue|Ypred)); por lo tanto, dadas dos asignaciones independientes Y1 e Y2, V(Y1|Y2) es una medida de acuerdo entre ellas. Tal escenario no es extremadamente común, porque otras medidas pueden lograr un mejor resultado. Sin embargo, este puntaje podría ser utilizado, por ejemplo, para verificar si dos algoritmos (posiblemente basados en estrategias diferentes) tienden a producir las mismas asignaciones o si son discordantes. En este último caso, incluso si la verdad fundamental es desconocida, el científico de datos puede comprender que una estrategia seguramente no es tan efectiva como la otra y comenzar un proceso de exploración para encontrar el algoritmo de agrupamiento óptimo.</p>
-<h4 id="indice-de-informacion-mutua-ajustada">&#205;ndice de Informaci&#243;n Mutua Ajustada<a class="anchor-link" href="#indice-de-informacion-mutua-ajustada">&#182;</a></h4><p>El objetivo principal de este puntaje es evaluar el nivel de acuerdo entre Ytrue e Ypred sin tener en cuenta las permutaciones. Dicho objetivo se puede medir empleando el concepto de Información Mutua (MI) de la teoría de la información; en nuestro caso, se define como:</p>
-<p>$dvsvdsvsd$.</p>
-<p>Las funciones son las mismas que se definieron previamente. Cuando $MI → 0$, entonces $jhkjh$, y estos terminos son proporcionales respectivamente a $ptrue(i)$ y $ppred(j)$. Por lo tanto, esta condición es equivalente a decir que Ytrue e Ypred son estadísticamente independientes y no hay acuerdo. Por otro lado, con algunas manipulaciones simples, podemos reescribir MI como:</p>
-<p>MI(Ytrue,Ypred)=H(Ytrue)−H(Ytrue∣Ypred)=H(Ypred)−H(Ypred∣Ytrue)</p>
-<p>Por lo tanto, como  $H(Ypred∣Ytrue)≤H(Ypred)$, cuando el conocimiento de la verdad fundamental reduce la incertidumbre sobre Ypred, se sigue que $H(Ypred∣Ytrue)→0$ y se maximiza la MI. Para nuestros propósitos, es preferible considerar una versión normalizada (limitada entre 0 y 1) que también esté ajustada para el azar (es decir, considerando la posibilidad de que una asignación verdadera sea debida al azar). El puntaje AMI, cuya derivación completa no es trivial y está más allá del alcance de este libro, se define como:</p>
-$$vdsvdsvsdvbsd$$<p>Este valor es igual a 0 en el caso de ausencia total de acuerdo y es igual a 1 cuando Ytrue e Ypred están completamente de acuerdo (también en presencia de permutaciones). Para el conjunto de datos Breast Cancer Wisconsin y K=2, obtenemos un índice de 0.421. El acuerdo es moderado y compatible con la otra medida. Asumiendo la presencia de permutaciones y la posibilidad de asignaciones al azar, Ytrue e Ypred comparten un nivel medio de información porque, como hemos discutido, K-means es capaz de asignar correctamente todas las muestras donde la probabilidad de superposición es insignificante, mientras tiende a considerar como benignas muchas muestras malignas que se encuentran en el límite entre los dos clústeres (por otro lado, no realiza asignaciones incorrectas para las muestras benignas). Sin ninguna indicación adicional, este índice también sugiere verificar otros algoritmos de agrupamiento que puedan manejar clústeres no convexos, porque la falta de información compartida se debe principalmente a la imposibilidad de capturar geometrías complejas usando bolas estándar (en particular en el subespacio donde la superposición es más significativa).</p>
+<h4 id="indice-de-informacion-mutua-ajustada">&#205;ndice de Informaci&#243;n Mutua Ajustada<a class="anchor-link" href="#indice-de-informacion-mutua-ajustada">&#182;</a></h4><p>El objetivo principal de este puntaje es evaluar el nivel de acuerdo entre Ytrue e Ypred sin tener en cuenta las permutaciones. Dicho objetivo se puede medir empleando el concepto de Información Mutua ($MI$) de la teoría de la información; en nuestro caso, se define como:</p>
+$$MI(Y_{pred};Y_{true})=\sum_{i}\sum_{j}\frac{n(i,j)}{M}\log(\frac{M \cdot n(i,j)}{n_{true}(i)\cdot n_{pred}(j)})$$<p>Las funciones son las mismas que se definieron previamente. Cuando $MI → 0$, entonces $n(i,j) \rightarrow n_{true}(i) n_{pred}(j)$, y estos terminos son proporcionales respectivamente a $p(i,j)$ y $p_{true}(i)p_{pred}(j)$. Por lo tanto, esta condición es equivalente a decir que $Y_{true}$ e $Y_{pred}$ son estadísticamente independientes y no hay acuerdo. Por otro lado, con algunas manipulaciones simples, podemos reescribir $MI$ como:</p>
+<p>$MI(Y_{true},Y_{pred})=−H(Y_{pred}∣Y_{true}) + H(Y_{pred})$</p>
+<p>Por lo tanto, como  $H(Ypred∣Ytrue)≤H(Ypred)$, cuando el conocimiento de la verdad fundamental reduce la incertidumbre sobre Ypred, se sigue que $H(Ypred∣Ytrue)→0$ y se maximiza $MI$. Para nuestros propósitos, es preferible considerar una versión normalizada (limitada entre 0 y 1) que también esté ajustada para el azar (es decir, considerando la posibilidad de que una asignación verdadera sea debida al azar). El índice $AMI$, cuya derivación completa no es trivial y está más allá del alcance de este libro, se define como:</p>
+$$AMI(Y_{pred};Y_{true})=\frac{MI(Y_{pred};Y_{true}) - \mathbb{E}[MI(Y_{pred};Y_{true})]}{mean (H(Y_{true}),H(Y_{pred}))- \mathbb{E}[MI(Y_{pred};Y_{true})]}$$<p>Este valor es igual a 0 en el caso de ausencia total de acuerdo y es igual a 1 cuando Ytrue e Ypred están completamente de acuerdo (también en presencia de permutaciones). Para el conjunto de datos Breast Cancer Wisconsin y $K=2$, obtenemos un índice de 0.421. El acuerdo es moderado y compatible con la otra medida. Asumiendo la presencia de permutaciones y la posibilidad de asignaciones al azar, $Y_{true}$ e $Y_{pred}$ comparten un nivel medio de información porque, como hemos discutido, K-means es capaz de asignar correctamente todas las muestras donde la probabilidad de superposición es insignificante, mientras tiende a considerar como benignas muchas muestras malignas que se encuentran en el límite entre los dos grupos (por otro lado, no realiza asignaciones incorrectas para las muestras benignas). Sin ninguna indicación adicional, este índice también sugiere verificar otros algoritmos de agrupamiento que puedan manejar grupos no convexos, porque la falta de información compartida se debe principalmente a la imposibilidad de capturar geometrías complejas usando bolas estándar (en particular en el subespacio donde la superposición es más significativa).</p>
 <h4 id="indice-de-rand-ajustado">&#205;ndice de Rand Ajustado<a class="anchor-link" href="#indice-de-rand-ajustado">&#182;</a></h4><p>El índice de Rand ajustado es una medida de discrepancia entre la distribución de etiquetas verdaderas y la predicha. Para calcularlo, es necesario definir ciertas cantidades de la siguiente manera:</p>
 <ul>
-<li>a: Representa el número de pares de muestras (xi, xj) con las mismas etiquetas verdaderas (yi, yj) : yi = yj y asignadas al mismo clúster Kc.</li>
-<li>b: Representa el número de pares de muestras (xi, xj) con diferentes etiquetas verdaderas (yi, yj) : yi ≠ yj y asignadas a diferentes clústeres Kc y Kd con c ≠ d.
-Si hay M valores, el número total de combinaciones binarias se obtiene utilizando el coeficiente binomial con k=2, por lo tanto, una medida inicial de discrepancia es:</li>
+<li>$a$: Representa el número de pares de muestras $(x_i, x_j)$ con las mismas etiquetas verdaderas $(y_i, y_j)$ : $y_i = y_j$ y asignadas al mismo grupo $K_c$.</li>
+<li>$b$: Representa el número de pares de muestras $(x_i, x_j)$ con diferentes etiquetas verdaderas $(y_i, y_j)$ : $y_i ≠ y_j$ y asignadas a diferentes grupos $K_c$ y $K_d$ con $c ≠ d$.</li>
 </ul>
-<p>$dsvsdvsdsd$</p>
-<p>Obviamente, este valor puede ser dominado ya sea por a o por b. En ambos casos, un puntaje más alto indica que las asignaciones están de acuerdo con la verdad fundamental. Sin embargo, tanto a como b pueden estar sesgados por asignaciones al azar. Por eso se introdujo el puntaje de Rand ajustado. La fórmula actualizada es:</p>
-<p>$dsvsdvsdsd$</p>
-<p>Este valor está limitado entre -1 y 1. Cuando el puntaje de Rand ajustado (RA) → -1, tanto a como b son muy pequeños y la gran mayoría de las asignaciones son incorrectas. Por otro lado, cuando el puntaje de Rand ajustado (RA) → 1, la distribución predicha está muy cerca de la verdad fundamental. Para el conjunto de datos Breast Cancer Wisconsin y K=2, obtenemos 0.491.</p>
-<p>Este resultado es mejor que los otros índices, ya que el valor es mayor que -1 (extremo negativo). Confirma que la discrepancia entre las distribuciones no es muy pronunciada y se debe principalmente a un subconjunto limitado de muestras. Este puntaje es muy confiable y también se puede utilizar como una métrica única para evaluar el rendimiento de un algoritmo de agrupamiento. Un valor cercano a 0.5 confirma que es poco probable que K-means sea la solución óptima, pero al mismo tiempo indica que el conjunto de datos tiene una geometría que puede ser capturada casi por completo por bolas simétricas, excepto por algunas regiones no convexas con una alta probabilidad de superposición.</p>
+<p>Si hay $M$ valores, el número total de combinaciones binarias se obtiene utilizando el coeficiente binomial con $k=2$, por lo tanto, una medida inicial de discrepancia es:</p>
+$$R=\frac{a+b}{\binom{M}{2}}$$<p>Obviamente, este valor puede ser dominado ya sea por $a$ o por $b$. En ambos casos, un puntaje más alto indica que las asignaciones están de acuerdo con la verdad fundamental. Sin embargo, tanto $a$ como $b$ pueden estar sesgados por asignaciones al azar. Por eso se introdujo el puntaje de Rand ajustado. La fórmula actualizada es:</p>
+$$R_A=\frac{R-\mathbb{E}[R]}{\max{R}-R}$$<p>Este valor está limitado entre -1 y 1. Cuando el puntaje de Rand ajustado tiende a -1, es decir $R_A → -1$, tanto $a$ como $b$ son muy pequeños y la gran mayoría de las asignaciones son incorrectas. Por otro lado, cuando  $R_A → 1$, la distribución predicha está muy cerca de la verdad fundamental. Para el conjunto de datos Breast Cancer Wisconsin y $K=2$, obtenemos 0.491. Este resultado es mejor que los otros índices, ya que el valor es mayor que -1 (extremo negativo). Confirma que la discrepancia entre las distribuciones no es muy pronunciada y se debe principalmente a un subconjunto limitado de muestras. Este puntaje es muy confiable y también se puede utilizar como una métrica única para evaluar el rendimiento de un algoritmo de agrupamiento. Un valor cercano a 0.5 confirma que es poco probable que K-means sea la solución óptima, pero al mismo tiempo indica que el conjunto de datos tiene una geometría que puede ser capturada casi por completo por bolas simétricas, excepto por algunas regiones no convexas con una alta probabilidad de superposición.</p>
+<p>Finalmente, dejamos los códigos para obtener todos los índices calculados.</p>
 
 </div>
 </div>
@@ -2295,7 +2292,7 @@ Si hay M valores, el número total de combinaciones binarias se obtiene utilizan
         </div>
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">homogeneity_score</span><span class="p">,</span> <span class="n">completeness_score</span><span class="p">,</span> <span class="n">v_measure_score</span><span class="p">,</span> <span class="n">adjusted_mutual_info_score</span><span class="p">,</span> <span class="n">adjusted_rand_score</span>
 <span class="c1"># Compute the other metrics for K=2</span>
-<span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_grupos</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">Y_pred</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">cdf</span><span class="p">)</span>
 <span class="n">df_km</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Y_pred</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">cdf</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="n">kmdff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dff</span><span class="p">,</span> <span class="n">df_km</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2308,7 +2305,7 @@ Si hay M valores, el número total de combinaciones binarias se obtiene utilizan
 </pre></div>
 <div id="cell-10" class="clipboard-copy-txt">from sklearn.metrics import homogeneity_score, completeness_score, v_measure_score, adjusted_mutual_info_score, adjusted_rand_score
 # Compute the other metrics for K=2
-km = KMeans(n_clusters=2, max_iter=1000, random_state=1000)
+km = KMeans(n_grupos=2, max_iter=1000, random_state=1000)
 Y_pred = km.fit_predict(cdf)
 df_km = pd.DataFrame(Y_pred, columns=['prediction'], index=cdf.index)
 kmdff = pd.concat([dff, df_km], axis=1)

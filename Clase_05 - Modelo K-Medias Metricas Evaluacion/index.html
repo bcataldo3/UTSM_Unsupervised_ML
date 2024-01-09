@@ -411,6 +411,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#indice-de-rand-ajustado" class="md-nav__link">
+    Índice de Rand Ajustado
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -522,6 +529,13 @@
           <li class="md-nav__item">
   <a href="#indice-de-informacion-mutua-ajustada" class="md-nav__link">
     Índice de Información Mutua Ajustada
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indice-de-rand-ajustado" class="md-nav__link">
+    Índice de Rand Ajustado
   </a>
   
 </li>
@@ -2237,7 +2251,24 @@ $$c=1-\frac{H(Y_{true}|Y_{pred})}{H(Y_{true})}$$<p>Similarmente al indice de com
 <p>Es evidente que, con conocimiento de la verdad fundamental, no podemos aceptar fácilmente los resultados de K-medias y deberíamos buscar otro algoritmo que pueda proporcionar tanto $h$ como $c → 1$, es decir, que logre una alta homogeneidad y completitud en la asignación de las muestras a los grupos.</p>
 <h4 id="un-equilibrio-entre-homogeneidad-y-completitud-utilizando-la-medida-v">Un Equilibrio entre Homogeneidad y Completitud utilizando la Medida V<a class="anchor-link" href="#un-equilibrio-entre-homogeneidad-y-completitud-utilizando-la-medida-v">&#182;</a></h4><p>El lector familiarizado con el aprendizaje supervisado debería conocer el concepto de puntuación F (o medida F), que es la media armónica de precisión y recall. El mismo tipo de compensación puede ser empleado también al evaluar resultados de agrupamiento dados la verdad fundamental. De hecho, en muchos casos, es útil tener una única medida que tenga en cuenta tanto la homogeneidad como la completitud. Tal resultado se puede lograr fácilmente utilizando la medida V (o puntuación V), que se define como.</p>
 $$V = \frac{2}{\frac{1}{Homogeneidad}+\frac{1}{Completitud}} = \frac{2\cdot Homogeneidad \cdot Completitud}{Homogeneidad+Completitud}$$<p>Para nuestro caso, el valor del índice es de 0.465. Como se esperaba, la puntuación V es una medida promedio que, en este caso, se ve negativamente influenciada por una homogeneidad más baja. Por supuesto, este índice no proporciona ninguna información diferente, por lo tanto, solo es útil para sintetizar la completitud y la homogeneidad en un único valor. Sin embargo, con algunas manipulaciones matemáticas simples pero tediosas, es posible demostrar que la medida V también es simétrica (es decir, V(Ypred|Ytrue) = V(Ytrue|Ypred)); por lo tanto, dadas dos asignaciones independientes Y1 e Y2, V(Y1|Y2) es una medida de acuerdo entre ellas. Tal escenario no es extremadamente común, porque otras medidas pueden lograr un mejor resultado. Sin embargo, este puntaje podría ser utilizado, por ejemplo, para verificar si dos algoritmos (posiblemente basados en estrategias diferentes) tienden a producir las mismas asignaciones o si son discordantes. En este último caso, incluso si la verdad fundamental es desconocida, el científico de datos puede comprender que una estrategia seguramente no es tan efectiva como la otra y comenzar un proceso de exploración para encontrar el algoritmo de agrupamiento óptimo.</p>
-<h4 id="indice-de-informacion-mutua-ajustada">&#205;ndice de Informaci&#243;n Mutua Ajustada<a class="anchor-link" href="#indice-de-informacion-mutua-ajustada">&#182;</a></h4>
+<h4 id="indice-de-informacion-mutua-ajustada">&#205;ndice de Informaci&#243;n Mutua Ajustada<a class="anchor-link" href="#indice-de-informacion-mutua-ajustada">&#182;</a></h4><p>El objetivo principal de este puntaje es evaluar el nivel de acuerdo entre Ytrue e Ypred sin tener en cuenta las permutaciones. Dicho objetivo se puede medir empleando el concepto de Información Mutua (MI) de la teoría de la información; en nuestro caso, se define como:</p>
+<p>$dvsvdsvsd$.</p>
+<p>Las funciones son las mismas que se definieron previamente. Cuando $MI → 0$, entonces $jhkjh$, y estos terminos son proporcionales respectivamente a $ptrue(i)$ y $ppred(j)$. Por lo tanto, esta condición es equivalente a decir que Ytrue e Ypred son estadísticamente independientes y no hay acuerdo. Por otro lado, con algunas manipulaciones simples, podemos reescribir MI como:</p>
+<p>MI(Ytrue,Ypred)=H(Ytrue)−H(Ytrue∣Ypred)=H(Ypred)−H(Ypred∣Ytrue)</p>
+<p>Por lo tanto, como  $H(Ypred∣Ytrue)≤H(Ypred)$, cuando el conocimiento de la verdad fundamental reduce la incertidumbre sobre Ypred, se sigue que $H(Ypred∣Ytrue)→0$ y se maximiza la MI. Para nuestros propósitos, es preferible considerar una versión normalizada (limitada entre 0 y 1) que también esté ajustada para el azar (es decir, considerando la posibilidad de que una asignación verdadera sea debida al azar). El puntaje AMI, cuya derivación completa no es trivial y está más allá del alcance de este libro, se define como:</p>
+$$vdsvdsvsdvbsd$$<p>Este valor es igual a 0 en el caso de ausencia total de acuerdo y es igual a 1 cuando Ytrue e Ypred están completamente de acuerdo (también en presencia de permutaciones). Para el conjunto de datos Breast Cancer Wisconsin y K=2, obtenemos un índice de 0.421. El acuerdo es moderado y compatible con la otra medida. Asumiendo la presencia de permutaciones y la posibilidad de asignaciones al azar, Ytrue e Ypred comparten un nivel medio de información porque, como hemos discutido, K-means es capaz de asignar correctamente todas las muestras donde la probabilidad de superposición es insignificante, mientras tiende a considerar como benignas muchas muestras malignas que se encuentran en el límite entre los dos clústeres (por otro lado, no realiza asignaciones incorrectas para las muestras benignas). Sin ninguna indicación adicional, este índice también sugiere verificar otros algoritmos de agrupamiento que puedan manejar clústeres no convexos, porque la falta de información compartida se debe principalmente a la imposibilidad de capturar geometrías complejas usando bolas estándar (en particular en el subespacio donde la superposición es más significativa).</p>
+<h4 id="indice-de-rand-ajustado">&#205;ndice de Rand Ajustado<a class="anchor-link" href="#indice-de-rand-ajustado">&#182;</a></h4><p>El índice de Rand ajustado es una medida de discrepancia entre la distribución de etiquetas verdaderas y la predicha. Para calcularlo, es necesario definir ciertas cantidades de la siguiente manera:</p>
+<ul>
+<li>a: Representa el número de pares de muestras (xi, xj) con las mismas etiquetas verdaderas (yi, yj) : yi = yj y asignadas al mismo clúster Kc.</li>
+<li>b: Representa el número de pares de muestras (xi, xj) con diferentes etiquetas verdaderas (yi, yj) : yi ≠ yj y asignadas a diferentes clústeres Kc y Kd con c ≠ d.
+Si hay M valores, el número total de combinaciones binarias se obtiene utilizando el coeficiente binomial con k=2, por lo tanto, una medida inicial de discrepancia es:</li>
+</ul>
+<p>$dsvsdvsdsd$</p>
+<p>Obviamente, este valor puede ser dominado ya sea por a o por b. En ambos casos, un puntaje más alto indica que las asignaciones están de acuerdo con la verdad fundamental. Sin embargo, tanto a como b pueden estar sesgados por asignaciones al azar. Por eso se introdujo el puntaje de Rand ajustado. La fórmula actualizada es:</p>
+<p>$dsvsdvsdsd$</p>
+<p>Este valor está limitado entre -1 y 1. Cuando el puntaje de Rand ajustado (RA) → -1, tanto a como b son muy pequeños y la gran mayoría de las asignaciones son incorrectas. Por otro lado, cuando el puntaje de Rand ajustado (RA) → 1, la distribución predicha está muy cerca de la verdad fundamental. Para el conjunto de datos Breast Cancer Wisconsin y K=2, obtenemos 0.491.</p>
+<p>Este resultado es mejor que los otros índices, ya que el valor es mayor que -1 (extremo negativo). Confirma que la discrepancia entre las distribuciones no es muy pronunciada y se debe principalmente a un subconjunto limitado de muestras. Este puntaje es muy confiable y también se puede utilizar como una métrica única para evaluar el rendimiento de un algoritmo de agrupamiento. Un valor cercano a 0.5 confirma que es poco probable que K-means sea la solución óptima, pero al mismo tiempo indica que el conjunto de datos tiene una geometría que puede ser capturada casi por completo por bolas simétricas, excepto por algunas regiones no convexas con una alta probabilidad de superposición.</p>
+
 </div>
 </div>
 </div>

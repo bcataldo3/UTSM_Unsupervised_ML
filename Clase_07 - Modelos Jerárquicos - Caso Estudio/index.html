@@ -1419,7 +1419,7 @@ Licensed under the Apache License, Version 2.0.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="conglomerados-jerarquicos-caso-de-estudio">Conglomerados Jer&#225;rquicos - Caso de Estudio<a class="anchor-link" href="#conglomerados-jerarquicos-caso-de-estudio">&#182;</a></h2><h3 id="descripcion-del-caso">Descripci&#243;n del Caso<a class="anchor-link" href="#descripcion-del-caso">&#182;</a></h3><p>Ahora consideremos un problema más detallado en un conjunto de datos más grande que contiene 527 muestras con 38 variables químicas y físicas que describen el estado de las plantas de tratamiento de agua. El dominio está poco estructurado y se necesita un análisis cuidadoso. Al mismo tiempo, nuestro objetivo es encontrar el agrupamiento óptimo con un enfoque agnóstico; es decir, no consideraremos el proceso de etiquetado semántico (que requiere un experto en el dominio), sino únicamente la estructura geométrica del conjunto de datos y las relaciones descubiertas por el algoritmo aglomerativo.</p>
 <p>La primera columna es un índice relacionado con la planta específica, mientras que todos los demás valores son numéricos y pueden convertirse a float64. Los valores faltantes están indicados con el carácter '?', y como no tenemos otra información, se establecen con la media de cada atributo. Además, dado que las variables individuales tienen magnitudes muy diferentes (invito al lector a verificar esta afirmación utilizando la función describe en el DataFrame), es preferible normalizarlas en el rango (-1, 1), preservando la varianza origina. En este punto, como es habitual, podemos emplear el algoritmo t-SNE para proyectar el conjunto de datos en un espacio bidimensional. Los resultados y el código vienen a continuación.</p>
-<p>(insertar imagen de t-SNE)</p>
+<p><img src="https://drive.google.com/uc?export=view&id=1I1-07R11LGStenvy3FMOqbiHR1jTMafI" width = "700" align="center"/></p>
 
 </div>
 </div>
@@ -1445,7 +1445,17 @@ Licensed under the Apache License, Version 2.0.
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
+
+<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://drive.google.com/file/d/1I2pCul5Jcg6wdJrHcUooZ9-PYqSl1C7o/view?usp=drive_link&#39;</span>
+<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://drive.google.com/uc?id=&#39;</span> <span class="o">+</span> <span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Standardize the dataset</span>
@@ -1461,15 +1471,24 @@ Licensed under the Apache License, Version 2.0.
 
 <span class="c1"># Show the dataset</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">),</span><span class="n">data</span><span class="o">=</span><span class="n">dff</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-1" class="clipboard-copy-txt">
+<div id="cell-1" class="clipboard-copy-txt">import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+from sklearn.preprocessing import StandardScaler
+from sklearn.manifold import TSNE
 
-df = pd.read_csv(data_path, header=None, index_col=0, na_values='?').astype(np.float64)
+url='https://drive.google.com/file/d/1I2pCul5Jcg6wdJrHcUooZ9-PYqSl1C7o/view?usp=drive_link'
+url='https://drive.google.com/uc?id=' + url.split('/')[-2]
+
+df = pd.read_csv(url, sep=',',decimal='.',header=None, index_col=0, na_values='?').astype(np.float64)
 df.fillna(df.mean(), inplace=True)
 
 # Standardize the dataset
@@ -1485,6 +1504,7 @@ dff = pd.concat([df, df_tsne], axis=1)
 
 # Show the dataset
 sns.set()
+
 fig, ax = plt.subplots(figsize=(18, 11))
 sns.scatterplot(x='x',y='y',size=0,sizes=(120, 120),data=dff,legend=False,ax=ax)
 ax.set_xlabel(r'$x$')
@@ -1505,8 +1525,8 @@ plt.show()</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>El gráfico muestra una potencial geometría no convexa con muchas pequeñas islas (regiones densas) separadas por espacios vacíos. Sin embargo, sin información de dominio, no es fácil decidir qué conjuntos pueden considerarse partes del mismo grupo. La única pseudo-restricción que podemos decidir imponer (considerando que todas las plantas operan de manera similar) es tener un número moderado o pequeño de grupos finales. Por lo tanto, asumiendo la distancia euclidiana y utilizando la clase AgglomerativeClustering de scikit-learn, podemos calcular tanto la correlación cofenética como la puntuación de silueta para todos los enlaces y para 4, 6, 8 y 10 número de grupos:</p>
-<p>(insertar imagen)</p>
+<p>El gráfico muestra una potencial geometría no convexa con muchas pequeñas islas (regiones densas) separadas por espacios vacíos. Sin embargo, sin información de dominio, no es fácil decidir qué conjuntos pueden considerarse partes del mismo grupo. La única pseudo-restricción que podemos decidir imponer (considerando que todas las plantas operan de manera similar) es tener un número moderado o pequeño de grupos finales. Por lo tanto, asumiendo la distancia euclidiana y utilizando la clase <code>AgglomerativeClustering</code> de <code>scikit-learn</code>, podemos calcular tanto la correlación cofenética como la puntuación de silueta para todos los enlaces y para 4, 6, 8 y 10 número de grupos:</p>
+<p><img src="https://drive.google.com/uc?export=view&id=1dZ9acSD33H4Ul_Vh6joDhCcHOj3D_Zky" width = "800" align="center"/></p>
 
 </div>
 </div>

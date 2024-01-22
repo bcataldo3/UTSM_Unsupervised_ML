@@ -10,7 +10,7 @@
         <meta name="author" content="Benjamin Cataldo">
       
       
-        <link rel="canonical" href="https://github.com/bcataldo3/plantilla_curso_python/Clase_11%20-%20Detecci%C3%B3n%20de%20Anomalias%20-%20Introducci%C3%B3n/">
+        <link rel="canonical" href="https://github.com/bcataldo3/plantilla_curso_python/Clase_10%20-%20Detecci%C3%B3n%20de%20Anomalias%20-%20Introducci%C3%B3n/">
       
       <link rel="icon" href="../images/logo_python.svg">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
@@ -1417,27 +1417,28 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="deteccion-de-anomalias-introduccion">Detecci&#243;n de Anomalias - Introducci&#243;n<a class="anchor-link" href="#deteccion-de-anomalias-introduccion">&#182;</a></h2><p>El tema principal de este capítulo es la detección automática de anomalías sin ninguna supervisión. Dado que los modelos no se basan en la retroalimentación proporcionada por muestras etiquetadas, solo podemos confiar en las propiedades de todo el conjunto de datos para descubrir las similitudes y resaltar las diferencias. En particular, partimos de una suposición muy simple pero efectiva: los eventos comunes son normales, mientras que los eventos poco probables suelen tratarse como anomalías. Por supuesto, esta definición implica que el proceso que estamos monitoreando está funcionando correctamente y la mayoría de los resultados se consideran válidos. Por ejemplo: una fábrica de procesamiento de silicio debe cortar una oblea en trozos iguales. Sabemos que cada uno de ellos mide 0.2 × 0.2 pulgadas (aproximadamente 0.5 × 0.5 cm) con una desviación estándar de 0.001 pulgadas para cada lado. Esta medida se ha determinado después de 1,000,000 pasos de procesamiento. ¿Estamos autorizados a considerar un chip de 0.25 × 0.25 pulgadas como una anomalía? Por supuesto que sí. De hecho, supongamos que la longitud de cada lado se modela como una distribución gaussiana (una elección muy razonable) con μ = 0.2 y σ = 0.001; después de tres desviaciones estándar, la probabilidad cae casi a cero. Por lo tanto, por ejemplo: P(lado &gt; 0.23) ≈ 0 y un chip con tales dimensiones debe considerarse claramente como una anomalía.</p>
+<h1 id="machine-learning-no-supervisado">MACHINE LEARNING NO SUPERVISADO<a class="anchor-link" href="#machine-learning-no-supervisado">&#182;</a></h1><h2 id="deteccion-de-anomalias-introduccion">Detecci&#243;n de Anomalias - Introducci&#243;n<a class="anchor-link" href="#deteccion-de-anomalias-introduccion">&#182;</a></h2><p>El tema principal de este capítulo es la detección automática de anomalías sin ninguna supervisión. Dado que los modelos no se basan en la retroalimentación proporcionada por muestras etiquetadas, solo podemos confiar en las propiedades de todo el conjunto de datos para descubrir las similitudes y resaltar las diferencias. En particular, partimos de una suposición muy simple pero efectiva: los eventos comunes son normales, mientras que los eventos poco probables suelen tratarse como anomalías. Por supuesto, esta definición implica que el proceso que estamos monitoreando está funcionando correctamente y la mayoría de los resultados se consideran válidos. Por ejemplo: una fábrica de procesamiento de silicio debe cortar una oblea en trozos iguales. Sabemos que cada uno de ellos mide $0.2 × 0.2$ pulgadas (aproximadamente $0.5 × 0.5$ cm) con una desviación estándar de $0.001$ pulgadas para cada lado. Esta medida se ha determinado después de $1,000,000$ pasos de procesamiento. ¿Estamos autorizados a considerar un chip de $0.25 × 0.25$ pulgadas como una anomalía? Por supuesto que sí. De hecho, supongamos que la longitud de cada lado se modela como una distribución gaussiana (una elección muy razonable) con $μ = 0.2$ y $σ = 0.001$; después de tres desviaciones estándar, la probabilidad cae casi a cero. Por lo tanto, por ejemplo: $P(lado &gt; 0.23) ≈ 0$ y un chip con tales dimensiones debe considerarse claramente como una anomalía.</p>
 <p>Obviamente, este es un ejemplo extremadamente sencillo que no necesita ningún modelo. Sin embargo, en casos de la vida real, la estructura de las densidades puede ser muy compleja, con varias regiones de alta probabilidad rodeadas por otras de baja probabilidad. Por eso se deben emplear enfoques más genéricos para modelar todo el espacio muestral.</p>
-<p>Por supuesto, la semántica de las anomalías no puede estandarizarse y siempre depende del problema específico que se esté analizando. Por esta razón, una forma común de definir el concepto de anomalías es hacer una distinción entre valores atípicos y novedades. Los primeros son muestras incluidas en el conjunto de datos, incluso si la distancia entre ellos y las demás muestras es mayor que el promedio. Por lo tanto, un proceso de detección de valores atípicos tiene como objetivo descubrir tales muestras extrañas (por ejemplo: considerando el ejemplo anterior, un chip de 0.25 × 0.25 pulgadas es claramente un valor atípico si está incluido en el conjunto de datos). En cambio, el objetivo de la detección de novedades es ligeramente diferente, porque en este caso asumimos que trabajamos con un conjunto de datos que contiene solo muestras normales; por lo tanto, dado uno nuevo, nos interesa entender si podemos considerarlo como proveniente del proceso original de generación de datos o como un valor atípico (por ejemplo: un técnico novato nos pregunta esto: ¿es un chip de 0.25 × 0.25 pulgadas un valor atípico? Si hemos recopilado un conjunto de datos de chips normales, podemos usar nuestro modelo para responder la pregunta).</p>
-<p>Otra forma de describir este escenario es considerar las muestras como una serie de valores que pueden ser afectados por ruido variable: y(t) = x(t) + n(t). Cuando ||n(t)|| &lt;&lt; ||x(t)||, las muestras pueden clasificarse como limpias: y(t) ≈ x(t). Por el contrario, cuando ||n(t)|| ≈ ||x(t)|| (o incluso es mayor), son valores atípicos que no pueden representar fielmente el verdadero proceso subyacente pdata. Dado que la magnitud promedio del ruido suele ser considerablemente menor que la señal, la probabilidad de que P(||n(t)|| ≈ ||x(t)||) sea cercana a cero. Por lo tanto, podemos imaginar las anomalías como muestras normales afectadas por un ruido externo anormal. La diferencia real principal entre el manejo de una anomalía y una muestra ruidosa suele radicar en la capacidad para detectar las verdaderas anomalías y etiquetar las muestras en consecuencia. De hecho, aunque las señales ruidosas están definitivamente corrompidas y el objetivo es minimizar el impacto del ruido, las anomalías pueden ser identificadas con mucha frecuencia por seres humanos y etiquetadas correctamente. Sin embargo, como ya se discutió en este capítulo, estamos interesados en encontrar métodos de descubrimiento que no dependan de etiquetas existentes. Además, para evitar confusiones, siempre nos referimos a anomalías, definiendo cada vez el contenido del conjunto de datos (solo valores normales o valores normales y valores atípicos) y el objetivo de nuestro análisis. En la próxima sección, discutiremos brevemente la estructura esperada de los conjuntos de datos.</p>
-<h3 id="estructuras-de-los-datos">Estructuras de los datos<a class="anchor-link" href="#estructuras-de-los-datos">&#182;</a></h3><p>En las tareas estándar supervisadas (y a menudo también no supervisadas), se espera que el conjunto de datos esté equilibrado. En otras palabras, el número de muestras pertenecientes a cada clase debería ser casi el mismo. En las tareas que discutiremos en este capítulo, en cambio, asumimos tener conjuntos de datos X muy desequilibrados (que contienen N muestras):</p>
-<p>Noutliers &lt;&lt; N, si hay una detección de valores atípicos (es decir, el conjunto de datos está parcialmente contaminado; por lo tanto, necesitamos encontrar una forma de filtrar todos los valores atípicos)
-Noutliers = 0 (o, de manera más realista, P(Noutliers &gt; 0) → 0), si hay una detección de novedades (es decir, generalmente podemos confiar en las muestras existentes y enfocar nuestra atención en las nuevas)</p>
+<p>Por supuesto, la semántica de las anomalías no puede estandarizarse y siempre depende del problema específico que se esté analizando. Por esta razón, una forma común de definir el concepto de anomalías es hacer una distinción entre valores atípicos y novedades. Los primeros son muestras incluidas en el conjunto de datos, incluso si la distancia entre ellos y las demás muestras es mayor que el promedio. Por lo tanto, un proceso de detección de valores atípicos tiene como objetivo descubrir tales muestras extrañas (por ejemplo: considerando el ejemplo anterior, un chip de $0.25 × 0.25$ pulgadas es claramente un valor atípico si está incluido en el conjunto de datos). En cambio, el objetivo de la detección de novedades es ligeramente diferente, porque en este caso asumimos que trabajamos con un conjunto de datos que contiene solo muestras normales; por lo tanto, dado uno nuevo, nos interesa entender si podemos considerarlo como proveniente del proceso original de generación de datos o como un valor atípico (por ejemplo: un técnico novato nos pregunta esto: ¿es un chip de $0.25 × 0.25$ pulgadas un valor atípico? Si hemos recopilado un conjunto de datos de chips normales, podemos usar nuestro modelo para responder la pregunta).</p>
+<p>Otra forma de describir este escenario es considerar las muestras como una serie de valores que pueden ser afectados por ruido variable: $y(t) = x(t) + n(t)$. Cuando $||n(t)|| &lt;&lt; ||x(t)||$, las muestras pueden clasificarse como limpias: $y(t) ≈ x(t)$. Por el contrario, cuando $||n(t)|| ≈ ||x(t)||$ (o incluso es mayor), son valores atípicos que no pueden representar fielmente el verdadero proceso subyacente pdata. Dado que la magnitud promedio del ruido suele ser considerablemente menor que la señal, la probabilidad de que $P(||n(t)|| ≈ ||x(t)||)$ sea cercana a cero. Por lo tanto, podemos imaginar las anomalías como muestras normales afectadas por un ruido externo anormal. La diferencia real principal entre el manejo de una anomalía y una muestra ruidosa suele radicar en la capacidad para detectar las verdaderas anomalías y etiquetar las muestras en consecuencia. De hecho, aunque las señales ruidosas están definitivamente corrompidas y el objetivo es minimizar el impacto del ruido, las anomalías pueden ser identificadas con mucha frecuencia por seres humanos y etiquetadas correctamente. Sin embargo, como ya se discutió en este capítulo, estamos interesados en encontrar métodos de descubrimiento que no dependan de etiquetas existentes. Además, para evitar confusiones, siempre nos referimos a anomalías, definiendo cada vez el contenido del conjunto de datos (solo valores normales o valores normales y valores atípicos) y el objetivo de nuestro análisis. En la próxima sección, discutiremos brevemente la estructura esperada de los conjuntos de datos.</p>
+<h3 id="estructuras-de-los-datos">Estructuras de los datos<a class="anchor-link" href="#estructuras-de-los-datos">&#182;</a></h3><p>En las tareas estándar supervisadas (y a menudo también no supervisadas), se espera que el conjunto de datos esté equilibrado. En otras palabras, el número de muestras pertenecientes a cada clase debería ser casi el mismo. En las tareas que discutiremos en este capítulo, en cambio, asumimos tener conjuntos de datos $X$ muy desequilibrados (que contienen $N$ muestras):</p>
+<p>$N_{outliers} &lt;&lt; N$, si hay una detección de valores atípicos (es decir, el conjunto de datos está parcialmente contaminado; por lo tanto, necesitamos encontrar una forma de filtrar todos los valores atípicos)
+$N_{outliers} = 0$ (o, de manera más realista, $P($N_{outliers} &gt; 0) → 0)$, si hay una detección de novedades (es decir, generalmente podemos confiar en las muestras existentes y enfocar nuestra atención en las nuevas)</p>
 <p>La razón de estos criterios es bastante obvia: consideremos el ejemplo discutido anteriormente. Si la tasa de anomalías observada después de 1,000,000 pasos de procesamiento es igual al 0.2%, hay 2,000 anomalías, lo que puede ser un valor razonable para un proceso de trabajo. Si ese número es mucho más grande, significa que debería haber un problema más serio en el sistema, que va más allá del rol de un científico de datos. Por lo tanto, en tales casos, esperamos un conjunto de datos que contenga un gran número de muestras correctas y un número mucho menor de anomalías (o incluso cero). En muchos casos, la regla general es reflejar el proceso subyacente de generación de datos y, por lo tanto, si un experto puede confirmar, por ejemplo, tener anomalías del 0.2%, la proporción debería ser de 1000÷2 para encontrar una función de densidad de probabilidad realista. En tales casos, de hecho, es más importante descubrir los factores que determinan la distinción de los valores atípicos.</p>
 <p>Por otro lado, si solo se nos solicita realizar una detección de novedades (por ejemplo: distinguir entre solicitudes de red válidas y maliciosas), el conjunto de datos debe ser validado para no contener anomalías, pero al mismo tiempo reflejar el verdadero proceso de generación de datos responsable de todas las posibles muestras válidas.</p>
 <p>De hecho, si la población de las muestras correctas es exhaustiva, cualquier desviación grande de la región de alta probabilidad puede ser suficiente para activar una alarma. Por el contrario, una región limitada del verdadero proceso de generación de datos podría llevar a resultados falsos positivos (es decir, muestras válidas que no han sido incluidas en el conjunto de entrenamiento y se identifican erróneamente como valores atípicos). En el peor de los casos, un subconjunto muy ruidoso también podría provocar falsos negativos si las características están alteradas (es decir, valores atípicos que se identifican erróneamente como muestras válidas). Sin embargo, en la mayoría de los casos de la vida real, los factores más importantes son el número de muestras y el contexto desde el cual se recopilan. Es evidente que cualquier modelo debe ser entrenado con el mismo tipo de elementos que se van a probar.</p>
 <p>Por ejemplo, si se toma una medida dentro de una planta química utilizando un instrumento de baja precisión, las pruebas recopiladas con uno de alta precisión podrían no ser representativas de la población (aunque, por supuesto, son mucho más confiables que el conjunto de datos). Por lo tanto, antes de realizar un análisis, sugiero encarecidamente verificar la naturaleza de los datos y también preguntar si todas las muestras de prueba se han extraído del mismo proceso de generación de datos.</p>
 <p>Ahora podemos introducir el concepto de histogramas, que es la forma más sencilla de estimar la distribución de un conjunto de datos que contiene observaciones.</p>
-<h3 id="histogramas">Histogramas<a class="anchor-link" href="#histogramas">&#182;</a></h3><p>La forma más simple de obtener una aproximación de la función de densidad de probabilidad se basa en un conteo de frecuencia. Si tenemos un conjunto de datos X que contiene m muestras xi ∈ ℜ (para simplificar, estamos considerando solo distribuciones univariadas, pero el proceso es exactamente equivalente para muestras multidimensionales), podemos definir m y M de la siguiente manera:</p>
-<p>$svsdvsdv sdvsd$</p>
-<p>El intervalo (m, M) se puede dividir en un número fijo de bines b (que pueden tener anchos iguales o diferentes, denotados como w(bj)), de manera que np(bj) corresponde al número de muestras incluidas en el bin bj. En este punto, dado una muestra de prueba xt, es fácil entender que la aproximación de la probabilidad se puede obtener fácilmente detectando el bin que contiene xt y usando la siguiente fórmula:</p>
-<p>$fasdsvdsf$</p>
+<h3 id="histogramas">Histogramas<a class="anchor-link" href="#histogramas">&#182;</a></h3><p>La forma más simple de obtener una aproximación de la función de densidad de probabilidad se basa en un conteo de frecuencia. Si tenemos un conjunto de datos $X$ que contiene $m$ muestras $x_i ∈ ℜ$ (para simplificar, estamos considerando solo distribuciones univariadas, pero el proceso es exactamente equivalente para muestras multidimensionales), podemos definir $m$ y $M$ de la siguiente manera:</p>
+<p>$m=\min\limits_{x_i \in X}\{x_i\} \: \text{ and } \: M=\max\limits_{x_i \in X}\{x_i\}$</p>
+<p>El intervalo $(m, M)$ se puede dividir en un número fijo de intervalos $b$ (que pueden tener anchos iguales o diferentes, denotados como $w(b_j)$), de manera que $n_p(b_j)$ corresponde al número de muestras incluidas en el intervalo $b_j$. En este punto, dado una muestra de prueba $x_t$, es fácil entender que la aproximación de la probabilidad se puede obtener fácilmente detectando el intervalo que contiene $x_t$ y usando la siguiente fórmula:</p>
+<p>$ p(x)=\frac{1}{m}\frac{n_p(b_t)}{w(b_t)}$</p>
 <p>Antes de analizar los pros y los contras de este enfoque, consideremos un ejemplo simple basado en la distribución de las edades de las personas subdivididas en 10 clases diferentes:
-El array 'ages' contiene todas las muestras, y queremos crear un histograma para obtener una visión inicial de la distribución. Vamos a emplear la función np.histogram() de NumPy, que proporciona todas las herramientas necesarias. El primer problema a resolver es determinar el número óptimo de bines. Esto puede ser fácil para distribuciones estándar, pero puede ser extremadamente difícil cuando no hay conocimiento previo sobre la densidad de probabilidad. La razón es sencilla: dado que necesitamos aproximar una función continua con una escalonada, el ancho de los bines determina la precisión final.</p>
-<p>Por ejemplo: si la densidad es plana (por ejemplo: una distribución uniforme), unos pocos bines son suficientes para obtener un buen resultado. Por el contrario, cuando hay picos, es útil colocar más bines (más cortos) en las áreas donde la primera derivada de la función es grande y un número menor cuando la derivada está cerca de cero (indicando una región plana). Como vamos a discutir, este proceso se vuelve más fácil utilizando técnicas más sofisticadas, mientras que los histogramas generalmente se basan en cálculos más aproximados del número óptimo de bines. En particular, NumPy permite configurar el parámetro bins='auto', que fuerza al algoritmo a seleccionar automáticamente el número según un método estadístico bien definido (basado en el Estimador Freedman Diaconis y la fórmula de Sturges):</p>
-<p>$safafvfvasfasfa$</p>
-<p>En la fórmula anterior, el rango intercuartílico (IQR) corresponde a la diferencia entre el percentil 75 y el percentil 25. Dado que no tenemos una idea clara sobre la distribución, preferimos confiar en la selección automática, como se muestra en el siguiente fragmento de código:</p>
+El array <code>ages</code> contiene todas las muestras, y queremos crear un histograma para obtener una visión inicial de la distribución. Vamos a emplear la función <code>np.histogram()</code> de <code>NumPy</code>, que proporciona todas las herramientas necesarias. El primer problema a resolver es determinar el número óptimo de intervalos. Esto puede ser fácil para distribuciones estándar, pero puede ser extremadamente difícil cuando no hay conocimiento previo sobre la densidad de probabilidad. La razón es sencilla: dado que necesitamos aproximar una función continua con una escalonada, el ancho de los intervalos determina la precisión final.</p>
+<p>Por ejemplo: si la densidad es plana (por ejemplo: una distribución uniforme), unos pocos intervalos son suficientes para obtener un buen resultado. Por el contrario, cuando hay picos, es útil colocar más intervalos (más cortos) en las áreas donde la primera derivada de la función es grande y un número menor cuando la derivada está cerca de cero (indicando una región plana). Como vamos a discutir, este proceso se vuelve más fácil utilizando técnicas más sofisticadas, mientras que los histogramas generalmente se basan en cálculos más aproximados del número óptimo de intervalos. En particular, <code>NumPy</code> permite configurar el parámetro <code>bins='auto'</code>, que fuerza al algoritmo a seleccionar automáticamente el número según un método estadístico bien definido (basado en el Estimador Freedman Diaconis y la fórmula de Sturges):</p>
+<p>$n_{intervalos}=\max{\biggl( 1 + \log_2{m},\frac{2IQR}{\sqrt[3]{m}}  \biggr)}$</p>
+<p>En la fórmula anterior, el rango intercuartílico (IQR) corresponde a la diferencia entre el percentil 75 y el percentil 25.</p>
+<p>El siguiente código genera una data aleatoria de edades que llamaresmos <code>ages</code>. Dado que no tenemos una idea clara sobre la distribución, preferimos confiar en la selección automática.</p>
 
 </div>
 </div>
@@ -1463,9 +1464,37 @@ El array 'ages' contiene todas las muestras, y queremos crear un histograma para
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># insertar codigo</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Generate the dataset</span>
+<span class="n">nb_samples</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nb_samples</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="n">ages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
+
+<span class="c1"># Compute the histogram</span>
+<span class="c1"># Any FutureWarning is related to SciPy deprecations which are still employed by NumPy but</span>
+<span class="c1"># it doesn&#39;t affect the results</span>
+<span class="n">h</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Histograms counts: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bin edges: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 </pre></div>
-<div id="cell-1" class="clipboard-copy-txt"># insertar codigo</div>
+<div id="cell-1" class="clipboard-copy-txt"># Generate the dataset
+nb_samples = [1000, 800, 500, 380, 280, 150, 120, 100, 50, 30]
+ages = []
+for n in nb_samples:
+    i = np.random.uniform(10, 80, size=2)
+    a = np.random.uniform(i[0], i[1], size=n).astype(np.int32)
+    ages.append(a)
+ages = np.concatenate(ages)
+
+# Compute the histogram
+# Any FutureWarning is related to SciPy deprecations which are still employed by NumPy but
+# it doesn't affect the results
+h, e = np.histogram(ages, bins='auto')
+print('Histograms counts: {}'.format(h))
+print('Bin edges: {}'.format(e))</div>
     
         </div>
     </div>
@@ -1481,11 +1510,7 @@ El array 'ages' contiene todas las muestras, y queremos crear un histograma para
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>"La salida del fragmento de código anterior es la siguiente:"</p>
-<p>(insertar imagen)</p>
-<p>"Por lo tanto, el algoritmo ha definido 19 bines y ha mostrado tanto los recuentos de frecuencia como los límites (es decir, el valor mínimo es 16, mientras que el máximo es 68). Ahora podemos mostrar un gráfico del histograma:"</p>
-<p>(insertar imagen)</p>
-<p>"El gráfico confirma que la distribución es bastante irregular, y algunas regiones tienen picos rodeados de áreas más planas. Como se explicó antes, un histograma es útil cuando las consultas se basan en la probabilidad de que una muestra pertenezca a un bin específico. En este caso, por ejemplo, podríamos estar interesados en determinar la probabilidad de que una persona tenga una edad entre 48.84 y 51.58 (que corresponde al duodécimo bin comenzando desde 0). Dado que todos los bines tienen el mismo ancho, simplemente podemos aproximar dicho valor con la proporción entre np(b12) (h[12]) y m (ages.shape[0]):"</p>
+<p>La salida del fragmento de código anterior es la siguiente.</p>
 
 </div>
 </div>
@@ -1511,9 +1536,13 @@ El array 'ages' contiene todas las muestras, y queremos crear un histograma para
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># insertar codigo</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">Histograms</span> <span class="n">counts</span><span class="p">:</span> <span class="p">[</span><span class="mi">177</span>  <span class="mi">86</span> <span class="mi">122</span> <span class="mi">165</span> <span class="mi">236</span> <span class="mi">266</span> <span class="mi">262</span> <span class="mi">173</span> <span class="mi">269</span> <span class="mi">258</span> <span class="mi">241</span> <span class="mi">116</span> <span class="mi">458</span> <span class="mi">257</span> <span class="mi">311</span>   <span class="mi">1</span>   <span class="mi">1</span>   <span class="mi">5</span>   <span class="mi">6</span><span class="p">]</span>
+<span class="n">Bin</span> <span class="n">edges</span><span class="p">:</span> <span class="p">[</span><span class="mf">16.</span> <span class="mf">18.73684211</span> <span class="mf">21.47368421</span> <span class="mf">24.21052632</span> <span class="mf">26.94736842</span> <span class="mf">29.68421053</span> <span class="mf">32.42105263</span> <span class="mf">35.15789474</span> <span class="mf">37.89473684</span> <span class="mf">40.63157895</span> <span class="mf">43.36842105</span> <span class="mf">46.10526316</span>
+ <span class="mf">48.84210526</span> <span class="mf">51.57894737</span> <span class="mf">54.31578947</span> <span class="mf">57.05263158</span> <span class="mf">59.78947368</span> <span class="mf">62.52631579</span> <span class="mf">65.26315789</span> <span class="mf">68.</span><span class="p">]</span>
 </pre></div>
-<div id="cell-2" class="clipboard-copy-txt"># insertar codigo</div>
+<div id="cell-2" class="clipboard-copy-txt">Histograms counts: [177  86 122 165 236 266 262 173 269 258 241 116 458 257 311   1   1   5   6]
+Bin edges: [16. 18.73684211 21.47368421 24.21052632 26.94736842 29.68421053 32.42105263 35.15789474 37.89473684 40.63157895 43.36842105 46.10526316
+ 48.84210526 51.57894737 54.31578947 57.05263158 59.78947368 62.52631579 65.26315789 68.]</div>
     
         </div>
     </div>
@@ -1529,9 +1558,91 @@ El array 'ages' contiene todas las muestras, y queremos crear un histograma para
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>"La salida es la siguiente:
-P(48.84 &lt; x &lt; 51.58) = 0.13 (13.43%)
-Por lo tanto, la aproximación de la probabilidad es aproximadamente del 13.5%, lo que también es confirmado por la estructura del histograma. Sin embargo, el lector debería haber comprendido claramente que este método tiene limitaciones evidentes. La primera y más obvia se refiere al número y el ancho de los bines. Un número pequeño, de hecho, produce resultados aproximados que no pueden tener en cuenta las oscilaciones rápidas. Por otro lado, un número muy grande conduce a un histograma con agujeros, porque la mayoría de los bines no contendrán muestras. Por lo tanto, se necesita un enfoque más sólido, considerando todas las dinámicas posibles que se pueden encontrar en casos de la vida real. Esto es lo que vamos a discutir en la próxima sección."</p>
+<p>El algoritmo ha definido 19 intervalos y ha mostrado tanto los recuentos de frecuencia como los límites (es decir, el valor mínimo es 16, mientras que el máximo es 68). Ahora podemos mostrar un gráfico del histograma.</p>
+<p><img src="https://drive.google.com/uc?export=view&id=1_rKvnBkCNtY4wU4_1D0-K3GQInuzTf2C" width = "800" align="center"/></p>
+<p>El gráfico confirma que la distribución es bastante irregular, y algunas regiones tienen picos rodeados de áreas más planas. Como se explicó antes, un histograma es útil cuando las consultas se basan en la probabilidad de que una muestra pertenezca a un intervalo específico. En este caso, por ejemplo, podríamos estar interesados en determinar la probabilidad de que una persona tenga una edad entre 48.84 y 51.58 (que corresponde al duodécimo intervalo comenzando desde 0). Dado que todos los intervalos tienen el mismo ancho, simplemente podemos aproximar dicho valor con la proporción entre $n_p(b_{12})$ (<code>h[12]</code>) y $m$ (<code>ages.shape[0]</code>), cuyo código y salida son las siguientes.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-3">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Compute the probability for a sample interval</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p50</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="mi">12</span><span class="p">])</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">ages</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P(48.84 &lt; x &lt; 51.58) = </span><span class="si">{:.2f}</span><span class="s1"> (</span><span class="si">{:.2f}</span><span class="s1">%)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p50</span><span class="p">,</span> <span class="n">p50</span> <span class="o">*</span> <span class="mf">100.0</span><span class="p">))</span>
+</pre></div>
+<div id="cell-3" class="clipboard-copy-txt"># Compute the probability for a sample interval
+d = e[1] - e[0]
+p50 = float(h[12]) / float(ages.shape[0])
+print('P(48.84 < x < 51.58) = {:.2f} ({:.2f}%)'.format(p50, p50 * 100.0))</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-4">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">P</span><span class="p">(</span><span class="mf">48.84</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">51.58</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.13</span> <span class="p">(</span><span class="mf">13.43</span><span class="o">%</span><span class="p">)</span>
+</pre></div>
+<div id="cell-4" class="clipboard-copy-txt">P(48.84 < x < 51.58) = 0.13 (13.43%)</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Por lo tanto, la aproximación de la probabilidad es aproximadamente del 13.5%, lo que también es confirmado por la estructura del histograma. Sin embargo, el lector debería haber comprendido claramente que este método tiene limitaciones evidentes. La primera y más obvia se refiere al número y el ancho de los intervalos. Un número pequeño, de hecho, produce resultados aproximados que no pueden tener en cuenta las oscilaciones rápidas. Por otro lado, un número muy grande conduce a un histograma con agujeros, porque la mayoría de los intervalos no contendrán muestras. Por lo tanto, se necesita un enfoque más sólido, considerando todas las dinámicas posibles que se pueden encontrar en casos de la vida real. Esto es lo que vamos a discutir en la próxima sección.</p>
 
 </div>
 </div>

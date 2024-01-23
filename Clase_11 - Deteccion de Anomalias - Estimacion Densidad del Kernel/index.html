@@ -377,6 +377,74 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#kernel-uniforme" class="md-nav__link">
+    Kernel Uniforme
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medidas-de-evaluacion" class="md-nav__link">
+    Medidas de Evaluación
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estimacion-de-la-funcion-de-densidad" class="md-nav__link">
+    Estimación de la Función de Densidad
+  </a>
+  
+    <nav class="md-nav" aria-label="Estimación de la Función de Densidad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fundamentos-matematicos-de-la-estimacion" class="md-nav__link">
+    Fundamentos Matemáticos de la Estimación
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enfoque-knn-y-eleccion-de-la-metrica-de-distancia" class="md-nav__link">
+    Enfoque KNN y Elección de la Métrica de Distancia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estimacion-densidad-data-ages" class="md-nav__link">
+    Estimación Densidad Data ages
+  </a>
+  
+    <nav class="md-nav" aria-label="Estimación Densidad Data ages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodo-1" class="md-nav__link">
+    Método 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodo-2" class="md-nav__link">
+    Método 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1456,16 +1524,202 @@ Licensed under the Apache License, Version 2.0.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h4 id="kernel-guasiano">Kernel Guasiano<a class="anchor-link" href="#kernel-guasiano">&#182;</a></h4><p>Uno de los más empleados, cuya fórmula es la siguiente:</p>
-$$\large K(\bar{x};h)=\frac{1}{\sqrt[n]{2\pi h^2}e^{-\frac{\bar{x}^T\bar{x}}{2h^2}}}$$<p><img src="https://drive.google.com/uc?export=view&id=1s7rkjEphi23y_8GZNRLyE8ZFF8L8xH33" width = "800" align="center"/></p>
+$$\large K(\bar{x};h)=\frac{1}{\sqrt[n]{2\pi h^2}e^{-\frac{\bar{x}^T\bar{x}}{2h^2}}}$$<p><img src="https://drive.google.com/uc?export=view&id=1dzJ7qcpci9XkPlAlZ7HSmrU2KZU2YmrW" width = "800" align="center"/></p>
 <p>Dada su regularidad, un núcleo gaussiano es una elección común para muchas tareas de estimación de densidad. Sin embargo, dado que el método no permite la combinación de diferentes núcleos, la elección debe considerar todas las propiedades. Desde el punto de vista estadístico, sabemos que una distribución gaussiana puede considerarse como una referencia promedio para la curtosis (que es proporcional al pico y a la pesadez de las colas). Para maximizar la selectividad del núcleo, necesitamos reducir el ancho de banda. Esto significa que incluso las oscilaciones más pequeñas alterarán la densidad y el resultado será una estimación muy irregular. Por otro lado, cuando h es grande (es decir, la varianza de la gaussiana), la aproximación se vuelve muy suave y puede perder la capacidad de capturar todos los picos. Por esta razón, junto con la selección del ancho de banda más apropiado, también es útil considerar otros núcleos que puedan simplificar naturalmente el proceso.</p>
 <h4 id="kernel-epanechnikov">Kernel Epanechnikov<a class="anchor-link" href="#kernel-epanechnikov">&#182;</a></h4><p>Este núcleo ha sido propuesto para minimizar el error cuadrático medio, y además tiene la propiedad de ser muy regular (de hecho, se puede imaginar como una parábola invertida). La fórmula es la siguiente:</p>
-$$\large \epsilon(1-\frac{x^2}{h^2}) \: \text{ for } \: |x|&lt;1$$<p>La constante $ε$ se ha introducido para normalizar el núcleo y cumplir con todos los requisitos (de manera análoga, es posible extender el núcleo en el rango $(-h, h)$ para ser más consistente con otras funciones). Se muestra una representación gráfica en la siguiente captura de pantalla:</p>
-<p><img src="https://drive.google.com/uc?export=view&id=1H1THjd6P4EaKAjUuDWYcaoUtZ1mUi0qD" width = "800" align="center"/></p>
+$$\large K(\bar{x};h)=\epsilon(1-\frac{x^2}{h^2}) \: \text{ for } \: |x|&lt;1$$<p>La constante $ε$ se ha introducido para normalizar el núcleo y cumplir con todos los requisitos (de manera análoga, es posible extender el núcleo en el rango $(-h, h)$ para ser más consistente con otras funciones). Se muestra una representación gráfica en la siguiente captura de pantalla:</p>
+<p><img src="https://drive.google.com/uc?export=view&id=1T7xcdMJG_ocdiL0uTua1Lg5ZVAu0LdXu" width = "800" align="center"/></p>
 <p>El núcleo puede volverse muy puntiagudo cuando $h → 0$. Sin embargo, dada su estructura matemática, siempre permanecerá muy regular; por lo tanto, en la mayoría de los casos, no es necesario usarlo como reemplazo del núcleo gaussiano (aunque este último tenga un error cuadrático medio ligeramente mayor). Además, como la función es discontinua en $x = ± h (K(x; h) = 0 $ para $|x| &gt; h$), puede causar caídas rápidas en la estimación de densidad, especialmente en los límites, donde, por ejemplo, una función gaussiana disminuye muy suavemente.</p>
 <h4 id="kernel-exponencial">Kernel Exponencial<a class="anchor-link" href="#kernel-exponencial">&#182;</a></h4><p>Un núcleo muy puntiagudo es el exponencial. A diferencia del núcleo gaussiano, este núcleo tiene colas muy pesadas y un pico agudo.</p>
-$$\large \epsilon \: e^{-\frac{|x|}{h}}$$<p><img src="https://drive.google.com/uc?export=view&id=1fQ1B4ezA26xQ6W2hfvJoLQexAU6kQtXX" width = "800" align="center"/></p>
-<p>Como se puede observar, dicha función es adecuada para modelar distribuciones muy irregulares con una densidad altamente concentrada alrededor de puntos específicos. Por otro lado, el error puede volverse muy alto cuando el proceso de generación de datos es bastante regular con superficies suaves. Una buena medida teórica que se puede emplear para evaluar el rendimiento de un núcleo (y un ancho de banda) es el error cuadrático medio integrado (MISE, por sus siglas en inglés), definido de la siguiente manera.</p>
+$$\large K(\bar{x};h)=\epsilon \: e^{-\frac{|x|}{h}}$$<p><img src="https://drive.google.com/uc?export=view&id=1fQ1B4ezA26xQ6W2hfvJoLQexAU6kQtXX" width = "800" align="center"/></p>
+<p>Como se puede observar, dicha función es adecuada para modelar distribuciones muy irregulares con una densidad altamente concentrada alrededor de puntos específicos. Por otro lado, el error puede volverse muy alto cuando el proceso de generación de datos es bastante regular con superficies suaves.</p>
+<h4 id="kernel-uniforme">Kernel Uniforme<a class="anchor-link" href="#kernel-uniforme">&#182;</a></h4><p>Esta es la función de núcleo más simple y menos suave, y su uso se asemeja al procedimiento estándar de construir un histograma. Su fórmula matemática es la siguiente.</p>
+$$\large K(\bar{x};h)=\frac{1}{2h} \: \text{ for }\: |x|&lt;h$$<p>Que corresponde a un escalón que es constante en el rango delimitado por el ancho de banda, y solo es útil cuando la estimación no necesita ser suave.</p>
+<h4 id="medidas-de-evaluacion">Medidas de Evaluaci&#243;n<a class="anchor-link" href="#medidas-de-evaluacion">&#182;</a></h4><p>Una buena medida teórica que se puede emplear para evaluar el rendimiento de un núcleo (y un ancho de banda) es el error cuadrático medio integrado (MISE, por sus siglas en inglés), definido de la siguiente manera.</p>
 $$\large MISE(K) = \mathbb{E}\biggl[\int\limits_{-\infty}^{\infty}(p_K(x)-p(x))^2 dx\biggr]$$<p>En la fórmula anterior, $p_K(x)$ es la densidad estimada, mientras que $p(x)$ es la real. Desafortunadamente, $p(x)$ es desconocida (de lo contrario, no necesitaríamos ninguna estimación); por lo tanto, este método solo se puede utilizar para evaluaciones teóricas (por ejemplo: la optimalidad del núcleo Epanechnikov). Sin embargo, es fácil entender que el $MISE$ será mayor siempre que el núcleo no pueda aproximarse a la superficie real. Dado que el núcleo exponencial salta hacia un pico muy abruptamente, solo puede ser adecuado en situaciones específicas. En todos los demás casos, su comportamiento conduce a $MISE$s más grandes, y por lo tanto, otros núcleos son preferibles.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="estimacion-de-la-funcion-de-densidad">Estimaci&#243;n de la Funci&#243;n de Densidad<a class="anchor-link" href="#estimacion-de-la-funcion-de-densidad">&#182;</a></h3><h4 id="fundamentos-matematicos-de-la-estimacion">Fundamentos Matem&#225;ticos de la Estimaci&#243;n<a class="anchor-link" href="#fundamentos-matematicos-de-la-estimacion">&#182;</a></h4><p>Una vez que se ha seleccionado una función de núcleo, es posible construir una aproximación completa de una función de densidad de probabilidad utilizando un enfoque de k-NN (k-Nearest Neighbour en inglés) o  K-vecinos mas cercanos en español, es un algoritmo simple y efectivo utilizado para la clasificación y regresión en aprendizaje supervisado. Su idea central es clasificar un punto de datos nuevo basándose en la mayoría de los puntos de datos cercanos a él en el espacio de características.</p>
+<p>De hecho, dado un conjunto de datos $X$ (para simplificar, $X ∈ ℜ^m$, por lo que los valores son números reales), es fácil crear, por ejemplo, un árbol de bolas para dividir los datos de manera eficiente. Cuando la estructura de datos está lista, es posible obtener todos los vecinos del punto de consulta $x_j$ dentro de un radio definido por el ancho de banda. Supongamos que dicho conjunto es $X_j = \{x_1,\dotsc, x_t\}$ y el número de puntos es Nj. La estimación de la densidad de probabilidad se obtiene de la siguiente manera:</p>
+$$ p_K(x_j)=\frac{1}{N_jh}\sum\limits_{t}K\biggl( \frac{x_j-x_t}{h};h \biggr)$$<p>No es difícil demostrar que, si el ancho de banda se elige adecuadamente (como una función del número de muestras contenidas en el vecindario), $p_K$ converge en probabilidad a la verdadera $p(x)$. En otras palabras, si la granularidad es lo suficientemente grande, el error absoluto entre la aproximación y la verdadera densidad tiende a cero.</p>
+<h4 id="enfoque-knn-y-eleccion-de-la-metrica-de-distancia">Enfoque KNN y Elecci&#243;n de la M&#233;trica de Distancia<a class="anchor-link" href="#enfoque-knn-y-eleccion-de-la-metrica-de-distancia">&#182;</a></h4><p>En este punto, es natural preguntarse por qué no usar todo el conjunto de datos para cada consulta en lugar de un enfoque de k-NN. La respuesta es muy simple y se basa en la suposición de que el valor de la función de densidad calculada en $x_j$ puede interpolarse fácilmente utilizando el comportamiento local (es decir, para una distribución multivariante, una bola centrada en $x_j$) y que los puntos lejanos no tienen influencia en la estimación. Por lo tanto, podemos limitar el cálculo a un subconjunto más pequeño de $X$, evitando incluir contribuciones que están cerca de cero.</p>
+<p>Antes de discutir cómo determinar el ancho de banda óptimo, mostremos la estimación de densidad (utilizando <code>scikit-learn</code>) para el conjunto de datos previamente definido. Como no tenemos ningún conocimiento previo específico, vamos a utilizar un núcleo gaussiano con diferentes anchos de banda (0.1, 0.5 y 1.5). Todos los demás parámetros se mantienen en sus valores predeterminados; sin embargo, la clase <code>KernelDensity</code> permite establecer la métrica (predeterminada es <code>metric='euclidean'</code>), la estructura de datos (predeterminada es <code>algorithm='auto'</code>, que realiza una autoselección entre árbol de bolas y kd-tree según la dimensionalidad), y las tolerancias absolutas y relativas (respectivamente, 0 y 10^-8). En muchos casos, no es necesario cambiar los valores predeterminados; sin embargo, para conjuntos de datos muy grandes con características específicas, puede ser útil, por ejemplo, cambiar el parámetro <code>leaf_size</code> para mejorar el rendimiento. Además, la métrica predeterminada puede no ser adecuada para todas las tareas (por ejemplo: la documentación estándar muestra un ejemplo basado en la distancia de Haversine, que se puede utilizar al trabajar con latitud y longitud). Otros casos son aquellos en los que, en lugar de bolas, es preferible trabajar con hipercubos (este es el caso con la distancia de Manhattan).</p>
+<h4 id="estimacion-densidad-data-ages">Estimaci&#243;n Densidad Data <code>ages</code><a class="anchor-link" href="#estimacion-densidad-data-ages">&#182;</a></h4><p>Comenzamos montando la densidad gaussiana para el conjunto ficticio que hemos creado (data <code>ages</code>). Primero, volvemos a generar la data con el siguiente código.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-1">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KernelDensity</span>
+
+<span class="c1"># For reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="c1"># Generate the dataset</span>
+<span class="n">nb_samples</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nb_samples</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="n">ages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
+</pre></div>
+<div id="cell-1" class="clipboard-copy-txt">import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.neighbors import KernelDensity
+
+# For reproducibility
+np.random.seed(1000)
+# Generate the dataset
+nb_samples = [1000, 800, 500, 380, 280, 150, 120, 100, 50, 30]
+ages = []
+for n in nb_samples:
+    i = np.random.uniform(10, 80, size=2)
+    a = np.random.uniform(i[0], i[1], size=n).astype(np.int32)
+    ages.append(a)
+ages = np.concatenate(ages)</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ahora realizamos la estimación de la densidad para 3 valores de $h$ (0.1, 0.5 y 1.5). Se puede ver la gráfica de los distintos valores de $h$ y su código a continuación.
+<img src="https://drive.google.com/uc?export=view&id=1sP2WLh69doTd2BIGboTbnFnuR-Jq-z_I" width = "800" align="center"/></p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-2">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Train KDE with Gaussian kernels and 3 bandwidths</span>
+<span class="n">kd_01</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">kd_05</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">kd_15</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">kd_01</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ages</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">kd_05</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ages</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">kd_15</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ages</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Show the results</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">kd_01</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Bandwidth = 0.1&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">kd_05</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Bandwidth = 0.5&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">kd_15</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Bandwidth = 1.5&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-2" class="clipboard-copy-txt"># Train KDE with Gaussian kernels and 3 bandwidths
+kd_01 = KernelDensity(kernel='gaussian', bandwidth=0.1)
+kd_05 = KernelDensity(kernel='gaussian', bandwidth=0.5)
+kd_15 = KernelDensity(kernel='gaussian', bandwidth=1.5)
+kd_01.fit(ages.reshape(-1, 1))
+kd_05.fit(ages.reshape(-1, 1))
+kd_15.fit(ages.reshape(-1, 1))
+
+# Show the results
+sns.set()
+fig, ax = plt.subplots(3, 1, figsize=(14, 20), sharex=True)
+data = np.arange(10, 70, 0.05).reshape(-1, 1)
+ax[0].plot(data, np.exp(kd_01.score_samples(data)))
+ax[0].set_title('Bandwidth = 0.1', fontsize=14)
+ax[0].set_ylabel('Density', fontsize=14)
+ax[1].plot(data, np.exp(kd_05.score_samples(data)))
+ax[1].set_title('Bandwidth = 0.5', fontsize=14)
+ax[1].set_ylabel('Density', fontsize=14)
+ax[2].plot(data, np.exp(kd_15.score_samples(data)))
+ax[2].set_title('Bandwidth = 1.5', fontsize=14)
+ax[2].set_xlabel('Age', fontsize=14)
+ax[2].set_ylabel('Density', fontsize=14)
+plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Como se puede observar, cuando el ancho de banda es muy pequeño (0.1), la densidad presenta fuertes oscilaciones debido a la falta de muestras para rangos específicos. Cuando $h$ = 0.5, la forma (ya que el conjunto de datos es univariado) se vuelve más estable, pero aún hay algunas variaciones rápidas residuales inducidas por la varianza interna de los vecinos. Este comportamiento se elimina casi por completo cuando $h$ se vuelve más grande (1.5, en nuestro caso).</p>
+<p>Una pregunta obvia es: ¿cómo es posible determinar el ancho de banda más apropiado? Por supuesto, la elección más natural es el valor de $h$ que minimiza el MISE, pero, como se discutió, este método solo se puede emplear cuando se conoce la verdadera densidad de probabilidad. Sin embargo, hay un par de criterios empíricos que se han demostrado ser muy confiables. Dado un conjunto de datos completo $X ∈ ℜ^m$, el primero se basa en la siguiente fórmula.</p>
+<h5 id="metodo-1">M&#233;todo 1<a class="anchor-link" href="#metodo-1">&#182;</a></h5><p>$h=1.06 \:\cdot\: std(X)\:\cdot\:m^{-0.2}$</p>
+<p>Por lo tanto, la sugerencia es aumentar aún más el ancho de banda en comparación con nuestro último experimento. Un segundo método se basa en el rango intercuartil (IQR = Q3 - Q1 o, de manera equivalente, percentil 75 - percentil 25), y es más robusto frente a variaciones internas muy intensas.</p>
+<h5 id="metodo-2">M&#233;todo 2<a class="anchor-link" href="#metodo-2">&#182;</a></h5><p>$h=0.9 \:\cdot\: \min \biggl(std(X),{\Large\frac{IQR}{1.34}} \biggr)
+\:\cdot\: m^{-0.2}$</p>
 
 </div>
 </div>

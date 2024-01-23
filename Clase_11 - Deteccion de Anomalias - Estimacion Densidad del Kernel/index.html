@@ -418,12 +418,25 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#estimacion-densidad-data-ages" class="md-nav__link">
     Estimación Densidad Data ages
   </a>
   
     <nav class="md-nav" aria-label="Estimación Densidad Data ages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estimacion-de-h" class="md-nav__link">
+    Estimación de $h$
+  </a>
+  
+    <nav class="md-nav" aria-label="Estimación de $h$">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1553,7 +1566,7 @@ $$\large MISE(K) = \mathbb{E}\biggl[\int\limits_{-\infty}^{\infty}(p_K(x)-p(x))^
 $$ p_K(x_j)=\frac{1}{N_jh}\sum\limits_{t}K\biggl( \frac{x_j-x_t}{h};h \biggr)$$<p>No es difícil demostrar que, si el ancho de banda se elige adecuadamente (como una función del número de muestras contenidas en el vecindario), $p_K$ converge en probabilidad a la verdadera $p(x)$. En otras palabras, si la granularidad es lo suficientemente grande, el error absoluto entre la aproximación y la verdadera densidad tiende a cero.</p>
 <h4 id="enfoque-knn-y-eleccion-de-la-metrica-de-distancia">Enfoque KNN y Elecci&#243;n de la M&#233;trica de Distancia<a class="anchor-link" href="#enfoque-knn-y-eleccion-de-la-metrica-de-distancia">&#182;</a></h4><p>En este punto, es natural preguntarse por qué no usar todo el conjunto de datos para cada consulta en lugar de un enfoque de k-NN. La respuesta es muy simple y se basa en la suposición de que el valor de la función de densidad calculada en $x_j$ puede interpolarse fácilmente utilizando el comportamiento local (es decir, para una distribución multivariante, una bola centrada en $x_j$) y que los puntos lejanos no tienen influencia en la estimación. Por lo tanto, podemos limitar el cálculo a un subconjunto más pequeño de $X$, evitando incluir contribuciones que están cerca de cero.</p>
 <p>Antes de discutir cómo determinar el ancho de banda óptimo, mostremos la estimación de densidad (utilizando <code>scikit-learn</code>) para el conjunto de datos previamente definido. Como no tenemos ningún conocimiento previo específico, vamos a utilizar un núcleo gaussiano con diferentes anchos de banda (0.1, 0.5 y 1.5). Todos los demás parámetros se mantienen en sus valores predeterminados; sin embargo, la clase <code>KernelDensity</code> permite establecer la métrica (predeterminada es <code>metric='euclidean'</code>), la estructura de datos (predeterminada es <code>algorithm='auto'</code>, que realiza una autoselección entre árbol de bolas y kd-tree según la dimensionalidad), y las tolerancias absolutas y relativas (respectivamente, 0 y 10^-8). En muchos casos, no es necesario cambiar los valores predeterminados; sin embargo, para conjuntos de datos muy grandes con características específicas, puede ser útil, por ejemplo, cambiar el parámetro <code>leaf_size</code> para mejorar el rendimiento. Además, la métrica predeterminada puede no ser adecuada para todas las tareas (por ejemplo: la documentación estándar muestra un ejemplo basado en la distancia de Haversine, que se puede utilizar al trabajar con latitud y longitud). Otros casos son aquellos en los que, en lugar de bolas, es preferible trabajar con hipercubos (este es el caso con la distancia de Manhattan).</p>
-<h4 id="estimacion-densidad-data-ages">Estimaci&#243;n Densidad Data <code>ages</code><a class="anchor-link" href="#estimacion-densidad-data-ages">&#182;</a></h4><p>Comenzamos montando la densidad gaussiana para el conjunto ficticio que hemos creado (data <code>ages</code>). Primero, volvemos a generar la data con el siguiente código.</p>
+<h3 id="estimacion-densidad-data-ages">Estimaci&#243;n Densidad Data <code>ages</code><a class="anchor-link" href="#estimacion-densidad-data-ages">&#182;</a></h3><p>Comenzamos montando la densidad gaussiana para el conjunto ficticio que hemos creado (data <code>ages</code>). Primero, volvemos a generar la data con el siguiente código.</p>
 
 </div>
 </div>
@@ -1715,7 +1728,7 @@ plt.show()</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Como se puede observar, cuando el ancho de banda es muy pequeño (0.1), la densidad presenta fuertes oscilaciones debido a la falta de muestras para rangos específicos. Cuando $h$ = 0.5, la forma (ya que el conjunto de datos es univariado) se vuelve más estable, pero aún hay algunas variaciones rápidas residuales inducidas por la varianza interna de los vecinos. Este comportamiento se elimina casi por completo cuando $h$ se vuelve más grande (1.5, en nuestro caso).</p>
-<p>Una pregunta obvia es: ¿cómo es posible determinar el ancho de banda más apropiado? Por supuesto, la elección más natural es el valor de $h$ que minimiza el MISE, pero, como se discutió, este método solo se puede emplear cuando se conoce la verdadera densidad de probabilidad. Sin embargo, hay un par de criterios empíricos que se han demostrado ser muy confiables. Dado un conjunto de datos completo $X ∈ ℜ^m$, el primero se basa en la siguiente fórmula.</p>
+<h4 id="estimacion-de-h">Estimaci&#243;n de $h$<a class="anchor-link" href="#estimacion-de-h">&#182;</a></h4><p>Una pregunta obvia es: ¿cómo es posible determinar el ancho de banda más apropiado? Por supuesto, la elección más natural es el valor de $h$ que minimiza el MISE, pero, como se discutió, este método solo se puede emplear cuando se conoce la verdadera densidad de probabilidad. Sin embargo, hay un par de criterios empíricos que se han demostrado ser muy confiables. Dado un conjunto de datos completo $X ∈ ℜ^m$, el primero se basa en la siguiente fórmula.</p>
 <h5 id="metodo-1">M&#233;todo 1<a class="anchor-link" href="#metodo-1">&#182;</a></h5><p>$h=1.06 \:\cdot\: std(X)\:\cdot\:m^{-0.2}$</p>
 <p>Por lo tanto, la sugerencia es aumentar aún más el ancho de banda en comparación con nuestro último experimento. Un segundo método se basa en el rango intercuartil (IQR = Q3 - Q1 o, de manera equivalente, percentil 75 - percentil 25), y es más robusto frente a variaciones internas muy intensas.</p>
 <h5 id="metodo-2">M&#233;todo 2<a class="anchor-link" href="#metodo-2">&#182;</a></h5><p>$h=0.9 \:\cdot\: \min \biggl(std(X),{\Large\frac{IQR}{1.34}} \biggr)

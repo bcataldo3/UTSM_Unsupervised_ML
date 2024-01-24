@@ -82,7 +82,8 @@ plugins:
 # TOC
 nav:
     - Home: index.md
-    - Clase_01 - Modelos No Supervisados - Introduccion.ipynb
+    - Introducción:  
+      - Clase_01 - Modelos No Supervisados - Introduccion.ipynb
     - Modelos Conglomerados:
       - Clase_02 - Modelos Conglomerados - Introduccion.ipynb
       - Clase_03 - Modelo K-Medias.ipynb

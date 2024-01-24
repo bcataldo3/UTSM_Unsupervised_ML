@@ -4,11 +4,11 @@
 site_name: Home
 site_url: https://github.com/bcataldo3/plantilla_curso_python
 site_author: Benjamin Cataldo
-site_description:
+site_description: Curso Machine Learning No Supervisado
 
 # Repository
-repo_name: bcataldo3/plantilla_curso_python
-repo_url: https://github.com/bcataldo3/plantilla_curso_python
+repo_name: bcataldo3/UTSM_Unspervised_ML
+repo_url: https://github.com/bcataldo3/UTSM_Unspervised_ML
 edit_uri: ''
 
 
@@ -38,7 +38,7 @@ theme:
   name: material
   language: es
   logo: images/logo.bmp
-  favicon: images/logo_python.svg
+  favicon: docs/images/logo_python.svg
   features:
     - navigation.instant
     - navigation.top
@@ -83,13 +83,16 @@ plugins:
 nav:
     - Home: index.md
     - Clase_01 - Modelos No Supervisados - Introduccion.ipynb
-    - Clase_02 - Modelos Conglomerados - Introduccion.ipynb
-    - Clase_03 - Modelo K-Medias.ipynb
-    - Clase_04 - Modelo K-Medias Caso Estudio.ipynb
-    - Clase_05 - Modelo K-Medias Metricas Evaluacion.ipynb
-    - Clase_06 - Modelos Jerarquicos.ipynb
-    - Clase_07 - Modelos Jerárquicos - Caso Estudio.ipynb
-    - Clase_08 - Reduccion Dimensionalidad y Analisis Componentes.ipynb
-    - Clase_09 - PCA - Caso Estudio.ipynb
-    - Clase_10 - Detección de Anomalias - Introducción.ipynb
-    - Clase_11 - Deteccion de Anomalias - Estimacion Densidad del Kernel.ipynb
+    - Modelos Conglomerados:
+      - Clase_02 - Modelos Conglomerados - Introduccion.ipynb
+      - Clase_03 - Modelo K-Medias.ipynb
+      - Clase_04 - Modelo K-Medias Caso Estudio.ipynb
+      - Clase_05 - Modelo K-Medias Metricas Evaluacion.ipynb
+      - Clase_06 - Modelos Jerarquicos.ipynb
+      - Clase_07 - Modelos Jerárquicos - Caso Estudio.ipynb
+    - Reducción de Dimensionalidad:
+      - Clase_08 - Reduccion Dimensionalidad y Analisis Componentes.ipynb
+      - Clase_09 - PCA - Caso Estudio.ipynb
+    - Detección de Anomalías:
+      - Clase_10 - Detección de Anomalias - Introducción.ipynb
+      - Clase_11 - Deteccion de Anomalias - Estimacion Densidad del Kernel.ipynb

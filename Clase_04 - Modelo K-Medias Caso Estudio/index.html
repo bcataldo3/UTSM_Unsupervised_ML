@@ -414,6 +414,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#minimizar-la-inercia" class="md-nav__link">
+    Minimizar la Inercia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-de-estudio-minimizando-la-inercia" class="md-nav__link">
+    Caso de Estudio: Minimizando la Inercia
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso de Estudio: Minimizando la Inercia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conclusiones-del-ejercicio" class="md-nav__link">
+    Conclusiones del Ejercicio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -646,6 +673,33 @@
   <a href="#aplicando-k-medias-a-la-data-reducida" class="md-nav__link">
     Aplicando K-Medias a la Data Reducida
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimizar-la-inercia" class="md-nav__link">
+    Minimizar la Inercia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-de-estudio-minimizando-la-inercia" class="md-nav__link">
+    Caso de Estudio: Minimizando la Inercia
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso de Estudio: Minimizando la Inercia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conclusiones-del-ejercicio" class="md-nav__link">
+    Conclusiones del Ejercicio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1986,6 +2040,532 @@ plt.show()</div>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><img src="https://drive.google.com/uc?export=view&id=134gTYQE7uvf67IdoYopQeOGSz3WcBmTc" width = "800" align="center"/></p>
 <p>Como era de esperar, el resultado es bastante preciso para $y &lt; -20$, pero el algoritmo no logra incluir los puntos límite ($y ≈ 0$) en el grupo principal maligno. Esto se debe principalmente a la no convexidad de los conjuntos originales, y es muy difícil resolver el problema utilizando K-medias. Además, en la proyección, la mayoría de las muestras malignas con $y ≈ 0$ se mezclan con las benignas, por lo que la probabilidad de error también es alta con otros métodos basados en la proximidad. La única oportunidad de separar correctamente esas muestras se deriva de la distribución original. De hecho, si los puntos pertenecientes a la misma categoría pudieran ser capturados por conjuntos disjuntos en $\Re^{30}$, K-medias también podría tener éxito. Desafortunadamente, en este caso, el conjunto mezclado parece muy cohesionado, por lo que no podemos esperar mejorar el rendimiento sin una transformación. Sin embargo, para nuestros fines, este resultado nos permite aplicar las principales métricas de evaluación y luego pasar de $K=2$ a valores mayores. Con $K&gt;2$, vamos a analizar algunos de los grupos, comparando su estructura con el gráfico de pares.</p>
+<h2 id="minimizar-la-inercia">Minimizar la Inercia<a class="anchor-link" href="#minimizar-la-inercia">&#182;</a></h2><p>Uno de los mayores inconvenientes de K-medias y algoritmos similares es la solicitud explícita del número de agrupaciones. A veces, esta información está impuesta por restricciones externas (por ejemplo, en el caso de estudio, solo hay dos posibles diagnósticos), pero en muchos casos (cuando se necesita un análisis exploratorio), el científico de datos debe verificar diferentes configuraciones y evaluarlas. La forma más sencilla de evaluar el rendimiento de K-medias y elegir un número apropiado de grupos se basa en la comparación de diferentes inercias finales. Para explicar esto mediremos las inercias de un ejemplo generado a partir de 12 globos Gausianos muy compactos generados con la funcion de <code>scikit-learn make_blobs()</code></p>
+<p>Comenzamos creando la data y mostrando resultados</p>
+<p><img src="https://drive.google.com/uc?export=view&id=1vuLtM8DQhLmKcN6C3-j9DknugLiwDwqt" width = "800" align="center"/></p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-5">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.grupo</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">grupo_std</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">center_box</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1"># Show the blobs</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">Y</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">Y</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blob </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_0$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-5" class="clipboard-copy-txt">import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.grupo import KMeans
+from sklearn.datasets import make_blobs
+X, Y = make_blobs(n_samples=2000, n_features=2, centers=12,grupo_std=0.05, center_box=[-5, 5], random_state=100)
+# Show the blobs
+sns.set()
+fig, ax = plt.subplots(figsize=(12, 8))
+for i in range(12):
+    ax.scatter(X[Y == i, 0], X[Y == i, 1], label='Blob {}'.format(i + 1))
+ax.set_xlabel(r'$x_0$')
+ax.set_ylabel(r'$x_1$')
+ax.legend()
+plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ahora mostramos la grafica de la inercia para distintos números de agrupaciones y el código correspondiente.</p>
+<p><img src="https://drive.google.com/uc?export=view&id=1_HtS5eeEoJd6jhVeScIHm-fHtXMcI_tk" width = "800" align="center"/></p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-6">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Compute the inertia</span>
+<span class="n">inertias</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">):</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_grupos</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">inertias</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">km</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+<span class="c1"># Show the plot inertia vs. no. grupos</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">inertias</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of grupos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Inertia&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-6" class="clipboard-copy-txt"># Compute the inertia
+inertias = []
+for i in range(2, 21):
+    km = KMeans(n_grupos=i, max_iter=1000, random_state=1000)
+    km.fit(X)
+    inertias.append(km.inertia_)
+# Show the plot inertia vs. no. grupos
+fig, ax = plt.subplots(figsize=(18, 8))
+ax.plot(np.arange(2, 21, 1), inertias)
+ax.set_xlabel('Number of grupos', fontsize=14)
+ax.set_ylabel('Inertia', fontsize=14)
+ax.set_xticks(np.arange(2, 21, 1))
+plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Algunos comentarios del proceso:</p>
+<ul>
+<li>El gráfico anterior muestra un comportamiento común. Cuando el número de grupos es muy pequeño, la densidad es proporcionalmente baja, por lo tanto, la cohesión es baja y, como resultado, la inercia es alta. Aumentar el número de grupos obliga al modelo a crear grupos más cohesionados y la inercia comienza a disminuir abruptamente. </li>
+<li>La regla heurística genérica (cuando no hay restricciones externas) es elegir el número de grupos correspondiente al punto que separa la región de alta variación de la casi plana, también conocida como técnica del codo (elbow criteria). La idea del "codo" es identificar el punto en el gráfico donde la disminución de la variabilidad comienza a aplanarse notablemente. Visualmente, este punto se parece a un codo en la gráfica. El punto de codo indica el número óptimo de clusters. Es el punto donde agregar un cluster adicional ya no proporciona mucha mejora en términos de reducción de variabilidad. Después de este punto, el beneficio de agregar más clusters se vuelve marginal en comparación con el costo computacional y la complejidad de interpretación.</li>
+<li>No obstante lo anterior, debemos tener cuidado al definir lo que entendemos por codo o punto en donde no existe valor agregado en incluir un grupo adicional. Para esto, es importante entender apropiadamente el contexto del problema con personas expertas en el negocio.</li>
+<li>Por supuesto, en este caso, si hubiéramos seleccionado K=15, nueve conjuntos habrían sido asignados a diferentes grupos, mientras que los otros tres se habrían dividido en dos partes. Obviamente, al dividir una región de alta densidad, la inercia sigue siendo baja, pero el principio de separación máxima ya no se sigue.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="caso-de-estudio-minimizando-la-inercia">Caso de Estudio: Minimizando la Inercia<a class="anchor-link" href="#caso-de-estudio-minimizando-la-inercia">&#182;</a></h2><p>Ahora revisaremos la inercia de nuestro caso de estudio para diferentes niveles de conglomerados (de 2 a 50)</p>
+<p><img src="https://drive.google.com/uc?export=view&id=1eV3JwsWjejcRNbhmN4YyusC6wNbfPL-z" width = "800" align="center"/></p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-7">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://drive.google.com/file/d/1LG6hb0duLtnSiFhT9JWFNuo8qDxHV08W/view?usp=drive_link&#39;</span>
+<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://drive.google.com/uc?id=&#39;</span> <span class="o">+</span> <span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">dataset_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;diagnosis&#39;</span><span class="p">,</span> <span class="s1">&#39;radius_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;texture_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;perimeter_mean&#39;</span><span class="p">,</span><span class="s1">&#39;area_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;smoothness_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;compactness_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;concavity_mean&#39;</span><span class="p">,</span><span class="s1">&#39;concave points_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;symmetry_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;fractal_dimension_mean&#39;</span><span class="p">,</span><span class="s1">&#39;radius_se&#39;</span><span class="p">,</span><span class="s1">&#39;texture_se&#39;</span><span class="p">,</span> <span class="s1">&#39;perimeter_se&#39;</span><span class="p">,</span> <span class="s1">&#39;area_se&#39;</span><span class="p">,</span> <span class="s1">&#39;smoothness_se&#39;</span><span class="p">,</span><span class="s1">&#39;compactness_se&#39;</span><span class="p">,</span> <span class="s1">&#39;concavity_se&#39;</span><span class="p">,</span> <span class="s1">&#39;concave points_se&#39;</span><span class="p">,</span> <span class="s1">&#39;symmetry_se&#39;</span><span class="p">,</span><span class="s1">&#39;fractal_dimension_se&#39;</span><span class="p">,</span> <span class="s1">&#39;radius_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;texture_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;perimeter_worst&#39;</span><span class="p">,</span><span class="s1">&#39;area_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;smoothness_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;compactness_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;concavity_worst&#39;</span><span class="p">,</span><span class="s1">&#39;concave points_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;symmetry_worst&#39;</span><span class="p">,</span> <span class="s1">&#39;fractal_dimension_worst&#39;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span> <span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">dataset_columns</span><span class="p">)</span>
+<span class="n">cdf</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;diagnosis&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Compute the inertia</span>
+<span class="n">inertias</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">51</span><span class="p">):</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_grupos</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cdf</span><span class="p">)</span>
+    <span class="n">inertias</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">km</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+
+<span class="c1"># Show the plot inertia vs. no. grupos</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">inertias</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of grupos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Inertia&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-7" class="clipboard-copy-txt">import pandas as pd
+url='https://drive.google.com/file/d/1LG6hb0duLtnSiFhT9JWFNuo8qDxHV08W/view?usp=drive_link'
+url='https://drive.google.com/uc?id=' + url.split('/')[-2]
+
+dataset_columns = ['id','diagnosis', 'radius_mean', 'texture_mean', 'perimeter_mean','area_mean', 'smoothness_mean', 'compactness_mean', 'concavity_mean','concave points_mean', 'symmetry_mean', 'fractal_dimension_mean','radius_se','texture_se', 'perimeter_se', 'area_se', 'smoothness_se','compactness_se', 'concavity_se', 'concave points_se', 'symmetry_se','fractal_dimension_se', 'radius_worst', 'texture_worst', 'perimeter_worst','area_worst', 'smoothness_worst', 'compactness_worst', 'concavity_worst','concave points_worst', 'symmetry_worst', 'fractal_dimension_worst']
+df = pd.read_csv(url, sep="," ,index_col=0, names=dataset_columns)
+cdf = df.drop(['diagnosis'], axis=1)
+
+# Compute the inertia
+inertias = []
+
+for i in range(2, 51):
+    km = KMeans(n_grupos=i, max_iter=1000, random_state=1000)
+    km.fit(cdf)
+    inertias.append(km.inertia_)
+
+# Show the plot inertia vs. no. grupos
+fig, ax = plt.subplots(figsize=(18, 8))
+
+ax.plot(np.arange(2, 51, 1), inertias)
+ax.set_xlabel('Number of grupos', fontsize=14)
+ax.set_ylabel('Inertia', fontsize=14)
+ax.set_xticks(np.arange(2, 51, 2))
+
+plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>En este caso, la verdad fundamental sugiere que deberíamos agrupar en dos grupos correspondientes a los diagnósticos. Sin embargo, el gráfico muestra un descenso drástico que termina en K=8 y continúa con una pendiente más baja hasta aproximadamente K=40. Durante el análisis preliminar, hemos observado que la proyección bidimensional está compuesta por muchos conjuntos aislados que comparten el mismo diagnóstico. Por lo tanto, podríamos decidir emplear, por ejemplo, K=8 y analizar las características correspondientes a cada grupo. Dado que esto no es una tarea de clasificación, la verdad fundamental puede usarse como la principal referencia, pero un análisis exploratorio correcto puede intentar comprender la composición de las subestructuras para proporcionar detalles adicionales a los técnicos (por ejemplo, médicos). Ahora realizaremos un agrupamiento K-medias con ocho grupos en el conjunto de datos para describir la estructura de dos grupos de muestra, de la siguiente manera:</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-8">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Preparamos nuevamente la data del metodo t-SNE</span>
+<span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
+<span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">perplexity</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">data_tsne</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">cdf</span><span class="p">)</span>
+<span class="n">df_tsne</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_tsne</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">cdf</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">dff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df_tsne</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_grupos</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">Y_pred</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">cdf</span><span class="p">)</span>
+<span class="n">df_km</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Y_pred</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">cdf</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">kmdff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dff</span><span class="p">,</span> <span class="n">df_km</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Show the result</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">plotting_context</span><span class="p">(</span><span class="s2">&quot;notebook&quot;</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">):</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;prediction&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="s1">&#39;area_mean&#39;</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;diagnosis&#39;</span><span class="p">,</span><span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span><span class="n">palette</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;husl&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span><span class="n">data</span><span class="o">=</span><span class="n">kmdff</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<div id="cell-8" class="clipboard-copy-txt"># Preparamos nuevamente la data del metodo t-SNE
+from sklearn.manifold import TSNE
+tsne = TSNE(n_components=2, perplexity=10, random_state=1000)
+data_tsne = tsne.fit_transform(cdf)
+df_tsne = pd.DataFrame(data_tsne, columns=['x', 'y'], index=cdf.index)
+dff = pd.concat([df, df_tsne], axis=1)
+
+km = KMeans(n_grupos=8, max_iter=1000, random_state=1000)
+Y_pred = km.fit_predict(cdf)
+df_km = pd.DataFrame(Y_pred, columns=['prediction'], index=cdf.index)
+kmdff = pd.concat([dff, df_km], axis=1)
+
+# Show the result
+fig, ax = plt.subplots(figsize=(18, 11))
+with sns.plotting_context("notebook", font_scale=1.5):
+    sns.scatterplot(x='x',y='y',hue='prediction',size='area_mean',style='diagnosis',sizes=(30, 400),palette=sns.color_palette("husl", 8),data=kmdff,ax=ax)
+ax.set_xlabel(r'$x$')
+ax.set_ylabel(r'$y$')
+plt.show()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="https://drive.google.com/uc?export=view&id=1QO9vXXRJb2ou4V_Fg6wDa_vAcu3m1cc1" width = "800" align="center"/></p>
+<p>Ahora, consideremos el intervalo $-25 &lt; x &lt; 30$ y $-60 &lt; y &lt;-40$ y revisemos estadística descriptiva sencilla de algunos de sus atributos.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-9">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">sdff_1</span> <span class="o">=</span> <span class="n">dff</span><span class="p">[(</span><span class="n">dff</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">25.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dff</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mf">30.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dff</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">60.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dff</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">40.0</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sdff_1</span><span class="p">[[</span><span class="s1">&#39;perimeter_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;area_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;smoothness_mean&#39;</span><span class="p">,</span><span class="s1">&#39;concavity_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;symmetry_mean&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+<div id="cell-9" class="clipboard-copy-txt">sdff_1 = dff[(dff.x > -25.0) & (dff.x < 30.0) & (dff.y > -60.0) & (dff.y < -40.0)]
+print(sdff_1[['perimeter_mean', 'area_mean', 'smoothness_mean','concavity_mean', 'symmetry_mean']].describe())</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-10">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">perimeter_mean</span>    <span class="n">area_mean</span>  <span class="o">...</span>  <span class="n">concavity_mean</span>  <span class="n">symmetry_mean</span>
+<span class="n">count</span>       <span class="mf">52.000000</span>    <span class="mf">52.000000</span>  <span class="o">...</span>       <span class="mf">52.000000</span>      <span class="mf">52.000000</span>
+<span class="n">mean</span>       <span class="mf">129.767308</span>  <span class="mf">1198.030769</span>  <span class="o">...</span>        <span class="mf">0.178122</span>       <span class="mf">0.195225</span>
+<span class="n">std</span>          <span class="mf">6.442467</span>    <span class="mf">99.306666</span>  <span class="o">...</span>        <span class="mf">0.064752</span>       <span class="mf">0.026669</span>
+<span class="nb">min</span>        <span class="mf">110.000000</span>   <span class="mf">904.600000</span>  <span class="o">...</span>        <span class="mf">0.086900</span>       <span class="mf">0.144800</span>
+<span class="mi">25</span><span class="o">%</span>        <span class="mf">125.325000</span>  <span class="mf">1136.000000</span>  <span class="o">...</span>        <span class="mf">0.136800</span>       <span class="mf">0.179950</span>
+<span class="mi">50</span><span class="o">%</span>        <span class="mf">130.200000</span>  <span class="mf">1206.500000</span>  <span class="o">...</span>        <span class="mf">0.161000</span>       <span class="mf">0.191200</span>
+<span class="mi">75</span><span class="o">%</span>        <span class="mf">133.950000</span>  <span class="mf">1277.500000</span>  <span class="o">...</span>        <span class="mf">0.212725</span>       <span class="mf">0.209425</span>
+<span class="nb">max</span>        <span class="mf">143.700000</span>  <span class="mf">1386.000000</span>  <span class="o">...</span>        <span class="mf">0.375400</span>       <span class="mf">0.290600</span>
+</pre></div>
+<div id="cell-10" class="clipboard-copy-txt">       perimeter_mean    area_mean  ...  concavity_mean  symmetry_mean
+count       52.000000    52.000000  ...       52.000000      52.000000
+mean       129.767308  1198.030769  ...        0.178122       0.195225
+std          6.442467    99.306666  ...        0.064752       0.026669
+min        110.000000   904.600000  ...        0.086900       0.144800
+25%        125.325000  1136.000000  ...        0.136800       0.179950
+50%        130.200000  1206.500000  ...        0.161000       0.191200
+75%        133.950000  1277.500000  ...        0.212725       0.209425
+max        143.700000  1386.000000  ...        0.375400       0.290600</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Desde la verdad fundamental, sabemos que todas estas muestras son malignas, pero podemos intentar determinar una regla. La relación entre el área media y el perímetro medio es aproximadamente de 9.23 y las desviaciones estándar relativas son muy pequeñas en comparación con las medias. Esto significa que estas muestras representan tumores extendidos en un rango muy estrecho. Además, tanto la concavidad media como la simetría media son mayores que los valores generales. Por lo tanto (sin la presunción de un análisis científicamente razonable), podemos concluir que las muestras asignadas a estos grupos representan tumores muy graves que han alcanzado una etapa avanzada. Ahora revisemos la siguiente área $x&gt; -10$ y $ 20 &lt; y
+&lt; 50$</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-11">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">sdff_2</span> <span class="o">=</span> <span class="n">dff</span><span class="p">[(</span><span class="n">dff</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dff</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mf">20.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dff</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mf">50.0</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sdff_2</span><span class="p">[[</span><span class="s1">&#39;perimeter_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;area_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;smoothness_mean&#39;</span><span class="p">,</span><span class="s1">&#39;concavity_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;symmetry_mean&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+<div id="cell-11" class="clipboard-copy-txt">sdff_2 = dff[(dff.x > -10.0) & (dff.y > 20.0) & (dff.y < 50.0)]
+print(sdff_2[['perimeter_mean', 'area_mean', 'smoothness_mean','concavity_mean', 'symmetry_mean']].describe())</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-12">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">perimeter_mean</span>   <span class="n">area_mean</span>  <span class="o">...</span>  <span class="n">concavity_mean</span>  <span class="n">symmetry_mean</span>
+<span class="n">count</span>       <span class="mf">73.000000</span>   <span class="mf">73.000000</span>  <span class="o">...</span>       <span class="mf">73.000000</span>      <span class="mf">73.000000</span>
+<span class="n">mean</span>        <span class="mf">69.395068</span>  <span class="mf">359.480822</span>  <span class="o">...</span>        <span class="mf">0.041994</span>       <span class="mf">0.178968</span>
+<span class="n">std</span>          <span class="mf">3.148320</span>   <span class="mf">30.697175</span>  <span class="o">...</span>        <span class="mf">0.041429</span>       <span class="mf">0.027477</span>
+<span class="nb">min</span>         <span class="mf">59.820000</span>  <span class="mf">278.600000</span>  <span class="o">...</span>        <span class="mf">0.000000</span>       <span class="mf">0.106000</span>
+<span class="mi">25</span><span class="o">%</span>         <span class="mf">66.850000</span>  <span class="mf">334.200000</span>  <span class="o">...</span>        <span class="mf">0.015480</span>       <span class="mf">0.163300</span>
+<span class="mi">50</span><span class="o">%</span>         <span class="mf">70.310000</span>  <span class="mf">365.600000</span>  <span class="o">...</span>        <span class="mf">0.030460</span>       <span class="mf">0.177900</span>
+<span class="mi">75</span><span class="o">%</span>         <span class="mf">71.760000</span>  <span class="mf">386.300000</span>  <span class="o">...</span>        <span class="mf">0.053970</span>       <span class="mf">0.192700</span>
+<span class="nb">max</span>         <span class="mf">74.650000</span>  <span class="mf">404.900000</span>  <span class="o">...</span>        <span class="mf">0.228000</span>       <span class="mf">0.274300</span>
+</pre></div>
+<div id="cell-12" class="clipboard-copy-txt">       perimeter_mean   area_mean  ...  concavity_mean  symmetry_mean
+count       73.000000   73.000000  ...       73.000000      73.000000
+mean        69.395068  359.480822  ...        0.041994       0.178968
+std          3.148320   30.697175  ...        0.041429       0.027477
+min         59.820000  278.600000  ...        0.000000       0.106000
+25%         66.850000  334.200000  ...        0.015480       0.163300
+50%         70.310000  365.600000  ...        0.030460       0.177900
+75%         71.760000  386.300000  ...        0.053970       0.192700
+max         74.650000  404.900000  ...        0.228000       0.274300</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="conclusiones-del-ejercicio">Conclusiones del Ejercicio<a class="anchor-link" href="#conclusiones-del-ejercicio">&#182;</a></h3><p>En este caso, la relación entre el área media y el perímetro medio es aproximadamente de 4.89, pero el área media tiene una desviación estándar más grande (de hecho, su valor máximo es de alrededor de 410). La concavidad media es extremadamente pequeña en comparación con la anterior (incluso con aproximadamente la misma desviación estándar), mientras que la simetría media es casi equivalente. A partir de este breve análisis, podemos deducir que la simetría media no es una característica discriminante, mientras que una relación entre el área media y el perímetro medio menor que 5.42 (considerando los valores máximos) con una concavidad media menor o igual a 0.04 debería garantizar un resultado benigno. Dado que la concavidad media puede alcanzar un valor máximo muy grande (mayor que el asociado con muestras malignas), es necesario considerar también las otras características para decidir si su valor debe ser considerado como una alarma. Sin embargo, podemos concluir diciendo que todas las muestras pertenecientes a estos grupos son benignas con una probabilidad de error insignificante</p>
+<p>Es importante recalcar que esto es más un ejercicio que un análisis real y, en tales situaciones, la tarea principal del científico de datos es recopilar piezas de información contextual que puedan respaldar las conclusiones. Incluso en presencia de la verdad fundamental, este proceso de validación es siempre obligatorio porque la complejidad de las causas subyacentes puede llevar a afirmaciones y reglas completamente erróneas</p>
 
 </div>
 </div>

@@ -1611,6 +1611,7 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a href="https://colab.research.google.com/github/bcataldo3/plantilla_curso_python/blob/main/docs/Clase_09 - PCA - Caso Estudio.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <h1 id="pca-caso-de-estudio">PCA - Caso de Estudio<a class="anchor-link" href="#pca-caso-de-estudio">&#182;</a></h1><p>Ahora, apliquemos el PCA para reducir la dimensionalidad del conjunto de datos MNIST. Utilizaremos la versión comprimida (1,797 imágenes de 8 × 8) proporcionada por scikit-learn, pero ninguna de nuestras consideraciones se verá afectada por esta elección. Comencemos cargando y normalizando el conjunto de datos.</p>
 
 </div>
@@ -1670,7 +1671,7 @@ X = digits['data'] / np.max(digits['data'])</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>A partir de la discusión teórica, sabemos que la magnitud de los valores propios de la matriz de covarianza es proporcional a la importancia relativa (es decir, la varianza explicada y, por lo tanto, el contenido informativo) del componente principal correspondiente. Por lo tanto, si se ordenan en orden descendente, es posible calcular las siguientes diferencias:</p>
-<p>$\lambda_2-\lambda_1,\lambda_3-\lambda_2,\dotsc,\lambda_n-\lambda_{n-1},$</p>
+<p>$\lambda_2-\lambda_1,\lambda_3-\lambda_2,\dotsc,\lambda_n-\lambda_{n-1}$</p>
 <p>Como la importancia tiende a disminuir cuando el número de componentes $( k )$ se acerca a $( n )$, podemos seleccionar el $( k )$  óptimo eligiendo la primera mayor diferencia, la cual indica una disminución sustancial en la cantidad de varianza explicada por todos los componentes siguientes. Para comprender mejor este mecanismo, calculemos los valores propios y sus diferencias (como la matriz de covarianza, $ C $, es semidefinida positiva, estamos seguros de que $\lambda_i \geq 0 $ para todo $ i $ en el rango de $1$ a $ n $). Los resultados se pueden ver a continuación</p>
 <p><img src="https://drive.google.com/uc?export=view&id=1jrMapbGbebhHWGHErhpwtpFG83cKdIki" width = "800" align="center"/></p>
 

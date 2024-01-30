@@ -1976,14 +1976,16 @@ $$ p_K(x_j)=\frac{1}{N_jh}\sum\limits_{t}K\biggl( \frac{x_j-x_t}{h};h \biggr)$$<
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Importe librerias</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KernelDensity</span>
 
-<span class="c1"># For reproducibility</span>
+<span class="c1"># Establecemos una semilla para reproducibilidad</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="c1"># Generate the dataset</span>
+
+<span class="c1"># Generacion del dataset artificial ages</span>
 <span class="n">nb_samples</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
 <span class="n">ages</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nb_samples</span><span class="p">:</span>
@@ -1992,14 +1994,16 @@ $$ p_K(x_j)=\frac{1}{N_jh}\sum\limits_{t}K\biggl( \frac{x_j-x_t}{h};h \biggr)$$<
     <span class="n">ages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">ages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
 </pre></div>
-<div id="cell-1" class="clipboard-copy-txt">import numpy as np
+<div id="cell-1" class="clipboard-copy-txt"># Importe librerias
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.neighbors import KernelDensity
 
-# For reproducibility
+# Establecemos una semilla para reproducibilidad
 np.random.seed(1000)
-# Generate the dataset
+
+# Generacion del dataset artificial ages
 nb_samples = [1000, 800, 500, 380, 280, 150, 120, 100, 50, 30]
 ages = []
 for n in nb_samples:
@@ -2049,7 +2053,7 @@ ages = np.concatenate(ages)</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Train KDE with Gaussian kernels and 3 bandwidths</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Entrenamos el KDE con un kernel gausiano y 3 anchos de banda</span>
 <span class="n">kd_01</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">kd_05</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">kd_15</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
@@ -2057,7 +2061,7 @@ ages = np.concatenate(ages)</div>
 <span class="n">kd_05</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ages</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">kd_15</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ages</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
-<span class="c1"># Show the results</span>
+<span class="c1"># Mostra mos los resultados</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -2073,7 +2077,7 @@ ages = np.concatenate(ages)</div>
 <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-2" class="clipboard-copy-txt"># Train KDE with Gaussian kernels and 3 bandwidths
+<div id="cell-2" class="clipboard-copy-txt"># Entrenamos el KDE con un kernel gausiano y 3 anchos de banda
 kd_01 = KernelDensity(kernel='gaussian', bandwidth=0.1)
 kd_05 = KernelDensity(kernel='gaussian', bandwidth=0.5)
 kd_15 = KernelDensity(kernel='gaussian', bandwidth=1.5)
@@ -2081,7 +2085,7 @@ kd_01.fit(ages.reshape(-1, 1))
 kd_05.fit(ages.reshape(-1, 1))
 kd_15.fit(ages.reshape(-1, 1))
 
-# Show the results
+# Mostra mos los resultados
 sns.set()
 fig, ax = plt.subplots(3, 1, figsize=(14, 20), sharex=True)
 data = np.arange(10, 70, 0.05).reshape(-1, 1)
@@ -2142,20 +2146,20 @@ plt.show()</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Compute the optimal bandwidth (method 1)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Ancho de banda optimo: metodo 1</span>
 <span class="n">N</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ages</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">h</span> <span class="o">=</span> <span class="mf">1.06</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;h = </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
-<span class="c1"># Compute the optimal bandwidth (method 2)</span>
+<span class="c1"># Ancho de banda optimo: metodo 2</span>
 <span class="n">IQR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
 <span class="n">h</span> <span class="o">=</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ages</span><span class="p">),</span> <span class="n">IQR</span> <span class="o">/</span> <span class="mf">1.34</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;h = </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
 </pre></div>
-<div id="cell-3" class="clipboard-copy-txt"># Compute the optimal bandwidth (method 1)
+<div id="cell-3" class="clipboard-copy-txt"># Ancho de banda optimo: metodo 1
 N = float(ages.shape[0])
 h = 1.06 * np.std(ages) * np.power(N, -0.2)
 print('h = {:.3f}'.format(h))
-# Compute the optimal bandwidth (method 2)
+# Ancho de banda optimo: metodo 2
 IQR = np.percentile(ages, 75) - np.percentile(ages, 25)
 h = 0.9 * np.min([np.std(ages), IQR / 1.34]) * np.power(N, -0.2)
 print('h = {:.3f}'.format(h))</div>
@@ -2235,7 +2239,7 @@ h = 2.051</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Train KDE with different kernels and bandwidth = 2.0</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Entrenamos el KDE con diferentes kernels y ancho de banda=2.0</span>
 <span class="n">kd_gaussian</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 <span class="n">kd_epanechnikov</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;epanechnikov&#39;</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 <span class="n">kd_exponential</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;exponential&#39;</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
@@ -2243,7 +2247,7 @@ h = 2.051</div>
 <span class="n">kd_epanechnikov</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ages</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">kd_exponential</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ages</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
-<span class="c1"># Show the results</span>
+<span class="c1"># Mostra mos los resultados</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">kd_gaussian</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
@@ -2259,7 +2263,7 @@ h = 2.051</div>
 <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div id="cell-5" class="clipboard-copy-txt"># Train KDE with different kernels and bandwidth = 2.0
+<div id="cell-5" class="clipboard-copy-txt"># Entrenamos el KDE con diferentes kernels y ancho de banda=2.0
 kd_gaussian = KernelDensity(kernel='gaussian', bandwidth=2.0)
 kd_epanechnikov = KernelDensity(kernel='epanechnikov', bandwidth=2.0)
 kd_exponential = KernelDensity(kernel='exponential', bandwidth=2.0)
@@ -2267,7 +2271,7 @@ kd_gaussian.fit(ages.reshape(-1, 1))
 kd_epanechnikov.fit(ages.reshape(-1, 1))
 kd_exponential.fit(ages.reshape(-1, 1))
 
-# Show the results
+# Mostra mos los resultados
 fig, ax = plt.subplots(3, 1, figsize=(14, 20), sharex=False)
 data = np.arange(10, 70, 0.05).reshape(-1, 1)
 ax[0].plot(data, np.exp(kd_gaussian.score_samples(data)))
@@ -2326,14 +2330,14 @@ plt.show()</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Perform a sample anomaly detection</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Ejecucion de la deteccion de anomalias en un dataset ficticio</span>
 <span class="n">test_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">test_densities_epanechnikov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">kd_epanechnikov</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">test_data</span><span class="p">))</span>
 <span class="n">test_densities_gaussian</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">kd_gaussian</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">test_data</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">age</span><span class="p">,</span> <span class="n">density</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">test_data</span><span class="p">),</span> <span class="n">test_densities_epanechnikov</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p(Age = </span><span class="si">{:d}</span><span class="s1">) = </span><span class="si">{:.7f}</span><span class="s1"> (</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="s1">&#39;Anomaly&#39;</span> <span class="k">if</span> <span class="n">density</span> <span class="o">&lt;</span> <span class="mf">0.005</span> <span class="k">else</span> <span class="s1">&#39;Normal&#39;</span><span class="p">))</span>
 </pre></div>
-<div id="cell-6" class="clipboard-copy-txt"># Perform a sample anomaly detection
+<div id="cell-6" class="clipboard-copy-txt"># Ejecucion de la deteccion de anomalias en un dataset ficticio
 test_data = np.array([12, 15, 18, 20, 25, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90]).reshape(-1, 1)
 test_densities_epanechnikov = np.exp(kd_epanechnikov.score_samples(test_data))
 test_densities_gaussian = np.exp(kd_gaussian.score_samples(test_data))

@@ -860,6 +860,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#predictors" class="md-nav__link">
+    Predictors
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1948,7 +1955,7 @@ permiten proyectar los siniestros futuros basados en los datos históricos</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -1989,17 +1996,17 @@ permiten proyectar los siniestros futuros basados en los datos históricos</p>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Collecting chainladder
   Downloading chainladder-0.8.18-py3-none-any.whl (1.3 MB)
-     <span class="ansi-black-intense-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">1.3/1.3 MB</span> <span class="ansi-red-fg">15.0 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+     <span class="ansi-black-intense-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">1.3/1.3 MB</span> <span class="ansi-red-fg">8.1 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
 Requirement already satisfied: pandas&gt;=0.23 in /usr/local/lib/python3.10/dist-packages (from chainladder) (1.5.3)
 Requirement already satisfied: scikit-learn&gt;=0.23 in /usr/local/lib/python3.10/dist-packages (from chainladder) (1.2.2)
 Requirement already satisfied: numba&gt;0.54 in /usr/local/lib/python3.10/dist-packages (from chainladder) (0.58.1)
 Collecting sparse&gt;=0.9 (from chainladder)
   Downloading sparse-0.15.1-py2.py3-none-any.whl (116 kB)
-     <span class="ansi-black-intense-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">116.3/116.3 kB</span> <span class="ansi-red-fg">13.0 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+     <span class="ansi-black-intense-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">116.3/116.3 kB</span> <span class="ansi-red-fg">11.8 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
 Requirement already satisfied: matplotlib in /usr/local/lib/python3.10/dist-packages (from chainladder) (3.7.1)
 Collecting dill (from chainladder)
   Downloading dill-0.3.8-py3-none-any.whl (116 kB)
-     <span class="ansi-black-intense-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">116.3/116.3 kB</span> <span class="ansi-red-fg">12.6 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+     <span class="ansi-black-intense-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">116.3/116.3 kB</span> <span class="ansi-red-fg">10.7 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
 Requirement already satisfied: patsy in /usr/local/lib/python3.10/dist-packages (from chainladder) (0.5.6)
 Requirement already satisfied: llvmlite&lt;0.42,&gt;=0.41.0dev0 in /usr/local/lib/python3.10/dist-packages (from numba&gt;0.54-&gt;chainladder) (0.41.1)
 Requirement already satisfied: numpy&lt;1.27,&gt;=1.22 in /usr/local/lib/python3.10/dist-packages (from numba&gt;0.54-&gt;chainladder) (1.25.2)
@@ -2045,7 +2052,7 @@ Successfully installed chainladder-0.8.18 dill-0.3.8 sparse-0.15.1
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2140,7 +2147,7 @@ print(cl.__version__)</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2179,13 +2186,13 @@ raa_df.head(10)</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-  <div id="df-6b17ef61-a062-482e-843b-8c44a1e6417c" class="colab-df-container">
+  <div id="df-15b23011-491a-4f0e-8abd-89c6a8689c13" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2276,7 +2283,7 @@ raa_df.head(10)</div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-6b17ef61-a062-482e-843b-8c44a1e6417c')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-15b23011-491a-4f0e-8abd-89c6a8689c13')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2328,12 +2335,12 @@ raa_df.head(10)</div>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-6b17ef61-a062-482e-843b-8c44a1e6417c button.colab-df-convert');
+        document.querySelector('#df-15b23011-491a-4f0e-8abd-89c6a8689c13 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-6b17ef61-a062-482e-843b-8c44a1e6417c');
+        const element = document.querySelector('#df-15b23011-491a-4f0e-8abd-89c6a8689c13');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2353,8 +2360,8 @@ raa_df.head(10)</div>
   </div>
 
 
-<div id="df-afcd152e-383e-4396-88a3-08248651c1de">
-  <button class="colab-df-quickchart" onclick="quickchart('df-afcd152e-383e-4396-88a3-08248651c1de')"
+<div id="df-14e00ddb-1db2-4361-b6c3-7f7105fe4462">
+  <button class="colab-df-quickchart" onclick="quickchart('df-14e00ddb-1db2-4361-b6c3-7f7105fe4462')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2473,7 +2480,7 @@ raa_df.head(10)</div>
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-afcd152e-383e-4396-88a3-08248651c1de button');
+        document.querySelector('#df-14e00ddb-1db2-4361-b6c3-7f7105fe4462 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -2511,7 +2518,7 @@ La forma para obtener un objeto de tipo <code>Triangle</code> se obtiene con el 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2562,7 +2569,7 @@ raa</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
 
 
@@ -2748,7 +2755,7 @@ raa</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2799,7 +2806,7 @@ triangle</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
 
 
@@ -2866,7 +2873,7 @@ triangle</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2901,7 +2908,7 @@ triangle</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
 
 
@@ -3083,7 +3090,7 @@ triangle</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -3132,7 +3139,7 @@ raa.dev_to_val()</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
 
 
@@ -3318,7 +3325,7 @@ raa.dev_to_val()</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -3404,7 +3411,7 @@ Columns:    [incurred, paid]
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -3441,7 +3448,7 @@ triangle_abc.link_ratio</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
@@ -3610,7 +3617,7 @@ triangle_abc.link_ratio</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -3645,231 +3652,218 @@ triangle_abc.link_ratio</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <style type="text/css">
-#T_895fe_row0_col0 {
+#T_b7a8b_row0_col0 {
   background-color: #82a6fb;
   color: #f1f1f1;
 }
-#T_895fe_row0_col1, #T_895fe_row1_col5 {
+#T_b7a8b_row0_col1, #T_b7a8b_row1_col5 {
   background-color: #8db0fe;
   color: #000000;
 }
-#T_895fe_row0_col2 {
+#T_b7a8b_row0_col2 {
   background-color: #6788ee;
   color: #f1f1f1;
 }
-#T_895fe_row0_col3, #T_895fe_row0_col5, #T_895fe_row0_col9, #T_895fe_row1_col7, #T_895fe_row1_col9, #T_895fe_row2_col8, #T_895fe_row2_col9, #T_895fe_row3_col7, #T_895fe_row3_col8, #T_895fe_row3_col9, #T_895fe_row4_col1, #T_895fe_row4_col6, #T_895fe_row4_col7, #T_895fe_row4_col8, #T_895fe_row4_col9, #T_895fe_row5_col5, #T_895fe_row5_col6, #T_895fe_row5_col7, #T_895fe_row5_col8, #T_895fe_row5_col9, #T_895fe_row6_col4, #T_895fe_row6_col5, #T_895fe_row6_col6, #T_895fe_row6_col7, #T_895fe_row6_col8, #T_895fe_row6_col9, #T_895fe_row7_col3, #T_895fe_row7_col4, #T_895fe_row7_col5, #T_895fe_row7_col6, #T_895fe_row7_col7, #T_895fe_row7_col8, #T_895fe_row7_col9, #T_895fe_row8_col2, #T_895fe_row8_col3, #T_895fe_row8_col4, #T_895fe_row8_col5, #T_895fe_row8_col6, #T_895fe_row8_col7, #T_895fe_row8_col8, #T_895fe_row8_col9, #T_895fe_row9_col1, #T_895fe_row9_col2, #T_895fe_row9_col3, #T_895fe_row9_col4, #T_895fe_row9_col5, #T_895fe_row9_col6, #T_895fe_row9_col7, #T_895fe_row9_col8, #T_895fe_row9_col9 {
+#T_b7a8b_row0_col3, #T_b7a8b_row0_col5, #T_b7a8b_row0_col9, #T_b7a8b_row1_col7, #T_b7a8b_row1_col9, #T_b7a8b_row2_col8, #T_b7a8b_row2_col9, #T_b7a8b_row3_col7, #T_b7a8b_row3_col8, #T_b7a8b_row3_col9, #T_b7a8b_row4_col1, #T_b7a8b_row4_col6, #T_b7a8b_row4_col7, #T_b7a8b_row4_col8, #T_b7a8b_row4_col9, #T_b7a8b_row5_col5, #T_b7a8b_row5_col6, #T_b7a8b_row5_col7, #T_b7a8b_row5_col8, #T_b7a8b_row5_col9, #T_b7a8b_row6_col4, #T_b7a8b_row6_col5, #T_b7a8b_row6_col6, #T_b7a8b_row6_col7, #T_b7a8b_row6_col8, #T_b7a8b_row6_col9, #T_b7a8b_row7_col3, #T_b7a8b_row7_col4, #T_b7a8b_row7_col5, #T_b7a8b_row7_col6, #T_b7a8b_row7_col7, #T_b7a8b_row7_col8, #T_b7a8b_row7_col9, #T_b7a8b_row8_col2, #T_b7a8b_row8_col3, #T_b7a8b_row8_col4, #T_b7a8b_row8_col5, #T_b7a8b_row8_col6, #T_b7a8b_row8_col7, #T_b7a8b_row8_col8, #T_b7a8b_row8_col9, #T_b7a8b_row9_col1, #T_b7a8b_row9_col2, #T_b7a8b_row9_col3, #T_b7a8b_row9_col4, #T_b7a8b_row9_col5, #T_b7a8b_row9_col6, #T_b7a8b_row9_col7, #T_b7a8b_row9_col8, #T_b7a8b_row9_col9 {
   background-color: #dddcdc;
   color: #000000;
 }
-#T_895fe_row0_col4 {
+#T_b7a8b_row0_col4 {
   background-color: #c0d4f5;
   color: #000000;
 }
-#T_895fe_row0_col6, #T_895fe_row1_col3, #T_895fe_row5_col0 {
+#T_b7a8b_row0_col6, #T_b7a8b_row1_col3, #T_b7a8b_row5_col0 {
   background-color: #aac7fd;
   color: #000000;
 }
-#T_895fe_row0_col7, #T_895fe_row0_col8, #T_895fe_row1_col4, #T_895fe_row1_col6, #T_895fe_row2_col5, #T_895fe_row3_col0, #T_895fe_row3_col3, #T_895fe_row4_col2, #T_895fe_row5_col1 {
+#T_b7a8b_row0_col7, #T_b7a8b_row0_col8, #T_b7a8b_row1_col4, #T_b7a8b_row1_col6, #T_b7a8b_row2_col5, #T_b7a8b_row3_col0, #T_b7a8b_row3_col3, #T_b7a8b_row4_col2, #T_b7a8b_row5_col1 {
   background-color: #3b4cc0;
   color: #f1f1f1;
 }
-#T_895fe_row1_col0 {
+#T_b7a8b_row1_col0 {
   background-color: #ead4c8;
   color: #000000;
 }
-#T_895fe_row1_col1 {
+#T_b7a8b_row1_col1 {
   background-color: #6282ea;
   color: #f1f1f1;
 }
-#T_895fe_row1_col2 {
+#T_b7a8b_row1_col2 {
   background-color: #9abbff;
   color: #000000;
 }
-#T_895fe_row1_col8, #T_895fe_row2_col7, #T_895fe_row3_col6, #T_895fe_row4_col5, #T_895fe_row5_col4, #T_895fe_row6_col3, #T_895fe_row7_col2, #T_895fe_row8_col0, #T_895fe_row8_col1 {
+#T_b7a8b_row1_col8, #T_b7a8b_row2_col7, #T_b7a8b_row3_col6, #T_b7a8b_row4_col5, #T_b7a8b_row5_col4, #T_b7a8b_row6_col3, #T_b7a8b_row7_col2, #T_b7a8b_row8_col0, #T_b7a8b_row8_col1 {
   background-color: #b40426;
   color: #f1f1f1;
 }
-#T_895fe_row2_col0 {
+#T_b7a8b_row2_col0 {
   background-color: #cdd9ec;
   color: #000000;
 }
-#T_895fe_row2_col1 {
+#T_b7a8b_row2_col1 {
   background-color: #f5c4ac;
   color: #000000;
 }
-#T_895fe_row2_col2 {
+#T_b7a8b_row2_col2 {
   background-color: #c9d7f0;
   color: #000000;
 }
-#T_895fe_row2_col3 {
+#T_b7a8b_row2_col3 {
   background-color: #6f92f3;
   color: #f1f1f1;
 }
-#T_895fe_row2_col4 {
+#T_b7a8b_row2_col4 {
   background-color: #7b9ff9;
   color: #f1f1f1;
 }
-#T_895fe_row2_col6, #T_895fe_row4_col3, #T_895fe_row6_col0 {
+#T_b7a8b_row2_col6, #T_b7a8b_row4_col3, #T_b7a8b_row6_col0 {
   background-color: #f7b89c;
   color: #000000;
 }
-#T_895fe_row3_col1 {
+#T_b7a8b_row3_col1 {
   background-color: #b9d0f9;
   color: #000000;
 }
-#T_895fe_row3_col2 {
+#T_b7a8b_row3_col2 {
   background-color: #edd1c2;
   color: #000000;
 }
-#T_895fe_row3_col4 {
+#T_b7a8b_row3_col4 {
   background-color: #f2cbb7;
   color: #000000;
 }
-#T_895fe_row3_col5, #T_895fe_row6_col1 {
+#T_b7a8b_row3_col5, #T_b7a8b_row6_col1 {
   background-color: #f4987a;
   color: #000000;
 }
-#T_895fe_row4_col0 {
+#T_b7a8b_row4_col0 {
   background-color: #5d7ce6;
   color: #f1f1f1;
 }
-#T_895fe_row4_col4 {
+#T_b7a8b_row4_col4 {
   background-color: #ee8468;
   color: #f1f1f1;
 }
-#T_895fe_row5_col2 {
+#T_b7a8b_row5_col2 {
   background-color: #f7a889;
   color: #000000;
 }
-#T_895fe_row5_col3 {
+#T_b7a8b_row5_col3 {
   background-color: #e7745b;
   color: #f1f1f1;
 }
-#T_895fe_row6_col2 {
+#T_b7a8b_row6_col2 {
   background-color: #e26952;
   color: #f1f1f1;
 }
-#T_895fe_row7_col0 {
+#T_b7a8b_row7_col0 {
   background-color: #f18d6f;
   color: #f1f1f1;
 }
-#T_895fe_row7_col1 {
+#T_b7a8b_row7_col1 {
   background-color: #dd5f4b;
   color: #f1f1f1;
 }
-#T_895fe_row9_col0 {
+#T_b7a8b_row9_col0 {
   background-color: #d95847;
   color: #f1f1f1;
 }
 </style>
-<table id="T_895fe">
+<table id="T_b7a8b">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_895fe_level0_col0" class="col_heading level0 col0" >12-24</th>
-      <th id="T_895fe_level0_col1" class="col_heading level0 col1" >24-36</th>
-      <th id="T_895fe_level0_col2" class="col_heading level0 col2" >36-48</th>
-      <th id="T_895fe_level0_col3" class="col_heading level0 col3" >48-60</th>
-      <th id="T_895fe_level0_col4" class="col_heading level0 col4" >60-72</th>
-      <th id="T_895fe_level0_col5" class="col_heading level0 col5" >72-84</th>
-      <th id="T_895fe_level0_col6" class="col_heading level0 col6" >84-96</th>
-      <th id="T_895fe_level0_col7" class="col_heading level0 col7" >96-108</th>
-      <th id="T_895fe_level0_col8" class="col_heading level0 col8" >108-120</th>
-      <th id="T_895fe_level0_col9" class="col_heading level0 col9" >120-132</th>
+      <th id="T_b7a8b_level0_col0" class="col_heading level0 col0" >12-24</th>
+      <th id="T_b7a8b_level0_col1" class="col_heading level0 col1" >24-36</th>
+      <th id="T_b7a8b_level0_col2" class="col_heading level0 col2" >36-48</th>
+      <th id="T_b7a8b_level0_col3" class="col_heading level0 col3" >48-60</th>
+      <th id="T_b7a8b_level0_col4" class="col_heading level0 col4" >60-72</th>
+      <th id="T_b7a8b_level0_col5" class="col_heading level0 col5" >72-84</th>
+      <th id="T_b7a8b_level0_col6" class="col_heading level0 col6" >84-96</th>
+      <th id="T_b7a8b_level0_col7" class="col_heading level0 col7" >96-108</th>
+      <th id="T_b7a8b_level0_col8" class="col_heading level0 col8" >108-120</th>
+      <th id="T_b7a8b_level0_col9" class="col_heading level0 col9" >120-132</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_895fe_level0_row0" class="row_heading level0 row0" >1977</th>
-      <td id="T_895fe_row0_col0" class="data row0 col0" >2.2263</td>
-      <td id="T_895fe_row0_col1" class="data row0 col1" >1.3933</td>
-      <td id="T_895fe_row0_col2" class="data row0 col2" >1.1835</td>
-      <td id="T_895fe_row0_col3" class="data row0 col3" >1.1070</td>
-      <td id="T_895fe_row0_col4" class="data row0 col4" >1.0679</td>
-      <td id="T_895fe_row0_col5" class="data row0 col5" >1.0468</td>
-      <td id="T_895fe_row0_col6" class="data row0 col6" >1.0304</td>
-      <td id="T_895fe_row0_col7" class="data row0 col7" >1.0231</td>
-      <td id="T_895fe_row0_col8" class="data row0 col8" >1.0196</td>
-      <td id="T_895fe_row0_col9" class="data row0 col9" >1.0163</td>
+      <th id="T_b7a8b_level0_row0" class="row_heading level0 row0" >1977</th>
+      <td id="T_b7a8b_row0_col0" class="data row0 col0" >2.2263</td>
+      <td id="T_b7a8b_row0_col1" class="data row0 col1" >1.3933</td>
+      <td id="T_b7a8b_row0_col2" class="data row0 col2" >1.1835</td>
+      <td id="T_b7a8b_row0_col3" class="data row0 col3" >1.1070</td>
+      <td id="T_b7a8b_row0_col4" class="data row0 col4" >1.0679</td>
+      <td id="T_b7a8b_row0_col5" class="data row0 col5" >1.0468</td>
+      <td id="T_b7a8b_row0_col6" class="data row0 col6" >1.0304</td>
+      <td id="T_b7a8b_row0_col7" class="data row0 col7" >1.0231</td>
+      <td id="T_b7a8b_row0_col8" class="data row0 col8" >1.0196</td>
+      <td id="T_b7a8b_row0_col9" class="data row0 col9" >1.0163</td>
     </tr>
     <tr>
-      <th id="T_895fe_level0_row1" class="row_heading level0 row1" >1978</th>
-      <td id="T_895fe_row1_col0" class="data row1 col0" >2.2682</td>
-      <td id="T_895fe_row1_col1" class="data row1 col1" >1.3924</td>
-      <td id="T_895fe_row1_col2" class="data row1 col2" >1.1857</td>
-      <td id="T_895fe_row1_col3" class="data row1 col3" >1.1069</td>
-      <td id="T_895fe_row1_col4" class="data row1 col4" >1.0649</td>
-      <td id="T_895fe_row1_col5" class="data row1 col5" >1.0451</td>
-      <td id="T_895fe_row1_col6" class="data row1 col6" >1.0301</td>
-      <td id="T_895fe_row1_col7" class="data row1 col7" >1.0267</td>
-      <td id="T_895fe_row1_col8" class="data row1 col8" >1.0207</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th id="T_895fe_level0_row2" class="row_heading level0 row2" >1979</th>
-      <td id="T_895fe_row2_col0" class="data row2 col0" >2.2331</td>
-      <td id="T_895fe_row2_col1" class="data row2 col1" >1.4014</td>
-      <td id="T_895fe_row2_col2" class="data row2 col2" >1.1871</td>
-      <td id="T_895fe_row2_col3" class="data row2 col3" >1.1068</td>
-      <td id="T_895fe_row2_col4" class="data row2 col4" >1.0649</td>
-      <td id="T_895fe_row2_col5" class="data row2 col5" >1.0418</td>
-      <td id="T_895fe_row2_col6" class="data row2 col6" >1.0352</td>
-      <td id="T_895fe_row2_col7" class="data row2 col7" >1.0276</td>
-      <td></td>
+      <th id="T_b7a8b_level0_row1" class="row_heading level0 row1" >1978</th>
+      <td id="T_b7a8b_row1_col0" class="data row1 col0" >2.2682</td>
+      <td id="T_b7a8b_row1_col1" class="data row1 col1" >1.3924</td>
+      <td id="T_b7a8b_row1_col2" class="data row1 col2" >1.1857</td>
+      <td id="T_b7a8b_row1_col3" class="data row1 col3" >1.1069</td>
+      <td id="T_b7a8b_row1_col4" class="data row1 col4" >1.0649</td>
+      <td id="T_b7a8b_row1_col5" class="data row1 col5" >1.0451</td>
+      <td id="T_b7a8b_row1_col6" class="data row1 col6" >1.0301</td>
+      <td id="T_b7a8b_row1_col7" class="data row1 col7" >1.0267</td>
+      <td id="T_b7a8b_row1_col8" class="data row1 col8" >1.0207</td>
       <td></td>
     </tr>
     <tr>
-      <th id="T_895fe_level0_row3" class="row_heading level0 row3" >1980</th>
-      <td id="T_895fe_row3_col0" class="data row3 col0" >2.1988</td>
-      <td id="T_895fe_row3_col1" class="data row3 col1" >1.3944</td>
-      <td id="T_895fe_row3_col2" class="data row3 col2" >1.2021</td>
-      <td id="T_895fe_row3_col3" class="data row3 col3" >1.1014</td>
-      <td id="T_895fe_row3_col4" class="data row3 col4" >1.0702</td>
-      <td id="T_895fe_row3_col5" class="data row3 col5" >1.0496</td>
-      <td id="T_895fe_row3_col6" class="data row3 col6" >1.0394</td>
-      <td></td>
+      <th id="T_b7a8b_level0_row2" class="row_heading level0 row2" >1979</th>
+      <td id="T_b7a8b_row2_col0" class="data row2 col0" >2.2331</td>
+      <td id="T_b7a8b_row2_col1" class="data row2 col1" >1.4014</td>
+      <td id="T_b7a8b_row2_col2" class="data row2 col2" >1.1871</td>
+      <td id="T_b7a8b_row2_col3" class="data row2 col3" >1.1068</td>
+      <td id="T_b7a8b_row2_col4" class="data row2 col4" >1.0649</td>
+      <td id="T_b7a8b_row2_col5" class="data row2 col5" >1.0418</td>
+      <td id="T_b7a8b_row2_col6" class="data row2 col6" >1.0352</td>
+      <td id="T_b7a8b_row2_col7" class="data row2 col7" >1.0276</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th id="T_895fe_level0_row4" class="row_heading level0 row4" >1981</th>
-      <td id="T_895fe_row4_col0" class="data row4 col0" >2.2115</td>
-      <td id="T_895fe_row4_col1" class="data row4 col1" >1.4004</td>
-      <td id="T_895fe_row4_col2" class="data row4 col2" >1.1764</td>
-      <td id="T_895fe_row4_col3" class="data row4 col3" >1.1094</td>
-      <td id="T_895fe_row4_col4" class="data row4 col4" >1.0706</td>
-      <td id="T_895fe_row4_col5" class="data row4 col5" >1.0536</td>
-      <td></td>
+      <th id="T_b7a8b_level0_row3" class="row_heading level0 row3" >1980</th>
+      <td id="T_b7a8b_row3_col0" class="data row3 col0" >2.1988</td>
+      <td id="T_b7a8b_row3_col1" class="data row3 col1" >1.3944</td>
+      <td id="T_b7a8b_row3_col2" class="data row3 col2" >1.2021</td>
+      <td id="T_b7a8b_row3_col3" class="data row3 col3" >1.1014</td>
+      <td id="T_b7a8b_row3_col4" class="data row3 col4" >1.0702</td>
+      <td id="T_b7a8b_row3_col5" class="data row3 col5" >1.0496</td>
+      <td id="T_b7a8b_row3_col6" class="data row3 col6" >1.0394</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th id="T_895fe_level0_row5" class="row_heading level0 row5" >1982</th>
-      <td id="T_895fe_row5_col0" class="data row5 col0" >2.2290</td>
-      <td id="T_895fe_row5_col1" class="data row5 col1" >1.3872</td>
-      <td id="T_895fe_row5_col2" class="data row5 col2" >1.2037</td>
-      <td id="T_895fe_row5_col3" class="data row5 col3" >1.1264</td>
-      <td id="T_895fe_row5_col4" class="data row5 col4" >1.0956</td>
-      <td></td>
+      <th id="T_b7a8b_level0_row4" class="row_heading level0 row4" >1981</th>
+      <td id="T_b7a8b_row4_col0" class="data row4 col0" >2.2115</td>
+      <td id="T_b7a8b_row4_col1" class="data row4 col1" >1.4004</td>
+      <td id="T_b7a8b_row4_col2" class="data row4 col2" >1.1764</td>
+      <td id="T_b7a8b_row4_col3" class="data row4 col3" >1.1094</td>
+      <td id="T_b7a8b_row4_col4" class="data row4 col4" >1.0706</td>
+      <td id="T_b7a8b_row4_col5" class="data row4 col5" >1.0536</td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th id="T_895fe_level0_row6" class="row_heading level0 row6" >1983</th>
-      <td id="T_895fe_row6_col0" class="data row6 col0" >2.2918</td>
-      <td id="T_895fe_row6_col1" class="data row6 col1" >1.4296</td>
-      <td id="T_895fe_row6_col2" class="data row6 col2" >1.2197</td>
-      <td id="T_895fe_row6_col3" class="data row6 col3" >1.1337</td>
-      <td></td>
+      <th id="T_b7a8b_level0_row5" class="row_heading level0 row5" >1982</th>
+      <td id="T_b7a8b_row5_col0" class="data row5 col0" >2.2290</td>
+      <td id="T_b7a8b_row5_col1" class="data row5 col1" >1.3872</td>
+      <td id="T_b7a8b_row5_col2" class="data row5 col2" >1.2037</td>
+      <td id="T_b7a8b_row5_col3" class="data row5 col3" >1.1264</td>
+      <td id="T_b7a8b_row5_col4" class="data row5 col4" >1.0956</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3877,11 +3871,11 @@ triangle_abc.link_ratio</div>
       <td></td>
     </tr>
     <tr>
-      <th id="T_895fe_level0_row7" class="row_heading level0 row7" >1984</th>
-      <td id="T_895fe_row7_col0" class="data row7 col0" >2.3731</td>
-      <td id="T_895fe_row7_col1" class="data row7 col1" >1.4654</td>
-      <td id="T_895fe_row7_col2" class="data row7 col2" >1.2283</td>
-      <td></td>
+      <th id="T_b7a8b_level0_row6" class="row_heading level0 row6" >1983</th>
+      <td id="T_b7a8b_row6_col0" class="data row6 col0" >2.2918</td>
+      <td id="T_b7a8b_row6_col1" class="data row6 col1" >1.4296</td>
+      <td id="T_b7a8b_row6_col2" class="data row6 col2" >1.2197</td>
+      <td id="T_b7a8b_row6_col3" class="data row6 col3" >1.1337</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3890,10 +3884,10 @@ triangle_abc.link_ratio</div>
       <td></td>
     </tr>
     <tr>
-      <th id="T_895fe_level0_row8" class="row_heading level0 row8" >1985</th>
-      <td id="T_895fe_row8_col0" class="data row8 col0" >2.4457</td>
-      <td id="T_895fe_row8_col1" class="data row8 col1" >1.4704</td>
-      <td></td>
+      <th id="T_b7a8b_level0_row7" class="row_heading level0 row7" >1984</th>
+      <td id="T_b7a8b_row7_col0" class="data row7 col0" >2.3731</td>
+      <td id="T_b7a8b_row7_col1" class="data row7 col1" >1.4654</td>
+      <td id="T_b7a8b_row7_col2" class="data row7 col2" >1.2283</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3903,8 +3897,21 @@ triangle_abc.link_ratio</div>
       <td></td>
     </tr>
     <tr>
-      <th id="T_895fe_level0_row9" class="row_heading level0 row9" >1986</th>
-      <td id="T_895fe_row9_col0" class="data row9 col0" >2.4031</td>
+      <th id="T_b7a8b_level0_row8" class="row_heading level0 row8" >1985</th>
+      <td id="T_b7a8b_row8_col0" class="data row8 col0" >2.4457</td>
+      <td id="T_b7a8b_row8_col1" class="data row8 col1" >1.4704</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th id="T_b7a8b_level0_row9" class="row_heading level0 row9" >1986</th>
+      <td id="T_b7a8b_row9_col0" class="data row9 col0" >2.4031</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3946,7 +3953,7 @@ triangle_abc.link_ratio</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -3983,7 +3990,7 @@ clrd</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
 
 
@@ -4033,7 +4040,7 @@ clrd</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -4068,7 +4075,7 @@ clrd</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
 
 
@@ -4237,7 +4244,7 @@ clrd</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -4272,7 +4279,7 @@ clrd</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
@@ -4322,7 +4329,7 @@ clrd</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -4357,7 +4364,7 @@ clrd</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 
 
 
@@ -4419,7 +4426,7 @@ clrd</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -4456,7 +4463,7 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
 
 
@@ -4625,7 +4632,7 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -4662,7 +4669,7 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
 
 
@@ -4843,7 +4850,7 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -4878,7 +4885,7 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
 
 
@@ -4928,7 +4935,7 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -4963,7 +4970,7 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
 
 
@@ -5030,7 +5037,7 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -5065,13 +5072,13 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-  <div id="df-1a25fe62-f4b5-4604-b758-82fb8179c8fc" class="colab-df-container">
+  <div id="df-fb37eb7c-2fa0-4a01-94c5-f356dc7b1392" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -5239,7 +5246,7 @@ clrd.sum()['PaidLossRatio']</div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-1a25fe62-f4b5-4604-b758-82fb8179c8fc')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-fb37eb7c-2fa0-4a01-94c5-f356dc7b1392')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -5291,12 +5298,12 @@ clrd.sum()['PaidLossRatio']</div>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-1a25fe62-f4b5-4604-b758-82fb8179c8fc button.colab-df-convert');
+        document.querySelector('#df-fb37eb7c-2fa0-4a01-94c5-f356dc7b1392 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-1a25fe62-f4b5-4604-b758-82fb8179c8fc');
+        const element = document.querySelector('#df-fb37eb7c-2fa0-4a01-94c5-f356dc7b1392');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -5316,8 +5323,8 @@ clrd.sum()['PaidLossRatio']</div>
   </div>
 
 
-<div id="df-d9c40e2f-8c28-4a33-8f41-7d05b02b90ca">
-  <button class="colab-df-quickchart" onclick="quickchart('df-d9c40e2f-8c28-4a33-8f41-7d05b02b90ca')"
+<div id="df-21b36690-3ed9-429e-8bb7-5fe9bf978c32">
+  <button class="colab-df-quickchart" onclick="quickchart('df-21b36690-3ed9-429e-8bb7-5fe9bf978c32')"
             title="Suggest charts"
             style="display:none;">
 
@@ -5436,7 +5443,7 @@ clrd.sum()['PaidLossRatio']</div>
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-d9c40e2f-8c28-4a33-8f41-7d05b02b90ca button');
+        document.querySelector('#df-21b36690-3ed9-429e-8bb7-5fe9bf978c32 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -5461,7 +5468,7 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -5496,13 +5503,13 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-  <div id="df-954697d9-3555-42f0-a63e-98b6eb1a9f9e" class="colab-df-container">
+  <div id="df-da388e87-dc89-4377-9b5d-1ef7babfd7ef" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -5631,7 +5638,7 @@ clrd.sum()['PaidLossRatio']</div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-954697d9-3555-42f0-a63e-98b6eb1a9f9e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-da388e87-dc89-4377-9b5d-1ef7babfd7ef')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -5683,12 +5690,12 @@ clrd.sum()['PaidLossRatio']</div>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-954697d9-3555-42f0-a63e-98b6eb1a9f9e button.colab-df-convert');
+        document.querySelector('#df-da388e87-dc89-4377-9b5d-1ef7babfd7ef button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-954697d9-3555-42f0-a63e-98b6eb1a9f9e');
+        const element = document.querySelector('#df-da388e87-dc89-4377-9b5d-1ef7babfd7ef');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -5708,8 +5715,8 @@ clrd.sum()['PaidLossRatio']</div>
   </div>
 
 
-<div id="df-9f79d126-f0de-44db-a415-568e71cfc6f9">
-  <button class="colab-df-quickchart" onclick="quickchart('df-9f79d126-f0de-44db-a415-568e71cfc6f9')"
+<div id="df-3a57b16e-75db-40dc-87cb-59ec7d16342f">
+  <button class="colab-df-quickchart" onclick="quickchart('df-3a57b16e-75db-40dc-87cb-59ec7d16342f')"
             title="Suggest charts"
             style="display:none;">
 
@@ -5828,7 +5835,7 @@ clrd.sum()['PaidLossRatio']</div>
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-9f79d126-f0de-44db-a415-568e71cfc6f9 button');
+        document.querySelector('#df-3a57b16e-75db-40dc-87cb-59ec7d16342f button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -5866,7 +5873,7 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -5901,12 +5908,12 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(average=&#x27;simple&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(average=&#x27;simple&#x27;)</pre></div></div></div></div></div>
+<style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(average=&#x27;simple&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(average=&#x27;simple&#x27;)</pre></div></div></div></div></div>
 </div>
 
 </div>
@@ -5922,7 +5929,7 @@ clrd.sum()['PaidLossRatio']</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -5971,13 +5978,13 @@ cl.Development(average=['volume']+['simple']*8)</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(average=[&#x27;volume&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;,
-                     &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(average=[&#x27;volume&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;,
+<style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(average=[&#x27;volume&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;,
+                     &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(average=[&#x27;volume&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;,
                      &#x27;simple&#x27;, &#x27;simple&#x27;, &#x27;simple&#x27;])</pre></div></div></div></div></div>
 </div>
 
@@ -6007,7 +6014,7 @@ cl.Development(average=['volume']+['simple']*8)</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -6042,14 +6049,14 @@ cl.Development(average=['volume']+['simple']*8)</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(drop_high=[True, True, True, True, True, False, False, False,
+<style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(drop_high=[True, True, True, True, True, False, False, False,
                        False],
-            drop_low=[True, True, True, True, True, False, False, False, False])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(drop_high=[True, True, True, True, True, False, False, False,
+            drop_low=[True, True, True, True, True, False, False, False, False])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(drop_high=[True, True, True, True, True, False, False, False,
                        False],
             drop_low=[True, True, True, True, True, False, False, False, False])</pre></div></div></div></div></div>
 </div>
@@ -6067,7 +6074,7 @@ cl.Development(average=['volume']+['simple']*8)</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -6102,12 +6109,12 @@ cl.Development(average=['volume']+['simple']*8)</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<style>#sk-container-id-5 {color: black;background-color: white;}#sk-container-id-5 pre{padding: 0;}#sk-container-id-5 div.sk-toggleable {background-color: white;}#sk-container-id-5 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-5 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-5 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-5 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-5 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-5 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-5 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-5 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-5 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-5 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-5 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-5 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-5 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-5 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-5 div.sk-item {position: relative;z-index: 1;}#sk-container-id-5 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-5 div.sk-item::before, #sk-container-id-5 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-5 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-5 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-5 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-5 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-5 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-5 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-5 div.sk-label-container {text-align: center;}#sk-container-id-5 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-5 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(drop_valuation=&#x27;1985&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" checked><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(drop_valuation=&#x27;1985&#x27;)</pre></div></div></div></div></div>
+<style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(drop_valuation=&#x27;1985&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(drop_valuation=&#x27;1985&#x27;)</pre></div></div></div></div></div>
 </div>
 
 </div>
@@ -6123,7 +6130,7 @@ cl.Development(average=['volume']+['simple']*8)</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -6158,12 +6165,12 @@ cl.Development(average=['volume']+['simple']*8)</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<style>#sk-container-id-6 {color: black;background-color: white;}#sk-container-id-6 pre{padding: 0;}#sk-container-id-6 div.sk-toggleable {background-color: white;}#sk-container-id-6 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-6 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-6 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-6 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-6 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-6 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-6 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-6 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-6 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-6 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-6 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-6 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-6 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-6 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-6 div.sk-item {position: relative;z-index: 1;}#sk-container-id-6 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-6 div.sk-item::before, #sk-container-id-6 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-6 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-6 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-6 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-6 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-6 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-6 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-6 div.sk-label-container {text-align: center;}#sk-container-id-6 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-6 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-6" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(drop=[(&#x27;1985&#x27;, 12), (&#x27;1987&#x27;, 24)])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" checked><label for="sk-estimator-id-6" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(drop=[(&#x27;1985&#x27;, 12), (&#x27;1987&#x27;, 24)])</pre></div></div></div></div></div>
+<style>#sk-container-id-5 {color: black;background-color: white;}#sk-container-id-5 pre{padding: 0;}#sk-container-id-5 div.sk-toggleable {background-color: white;}#sk-container-id-5 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-5 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-5 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-5 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-5 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-5 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-5 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-5 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-5 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-5 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-5 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-5 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-5 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-5 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-5 div.sk-item {position: relative;z-index: 1;}#sk-container-id-5 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-5 div.sk-item::before, #sk-container-id-5 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-5 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-5 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-5 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-5 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-5 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-5 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-5 div.sk-label-container {text-align: center;}#sk-container-id-5 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-5 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(drop=[(&#x27;1985&#x27;, 12), (&#x27;1987&#x27;, 24)])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" checked><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(drop=[(&#x27;1985&#x27;, 12), (&#x27;1987&#x27;, 24)])</pre></div></div></div></div></div>
 </div>
 
 </div>
@@ -6179,7 +6186,7 @@ cl.Development(average=['volume']+['simple']*8)</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -6214,12 +6221,12 @@ cl.Development(average=['volume']+['simple']*8)</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<style>#sk-container-id-7 {color: black;background-color: white;}#sk-container-id-7 pre{padding: 0;}#sk-container-id-7 div.sk-toggleable {background-color: white;}#sk-container-id-7 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-7 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-7 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-7 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-7 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-7 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-7 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-7 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-7 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-7 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-7 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-7 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-7 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-7 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-7 div.sk-item {position: relative;z-index: 1;}#sk-container-id-7 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-7 div.sk-item::before, #sk-container-id-7 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-7 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-7 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-7 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-7 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-7 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-7 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-7 div.sk-label-container {text-align: center;}#sk-container-id-7 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-7 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-7" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(drop=(&#x27;1985&#x27;, 12), drop_valuation=&#x27;1988&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" checked><label for="sk-estimator-id-7" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(drop=(&#x27;1985&#x27;, 12), drop_valuation=&#x27;1988&#x27;)</pre></div></div></div></div></div>
+<style>#sk-container-id-6 {color: black;background-color: white;}#sk-container-id-6 pre{padding: 0;}#sk-container-id-6 div.sk-toggleable {background-color: white;}#sk-container-id-6 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-6 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-6 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-6 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-6 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-6 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-6 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-6 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-6 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-6 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-6 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-6 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-6 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-6 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-6 div.sk-item {position: relative;z-index: 1;}#sk-container-id-6 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-6 div.sk-item::before, #sk-container-id-6 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-6 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-6 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-6 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-6 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-6 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-6 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-6 div.sk-label-container {text-align: center;}#sk-container-id-6 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-6 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-6" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Development(drop=(&#x27;1985&#x27;, 12), drop_valuation=&#x27;1988&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" checked><label for="sk-estimator-id-6" class="sk-toggleable__label sk-toggleable__label-arrow">Development</label><div class="sk-toggleable__content"><pre>Development(drop=(&#x27;1985&#x27;, 12), drop_valuation=&#x27;1988&#x27;)</pre></div></div></div></div></div>
 </div>
 
 </div>
@@ -6248,7 +6255,7 @@ cl.Development(average=['volume']+['simple']*8)</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -6291,7 +6298,7 @@ transformed_triangle.ldf_</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
 
 
 
@@ -6341,7 +6348,7 @@ transformed_triangle.ldf_</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -6378,7 +6385,7 @@ transformed_triangle.ldf_</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 
 
 
@@ -6428,7 +6435,7 @@ transformed_triangle.ldf_</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -6463,159 +6470,147 @@ transformed_triangle.ldf_</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[49]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <style type="text/css">
-#T_c5fa7_row0_col0, #T_c5fa7_row0_col2, #T_c5fa7_row1_col1, #T_c5fa7_row1_col5, #T_c5fa7_row2_col6, #T_c5fa7_row3_col3, #T_c5fa7_row4_col4 {
+#T_61d5f_row0_col0, #T_61d5f_row0_col2, #T_61d5f_row1_col1, #T_61d5f_row1_col5, #T_61d5f_row2_col6, #T_61d5f_row3_col3, #T_61d5f_row4_col4 {
   background-color: #3b4cc0;
   color: #f1f1f1;
 }
-#T_c5fa7_row0_col1, #T_c5fa7_row8_col0 {
+#T_61d5f_row0_col1, #T_61d5f_row8_col0 {
   background-color: #6f92f3;
   color: #f1f1f1;
 }
-#T_c5fa7_row0_col3 {
+#T_61d5f_row0_col3 {
   background-color: #8db0fe;
   color: #000000;
 }
-#T_c5fa7_row0_col4, #T_c5fa7_row0_col5, #T_c5fa7_row0_col6, #T_c5fa7_row1_col2, #T_c5fa7_row1_col3, #T_c5fa7_row4_col0, #T_c5fa7_row7_col1 {
+#T_61d5f_row0_col4, #T_61d5f_row0_col5, #T_61d5f_row0_col6, #T_61d5f_row1_col2, #T_61d5f_row1_col3, #T_61d5f_row4_col0, #T_61d5f_row7_col1 {
   background-color: #b40426;
   color: #f1f1f1;
 }
-#T_c5fa7_row0_col7, #T_c5fa7_row0_col8, #T_c5fa7_row1_col0, #T_c5fa7_row1_col6, #T_c5fa7_row1_col7, #T_c5fa7_row1_col8, #T_c5fa7_row2_col0, #T_c5fa7_row2_col1, #T_c5fa7_row2_col3, #T_c5fa7_row2_col5, #T_c5fa7_row2_col7, #T_c5fa7_row2_col8, #T_c5fa7_row3_col4, #T_c5fa7_row3_col5, #T_c5fa7_row3_col6, #T_c5fa7_row3_col7, #T_c5fa7_row3_col8, #T_c5fa7_row4_col3, #T_c5fa7_row4_col5, #T_c5fa7_row4_col6, #T_c5fa7_row4_col7, #T_c5fa7_row4_col8, #T_c5fa7_row5_col2, #T_c5fa7_row5_col4, #T_c5fa7_row5_col5, #T_c5fa7_row5_col6, #T_c5fa7_row5_col7, #T_c5fa7_row5_col8, #T_c5fa7_row6_col1, #T_c5fa7_row6_col3, #T_c5fa7_row6_col4, #T_c5fa7_row6_col5, #T_c5fa7_row6_col6, #T_c5fa7_row6_col7, #T_c5fa7_row6_col8, #T_c5fa7_row7_col0, #T_c5fa7_row7_col2, #T_c5fa7_row7_col3, #T_c5fa7_row7_col4, #T_c5fa7_row7_col5, #T_c5fa7_row7_col6, #T_c5fa7_row7_col7, #T_c5fa7_row7_col8, #T_c5fa7_row8_col1, #T_c5fa7_row8_col2, #T_c5fa7_row8_col3, #T_c5fa7_row8_col4, #T_c5fa7_row8_col5, #T_c5fa7_row8_col6, #T_c5fa7_row8_col7, #T_c5fa7_row8_col8 {
+#T_61d5f_row0_col7, #T_61d5f_row0_col8, #T_61d5f_row1_col0, #T_61d5f_row1_col6, #T_61d5f_row1_col7, #T_61d5f_row1_col8, #T_61d5f_row2_col0, #T_61d5f_row2_col1, #T_61d5f_row2_col3, #T_61d5f_row2_col5, #T_61d5f_row2_col7, #T_61d5f_row2_col8, #T_61d5f_row3_col4, #T_61d5f_row3_col5, #T_61d5f_row3_col6, #T_61d5f_row3_col7, #T_61d5f_row3_col8, #T_61d5f_row4_col3, #T_61d5f_row4_col5, #T_61d5f_row4_col6, #T_61d5f_row4_col7, #T_61d5f_row4_col8, #T_61d5f_row5_col2, #T_61d5f_row5_col4, #T_61d5f_row5_col5, #T_61d5f_row5_col6, #T_61d5f_row5_col7, #T_61d5f_row5_col8, #T_61d5f_row6_col1, #T_61d5f_row6_col3, #T_61d5f_row6_col4, #T_61d5f_row6_col5, #T_61d5f_row6_col6, #T_61d5f_row6_col7, #T_61d5f_row6_col8, #T_61d5f_row7_col0, #T_61d5f_row7_col2, #T_61d5f_row7_col3, #T_61d5f_row7_col4, #T_61d5f_row7_col5, #T_61d5f_row7_col6, #T_61d5f_row7_col7, #T_61d5f_row7_col8, #T_61d5f_row8_col1, #T_61d5f_row8_col2, #T_61d5f_row8_col3, #T_61d5f_row8_col4, #T_61d5f_row8_col5, #T_61d5f_row8_col6, #T_61d5f_row8_col7, #T_61d5f_row8_col8 {
   background-color: #dddcdc;
   color: #000000;
 }
-#T_c5fa7_row1_col4, #T_c5fa7_row3_col0, #T_c5fa7_row3_col1 {
+#T_61d5f_row1_col4, #T_61d5f_row3_col0, #T_61d5f_row3_col1 {
   background-color: #aac7fd;
   color: #000000;
 }
-#T_c5fa7_row2_col2 {
+#T_61d5f_row2_col2 {
   background-color: #c0d4f5;
   color: #000000;
 }
-#T_c5fa7_row2_col4, #T_c5fa7_row4_col1, #T_c5fa7_row5_col0 {
+#T_61d5f_row2_col4, #T_61d5f_row4_col1, #T_61d5f_row5_col0 {
   background-color: #f7b89c;
   color: #000000;
 }
-#T_c5fa7_row3_col2 {
+#T_61d5f_row3_col2 {
   background-color: #f2cbb7;
   color: #000000;
 }
-#T_c5fa7_row4_col2 {
+#T_61d5f_row4_col2 {
   background-color: #ee8468;
   color: #f1f1f1;
 }
-#T_c5fa7_row5_col1, #T_c5fa7_row6_col0 {
+#T_61d5f_row5_col1, #T_61d5f_row6_col0 {
   background-color: #e7745b;
   color: #f1f1f1;
 }
-#T_c5fa7_row5_col3 {
+#T_61d5f_row5_col3 {
   background-color: #f4987a;
   color: #000000;
 }
-#T_c5fa7_row6_col2 {
+#T_61d5f_row6_col2 {
   background-color: #7b9ff9;
   color: #f1f1f1;
 }
 </style>
-<table id="T_c5fa7">
+<table id="T_61d5f">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_c5fa7_level0_col0" class="col_heading level0 col0" >12-24</th>
-      <th id="T_c5fa7_level0_col1" class="col_heading level0 col1" >24-36</th>
-      <th id="T_c5fa7_level0_col2" class="col_heading level0 col2" >36-48</th>
-      <th id="T_c5fa7_level0_col3" class="col_heading level0 col3" >48-60</th>
-      <th id="T_c5fa7_level0_col4" class="col_heading level0 col4" >60-72</th>
-      <th id="T_c5fa7_level0_col5" class="col_heading level0 col5" >72-84</th>
-      <th id="T_c5fa7_level0_col6" class="col_heading level0 col6" >84-96</th>
-      <th id="T_c5fa7_level0_col7" class="col_heading level0 col7" >96-108</th>
-      <th id="T_c5fa7_level0_col8" class="col_heading level0 col8" >108-120</th>
+      <th id="T_61d5f_level0_col0" class="col_heading level0 col0" >12-24</th>
+      <th id="T_61d5f_level0_col1" class="col_heading level0 col1" >24-36</th>
+      <th id="T_61d5f_level0_col2" class="col_heading level0 col2" >36-48</th>
+      <th id="T_61d5f_level0_col3" class="col_heading level0 col3" >48-60</th>
+      <th id="T_61d5f_level0_col4" class="col_heading level0 col4" >60-72</th>
+      <th id="T_61d5f_level0_col5" class="col_heading level0 col5" >72-84</th>
+      <th id="T_61d5f_level0_col6" class="col_heading level0 col6" >84-96</th>
+      <th id="T_61d5f_level0_col7" class="col_heading level0 col7" >96-108</th>
+      <th id="T_61d5f_level0_col8" class="col_heading level0 col8" >108-120</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_c5fa7_level0_row0" class="row_heading level0 row0" >1981</th>
-      <td id="T_c5fa7_row0_col0" class="data row0 col0" >1.6498</td>
-      <td id="T_c5fa7_row0_col1" class="data row0 col1" >1.3190</td>
-      <td id="T_c5fa7_row0_col2" class="data row0 col2" >1.0823</td>
-      <td id="T_c5fa7_row0_col3" class="data row0 col3" >1.1469</td>
-      <td id="T_c5fa7_row0_col4" class="data row0 col4" >1.1951</td>
-      <td id="T_c5fa7_row0_col5" class="data row0 col5" >1.1130</td>
-      <td id="T_c5fa7_row0_col6" class="data row0 col6" >1.0333</td>
+      <th id="T_61d5f_level0_row0" class="row_heading level0 row0" >1981</th>
+      <td id="T_61d5f_row0_col0" class="data row0 col0" >1.6498</td>
+      <td id="T_61d5f_row0_col1" class="data row0 col1" >1.3190</td>
+      <td id="T_61d5f_row0_col2" class="data row0 col2" >1.0823</td>
+      <td id="T_61d5f_row0_col3" class="data row0 col3" >1.1469</td>
+      <td id="T_61d5f_row0_col4" class="data row0 col4" >1.1951</td>
+      <td id="T_61d5f_row0_col5" class="data row0 col5" >1.1130</td>
+      <td id="T_61d5f_row0_col6" class="data row0 col6" >1.0333</td>
       <td></td>
-      <td id="T_c5fa7_row0_col8" class="data row0 col8" >1.0092</td>
+      <td id="T_61d5f_row0_col8" class="data row0 col8" >1.0092</td>
     </tr>
     <tr>
-      <th id="T_c5fa7_level0_row1" class="row_heading level0 row1" >1982</th>
+      <th id="T_61d5f_level0_row1" class="row_heading level0 row1" >1982</th>
       <td></td>
-      <td id="T_c5fa7_row1_col1" class="data row1 col1" >1.2593</td>
-      <td id="T_c5fa7_row1_col2" class="data row1 col2" >1.9766</td>
-      <td id="T_c5fa7_row1_col3" class="data row1 col3" >1.2921</td>
-      <td id="T_c5fa7_row1_col4" class="data row1 col4" >1.1318</td>
-      <td id="T_c5fa7_row1_col5" class="data row1 col5" >0.9934</td>
+      <td id="T_61d5f_row1_col1" class="data row1 col1" >1.2593</td>
+      <td id="T_61d5f_row1_col2" class="data row1 col2" >1.9766</td>
+      <td id="T_61d5f_row1_col3" class="data row1 col3" >1.2921</td>
+      <td id="T_61d5f_row1_col4" class="data row1 col4" >1.1318</td>
+      <td id="T_61d5f_row1_col5" class="data row1 col5" >0.9934</td>
       <td></td>
-      <td id="T_c5fa7_row1_col7" class="data row1 col7" >1.0331</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th id="T_c5fa7_level0_row2" class="row_heading level0 row2" >1983</th>
-      <td id="T_c5fa7_row2_col0" class="data row2 col0" >2.6370</td>
-      <td id="T_c5fa7_row2_col1" class="data row2 col1" >1.5428</td>
-      <td id="T_c5fa7_row2_col2" class="data row2 col2" >1.1635</td>
-      <td id="T_c5fa7_row2_col3" class="data row2 col3" >1.1607</td>
-      <td id="T_c5fa7_row2_col4" class="data row2 col4" >1.1857</td>
-      <td></td>
-      <td id="T_c5fa7_row2_col6" class="data row2 col6" >1.0264</td>
-      <td></td>
+      <td id="T_61d5f_row1_col7" class="data row1 col7" >1.0331</td>
       <td></td>
     </tr>
     <tr>
-      <th id="T_c5fa7_level0_row3" class="row_heading level0 row3" >1984</th>
-      <td id="T_c5fa7_row3_col0" class="data row3 col0" >2.0433</td>
-      <td id="T_c5fa7_row3_col1" class="data row3 col1" >1.3644</td>
-      <td id="T_c5fa7_row3_col2" class="data row3 col2" >1.3489</td>
-      <td id="T_c5fa7_row3_col3" class="data row3 col3" >1.1015</td>
+      <th id="T_61d5f_level0_row2" class="row_heading level0 row2" >1983</th>
+      <td id="T_61d5f_row2_col0" class="data row2 col0" >2.6370</td>
+      <td id="T_61d5f_row2_col1" class="data row2 col1" >1.5428</td>
+      <td id="T_61d5f_row2_col2" class="data row2 col2" >1.1635</td>
+      <td id="T_61d5f_row2_col3" class="data row2 col3" >1.1607</td>
+      <td id="T_61d5f_row2_col4" class="data row2 col4" >1.1857</td>
       <td></td>
-      <td id="T_c5fa7_row3_col5" class="data row3 col5" >1.0377</td>
-      <td></td>
+      <td id="T_61d5f_row2_col6" class="data row2 col6" >1.0264</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th id="T_c5fa7_level0_row4" class="row_heading level0 row4" >1985</th>
-      <td id="T_c5fa7_row4_col0" class="data row4 col0" >8.7592</td>
-      <td id="T_c5fa7_row4_col1" class="data row4 col1" >1.6556</td>
-      <td id="T_c5fa7_row4_col2" class="data row4 col2" >1.3999</td>
+      <th id="T_61d5f_level0_row3" class="row_heading level0 row3" >1984</th>
+      <td id="T_61d5f_row3_col0" class="data row3 col0" >2.0433</td>
+      <td id="T_61d5f_row3_col1" class="data row3 col1" >1.3644</td>
+      <td id="T_61d5f_row3_col2" class="data row3 col2" >1.3489</td>
+      <td id="T_61d5f_row3_col3" class="data row3 col3" >1.1015</td>
       <td></td>
-      <td id="T_c5fa7_row4_col4" class="data row4 col4" >1.0087</td>
-      <td></td>
+      <td id="T_61d5f_row3_col5" class="data row3 col5" >1.0377</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th id="T_c5fa7_level0_row5" class="row_heading level0 row5" >1986</th>
-      <td id="T_c5fa7_row5_col0" class="data row5 col0" >4.2597</td>
-      <td id="T_c5fa7_row5_col1" class="data row5 col1" >1.8157</td>
+      <th id="T_61d5f_level0_row4" class="row_heading level0 row4" >1985</th>
+      <td id="T_61d5f_row4_col0" class="data row4 col0" >8.7592</td>
+      <td id="T_61d5f_row4_col1" class="data row4 col1" >1.6556</td>
+      <td id="T_61d5f_row4_col2" class="data row4 col2" >1.3999</td>
       <td></td>
-      <td id="T_c5fa7_row5_col3" class="data row5 col3" >1.2255</td>
-      <td></td>
+      <td id="T_61d5f_row4_col4" class="data row4 col4" >1.0087</td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th id="T_c5fa7_level0_row6" class="row_heading level0 row6" >1987</th>
-      <td id="T_c5fa7_row6_col0" class="data row6 col0" >7.2172</td>
+      <th id="T_61d5f_level0_row5" class="row_heading level0 row5" >1986</th>
+      <td id="T_61d5f_row5_col0" class="data row5 col0" >4.2597</td>
+      <td id="T_61d5f_row5_col1" class="data row5 col1" >1.8157</td>
       <td></td>
-      <td id="T_c5fa7_row6_col2" class="data row6 col2" >1.1250</td>
-      <td></td>
+      <td id="T_61d5f_row5_col3" class="data row5 col3" >1.2255</td>
       <td></td>
       <td></td>
       <td></td>
@@ -6623,10 +6618,10 @@ transformed_triangle.ldf_</div>
       <td></td>
     </tr>
     <tr>
-      <th id="T_c5fa7_level0_row7" class="row_heading level0 row7" >1988</th>
+      <th id="T_61d5f_level0_row6" class="row_heading level0 row6" >1987</th>
+      <td id="T_61d5f_row6_col0" class="data row6 col0" >7.2172</td>
       <td></td>
-      <td id="T_c5fa7_row7_col1" class="data row7 col1" >1.8874</td>
-      <td></td>
+      <td id="T_61d5f_row6_col2" class="data row6 col2" >1.1250</td>
       <td></td>
       <td></td>
       <td></td>
@@ -6635,8 +6630,20 @@ transformed_triangle.ldf_</div>
       <td></td>
     </tr>
     <tr>
-      <th id="T_c5fa7_level0_row8" class="row_heading level0 row8" >1989</th>
-      <td id="T_c5fa7_row8_col0" class="data row8 col0" >1.7220</td>
+      <th id="T_61d5f_level0_row7" class="row_heading level0 row7" >1988</th>
+      <td></td>
+      <td id="T_61d5f_row7_col1" class="data row7 col1" >1.8874</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th id="T_61d5f_level0_row8" class="row_heading level0 row8" >1989</th>
+      <td id="T_61d5f_row8_col0" class="data row8 col0" >1.7220</td>
       <td></td>
       <td></td>
       <td></td>
@@ -6676,7 +6683,7 @@ transformed_triangle.ldf_</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -6721,7 +6728,7 @@ clrd_wkcomp_dev</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 
 
 
@@ -6783,7 +6790,7 @@ clrd_wkcomp_dev</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -6822,7 +6829,7 @@ cl.DevelopmentConstant(patterns=patterns, style='ldf').fit(triangle).ldf_</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[55]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 
 
 
@@ -6887,7 +6894,7 @@ cl.DevelopmentConstant(patterns=patterns, style='ldf').fit(triangle).ldf_</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[59]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -6924,7 +6931,7 @@ cl.Development().fit(triangle).ldf_</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
 
 
 
@@ -6974,7 +6981,7 @@ cl.Development().fit(triangle).ldf_</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[60]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -7011,13 +7018,13 @@ tail.tail_</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[60]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-  <div id="df-a549a11f-3bb7-4dfd-b30b-2439396ea7a8" class="colab-df-container">
+  <div id="df-782e7c22-1947-4357-9693-3204e8b9b579" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -7050,7 +7057,7 @@ tail.tail_</div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a549a11f-3bb7-4dfd-b30b-2439396ea7a8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-782e7c22-1947-4357-9693-3204e8b9b579')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -7102,12 +7109,12 @@ tail.tail_</div>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a549a11f-3bb7-4dfd-b30b-2439396ea7a8 button.colab-df-convert');
+        document.querySelector('#df-782e7c22-1947-4357-9693-3204e8b9b579 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a549a11f-3bb7-4dfd-b30b-2439396ea7a8');
+        const element = document.querySelector('#df-782e7c22-1947-4357-9693-3204e8b9b579');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -7157,7 +7164,7 @@ tail.tail_</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -7174,12 +7181,10 @@ tail.tail_</div>
         </div>
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">triangle</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s1">&#39;quarterly&#39;</span><span class="p">)[</span><span class="s1">&#39;paid&#39;</span><span class="p">]</span>
 <span class="n">tail</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">TailCurve</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">triangle</span><span class="o">.</span><span class="n">link_ratio</span><span class="o">.</span><span class="n">development</span><span class="p">)</span>
 <span class="n">tail</span><span class="o">.</span><span class="n">cdf_</span><span class="p">[</span><span class="o">~</span><span class="n">tail</span><span class="o">.</span><span class="n">ldf_</span><span class="o">.</span><span class="n">development</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">triangle</span><span class="o">.</span><span class="n">link_ratio</span><span class="o">.</span><span class="n">development</span><span class="p">)]</span>
 </pre></div>
 <div id="cell-34" class="clipboard-copy-txt">triangle = cl.load_sample('quarterly')['paid']
 tail = cl.TailCurve().fit(triangle)
-print(triangle.link_ratio.development)
 tail.cdf_[~tail.ldf_.development.isin(triangle.link_ratio.development)]</div>
     
         </div>
@@ -7198,63 +7203,7 @@ tail.cdf_[~tail.ldf_.development.isin(triangle.link_ratio.development)]</div>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0         3-6
-1         6-9
-2        9-12
-3       12-15
-4       15-18
-5       18-21
-6       21-24
-7       24-27
-8       27-30
-9       30-33
-10      33-36
-11      36-39
-12      39-42
-13      42-45
-14      45-48
-15      48-51
-16      51-54
-17      54-57
-18      57-60
-19      60-63
-20      63-66
-21      66-69
-22      69-72
-23      72-75
-24      75-78
-25      78-81
-26      81-84
-27      84-87
-28      87-90
-29      90-93
-30      93-96
-31      96-99
-32     99-102
-33    102-105
-34    105-108
-35    108-111
-36    111-114
-37    114-117
-38    117-120
-39    120-123
-40    123-126
-41    126-129
-42    129-132
-43    132-135
-Name: development, dtype: object
-</pre>
-</div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[64]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
 
 
 
@@ -7308,7 +7257,7 @@ Name: development, dtype: object
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[65]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -7387,13 +7336,13 @@ class="
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -7408,18 +7357,434 @@ class="
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Extend tail run-off 4 years past end of Triangle.</span>
-<span class="n">tail</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">TailCurve</span><span class="p">(</span><span class="n">projection_period</span><span class="o">=</span><span class="mi">12</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">triangle</span>
+</pre></div>
+<div id="cell-36" class="clipboard-copy-txt">triangle</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>3</th>
+      <th>6</th>
+      <th>9</th>
+      <th>12</th>
+      <th>15</th>
+      <th>18</th>
+      <th>21</th>
+      <th>24</th>
+      <th>27</th>
+      <th>30</th>
+      <th>...</th>
+      <th>108</th>
+      <th>111</th>
+      <th>114</th>
+      <th>117</th>
+      <th>120</th>
+      <th>123</th>
+      <th>126</th>
+      <th>129</th>
+      <th>132</th>
+      <th>135</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1995</th>
+      <td>3.00</td>
+      <td>24.00</td>
+      <td>65.00</td>
+      <td>141.00</td>
+      <td>273.00</td>
+      <td>418.00</td>
+      <td>550.00</td>
+      <td>692.00</td>
+      <td>814.00</td>
+      <td>876.00</td>
+      <td>...</td>
+      <td>1,099.00</td>
+      <td>1,099.00</td>
+      <td>1,100.00</td>
+      <td>1,098.00</td>
+      <td>1,098.00</td>
+      <td>1,098.00</td>
+      <td>1,099.00</td>
+      <td>1,099.00</td>
+      <td>1,100.00</td>
+      <td>1,100.00</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>1.00</td>
+      <td>16.00</td>
+      <td>54.00</td>
+      <td>135.00</td>
+      <td>260.00</td>
+      <td>398.00</td>
+      <td>594.00</td>
+      <td>758.00</td>
+      <td>871.00</td>
+      <td>964.00</td>
+      <td>...</td>
+      <td>1,296.00</td>
+      <td>1,296.00</td>
+      <td>1,297.00</td>
+      <td>1,298.00</td>
+      <td>1,298.00</td>
+      <td>1,298.00</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>1.00</td>
+      <td>17.00</td>
+      <td>55.00</td>
+      <td>166.00</td>
+      <td>296.00</td>
+      <td>442.00</td>
+      <td>587.00</td>
+      <td>701.00</td>
+      <td>811.00</td>
+      <td>891.00</td>
+      <td>...</td>
+      <td>1,197.00</td>
+      <td>1,198.00</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>1.00</td>
+      <td>11.00</td>
+      <td>40.00</td>
+      <td>93.00</td>
+      <td>185.00</td>
+      <td>343.00</td>
+      <td>474.00</td>
+      <td>643.00</td>
+      <td>744.00</td>
+      <td>831.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>1.00</td>
+      <td>14.00</td>
+      <td>47.00</td>
+      <td>113.00</td>
+      <td>225.00</td>
+      <td>379.00</td>
+      <td>570.00</td>
+      <td>715.00</td>
+      <td>832.00</td>
+      <td>955.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>1.00</td>
+      <td>6.00</td>
+      <td>28.00</td>
+      <td>100.00</td>
+      <td>194.00</td>
+      <td>297.00</td>
+      <td>415.00</td>
+      <td>521.00</td>
+      <td>616.00</td>
+      <td>697.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>1.00</td>
+      <td>7.00</td>
+      <td>37.00</td>
+      <td>128.00</td>
+      <td>271.00</td>
+      <td>427.00</td>
+      <td>579.00</td>
+      <td>722.00</td>
+      <td>838.00</td>
+      <td>937.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>1.00</td>
+      <td>10.00</td>
+      <td>45.00</td>
+      <td>110.00</td>
+      <td>236.00</td>
+      <td>442.00</td>
+      <td>668.00</td>
+      <td>890.00</td>
+      <td>1,078.00</td>
+      <td>1,198.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>1.00</td>
+      <td>9.00</td>
+      <td>31.00</td>
+      <td>94.00</td>
+      <td>192.00</td>
+      <td>299.00</td>
+      <td>408.00</td>
+      <td>792.00</td>
+      <td>873.00</td>
+      <td>949.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <td>4.00</td>
+      <td>16.00</td>
+      <td>49.00</td>
+      <td>170.00</td>
+      <td>289.00</td>
+      <td>442.00</td>
+      <td>601.00</td>
+      <td>793.00</td>
+      <td>948.00</td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <td>1.00</td>
+      <td>7.00</td>
+      <td>36.00</td>
+      <td>97.00</td>
+      <td>183.00</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>1.00</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-37">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">tail</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">TailCurve</span><span class="p">(</span><span class="n">projection_period</span><span class="o">=</span><span class="mi">12</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
 <span class="n">tail</span><span class="o">.</span><span class="n">ldf_</span><span class="p">[</span><span class="o">~</span><span class="n">tail</span><span class="o">.</span><span class="n">ldf_</span><span class="o">.</span><span class="n">development</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">triangle</span><span class="o">.</span><span class="n">link_ratio</span><span class="o">.</span><span class="n">development</span><span class="p">)]</span>
 </pre></div>
-<div id="cell-36" class="clipboard-copy-txt"># Extend tail run-off 4 years past end of Triangle.
-tail = cl.TailCurve(projection_period=12*4).fit(triangle)
+<div id="cell-37" class="clipboard-copy-txt">tail = cl.TailCurve(projection_period=12*4).fit(triangle)
 tail.ldf_[~tail.ldf_.development.isin(triangle.link_ratio.development)]</div>
     
         </div>
     </div>
 
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>120-132</th>
+      <th>132-144</th>
+      <th>144-156</th>
+      <th>156-168</th>
+      <th>168-180</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>(All)</th>
+      <td>1.0119</td>
+      <td>1.0071</td>
+      <td>1.0042</td>
+      <td>1.0025</td>
+      <td>1.0036</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -7435,18 +7800,18 @@ tail.ldf_[~tail.ldf_.development.isin(triangle.link_ratio.development)]</div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-37">
+            <clipboard-copy for="cell-38">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -7460,7 +7825,7 @@ tail.ldf_[~tail.ldf_.development.isin(triangle.link_ratio.development)]</div>
 <span class="n">tail</span><span class="o">.</span><span class="n">ldf_</span>
 <span class="n">tail</span><span class="o">.</span><span class="n">tail_</span>
 </pre></div>
-<div id="cell-37" class="clipboard-copy-txt">tail = cl.TailConstant(tail=1.05, decay=0.95).fit_transform(triangle)
+<div id="cell-38" class="clipboard-copy-txt">tail = cl.TailConstant(tail=1.05, decay=0.95).fit_transform(triangle)
 tail.ldf_
 tail.tail_</div>
     
@@ -7468,6 +7833,143 @@ tail.tail_</div>
     </div>
 
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+
+  <div id="df-f0422f3b-81df-458f-a4d8-aa7f3a70fdb2" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>120-Ult</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>(All)</th>
+      <td>1.05</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f0422f3b-81df-458f-a4d8-aa7f3a70fdb2')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-f0422f3b-81df-458f-a4d8-aa7f3a70fdb2 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-f0422f3b-81df-458f-a4d8-aa7f3a70fdb2');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -7488,18 +7990,18 @@ tail.tail_</div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-38">
+            <clipboard-copy for="cell-39">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -7511,7 +8013,7 @@ tail.tail_</div>
         </div>
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">cl</span><span class="o">.</span><span class="n">Chainladder</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s1">&#39;raa&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">ultimate_</span>
 </pre></div>
-<div id="cell-38" class="clipboard-copy-txt">cl.Chainladder().fit(cl.load_sample('raa')).ultimate_</div>
+<div id="cell-39" class="clipboard-copy-txt">cl.Chainladder().fit(cl.load_sample('raa')).ultimate_</div>
     
         </div>
     </div>
@@ -7519,19 +8021,92 @@ tail.tail_</div>
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2261</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1981</th>
+      <td>18,834</td>
+    </tr>
+    <tr>
+      <th>1982</th>
+      <td>16,858</td>
+    </tr>
+    <tr>
+      <th>1983</th>
+      <td>24,083</td>
+    </tr>
+    <tr>
+      <th>1984</th>
+      <td>28,703</td>
+    </tr>
+    <tr>
+      <th>1985</th>
+      <td>28,927</td>
+    </tr>
+    <tr>
+      <th>1986</th>
+      <td>19,501</td>
+    </tr>
+    <tr>
+      <th>1987</th>
+      <td>17,749</td>
+    </tr>
+    <tr>
+      <th>1988</th>
+      <td>24,019</td>
+    </tr>
+    <tr>
+      <th>1989</th>
+      <td>16,045</td>
+    </tr>
+    <tr>
+      <th>1990</th>
+      <td>18,402</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-39">
+            <clipboard-copy for="cell-40">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -7547,7 +8122,7 @@ tail.tail_</div>
 <span class="n">true_ibnr</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ibnr_</span><span class="p">[</span><span class="s1">&#39;paid&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">case_reserves</span>
 <span class="n">true_ibnr</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
-<div id="cell-39" class="clipboard-copy-txt">triangle = cl.load_sample('quarterly')
+<div id="cell-40" class="clipboard-copy-txt">triangle = cl.load_sample('quarterly')
 model = cl.Chainladder().fit(triangle)
 case_reserves = (triangle['incurred']-triangle['paid']).latest_diagonal
 true_ibnr = model.ibnr_['paid'] - case_reserves
@@ -7557,6 +8132,843 @@ true_ibnr.sum()</div>
     </div>
 
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>2431.2695585474003</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-41">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">triangle</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s1">&#39;quarterly&#39;</span><span class="p">)</span>
+<span class="n">triangle</span>
+</pre></div>
+<div id="cell-41" class="clipboard-copy-txt">triangle = cl.load_sample('quarterly')
+triangle</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Triangle Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Valuation:</th>
+      <td>2006-03</td>
+    </tr>
+    <tr>
+      <th>Grain:</th>
+      <td>OYDQ</td>
+    </tr>
+    <tr>
+      <th>Shape:</th>
+      <td>(1, 2, 12, 45)</td>
+    </tr>
+    <tr>
+      <th>Index:</th>
+      <td>[Total]</td>
+    </tr>
+    <tr>
+      <th>Columns:</th>
+      <td>[incurred, paid]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[53]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-42">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">cl</span><span class="o">.</span><span class="n">Chainladder</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span><span class="o">.</span><span class="n">ibnr_</span><span class="p">[</span><span class="s1">&#39;incurred&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+<div id="cell-42" class="clipboard-copy-txt">cl.Chainladder().fit(triangle).ibnr_['incurred'].to_frame()</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[53]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+
+  <div id="df-35fda8c9-5025-42e9-b94e-e07197887ba0" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2261Q4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1995-01-01</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1996-01-01</th>
+      <td>-2.273737e-13</td>
+    </tr>
+    <tr>
+      <th>1997-01-01</th>
+      <td>5.002084e-01</td>
+    </tr>
+    <tr>
+      <th>1998-01-01</th>
+      <td>2.347599e+00</td>
+    </tr>
+    <tr>
+      <th>1999-01-01</th>
+      <td>1.824708e+01</td>
+    </tr>
+    <tr>
+      <th>2000-01-01</th>
+      <td>3.367208e+01</td>
+    </tr>
+    <tr>
+      <th>2001-01-01</th>
+      <td>8.684851e+01</td>
+    </tr>
+    <tr>
+      <th>2002-01-01</th>
+      <td>1.760588e+02</td>
+    </tr>
+    <tr>
+      <th>2003-01-01</th>
+      <td>1.814657e+02</td>
+    </tr>
+    <tr>
+      <th>2004-01-01</th>
+      <td>3.851895e+02</td>
+    </tr>
+    <tr>
+      <th>2005-01-01</th>
+      <td>6.846473e+02</td>
+    </tr>
+    <tr>
+      <th>2006-01-01</th>
+      <td>1.206912e+03</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-35fda8c9-5025-42e9-b94e-e07197887ba0')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-35fda8c9-5025-42e9-b94e-e07197887ba0 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-35fda8c9-5025-42e9-b94e-e07197887ba0');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-328076b9-6908-4552-8cc2-2a91c5a8d858">
+  <button class="colab-df-quickchart" onclick="quickchart('df-328076b9-6908-4552-8cc2-2a91c5a8d858')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-328076b9-6908-4552-8cc2-2a91c5a8d858 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>triangle</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-43">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">triangle</span><span class="p">[</span><span class="s1">&#39;incurred&#39;</span><span class="p">]</span>
+</pre></div>
+<div id="cell-43" class="clipboard-copy-txt">triangle['incurred']</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[55]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>3</th>
+      <th>6</th>
+      <th>9</th>
+      <th>12</th>
+      <th>15</th>
+      <th>18</th>
+      <th>21</th>
+      <th>24</th>
+      <th>27</th>
+      <th>30</th>
+      <th>...</th>
+      <th>108</th>
+      <th>111</th>
+      <th>114</th>
+      <th>117</th>
+      <th>120</th>
+      <th>123</th>
+      <th>126</th>
+      <th>129</th>
+      <th>132</th>
+      <th>135</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1995</th>
+      <td>44.00</td>
+      <td>96.00</td>
+      <td>194.00</td>
+      <td>420.00</td>
+      <td>621.00</td>
+      <td>715.00</td>
+      <td>748.00</td>
+      <td>906.00</td>
+      <td>950.00</td>
+      <td>973.00</td>
+      <td>...</td>
+      <td>1,098.00</td>
+      <td>1,099.00</td>
+      <td>1,103.00</td>
+      <td>1,100.00</td>
+      <td>1,098.00</td>
+      <td>1,100.00</td>
+      <td>1,100.00</td>
+      <td>1,098.00</td>
+      <td>1,101.00</td>
+      <td>1,100.00</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>42.00</td>
+      <td>136.00</td>
+      <td>202.00</td>
+      <td>365.00</td>
+      <td>541.00</td>
+      <td>651.00</td>
+      <td>817.00</td>
+      <td>988.00</td>
+      <td>1,052.00</td>
+      <td>1,122.00</td>
+      <td>...</td>
+      <td>1,300.00</td>
+      <td>1,300.00</td>
+      <td>1,302.00</td>
+      <td>1,300.00</td>
+      <td>1,303.00</td>
+      <td>1,300.00</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>17.00</td>
+      <td>43.00</td>
+      <td>135.00</td>
+      <td>380.00</td>
+      <td>530.00</td>
+      <td>714.00</td>
+      <td>813.00</td>
+      <td>945.00</td>
+      <td>966.00</td>
+      <td>1,008.00</td>
+      <td>...</td>
+      <td>1,203.00</td>
+      <td>1,200.00</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>10.00</td>
+      <td>43.00</td>
+      <td>107.00</td>
+      <td>238.00</td>
+      <td>393.00</td>
+      <td>574.00</td>
+      <td>732.00</td>
+      <td>894.00</td>
+      <td>935.00</td>
+      <td>967.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>13.00</td>
+      <td>41.00</td>
+      <td>109.00</td>
+      <td>306.00</td>
+      <td>481.00</td>
+      <td>657.00</td>
+      <td>821.00</td>
+      <td>1,007.00</td>
+      <td>1,021.00</td>
+      <td>1,141.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>2.00</td>
+      <td>29.00</td>
+      <td>88.00</td>
+      <td>254.00</td>
+      <td>380.00</td>
+      <td>501.00</td>
+      <td>615.00</td>
+      <td>735.00</td>
+      <td>788.00</td>
+      <td>842.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>4.00</td>
+      <td>25.00</td>
+      <td>151.00</td>
+      <td>333.00</td>
+      <td>777.00</td>
+      <td>663.00</td>
+      <td>856.00</td>
+      <td>988.00</td>
+      <td>1,063.00</td>
+      <td>1,167.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>2.00</td>
+      <td>34.00</td>
+      <td>115.00</td>
+      <td>290.00</td>
+      <td>472.00</td>
+      <td>809.00</td>
+      <td>1,054.00</td>
+      <td>1,543.00</td>
+      <td>1,617.00</td>
+      <td>1,505.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>3.00</td>
+      <td>19.00</td>
+      <td>90.00</td>
+      <td>692.00</td>
+      <td>597.00</td>
+      <td>929.00</td>
+      <td>883.00</td>
+      <td>1,117.00</td>
+      <td>1,092.00</td>
+      <td>1,176.00</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <td>4.00</td>
+      <td>38.00</td>
+      <td>138.00</td>
+      <td>371.00</td>
+      <td>583.00</td>
+      <td>756.00</td>
+      <td>902.00</td>
+      <td>1,111.00</td>
+      <td>1,212.00</td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <td>21.00</td>
+      <td>79.00</td>
+      <td>115.00</td>
+      <td>299.00</td>
+      <td>422.00</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>13.00</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -7576,18 +8988,18 @@ true_ibnr.sum()</div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-40">
+            <clipboard-copy for="cell-44">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -7601,7 +9013,7 @@ true_ibnr.sum()</div>
 <span class="n">residuals</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">full_expectation_</span> <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">full_triangle_</span>
 <span class="n">residuals</span><span class="p">[</span><span class="n">residuals</span><span class="o">.</span><span class="n">valuation</span><span class="o">&lt;=</span><span class="n">model</span><span class="o">.</span><span class="n">X_</span><span class="o">.</span><span class="n">valuation_date</span><span class="p">]</span>
 </pre></div>
-<div id="cell-40" class="clipboard-copy-txt">model = cl.Chainladder().fit(cl.load_sample('ukmotor'))
+<div id="cell-44" class="clipboard-copy-txt">model = cl.Chainladder().fit(cl.load_sample('ukmotor'))
 residuals = model.full_expectation_ - model.full_triangle_
 residuals[residuals.valuation<=model.X_.valuation_date]</div>
     
@@ -7609,6 +9021,115 @@ residuals[residuals.valuation<=model.X_.valuation_date]</div>
     </div>
 
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>12</th>
+      <th>24</th>
+      <th>36</th>
+      <th>48</th>
+      <th>60</th>
+      <th>72</th>
+      <th>84</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2007</th>
+      <td>344.49</td>
+      <td>557.93</td>
+      <td>348.77</td>
+      <td>10.85</td>
+      <td>-11.41</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>-21.88</td>
+      <td>-185.51</td>
+      <td>-340.72</td>
+      <td>-102.58</td>
+      <td>11.41</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>-92.22</td>
+      <td>-233.62</td>
+      <td>94.51</td>
+      <td>91.74</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>-303.44</td>
+      <td>-209.00</td>
+      <td>-102.57</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>67.16</td>
+      <td>70.21</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>5.89</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -7624,18 +9145,18 @@ residuals[residuals.valuation<=model.X_.valuation_date]</div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-41">
+            <clipboard-copy for="cell-45">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -7648,13 +9169,90 @@ residuals[residuals.valuation<=model.X_.valuation_date]</div>
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">expected_3y_run_off</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">full_triangle_</span><span class="o">.</span><span class="n">dev_to_val</span><span class="p">()</span><span class="o">.</span><span class="n">cum_to_incr</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">:</span><span class="s1">&#39;2016&#39;</span><span class="p">]</span>
 <span class="n">expected_3y_run_off</span>
 </pre></div>
-<div id="cell-41" class="clipboard-copy-txt">expected_3y_run_off = model.full_triangle_.dev_to_val().cum_to_incr().loc[..., '2014':'2016']
+<div id="cell-45" class="clipboard-copy-txt">expected_3y_run_off = model.full_triangle_.dev_to_val().cum_to_incr().loc[..., '2014':'2016']
 expected_3y_run_off</div>
     
         </div>
     </div>
 
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2014</th>
+      <th>2015</th>
+      <th>2016</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2007</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>351</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>662</td>
+      <td>376</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>1,073</td>
+      <td>620</td>
+      <td>352</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>1,503</td>
+      <td>1,134</td>
+      <td>655</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>2,725</td>
+      <td>1,820</td>
+      <td>1,374</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>5,587</td>
+      <td>3,352</td>
+      <td>2,239</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -7673,10 +9271,11 @@ expected_3y_run_off</div>
 <li>Para un año de accidentes reciente, los siniestros observados hasta ahora le dicen algo sobre los siniestros aún por observar. Esto contrasta con los supuestos subyacentes a la técnica de reclamaciones esperadas (expected loss ratio).</li>
 <li>Procesamiento consistente de reclamos</li>
 <li>Combinación estable de tipos de reclamos</li>
-<li>Límites de póliza estables
-### <code>MackChainladder</code></li>
+<li>Límites de póliza estables</li>
 </ul>
 </li>
+</ul>
+<h3 id="mackchainladder"><code>MackChainladder</code><a class="anchor-link" href="#mackchainladder">&#182;</a></h3><ul>
 <li>Puede considerarse como una forma especial de regresión lineal ponderada a través del origen para cada período de desarrollo.</li>
 <li>Dado lo anterior, las estadísticas sobre la variabilidad de los datos y las estimaciones de los parámetros permiten estimar los errores de predicción</li>
 <li>Es el método más básico de los métodos estocásticos.</li>
@@ -7704,18 +9303,18 @@ expected_3y_run_off</div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-42">
+            <clipboard-copy for="cell-46">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -7725,18 +9324,91 @@ expected_3y_run_off</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">cl_ult</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">Chainladder</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">raa</span><span class="p">)</span><span class="o">.</span><span class="n">ultimate_</span> <span class="c1"># Chainladder Ultimate</span>
-<span class="n">apriori</span> <span class="o">=</span> <span class="n">cl_ult</span><span class="o">*</span><span class="mi">0</span><span class="o">+</span><span class="p">(</span><span class="n">cl_ult</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># Mean Chainladder Ultimate</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">cl_ult</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">Chainladder</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">raa</span><span class="p">)</span><span class="o">.</span><span class="n">ultimate_</span>
+<span class="n">apriori</span> <span class="o">=</span> <span class="n">cl_ult</span><span class="o">*</span><span class="mi">0</span><span class="o">+</span><span class="p">(</span><span class="n">cl_ult</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">cl</span><span class="o">.</span><span class="n">BornhuetterFerguson</span><span class="p">(</span><span class="n">apriori</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">raa</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">apriori</span><span class="p">)</span><span class="o">.</span><span class="n">ultimate_</span>
 </pre></div>
-<div id="cell-42" class="clipboard-copy-txt">cl_ult = cl.Chainladder().fit(raa).ultimate_ # Chainladder Ultimate
-apriori = cl_ult*0+(cl_ult.sum()/10) # Mean Chainladder Ultimate
+<div id="cell-46" class="clipboard-copy-txt">cl_ult = cl.Chainladder().fit(raa).ultimate_
+apriori = cl_ult*0+(cl_ult.sum()/10)
 cl.BornhuetterFerguson(apriori=1).fit(raa, sample_weight=apriori).ultimate_</div>
     
         </div>
     </div>
 
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2261</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1981</th>
+      <td>18,834</td>
+    </tr>
+    <tr>
+      <th>1982</th>
+      <td>16,899</td>
+    </tr>
+    <tr>
+      <th>1983</th>
+      <td>24,012</td>
+    </tr>
+    <tr>
+      <th>1984</th>
+      <td>28,282</td>
+    </tr>
+    <tr>
+      <th>1985</th>
+      <td>28,204</td>
+    </tr>
+    <tr>
+      <th>1986</th>
+      <td>19,840</td>
+    </tr>
+    <tr>
+      <th>1987</th>
+      <td>18,840</td>
+    </tr>
+    <tr>
+      <th>1988</th>
+      <td>22,790</td>
+    </tr>
+    <tr>
+      <th>1989</th>
+      <td>19,541</td>
+    </tr>
+    <tr>
+      <th>1990</th>
+      <td>20,986</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -7781,7 +9453,7 @@ cl.BornhuetterFerguson(apriori=1).fit(raa, sample_weight=apriori).ultimate_</div
 <li>La creación de una nueva clase crea un nuevo tipo de objeto, lo que permite crear nuevas instancias de ese tipo.</li>
 <li>En otras palabras, una clase es una plantilla de código para crear objetos.</li>
 </ul>
-<h3 id="atributos-y-metodos-dentro-de-una-clase">Atributos y M&#233;todos dentro de una Clase:<a class="anchor-link" href="#atributos-y-metodos-dentro-de-una-clase">&#182;</a></h3><p>Una clase por sí sola no sirve de nada a menos que haya alguna funcionalidad asociada a ella. Las funcionalidades se definen estableciendo atributos, que actúan como contenedores para datos y funciones relacionadas con esos atributos. Esas funciones se llaman métodos.</p>
+<h3 id="atributos-y-metodos-dentro-de-una-clase">Atributos y M&#233;todos dentro de una Clase:<a class="anchor-link" href="#atributos-y-metodos-dentro-de-una-clase">&#182;</a></h3><p>Una clase por sí sola no sirve de nada a menos que haya alguna funcionalidad asociada a ella. Las funcionalidades se definen estableciendo atributos, que actúan como contenedores para datos y funciones relacionadas con esos atri#butos. Esas funciones se llaman métodos.</p>
 <h3 id="scikit-learn-y-chainladder"><code>scikit-learn</code> y <code>Chainladder</code><a class="anchor-link" href="#scikit-learn-y-chainladder">&#182;</a></h3><p>La librería <code>scikit-learn</code> es una interfaz de modelado común que se utiliza para construir y adaptar una variedad incontable de algoritmos de aprendizaje automático. La interfaz común permite un intercambio muy rápido entre modelos con cambios mínimos de código. El paquete <code>Chainladder</code> ha adoptado la interfaz para promover un enfoque estandarizado para adaptar modelos de reserva. Esto es, usa su misma estructura de objetos y clases.</p>
 <h3 id="estimadores">Estimadores<a class="anchor-link" href="#estimadores">&#182;</a></h3><ul>
 <li>Es un tipo de objeto.</li>
@@ -7802,10 +9474,8 @@ cl.BornhuetterFerguson(apriori=1).fit(raa, sample_weight=apriori).ultimate_</div
 </pre></div>
 <h3 id="transformers">Transformers<a class="anchor-link" href="#transformers">&#182;</a></h3><p>En <code>scikit-learn</code>, un transformador se refiere a un objeto que transforma un conjunto de datos en uno nuevo para preparar el conjunto de datos para el modelado predictivo.</p>
 <p>Exceptuando los modelos IBNR finales, los estimadores de <code>chainladder</code> son transformadores. Es decir, devuelven el objeto <code>Triangle</code> con propiedades adicionales.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Fitting and Transforming</span>
-<span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">transformed_data</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="c1"># One line equivalent</span>
 <span class="n">transformed_data</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 <h3 id="predictors">Predictors<a class="anchor-link" href="#predictors">&#182;</a></h3><p>Todos los predictores incluyen un método de predicción.</p>

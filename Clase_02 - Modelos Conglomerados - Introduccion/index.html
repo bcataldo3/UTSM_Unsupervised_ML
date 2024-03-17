@@ -372,47 +372,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#formas-de-clasificar" class="md-nav__link">
-    Formas de Clasificar
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#convexidad" class="md-nav__link">
-    Convexidad
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requisitos-del-modelo-de-conglomerados" class="md-nav__link">
-    Requisitos del Modelo de Conglomerados
-  </a>
-  
-    <nav class="md-nav" aria-label="Requisitos del Modelo de Conglomerados">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#matriz-de-distancias" class="md-nav__link">
-    Matriz de Distancias
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tipos-de-modelos" class="md-nav__link">
-    Tipos de Modelos
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -658,47 +617,6 @@
         <li class="md-nav__item">
   <a href="#multidimensionalidad-de-los-modelos-de-conglomerados" class="md-nav__link">
     Multidimensionalidad de los Modelos de Conglomerados
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#formas-de-clasificar" class="md-nav__link">
-    Formas de Clasificar
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#convexidad" class="md-nav__link">
-    Convexidad
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requisitos-del-modelo-de-conglomerados" class="md-nav__link">
-    Requisitos del Modelo de Conglomerados
-  </a>
-  
-    <nav class="md-nav" aria-label="Requisitos del Modelo de Conglomerados">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#matriz-de-distancias" class="md-nav__link">
-    Matriz de Distancias
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tipos-de-modelos" class="md-nav__link">
-    Tipos de Modelos
   </a>
   
 </li>
@@ -1780,7 +1698,7 @@ Licensed under the Apache License, Version 2.0.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -1800,7 +1718,7 @@ Licensed under the Apache License, Version 2.0.
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Establecer una semilla para reproducibilidad</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 
 <span class="c1"># Define variables auxiliares</span>
 <span class="n">large</span><span class="o">=</span><span class="mi">100</span>
@@ -1825,7 +1743,7 @@ import pandas as pd
 import numpy as np
 
 # Establecer una semilla para reproducibilidad
-np.random.seed(1000)  
+np.random.seed(1000)
 
 # Define variables auxiliares
 large=100
@@ -1860,13 +1778,6 @@ df[name_income]=np.maximum(df[name_income],0)</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Si tenemos, por ejemplo, una única variable, podemos discernir fácilmente entre distintos grupos. En la data anterior, supongamos que quiero dividir por ingresos. Bastaría con ver una distribución de la data, junto con el ojo humano y una orientación de lo que necesito segmentar para poder evaluar como agruparé a las personas.</p>
-<p><img src="https://drive.google.com/uc?export=view&id=1mN2b0rTv0uptuPTH8xNPwoNicV56Fl6W" width = "500" align="center"/></p>
-<p>El problema se vuelve más difícil si los juicios de similitud son subjetivos o se basan en un gran número de características de los objetos. Por ejemplo, al juzgar la similitud de dos escuelas, típicamente habrá todo un conjunto de características posiblemente relevantes, como el tamaño, la ubicación, la mezcla étnica, y así sucesivamente. La pregunta entonces es cómo resumimos estos diversos fragmentos de información para poder hacer juicios de similitud defendibles. Es esta característica la que hace del análisis de conglomerados una técnica multivariada.</p>
-<p>Para comprender qué implica basar juicios de distancia en más de una variable, consideremos el caso en el que tenemos dos variables medidas en una escala continua. Si los <em>"objetos"</em> fueran personas, podríamos imaginar que tenemos registros que proporcionan sus edades e ingresos, y que queremos agruparlos en función de esas dos variables. Supongamos que representamos a los individuos como puntos en el plano. Entonces, su posición podría aparecer como la siguiente imagen.</p>
-<p><img src="https://drive.google.com/uc?export=view&id=17eFMTmuosi7IjhtegOlji0o6A-Qzp_UD" width = "500" align="center"/></p>
-<p>Si hubiera algún agrupamiento presente, lo reconoceríamos de inmediato en la figura. En este caso, hay tres de esos agrupamientos que identificamos utilizando la capacidad del ojo para detectar patrones de agrupamiento, mientras que detectamos 3 grupos aislados o compuestos de un solo dato.</p>
-<p>Con tres variables, podríamos imaginar puntos representados en tres dimensiones, pero más allá de eso nuestra capacidad de visualización falla y necesitamos alguna otra forma de reconocer los agrupamientos.</p>
-<p>Importante es destacar que, si tuviéramos información solo sobre una de estas variables (por ejemplo el ingreso), solo veríamos dos agrupamientos, ya que sería difícil separar los dos grupos de edad con bajos ingresos. Esto ilustra cómo el análisis de datos multivariados puede revelar más que el análisis de cada variable por separado. Ahora dejamos el código que realiza las imágenes anteriormente mostradas.</p>
 
 </div>
 </div>
@@ -1904,14 +1815,6 @@ df[name_income]=np.maximum(df[name_income],0)</div>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># Grafico de ingresos anuales y edad</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">name_income</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">name_age</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="n">name_income</span><span class="p">]</span> <span class="o">//</span> <span class="mi">5000</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribución de Puntos: Ingresos Anuales vs. Edad&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Ingresos Anuales&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Edad&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 <div id="cell-2" class="clipboard-copy-txt"># Importa librerias para graficar
 import seaborn as sns
@@ -1924,14 +1827,6 @@ plt.title('Histograma de Ingresos Anuales')
 plt.xlabel('Ingresos Anuales')
 plt.ylabel('Frecuencia')
 plt.grid(axis='y', alpha=0.5)
-plt.show()
-
-# Grafico de ingresos anuales y edad
-plt.figure(figsize=(8, 6))
-sns.scatterplot(data=df, x=name_income, y=name_age, alpha=0.5, s=10 + df[name_income] // 5000)
-plt.title('Distribución de Puntos: Ingresos Anuales vs. Edad')
-plt.xlabel('Ingresos Anuales')
-plt.ylabel('Edad')
 plt.show()</div>
     
         </div>
@@ -1940,6 +1835,31 @@ plt.show()</div>
 </div>
 </div>
 
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>El problema se vuelve más difícil si los juicios de similitud son subjetivos o se basan en un gran número de características de los objetos. Por ejemplo, al juzgar la similitud de dos escuelas, típicamente habrá todo un conjunto de características posiblemente relevantes, como el tamaño, la ubicación, la mezcla étnica, y así sucesivamente. La pregunta entonces es cómo resumimos estos diversos fragmentos de información para poder hacer juicios de similitud defendibles. Es esta característica la que hace del análisis de conglomerados una técnica multivariada.</p>
+<p>Para comprender qué implica basar juicios de distancia en más de una variable, consideremos el caso en el que tenemos dos variables medidas en una escala continua. Si los <em>"objetos"</em> fueran personas, podríamos imaginar que tenemos registros que proporcionan sus edades e ingresos, y que queremos agruparlos en función de esas dos variables. Supongamos que representamos a los individuos como puntos en el plano. Entonces, su posición podría aparecer como la siguiente imagen.</p>
+<p><img src="https://drive.google.com/uc?export=view&id=17eFMTmuosi7IjhtegOlji0o6A-Qzp_UD" width = "500" align="center"/></p>
+<p>Si hubiera algún agrupamiento presente, lo reconoceríamos de inmediato en la figura. En este caso, hay tres de esos agrupamientos que identificamos utilizando la capacidad del ojo para detectar patrones de agrupamiento, mientras que detectamos 3 grupos aislados o compuestos de un solo dato.</p>
+<p>Con tres variables, podríamos imaginar puntos representados en tres dimensiones, pero más allá de eso nuestra capacidad de visualización falla y necesitamos alguna otra forma de reconocer los agrupamientos.</p>
+<p>Importante es destacar que, si tuviéramos información solo sobre una de estas variables (por ejemplo el ingreso), solo veríamos dos agrupamientos, ya que sería difícil separar los dos grupos de edad con bajos ingresos. Esto ilustra cómo el análisis de datos multivariados puede revelar más que el análisis de cada variable por separado. Ahora dejamos el código que realiza la imágen anteriormente mostrada.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Grafico de ingresos anuales y edad</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">name_income</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">name_age</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="n">name_income</span><span class="p">]</span> <span class="o">//</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribución de Puntos: Ingresos Anuales vs. Edad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Ingresos Anuales&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Edad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
 </div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
@@ -1963,31 +1883,22 @@ plt.show()</div>
 Aunque este ejemplo es rudimentario, sirve para identificar los dos pasos básicos en cualquier análisis de conglomerados:</p>
 <ol>
 <li><strong>La medición de la distancia entre todos los pares de objetos</strong>.</li>
-<li><strong>El desarrollo de una rutina o algoritmo para formar agrupamientos en base a esas distancias</strong>. </li>
+<li><strong>El desarrollo de una rutina o algoritmo para formar agrupamientos en base a esas distancias</strong>.</li>
 </ol>
 <p>Las distancias en el punto (1) pueden determinarse de manera subjetiva o mediante la creación de una medida de distancia basada en la observación de una colección de variables. En el primer caso, es el cerebro humano el que procesa la información multivariada disponible en cada objeto; en el segundo caso, la distancia se construye de acuerdo con algún principio racional.</p>
 <p>Antes de continuar, necesitamos aclarar el significado del término <em>"distancia"</em> que hemos utilizado para describir qué tan separados están los objetos. A veces es más natural pensar en términos de cercanía o proximidad. Alternativamente, se utilizan los términos <strong>similitud y disimilitud</strong>. Estos últimos tienen la ventaja de sugerir una evaluación de distancia más flexible y subjetiva que es más apropiada para algunas de las aplicaciones que encontraremos. La proximidad y la similitud están inversamente relacionadas con la distancia y la disimilitud, por lo que las medidas de una se pueden convertir fácilmente en medidas de la otra. Utilizaremos los diversos términos indistintamente, pero consideraremos "distancia" como el término principal porque también es fundamental para el escalado multidimensional que veremos posteriormente.</p>
 <h3 id="matriz-de-distancias">Matriz de Distancias<a class="anchor-link" href="#matriz-de-distancias">&#182;</a></h3><p>La primera etapa del análisis de conglomerados es la construcción de distancias entre pares de objetos. Pospondremos la discusión sobre cómo se hace esto hasta más adelante, momento en el que tendremos una idea más clara de cómo se van a utilizar. Por ahora, observamos que el proceso de agrupamiento en sí comienza con una matriz de distancias, que es una matriz en la que la distancia entre el objeto $i$ y el objeto $j$ aparece en la fila $i$ y la columna $j$. Por ejemplo, si tenemos cuatro objetos, como muestra la siguiente imagen.</p>
-<p><img src="https://drive.google.com/uc?export=view&id=1_5I_nZw2EcalgVBJJQ-JCF5bqmrMH1FB" width = "500" align="center"/></p>
-<p>Tenemos una matriz de distancias de 4 × 4.</p>
-<p>$\begin{Bmatrix}
-\delta_{1,1} &amp; \delta_{1,2} &amp; \delta_{1,3} &amp; \delta_{1,4} \\
-\delta_{2,1} &amp; \delta_{2,2} &amp; \delta_{2,3} &amp; \delta_{2,4} \\
-\delta_{3,1} &amp; \delta_{3,2} &amp; \delta_{3,3} &amp; \delta_{3,4} \\
-\delta_{4,1} &amp; \delta_{4,2} &amp; \delta_{4,3} &amp; \delta_{4,4} \\
-\end{Bmatrix}$</p>
-<p>Donde $\delta_{i,j}$ es la distancia entre el objeto $i$ y el objeto $j$. Por lo general, la matriz de distancias será simétrica, es decir, $\delta_{1,2}=\delta_{2,1}$,  $\delta_{1,3}=\delta_{3,1}$, y así sucesivamente. Esto se debe a que las evaluaciones de distancia generalmente no dependen del orden en que tomamos los dos objetos. Por esta razón, solo es necesario escribir la mitad de los δ, ya sea los que están en el triángulo superior o los que están en el triángulo inferior de la matriz. La diagonal puede dejarse en blanco porque estos elementos no desempeñan ningún papel en el proceso de agrupamiento. A veces, los $δ_{ij}$ se denominan distancias observadas o simplemente observaciones. Dejamos el código que ejecuta la imagen anteriormente mostrada.</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2040,6 +1951,35 @@ plt.show()</div>
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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GxsjIqKqqqrN8c1fb/5+e9TX18fs2bPj8MMPjxEjRnRprsrKNG5eX1FR3ubfsL2z85QaO0+psfOUEvtOIXQ40Jubm9v1FvNhw4Z1aqD3s3Hjxjj//PMjImLmzJldeq7y8rKoru6fh6nyp6qqb7FHgG5l5yk1dp5SY+cpJfadfOpwoM+fPz9mzJixzcfNmzcvBg4cGBGbov7dmpqaIiK2fP/D5HK5mD59eixdujTuvvvuGDJkSEdHbiObzUVTUxof1VZRUR5VVX2jqWl9ZDLZYo8DBWfnKTV2nlJj5ykl9p32qqrq2+53WnQ40KdMmRJTpkxp12NbWlqiV69eUVtbG5/+9Ke3HN987Xl7riX//ve/Hw8++GDccsstsddee3V03PfV2prWb6BMJpvcTFBIdp5SY+cpNXaeUmLfyaeCXjDRu3fvGDduXDz00ENtjs+bNy9qampi6NChH3r+zTffHHfccUdcffXVMX78+EKOCgAAAEVV8DsaTJ06NZYsWRIzZ86MxYsXx6xZs2Lu3Llx7rnntnnc6NGjY/r06Vu+/vWvfx3XXnttfOELX4ihQ4fGkiVLtvxTX19f6LEBAACgWxX0Lu4REQcccEDMnj07rr/++rjvvvti1113jSuuuCImT57c5nGZTCay2b++NWTRokUREfHAAw/EAw880OaxV111VRx33HGFHh0AAAC6TVkul8sVe4julMlko75+bbHHiIhNH/dWXd0/GhrWum6FkmDnKTV2nlJj5ykl9p32GjSof7tvEudD+wAAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAZXFHoAP9/zzf4gHH5wbv/vdM7FmzatRVTUw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ABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEiDQAQAAIAECHQAAABIg0AEAACABAh0AAAASINABAAAgAQIdAAAAEtAtgb5gwYI45phjYt99941JkybFnDlz2nXen/70pzjzzDPj4IMPjgMOOCBOOumkeOqppwo8LQAAAHS/ggf6008/Heecc06MHTs2brnllpg8eXJceumlMX/+/A89r76+Pr761a/GX/7yl/je974XP/zhD6Nfv35xxhlnxLJlywo9NgAAAHSrykL/AjfeeGOMGTMmLr/88oiIOPjgg+Pll1+OWbNmxZFHHvmB5z355JPx1ltvxb333htDhw6NiIiDDjooDjrooPjtb38bo0aNKvToAAAA0G0K+gp6S0tLLF68eKsQP+qoo2LFihXxyiuvfOC5GzdujIiIAQMGbDnWp0+f6NWrV+RyucIMDAAAAEVS0EBftWpVbNy4MUaOHNnmeE1NTURE1NbWfuC5n/nMZ+KjH/1oXH311VFXVxf19fVx7bXXRllZWXzxi18s5NgAAADQ7Qr6FvfGxsaIiKiqqmpzfPPXm7//fgYOHBh33XVXnHnmmfHpT386IiJ22mmnuOWWW2LYsGFdmquyMo2b11dUlLf5N2zv7Dylxs5Tauw8pcS+UwgdDvTm5uaoq6vb5uO6GtFvvfVWnHPOOTF8+PCYPn16VFRUxL333htTp06Nu+66a8ur8B1VXl4W1dX9uzRbvlVV9S32CNCt7Dylxs5Tauw8pcS+k08dDvT58+fHjBkztvm4efPm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9VFdPajNsdbW1pg//z+jT58+MWLEyCJN1nECHSiqJUt+F488siBuv/2uuO66HxR7HAAAepgf/ODKWLdubXzqU/vF4MFD4q233oyHH54fK1e+FOec883o169fsUdsN4EOFE0mk4nrrvvX+Pznvxg1NXsUexwAAHqgww8/IubO/VX88pdzorHxL9GvX/8YNWqvmDr13Jgw4e+KPV6HCHSgaH75yznx+uuvxfXX/6TYowAA0EN99rOT4rOfnVTsMfLCTeKAomhs/EvcdttP47TTvhbV1dXFHgcAAIqu4K+gL1q0KO6///549tln4+WXX46TTjopLrvssm2et3Tp0rjnnnvi6aefjrq6uth5551j0qRJMXXq1B51DQHw/m655caoqqqK448/sdijAABAEgoe6I8//ni88MILceCBB0ZjY2O7z3vwwQdj5cqV8bWvfS1GjBgRy5cvj1mzZsWzzz4bd955ZwEnBgpt1apV8cAD/2+cd9758eabb2w53tLSEq2trfHaa69G//79o6pqYBGnBACA7lWWy+VyhfwFstlslJdveif9YYcdFhMnTmzXK+j19fUxaFDbW+X/+te/jmnTpsWcOXNin3326dQ8mUw26uvXdurcfKusLI/q6v7R0LA2WluzxR4HCm7zzv/2t4/G2Wd//UMfO2XKV+Ib37igmyaDwvDnPKXGzlNK7DvtNWhQ/6ioaN/V5QV/BX1znHfUe+M8ImL06NEREVFXV9elmYDiqqmpiSuvvGar47fc8pNYt25dfOMb02K33YYWYTIAACieHnUX92eeeSYiIkaO7DkfNA9sbaedquPQQydudfzee++OiHjf7wEAwPauxwR6fX19zJ49Ow4//PAYMWJEl56rsjKNm9dvfptDe9/uAD3dtna+rKwsysrKkvk9Cl3lz3lKjZ2nlNh3CqHDgd7c3Nyut5gPGzYsevfu3amh3mvjxo1x/vnnR0TEzJkzu/Rc5eVlUV3dPw9T5U9VVd9ijwDd6oN2/uc/v7ubJ4Hu4c95So2dp5TYd/Kpw4E+f/78mDFjxjYfN2/evKipqenUUO+Wy+Vi+vTpsXTp0rj77rtjyJAhXXq+bDYXTU3rujxXPlRUlEdVVd9oalofmYwbS7D9s/OUGjtPqbHzlBL7TntVVfUt3E3ipkyZElOmTOnwUJ31/e9/Px588MG45ZZbYq+99srL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
+"
+class="
+"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
@@ -2048,6 +1988,14 @@ plt.show()</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Tenemos una matriz de distancias de 4 × 4.</p>
+<p>$\begin{Bmatrix}
+\delta_{1,1} &amp; \delta_{1,2} &amp; \delta_{1,3} &amp; \delta_{1,4} \\
+\delta_{2,1} &amp; \delta_{2,2} &amp; \delta_{2,3} &amp; \delta_{2,4} \\
+\delta_{3,1} &amp; \delta_{3,2} &amp; \delta_{3,3} &amp; \delta_{3,4} \\
+\delta_{4,1} &amp; \delta_{4,2} &amp; \delta_{4,3} &amp; \delta_{4,4} \\
+\end{Bmatrix}$</p>
+<p>Donde $\delta_{i,j}$ es la distancia entre el objeto $i$ y el objeto $j$. Por lo general, la matriz de distancias será simétrica, es decir, $\delta_{1,2}=\delta_{2,1}$,  $\delta_{1,3}=\delta_{3,1}$, y así sucesivamente. Esto se debe a que las evaluaciones de distancia generalmente no dependen del orden en que tomamos los dos objetos. Por esta razón, solo es necesario escribir la mitad de los δ, ya sea los que están en el triángulo superior o los que están en el triángulo inferior de la matriz. La diagonal puede dejarse en blanco porque estos elementos no desempeñan ningún papel en el proceso de agrupamiento. A veces, los $δ_{ij}$ se denominan distancias observadas o simplemente observaciones. Dejamos el código que ejecuta la imagen anteriormente mostrada.</p>
 <h2 id="tipos-de-modelos">Tipos de Modelos<a class="anchor-link" href="#tipos-de-modelos">&#182;</a></h2><p>En cuanto a los algoritmos para formar agrupamientos, los métodos de análisis de conglomerados se pueden clasificar ampliamente como <strong>jerárquicos o no jerárquicos</strong>. En un método jerárquico, el proceso de agrupamiento produce una jerarquía en la que los subconjuntos de agrupamientos en un nivel se agregan para formar los agrupamientos en el siguiente nivel superior. Los métodos jerárquicos a su vez se pueden dividir en métodos <strong>aglomerativos y métodos divisivos</strong>. En un método aglomerativo, comenzamos tratando cada objeto como un agrupamiento de un solo miembro, y luego procedemos en una serie de pasos para fusionar agrupamientos. En este método, una vez que un par de individuos se ha unido en un agrupamiento, nunca se pueden separar posteriormente. Esto se debe a que cualquier nuevo agrupamiento se forma a partir de agrupamientos ya creados en etapas anteriores del proceso. En un método divisivo, comenzamos por el otro extremo, tratando al conjunto completo de individuos como un solo agrupamiento y luego procedemos dividiendo los agrupamientos existentes. Una vez que un par de individuos se ha separado en tal proceso, nunca pueden volver a unirse. Esto hace posible, como veremos a continuación, representar las etapas del proceso mediante un diagrama de árbol en el que los puntos de ramificación indican dónde se unen o se separan los agrupamientos.</p>
 <p>En los métodos no jerárquicos, los agrupamientos se forman ajustando la membresía de los agrupamientos existentes en cualquier etapa del proceso mediante el movimiento de individuos hacia dentro o hacia fuera. Típicamente, estos métodos son más difíciles de llevar a cabo y se utilizan con menos frecuencia.</p>
 

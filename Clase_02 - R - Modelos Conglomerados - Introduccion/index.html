@@ -1708,7 +1708,7 @@ Licensed under the Apache License, Version 2.0.
 <span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
 
 <span class="c1"># Establecer una semilla para reproducibilidad</span>
-<span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  
+<span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 
 <span class="c1"># Define variables auxiliares</span>
 <span class="n">large</span> <span class="o">&lt;-</span> <span class="mi">100</span>
@@ -1734,7 +1734,7 @@ Licensed under the Apache License, Version 2.0.
 library(dplyr)
 
 # Establecer una semilla para reproducibilidad
-set.seed(1000)  
+set.seed(1000)
 
 # Define variables auxiliares
 large <- 100
@@ -1862,7 +1862,7 @@ ggplot(df, aes(x = Annual_Income, y = Age)) +
 Aunque este ejemplo es rudimentario, sirve para identificar los dos pasos básicos en cualquier análisis de conglomerados:</p>
 <ol>
 <li><strong>La medición de la distancia entre todos los pares de objetos</strong>.</li>
-<li><strong>El desarrollo de una rutina o algoritmo para formar agrupamientos en base a esas distancias</strong>. </li>
+<li><strong>El desarrollo de una rutina o algoritmo para formar agrupamientos en base a esas distancias</strong>.</li>
 </ol>
 <p>Las distancias en el punto (1) pueden determinarse de manera subjetiva o mediante la creación de una medida de distancia basada en la observación de una colección de variables. En el primer caso, es el cerebro humano el que procesa la información multivariada disponible en cada objeto; en el segundo caso, la distancia se construye de acuerdo con algún principio racional.</p>
 <p>Antes de continuar, necesitamos aclarar el significado del término <em>"distancia"</em> que hemos utilizado para describir qué tan separados están los objetos. A veces es más natural pensar en términos de cercanía o proximidad. Alternativamente, se utilizan los términos <strong>similitud y disimilitud</strong>. Estos últimos tienen la ventaja de sugerir una evaluación de distancia más flexible y subjetiva que es más apropiada para algunas de las aplicaciones que encontraremos. La proximidad y la similitud están inversamente relacionadas con la distancia y la disimilitud, por lo que las medidas de una se pueden convertir fácilmente en medidas de la otra. Utilizaremos los diversos términos indistintamente, pero consideraremos "distancia" como el término principal porque también es fundamental para el escalado multidimensional que veremos posteriormente.</p>

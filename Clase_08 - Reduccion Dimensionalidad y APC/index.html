@@ -12,7 +12,7 @@
         <meta name="author" content="Benjamin Cataldo">
       
       
-        <link rel="canonical" href="https://github.com/bcataldo3/plantilla_curso_python/Clase_08%20-%20Reduccion%20Dimensionalidad%20y%20Analisis%20Componentes/">
+        <link rel="canonical" href="https://github.com/bcataldo3/plantilla_curso_python/Clase_08%20-%20Reduccion%20Dimensionalidad%20y%20APC/">
       
       <link rel="icon" href="../docs/images/logo_python.svg">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
@@ -413,14 +413,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
@@ -441,99 +439,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Reduccion de Dimensionalidad y Analisis de Componentes Principales
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Reduccion de Dimensionalidad y Analisis de Componentes Principales
+    <li class="md-nav__item">
+      <a href="../Clase_08 - Reduccion Dimensionalidad y Analisis Componentes.ipynb" class="md-nav__link">
+        None
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduccion" class="md-nav__link">
-    Introducción
-  </a>
-  
-    <nav class="md-nav" aria-label="Introducción">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#maldicion-de-la-dimensionalidad" class="md-nav__link">
-    Maldición de la Dimensionalidad
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analisis-de-componentes-principales" class="md-nav__link">
-    Análisis de Componentes Principales
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fundamentos-matematicos" class="md-nav__link">
-    Fundamentos Matemáticos
-  </a>
-  
-    <nav class="md-nav" aria-label="Fundamentos Matemáticos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pca-con-svd" class="md-nav__link">
-    PCA con SVD
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#whitening" class="md-nav__link">
-    Whitening
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1751,7 +1661,7 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="https://colab.research.google.com/github/bcataldo3/plantilla_curso_python/blob/main/docs/Clase_08 - Reduccion Dimensionalidad y Analisis Componentes Principales.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p><a href="https://colab.research.google.com/github/bcataldo3/plantilla_curso_python/blob/main/docs/Clase_08 - Reduccion Dimensionalidad y APC.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <h1 id="reduccion-de-dimensionalidad-y-analisis-de-componentes-principales">Reduccion de Dimensionalidad y Analisis de Componentes Principales<a class="anchor-link" href="#reduccion-de-dimensionalidad-y-analisis-de-componentes-principales">&#182;</a></h1><h2 id="introduccion">Introducci&#243;n<a class="anchor-link" href="#introduccion">&#182;</a></h2><h3 id="maldicion-de-la-dimensionalidad">Maldici&#243;n de la Dimensionalidad<a class="anchor-link" href="#maldicion-de-la-dimensionalidad">&#182;</a></h3><p>La dimensión se refiere al número de características o variables que describen un objeto o un conjunto de datos. Por ejemplo, si tienes datos que incluyen la altura, peso, edad y salario de las personas, estás trabajando en un espacio de cuatro dimensiones.</p>
 <p>La maldición de la dimensionalidad se vuelve problemática cuando el número de dimensiones aumenta. A medida que añadimos más variables para describir los datos, el espacio de búsqueda se vuelve enormemente grande. En términos sencillos, podemos pensar en ello como si estuviéramos dispersando nuestros datos en un espacio de muchas dimensiones, y esto tiene algunas consecuencias negativas. Algunos aspectos a considerar relevantes en el manejo de data con alta dimensionalidad pueden ser.</p>
 <ul>
@@ -2024,41 +1934,6 @@ plt.show()</div>
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
-      
-        
-        <a href="../Clase_07%20-%20Modelos%20Jer%C3%A1rquicos%20-%20Caso%20Estudio/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Conglomerados Jerárquicos - Caso de Estudio" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Anterior
-              </span>
-              Conglomerados Jerárquicos - Caso de Estudio
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../Clase_09%20-%20PCA%20-%20Caso%20Estudio/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: PCA - Caso de Estudio" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Siguiente
-              </span>
-              PCA - Caso de Estudio
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
